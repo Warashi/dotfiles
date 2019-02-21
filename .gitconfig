@@ -1,0 +1,34 @@
+[ghq]
+	root = ~/.ghq
+	root = ~/go/src
+[user]
+	name = Shinnosuke Sawada
+	email = 6warashi9@gmail.com
+[push]
+	default = simple
+[alias]
+	s = status -uno
+	co = checkout
+        com = checkout master
+        cob = checkout -b
+	b = branch
+        tb = symbolic-ref --short HEAD
+	c = commit
+	d = diff
+        dw = diff --word-diff
+        dn = diff --name-only
+        g = grep
+        sp = stash pop
+        ss = stash save
+        gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+[github]
+	user = Warashi
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[core]
+	excludesfile = /Users/sawada/.config/git/ignore
+[credential]
+	helper = osxkeychain
