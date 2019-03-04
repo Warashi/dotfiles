@@ -3,7 +3,7 @@ if status is-interactive; and not set -q TMUX
 end
 set fish_complete_path /usr/local/share/fish/vendor_completions.d $fish_complete_path
 
-export EMAIL 6warashi9@gmail.com
+set -x EMAIL 6warashi9@gmail.com
 
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/go/bin $PATH
