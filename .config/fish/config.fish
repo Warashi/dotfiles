@@ -3,14 +3,15 @@ if status is-interactive; and not set -q TMUX
 end
 set fish_complete_path /usr/local/share/fish/vendor_completions.d $fish_complete_path
 
+set -x EMAIL 6warashi9@gmail.com
+
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/go/bin $PATH
-set -x PATH $HOME/.ghg/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 
 set -x FZF_TMUX 1
 set -x FZF_HISTORY_SYNC 1
-set -x FZF_DEFAULT_OPTS --reverse
+set -x FZF_DEFAULT_OPTS "--reverse --color light"
 
 set -x PIPENV_VENV_IN_PROJECT true
 
