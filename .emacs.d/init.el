@@ -1,0 +1,75 @@
+;; C-hをbackspaceとして使う
+(define-key key-translation-map (kbd "C-h") (kbd "DEL"))
+(define-key key-translation-map (kbd "M-h") (kbd "M-DEL"))
+
+;; commandとoptionはmetaとして扱う
+(setq ns-command-modifier 'meta)
+(setq ns-option-modifier 'meta)
+
+;; 誤って終了しないようにする
+(global-set-key (kbd "C-x C-C") 'server-edit)
+(global-unset-key (kbd "C-z"))
+(defalias 'exit 'save-buffers-kill-terminal)
+
+(set-face-attribute 'default nil :family "Source Han Code JP" :height 140)
+
+;; straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+(use-package solarized-theme
+  :config
+  (load-theme 'solarized-dark t))
+
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
+(use-package lsp-mode :commands lsp
+  :config
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("docker-langserver" "--stdio"))
+                    :major-modes '(dockerfile-mode)
+                    :server-id 'docker-langserver)))
+(use-package company-lsp :commands company-lsp)
+(use-package flycheck)
+
+(use-package company
+  :init
+  (setq company-idle-delay 0.01)
+  (setq completion-ignore-case t)
+  (global-company-mode 1))
+
+(use-package counsel
+  :init
+  (ivy-mode 1)
+  (counsel-mode 1)
+  :bind (("C-s" . swiper)
+	 ("C-c k" . counsel-rg)))
+
+(use-package yasnippet
+  :init
+  (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
+  (add-hook 'prog-mode-hook #'yas-minor-mode))
+(use-package yasnippet-snippets)
+
+(use-package go-mode
+  :init
+  (add-hook 'go-mode-hook #'lsp))
+(use-package dockerfile-mode
+  :init
+  (add-hook 'dockerfile-mode-hook #'lsp))
+(use-package yaml-mode)
+(use-package fish-mode)
