@@ -15,16 +15,19 @@ set -x FZF_DEFAULT_OPTS "--reverse --color light"
 
 set -x PIPENV_VENV_IN_PROJECT true
 
-set -x EDITOR nvim
+set -x EDITOR 'emacsclient -c'
+
+set -x GO111MODULE on
 
 alias v nvim
+alias e 'emacsclient -c'
 alias ls exa
 alias git hub
 alias g git
 alias p gopass
 alias tmux 'direnv exec / tmux'
 
+source /usr/local/opt/asdf/asdf.fish
 if status --is-interactive
-    source /usr/local/opt/asdf/asdf.fish
     source (direnv hook fish|psub)
 end
