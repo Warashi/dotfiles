@@ -15,7 +15,7 @@ set -x FZF_DEFAULT_OPTS "--reverse --color light"
 
 set -x PIPENV_VENV_IN_PROJECT true
 
-set -x EDITOR 'emacsclient -c'
+set -x EDITOR emacsclient
 
 set -x GO111MODULE on
 
