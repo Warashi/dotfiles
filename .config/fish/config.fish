@@ -5,8 +5,10 @@ set fish_complete_path /usr/local/share/fish/vendor_completions.d $fish_complete
 
 set -x EMAIL 6warashi9@gmail.com
 
+set -x GOPATH $HOME/go
+
 set -x PATH $HOME/.cargo/bin $PATH
-set -x PATH $HOME/go/bin $PATH
+set -x PATH $GOPATH/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 
 set -x FZF_TMUX 1
