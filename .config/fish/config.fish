@@ -11,7 +11,7 @@ set -x PATH $HOME/.local/bin $PATH
 
 set -x FZF_TMUX 1
 set -x FZF_HISTORY_SYNC 1
-set -x FZF_DEFAULT_OPTS "--reverse --color light"
+set -x FZF_DEFAULT_OPTS "--reverse --color dark"
 
 set -x PIPENV_VENV_IN_PROJECT true
 
@@ -20,7 +20,7 @@ set -x EDITOR emacsclient
 set -x GO111MODULE on
 
 alias v nvim
-alias e 'emacsclient -c'
+alias e 'emacsclient -nw -c'
 alias ls exa
 alias git hub
 alias g git
