@@ -2,14 +2,8 @@
 (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
 (define-key key-translation-map (kbd "M-h") (kbd "M-DEL"))
 
-;; commandとoptionはmetaとして扱う
-(setq ns-command-modifier 'meta)
-(setq ns-option-modifier 'meta)
-
 ;; menu-bar-mode off
 (menu-bar-mode -1)
-;; tool-bar-mode off
-(tool-bar-mode -1)
 
 ;; 誤って終了しないようにする
 (global-set-key (kbd "C-x C-C") 'server-edit)
