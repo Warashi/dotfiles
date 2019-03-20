@@ -25,9 +25,6 @@ alt - r : chunkc tiling::desktop --rotate 90
 # toggle window fullscreen
 alt - f : chunkc tiling::window --toggle fullscreen
 
-# toggle window parent zoom
-alt - d : chunkc tiling::window --toggle parent
-
 # toggle window split type
 alt - e : chunkc tiling::window --toggle split
 
