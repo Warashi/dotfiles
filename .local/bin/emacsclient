@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/local/opt/emacs/bin/emacsclient --tty "$@"
