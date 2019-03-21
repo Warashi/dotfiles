@@ -14,7 +14,7 @@ cmd + ctrl + shift + alt - l : chunkc tiling::window --swap east
 cmd + ctrl + alt - r : chunkc tiling::desktop --rotate 90
 
 # toggle window fullscreen
-cmd + ctrl + shift + alt - f : chunkc tiling::window --toggle fullscreen
+cmd + ctrl + alt - f : chunkc tiling::window --toggle fullscreen
 
 # send window to monitor
 cmd + ctrl + alt - n : send-to-monitor.sh next
