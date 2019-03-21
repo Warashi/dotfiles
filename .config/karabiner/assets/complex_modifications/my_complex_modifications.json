@@ -328,6 +328,31 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Change left_control key to command+control+option.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command",
+              "modifiers": [
+                "left_control",
+                "left_option"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
