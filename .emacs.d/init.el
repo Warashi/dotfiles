@@ -1,9 +1,19 @@
+;;; emacs -q -lした時に、user-emacs-directoryが変わるように
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
+
 ;; C-hをbackspaceとして使う
 (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
 (define-key key-translation-map (kbd "M-h") (kbd "M-DEL"))
 
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'meta)
+(setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
+
 ;; menu-bar-mode off
 (menu-bar-mode -1)
+;; tool-bar-mode off
+(tool-bar-mode -1)
 
 ;; 誤って終了しないようにする
 (global-set-key (kbd "C-x C-C") 'server-edit)
@@ -72,3 +82,7 @@
   (add-hook 'dockerfile-mode-hook #'lsp))
 (use-package yaml-mode)
 (use-package fish-mode)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))

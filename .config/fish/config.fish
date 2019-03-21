@@ -22,7 +22,7 @@ set -x EDITOR emacsclient
 set -x GO111MODULE on
 
 alias v nvim
-alias e 'emacsclient -nw -c'
+alias e 'emacsclient'
 alias ls exa
 alias git hub
 alias g git
