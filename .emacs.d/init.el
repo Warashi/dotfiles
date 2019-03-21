@@ -52,6 +52,9 @@
    (make-lsp-client :new-connection (lsp-stdio-connection '("docker-langserver" "--stdio"))
                     :major-modes '(dockerfile-mode)
                     :server-id 'docker-langserver)))
+(use-package lsp-ui
+  :init
+  (add-hook 'lsp-mode-hook #'lsp-ui-mode))
 (use-package company-lsp :commands company-lsp)
 (use-package flycheck)
 
@@ -60,6 +63,9 @@
   (setq company-idle-delay 0.01)
   (setq completion-ignore-case t)
   (global-company-mode 1))
+(use-package company-posframe
+  :init
+  (company-posframe-mode))
 
 (use-package counsel
   :init
