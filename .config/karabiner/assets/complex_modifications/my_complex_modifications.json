@@ -330,12 +330,12 @@
       ]
     },
     {
-      "description": "Change left_control key to command+control+option.",
+      "description": "Change tab key to command+control+option. if pressed alone, send tab",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_control",
+            "key_code": "tab",
             "modifiers": {
               "optional": [
                 "any"
@@ -349,6 +349,11 @@
                 "left_control",
                 "left_option"
               ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab"
             }
           ]
         }
