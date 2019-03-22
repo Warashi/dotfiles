@@ -19,6 +19,3 @@ cmd + ctrl + alt - f : chunkc tiling::window --toggle fullscreen
 # send window to monitor
 cmd + ctrl + alt - n : send-to-monitor.sh next
 cmd + ctrl + alt - p : send-to-monitor.sh prev
-
-# close window
-cmd + ctrl + alt - w : chunkc tiling::window --close
