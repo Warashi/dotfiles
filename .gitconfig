@@ -29,3 +29,5 @@
 	smudge = git-lfs smudge -- %f
 [credential]
 	helper = osxkeychain
+[hub]
+	protocol = https
