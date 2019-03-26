@@ -51,6 +51,11 @@
   :config
   (exec-path-from-shell-initialize))
 
+(use-package go-mode)
+(use-package dockerfile-mode)
+(use-package yaml-mode)
+(use-package fish-mode)
+
 (use-package lsp-mode :commands lsp
   :hook ((go-mode dockerfile-mode) . lsp)
   :config
@@ -97,11 +102,6 @@
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 (use-package yasnippet-snippets
   :after yasnippet)
-
-(use-package go-mode)
-(use-package dockerfile-mode)
-(use-package yaml-mode)
-(use-package fish-mode)
 
 (require 'server)
 (unless (server-running-p)
