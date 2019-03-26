@@ -36,11 +36,15 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(straight-use-package 'org-plus-contrib)
+
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
-(use-package solarized-theme
+
+(use-package doom-themes
   :config
-  (load-theme 'solarized-dark t))
+  (load-theme 'doom-one t)
+  (doom-themes-org-config))
 
 (use-package exec-path-from-shell
   :config
@@ -72,7 +76,14 @@
   (ivy-mode 1)
   (counsel-mode 1)
   :bind (("C-s" . swiper)
-	 ("C-c k" . counsel-rg)))
+	 ("C-c k" . counsel-rg))
+  :config
+  (setq ivy-height 30))
+
+(use-package ivy-posframe
+  :init
+  (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
+  (ivy-posframe-enable))
 
 (use-package yasnippet
   :init
