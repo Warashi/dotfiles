@@ -52,15 +52,18 @@
   (exec-path-from-shell-initialize))
 
 (use-package lsp-mode :commands lsp
+  :hook ((go-mode dockerfile-mode) . lsp)
   :config
   (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection '("docker-langserver" "--stdio"))
                     :major-modes '(dockerfile-mode)
                     :server-id 'docker-langserver)))
 (use-package lsp-ui
+  :after lsp-mode
   :init
   (add-hook 'lsp-mode-hook #'lsp-ui-mode))
-(use-package company-lsp :commands company-lsp)
+(use-package company-lsp :commands company-lsp
+  :after (lsp-mode company))
 (use-package flycheck)
 
 (use-package company
@@ -69,6 +72,7 @@
   (setq completion-ignore-case t)
   (global-company-mode 1))
 (use-package company-posframe
+  :after company
   :init
   (company-posframe-mode))
 
@@ -82,6 +86,7 @@
   (setq ivy-height 30))
 
 (use-package ivy-posframe
+  :after ivy
   :init
   (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
   (ivy-posframe-enable))
@@ -90,14 +95,11 @@
   :init
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
-(use-package yasnippet-snippets)
+(use-package yasnippet-snippets
+  :after yasnippet)
 
-(use-package go-mode
-  :init
-  (add-hook 'go-mode-hook #'lsp))
-(use-package dockerfile-mode
-  :init
-  (add-hook 'dockerfile-mode-hook #'lsp))
+(use-package go-mode)
+(use-package dockerfile-mode)
 (use-package yaml-mode)
 (use-package fish-mode)
 
