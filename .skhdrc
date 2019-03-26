@@ -1,21 +1,27 @@
 # focus window
-cmd + ctrl + alt - h : chunkc tiling::window --focus west
-cmd + ctrl + alt - j : chunkc tiling::window --focus south
-cmd + ctrl + alt - k : chunkc tiling::window --focus north
-cmd + ctrl + alt - l : chunkc tiling::window --focus east
+meh - h : chunkc tiling::window --focus west
+meh - j : chunkc tiling::window --focus south
+meh - k : chunkc tiling::window --focus north
+meh - l : chunkc tiling::window --focus east
 
-# swap window
-cmd + ctrl + shift + alt - h : chunkc tiling::window --swap west
-cmd + ctrl + shift + alt - j : chunkc tiling::window --swap south
-cmd + ctrl + shift + alt - k : chunkc tiling::window --swap north
-cmd + ctrl + shift + alt - l : chunkc tiling::window --swap east
+# warp window
+hyper - h : chunkc tiling::window --warp west
+hyper - j : chunkc tiling::window --warp south
+hyper - k : chunkc tiling::window --warp north
+hyper - l : chunkc tiling::window --warp east
 
 # rotate tree
-cmd + ctrl + alt - r : chunkc tiling::desktop --rotate 90
+meh - r : chunkc tiling::desktop --rotate 90
 
 # toggle window fullscreen
-cmd + ctrl + alt - f : chunkc tiling::window --toggle fullscreen
+meh - f : chunkc tiling::window --toggle fullscreen
 
 # send window to monitor
-cmd + ctrl + alt - n : send-to-monitor.sh next
-cmd + ctrl + alt - p : send-to-monitor.sh prev
+meh - n : send-to-monitor.sh next
+meh - p : send-to-monitor.sh prev
+
+# toggle split
+meh - t : chunkc tiling::window --toggle split
+
+# equalize windows
+meh - e : chunkc tiling::desktop --equalize

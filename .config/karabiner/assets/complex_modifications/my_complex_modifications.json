@@ -330,7 +330,7 @@
       ]
     },
     {
-      "description": "Change tab key to command+control+option. if pressed alone, send tab",
+      "description": "Change tab key to meh(shift+control+option). if pressed alone, send tab",
       "manipulators": [
         {
           "type": "basic",
@@ -344,7 +344,7 @@
           },
           "to": [
             {
-              "key_code": "left_command",
+              "key_code": "left_shift",
               "modifiers": [
                 "left_control",
                 "left_option"
