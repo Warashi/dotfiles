@@ -14,6 +14,8 @@
 (menu-bar-mode -1)
 ;; tool-bar-mode off
 (tool-bar-mode -1)
+;; scroll-bar-mode off
+(scroll-bar-mode -1)
 
 ;; 誤って終了しないようにする
 (global-set-key (kbd "C-x C-C") 'server-edit)
