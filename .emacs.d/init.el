@@ -98,6 +98,10 @@
   (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
   (ivy-posframe-enable))
 
+(use-package undo-tree
+  :init
+  (global-undo-tree-mode 1))
+
 (use-package yasnippet
   :init
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
