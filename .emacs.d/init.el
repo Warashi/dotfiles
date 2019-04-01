@@ -15,6 +15,11 @@
 ;; scroll-bar-mode off
 (scroll-bar-mode -1)
 
+;; シンボリックリンクの読み込みを許可
+(setq vc-follow-symlinks t)
+;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
+(setq auto-revert-check-vc-info t)
+
 ;; 誤って終了しないようにする
 (global-set-key (kbd "C-x C-C") 'server-edit)
 (global-unset-key (kbd "C-z"))
@@ -106,6 +111,9 @@
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 (use-package yasnippet-snippets
   :after yasnippet)
+
+(use-package magit
+  :bind (("C-c g" . magit-status)))
 
 (require 'server)
 (unless (server-running-p)
