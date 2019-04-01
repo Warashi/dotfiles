@@ -41,9 +41,6 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package '(org :local-repo nil))
-(straight-use-package 'org-plus-contrib)
-
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
@@ -114,6 +111,18 @@
 
 (use-package magit
   :bind (("C-c g" . magit-status)))
+
+(straight-use-package '(org :local-repo nil))
+(straight-use-package 'org-plus-contrib)
+(use-package org
+  :bind (("C-c c" . org-capture))
+  :config
+  (setq org-directory "~/org")
+  (setq org-capture-templates
+	'(
+	  ("m" "MEMO" plain (file+olp+datetree "memo.org") :empty-lines 1)
+	  ("d" "DIARY" plain (file+olp+datetree "diary.org") :empty-lines 1)
+	  )))
 
 (require 'server)
 (unless (server-running-p)
