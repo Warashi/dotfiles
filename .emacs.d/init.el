@@ -10,8 +10,6 @@
 (setq mac-option-modifier 'meta)
 (setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
 
-;; menu-bar-mode off
-(menu-bar-mode -1)
 ;; tool-bar-mode off
 (tool-bar-mode -1)
 ;; scroll-bar-mode off
