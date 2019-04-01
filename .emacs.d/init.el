@@ -113,6 +113,10 @@
 (use-package magit
   :bind (("C-c g" . magit-status)))
 
+(use-package direnv
+ :config
+ (direnv-mode))
+
 (straight-use-package '(org :local-repo nil))
 (straight-use-package 'org-plus-contrib)
 (use-package org
