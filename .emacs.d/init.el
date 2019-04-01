@@ -51,6 +51,7 @@
 
 (use-package exec-path-from-shell
   :config
+  (add-to-list 'exec-path-from-shell-variables "EMAIL")
   (exec-path-from-shell-initialize))
 
 (use-package go-mode)
@@ -121,8 +122,8 @@
   (setq org-directory "~/org")
   (setq org-capture-templates
 	'(
-	  ("m" "MEMO" plain (file+olp+datetree "memo.org") :empty-lines 1)
-	  ("d" "DIARY" plain (file+olp+datetree "diary.org") :empty-lines 1)
+	  ("m" "MEMO" plain (file+olp+datetree "memo.org") "" :empty-lines 1)
+	  ("d" "DIARY" plain (file+olp+datetree "diary.org") "" :empty-lines 1)
 	  )))
 
 (require 'server)
