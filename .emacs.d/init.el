@@ -117,6 +117,7 @@
 (use-package org
   :bind (("C-c c" . org-capture))
   :config
+  (setq org-speed-command t)
   (setq org-directory "~/org")
   (setq org-capture-templates
 	'(
