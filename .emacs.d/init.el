@@ -10,12 +10,15 @@
 (setq mac-option-modifier 'meta)
 (setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
 
-;; menu-bar-mode off
-(menu-bar-mode -1)
 ;; tool-bar-mode off
 (tool-bar-mode -1)
 ;; scroll-bar-mode off
 (scroll-bar-mode -1)
+
+;; シンボリックリンクの読み込みを許可
+(setq vc-follow-symlinks t)
+;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
+(setq auto-revert-check-vc-info t)
 
 ;; 誤って終了しないようにする
 (global-set-key (kbd "C-x C-C") 'server-edit)
@@ -37,9 +40,6 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-
-(straight-use-package '(org :local-repo nil))
-(straight-use-package 'org-plus-contrib)
 
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
@@ -108,6 +108,22 @@
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 (use-package yasnippet-snippets
   :after yasnippet)
+
+(use-package magit
+  :bind (("C-c g" . magit-status)))
+
+(straight-use-package '(org :local-repo nil))
+(straight-use-package 'org-plus-contrib)
+(use-package org
+  :bind (("C-c c" . org-capture))
+  :config
+  (setq org-use-speed-commands t)
+  (setq org-directory "~/org")
+  (setq org-capture-templates
+	'(
+	  ("m" "MEMO" plain (file+olp+datetree "memo.org") :empty-lines 1)
+	  ("d" "DIARY" plain (file+olp+datetree "diary.org") :empty-lines 1)
+	  )))
 
 (require 'server)
 (unless (server-running-p)
