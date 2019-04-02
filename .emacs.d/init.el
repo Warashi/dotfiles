@@ -126,7 +126,7 @@
   (setq org-directory "~/org")
   (setq org-capture-templates
 	'(
-	  ("m" "MEMO" plain (file+olp+datetree "memo.org") "" :empty-lines 1)
+	  ("m" "MEMO" plain (file+olp+datetree "memo.org") "**** %U\n%?" :empty-lines 1)
 	  ("d" "DIARY" plain (file+olp+datetree "diary.org") "" :empty-lines 1)
 	  )))
 
