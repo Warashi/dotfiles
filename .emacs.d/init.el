@@ -8,12 +8,17 @@
 
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'meta)
+(unless (fboundp mac-auto-ascii-mode)
+  (mac-auto-ascii-mode 1))
+
 (setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
 
 ;; tool-bar-mode off
-(tool-bar-mode -1)
+(unless (fboundp tool-bar-mode)
+  (tool-bar-mode -1))
 ;; scroll-bar-mode off
-(scroll-bar-mode -1)
+(unless (fboundp scroll-bar-mode)
+  (scroll-bar-mode -1))
 
 ;; シンボリックリンクの読み込みを許可
 (setq vc-follow-symlinks t)
