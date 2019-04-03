@@ -8,8 +8,10 @@
 
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'meta)
-(unless (fboundp mac-auto-ascii-mode)
-  (mac-auto-ascii-mode 1))
+
+;; mac-auto-ascii-mode を有効にしていると、C-hでascii-modeになってしまうのでoffにする
+;; (unless (fboundp mac-auto-ascii-mode)
+;;   (mac-auto-ascii-mode 1))
 
 (setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
 
