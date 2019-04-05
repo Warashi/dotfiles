@@ -133,7 +133,7 @@
   (setq org-capture-templates
 	'(
 	  ("m" "MEMO" entry (file+olp+datetree "diary.org" "Memo") "***** %U\n%?")
-	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "")
+	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "" :empty-lines-after 2)
 	  )))
 
 (use-package eshell
