@@ -132,9 +132,12 @@
   (setq org-directory "~/org")
   (setq org-capture-templates
 	'(
-	  ("m" "MEMO" plain (file+olp+datetree "diary.org" "Memo") "***** %U\n%?" :prepend t)
-	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "" :empty-lines 1 :prepend t)
+	  ("m" "MEMO" entry (file+olp+datetree "diary.org" "Memo") "***** %U\n%?")
+	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "")
 	  )))
+
+(use-package eshell
+  :bind (("C-c s" . eshell)))
 
 (require 'server)
 (unless (server-running-p)
