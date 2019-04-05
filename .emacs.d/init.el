@@ -53,8 +53,7 @@
 
 (use-package doom-themes
   :config
-  (load-theme 'doom-one t)
-  (doom-themes-org-config))
+  (load-theme 'doom-one t))
 
 (use-package exec-path-from-shell
   :config
@@ -133,8 +132,8 @@
   (setq org-directory "~/org")
   (setq org-capture-templates
 	'(
-	  ("m" "MEMO" plain (file+olp+datetree "memo.org") "**** %U\n%?")
-	  ("d" "DIARY" plain (file+olp+datetree "diary.org") "" :empty-lines 1)
+	  ("m" "MEMO" plain (file+olp+datetree "memo.org") "**** %U\n%?" :prepend t)
+	  ("d" "DIARY" plain (file+olp+datetree "diary.org") "" :empty-lines 1 :prepend t)
 	  )))
 
 (require 'server)
