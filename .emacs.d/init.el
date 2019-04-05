@@ -132,8 +132,8 @@
   (setq org-directory "~/org")
   (setq org-capture-templates
 	'(
-	  ("m" "MEMO" plain (file+olp+datetree "memo.org") "**** %U\n%?" :prepend t)
-	  ("d" "DIARY" plain (file+olp+datetree "diary.org") "" :empty-lines 1 :prepend t)
+	  ("m" "MEMO" plain (file+olp+datetree "diary.org" "Memo") "***** %U\n%?" :prepend t)
+	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "" :empty-lines 1 :prepend t)
 	  )))
 
 (require 'server)
