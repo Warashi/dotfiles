@@ -102,7 +102,7 @@
   :bind (("C-s" . swiper)
 	 ("C-c k" . counsel-rg))
   :config
-  (setq ivy-height 30))
+  (setq ivy-height 20))
 
 (use-package ivy-posframe
   :after ivy
