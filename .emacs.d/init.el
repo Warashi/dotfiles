@@ -111,7 +111,8 @@
   (ivy-posframe-enable))
 
 (use-package rainbow-delimiters
-  :init (rainbow-delimiters-mode))
+  :init  
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode-enable))
 
 (use-package undo-tree
   :init
