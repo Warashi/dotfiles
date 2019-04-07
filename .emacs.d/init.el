@@ -17,6 +17,10 @@
 (if (fboundp #'mac-auto-ascii-select-input-source)
     (add-hook 'minibuffer-setup-hook #'mac-auto-ascii-select-input-source))
 
+;; IME patch の場合にはこっち
+(if (fboundp #'mac-input-method-mode)
+    (mac-input-method-mode 1))
+
 (setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
 
 ;; tool-bar-mode off
@@ -105,6 +109,9 @@
   :init
   (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
   (ivy-posframe-enable))
+
+(use-package rainbow-delimiters
+  :init (rainbow-delimiters-mode))
 
 (use-package undo-tree
   :init
