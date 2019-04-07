@@ -10,24 +10,24 @@
 (setq mac-option-modifier 'meta)
 
 ;; mac-auto-ascii-mode を有効にしていると、C-hでascii-modeになってしまうのでoffにする
-;; (if (fboundp #'mac-auto-ascii-mode)
+;; (when (fboundp #'mac-auto-ascii-mode)
 ;;     (mac-auto-ascii-mode 1))
 
 ;; かわりに、minibufferに入るときにascii-modeにする
-(if (fboundp #'mac-auto-ascii-select-input-source)
-    (add-hook 'minibuffer-setup-hook #'mac-auto-ascii-select-input-source))
+(when (fboundp #'mac-auto-ascii-select-input-source)
+  (add-hook 'minibuffer-setup-hook #'mac-auto-ascii-select-input-source))
 
 ;; IME patch の場合にはこっち
-(if (fboundp #'mac-input-method-mode)
-    (mac-input-method-mode 1))
+(when (fboundp #'mac-input-method-mode)
+  (mac-input-method-mode 1))
 
 (setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
 
 ;; tool-bar-mode off
-(if (fboundp #'tool-bar-mode)
+(when (fboundp #'tool-bar-mode)
   (tool-bar-mode -1))
 ;; scroll-bar-mode off
-(if (fboundp #'scroll-bar-mode)
+(when (fboundp #'scroll-bar-mode)
   (scroll-bar-mode -1))
 
 ;; シンボリックリンクの読み込みを許可
@@ -75,7 +75,7 @@
 
 (use-package docker
   :straight (docker :type git :host github :repo "Silex/docker.el"
-		     :fork (:repo "Warashi/docker.el" :branch "fix-broken-parentheses")))
+		    :fork (:repo "Warashi/docker.el" :branch "fix-broken-parentheses")))
 (use-package dockerfile-mode)
 (use-package docker-compose-mode)
 (use-package docker-tramp)
@@ -129,8 +129,8 @@
   :bind (("C-c g" . magit-status)))
 
 (use-package direnv
- :config
- (direnv-mode))
+  :config
+  (direnv-mode))
 
 (straight-use-package '(org :local-repo nil))
 (straight-use-package 'org-plus-contrib)
