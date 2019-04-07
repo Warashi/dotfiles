@@ -10,16 +10,20 @@
 (setq mac-option-modifier 'meta)
 
 ;; mac-auto-ascii-mode を有効にしていると、C-hでascii-modeになってしまうのでoffにする
-;; (unless (fboundp mac-auto-ascii-mode)
-;;   (mac-auto-ascii-mode 1))
+;; (if (fboundp #'mac-auto-ascii-mode)
+;;     (mac-auto-ascii-mode 1))
+
+;; かわりに、minibufferに入るときにascii-modeにする
+(if (fboundp #'mac-auto-ascii-select-input-source)
+    (add-hook 'minibuffer-setup-hook #'mac-auto-ascii-select-input-source))
 
 (setq backup-directory-alist `((".*" . ,(locate-user-emacs-file "backup"))))
 
 ;; tool-bar-mode off
-(unless (fboundp tool-bar-mode)
+(if (fboundp #'tool-bar-mode)
   (tool-bar-mode -1))
 ;; scroll-bar-mode off
-(unless (fboundp scroll-bar-mode)
+(if (fboundp #'scroll-bar-mode)
   (scroll-bar-mode -1))
 
 ;; シンボリックリンクの読み込みを許可
@@ -64,7 +68,13 @@
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
+
+(use-package docker
+  :straight (docker :type git :host github :repo "Silex/docker.el"
+		     :fork (:repo "Warashi/docker.el" :branch "fix-broken-parentheses")))
 (use-package dockerfile-mode)
+(use-package docker-compose-mode)
+(use-package docker-tramp)
 (use-package yaml-mode)
 (use-package fish-mode)
 
@@ -133,3 +143,7 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
+
+;; Local Variables:
+;; eval: (flycheck-mode -1)
+;; End:
