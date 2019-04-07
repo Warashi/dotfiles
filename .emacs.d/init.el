@@ -60,25 +60,16 @@
   (add-to-list 'exec-path-from-shell-variables "EMAIL")
   (exec-path-from-shell-initialize))
 
-(use-package go-mode)
+(use-package go-mode
+  :config
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
 (use-package dockerfile-mode)
 (use-package yaml-mode)
 (use-package fish-mode)
 
-(use-package lsp-mode :commands lsp
-  :hook ((go-mode dockerfile-mode) . lsp)
-  :config
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("docker-langserver" "--stdio"))
-                    :major-modes '(dockerfile-mode)
-                    :server-id 'docker-langserver)))
-(use-package lsp-ui
-  :after lsp-mode
-  :init
-  (add-hook 'lsp-mode-hook #'lsp-ui-mode))
-(use-package company-lsp :commands company-lsp
-  :after (lsp-mode company))
-(use-package flycheck)
+(use-package flycheck
+  :init (global-flycheck-mode 1))
 
 (use-package company
   :init
