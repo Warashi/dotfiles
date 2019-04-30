@@ -102,12 +102,6 @@
   :config
   (setq ivy-height 20))
 
-(use-package ivy-posframe
-  :after ivy
-  :init
-  (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
-  (ivy-posframe-enable))
-
 (use-package rainbow-delimiters
   :init  
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode-enable))
