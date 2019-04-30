@@ -73,9 +73,7 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
-(use-package docker
-  :straight (docker :type git :host github :repo "Silex/docker.el"
-		    :fork (:repo "Warashi/docker.el" :branch "fix-broken-parentheses")))
+(use-package docker)
 (use-package dockerfile-mode)
 (use-package docker-compose-mode)
 (use-package docker-tramp)
