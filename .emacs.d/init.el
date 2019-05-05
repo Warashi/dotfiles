@@ -79,6 +79,7 @@
 (use-package docker-tramp)
 (use-package yaml-mode)
 (use-package fish-mode)
+(use-package markdown-mode)
 
 (use-package flycheck
   :init (global-flycheck-mode 1))
