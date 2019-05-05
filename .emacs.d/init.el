@@ -68,11 +68,7 @@
   (add-to-list 'exec-path-from-shell-variables "EMAIL")
   (exec-path-from-shell-initialize))
 
-(use-package go-mode
-  :config
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save))
-
+(use-package go-mode)
 (use-package docker)
 (use-package dockerfile-mode)
 (use-package docker-compose-mode)
@@ -84,26 +80,12 @@
 (use-package eglot
   :config
   (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
-  (add-hook 'go-mode-hook 'eglot-ensure))
-
-(use-package company
-  :init
-  (setq company-idle-delay 0.01)
-  (setq completion-ignore-case t)
-  (global-company-mode 1))
-(use-package company-posframe
-  :after company
-  :init
-  (company-posframe-mode))
-
-(use-package counsel
-  :init
-  (ivy-mode 1)
-  (counsel-mode 1)
-  :bind (("C-s" . swiper)
-	 ("C-c k" . counsel-rg))
-  :config
-  (setq ivy-height 20))
+  (add-hook 'go-mode-hook 'eglot-ensure)
+  :bind
+  (:map eglot-mode-map
+	("C-c a" . eglot-code-actions)
+	("C-c f" . eglot-format-buffer)
+	("C-c d" . flymake-show-diagnostics-buffer)))
 
 (use-package rainbow-delimiters
   :init  
