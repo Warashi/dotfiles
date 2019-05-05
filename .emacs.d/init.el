@@ -135,6 +135,7 @@
 	'(
 	  ("m" "MEMO" entry (file+olp+datetree "diary.org" "Memo") "***** %U\n%?")
 	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "" :empty-lines-after 2)
+	  ("t" "TRPG" entry (file+headline "diary.org" "TRPG") "** %?\n" :jump-to-captured t)
 	  )))
 
 (use-package eshell
