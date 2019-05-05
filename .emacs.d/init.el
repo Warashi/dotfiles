@@ -81,8 +81,10 @@
 (use-package fish-mode)
 (use-package markdown-mode)
 
-(use-package flycheck
-  :init (global-flycheck-mode 1))
+(use-package eglot
+  :config
+  (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
+  (add-hook 'go-mode-hook 'eglot-ensure))
 
 (use-package company
   :init
