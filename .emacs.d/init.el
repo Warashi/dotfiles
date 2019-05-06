@@ -263,7 +263,3 @@
 	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "" :empty-lines-after 2)
 	  ("t" "TRPG" entry (file+headline "diary.org" "TRPG") "** %?\n" :jump-to-captured t)
 	  )))
-
-;; Local Variables:
-;; eval: (flycheck-mode -1)
-;; End:
