@@ -93,6 +93,7 @@
 
 ;; builtin packages
 (use-package outline
+  :straight nil
   :init (outline-minor-mode 1)
   :config
   (setq-default outline-level 'outline-level)
@@ -100,16 +101,19 @@
     ("<C-tab>" . outline-cycle)))
 
 (use-package eldoc
+  :straight nil
   :config
   (setq eldoc-idle-delay my-show-delay)
   (setq eldoc-echo-area-use-multiline-p t))
 
 (use-package files
+  :straight nil
   :config
   (when (and (eq system-type 'darwin) (executable-find "gls"))
     (setq insert-directory-program "gls")))
 
 (use-package dired
+  :straight nil
   :config
   (require 'dired-x)
   (setq dired-listing-switches "-alh")
@@ -120,13 +124,15 @@
   ;; diredバッファでC-sした時にファイル名だけにマッチするように
   (setq dired-isearch-filenames t))
 
-(require 'hl-line)
-(defun global-hl-line-timer-function ()
-  (global-hl-line-unhighlight-all)
-  (let ((global-hl-line-mode t))
-    (global-hl-line-highlight)))
-(setq global-hl-line-timer
-  (run-with-idle-timer my-show-delay t 'global-hl-line-timer-function))
+(use-package hl-line
+  :straight nil
+  :init
+  (defun global-hl-line-timer-function ()
+    (global-hl-line-unhighlight-all)
+    (let ((global-hl-line-mode t))
+      (global-hl-line-highlight)))
+  (setq global-hl-line-timer
+        (run-with-idle-timer my-show-delay t 'global-hl-line-timer-function)))
 
 ;; カーソルの位置が何文字目かを表示する
 (add-hook 'after-init-hook #'column-number-mode)
@@ -209,7 +215,7 @@
   :bind (("C-c e" . er/expand-region)))
 
 (use-package region-bindings-mode
-  :init (region-bindings-mode-enable)
+  :init (region-bindings-mode 1)
   :bind (:map region-bindings-mode-map
 	      ("a" . mc/mark-all-like-this)
 	      ("p" . mc/mark-previous-like-this)
