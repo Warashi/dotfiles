@@ -183,9 +183,10 @@
   :init (ido-at-point-mode 1))
 
 (use-package eglot
+  :init
+  (add-hook 'go-mode-hook 'eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
-  (add-hook 'go-mode-hook 'eglot-ensure)
   :bind
   (:map eglot-mode-map
 	("C-c a" . eglot-code-actions)
