@@ -170,6 +170,18 @@
 (use-package fish-mode)
 (use-package markdown-mode)
 
+;; ido-mode
+(use-package ido
+  :init
+  (ido-mode 1)
+  (setq ido-enable-flex-matching 1))
+(use-package smex
+  :bind (("M-x" . smex)))
+(use-package ido-completing-read+
+  :init (ido-ubiquitous-mode 1))
+(use-package ido-at-point
+  :init (ido-at-point-mode 1))
+
 (use-package eglot
   :config
   (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
@@ -244,6 +256,8 @@
   :after yasnippet)
 
 (use-package magit
+  :config
+  (setq magit-completing-read-function 'magit-ido-completing-read)
   :bind (("C-c g" . magit-status)))
 
 (use-package direnv
