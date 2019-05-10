@@ -275,6 +275,7 @@
   (setq org-capture-templates
 	'(
 	  ("m" "MEMO" entry (file+olp+datetree "diary.org" "Memo") "***** %U\n%?")
-	  ("d" "DIARY" plain (file+olp+datetree "diary.org" "Diary") "" :empty-lines-after 2)
+	  ("d" "DIARY" entry (file+olp+datetree "diary.org" "Diary") "***** %?\n")
 	  ("t" "TRPG" entry (file+headline "diary.org" "TRPG") "** %?\n" :jump-to-captured t)
+	  ("w" "TODO" entry (file+headline "diary.org" "Task") "** TODO %?\n")
 	  )))
