@@ -268,10 +268,12 @@
 (straight-use-package '(org :local-repo nil))
 (straight-use-package 'org-plus-contrib)
 (use-package org
-  :bind (("C-c c" . org-capture))
+  :bind (("C-c c" . org-capture)
+         ("C-c a" . org-agenda))
   :config
   (setq org-use-speed-commands t)
-  (setq org-directory "~/org")
+  (setq org-directory (locate-user-emacs-file "org"))
+  (setq org-agenda-files `(,(locate-user-emacs-file "org/diary.org")))
   (setq org-capture-templates
 	'(
 	  ("m" "MEMO" entry (file+olp+datetree "diary.org" "Memo") "***** %U\n%?")
