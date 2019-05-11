@@ -189,9 +189,9 @@
   (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
   :bind
   (:map eglot-mode-map
-	("C-c a" . eglot-code-actions)
-	("C-c f" . eglot-format-buffer)
-	("C-c d" . flymake-show-diagnostics-buffer)))
+	("C-c C-e a" . eglot-code-actions)
+	("C-c C-e f" . eglot-format-buffer)
+	("C-c C-e d" . flymake-show-diagnostics-buffer)))
 
 (use-package elscreen
   :config
