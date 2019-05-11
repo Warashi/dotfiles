@@ -1,0 +1,25 @@
+{
+    "default_interval": 5,
+    "default_threshold": 300,
+    "default_alert_cmd": [
+        "echo"
+    ],
+    "targets": [
+        {
+            "alert_cmd": [
+                "terminal-notifier",
+                "-title",
+                "LocDog",
+                "-sound",
+                "default",
+                "-message",
+                "org-clock-in しような！"
+            ],
+            "watch_cmd": [
+                "bash",
+                "-c",
+                "test $(emacsclient -e '(org-clock-is-active)') = t"
+            ]
+        }
+    ]
+}
