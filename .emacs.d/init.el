@@ -14,6 +14,16 @@
 (setq custom-file (locate-user-emacs-file "customize.el"))
 (add-hook 'after-init-hook #'(lambda () (load-file custom-file)))
 
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(package-initialize)
+(package-refresh-contents)
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(eval-when-compile (require 'use-package))
+
 ;; 各種バーを消す
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -72,26 +82,8 @@
 
 (set-face-attribute 'default nil :family "Source Han Code JP" :height 140)
 
-;; straight.el
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
-
 ;; builtin packages
 (use-package outline
-  :straight nil
   :init (outline-minor-mode 1)
   :config
   (setq-default outline-level 'outline-level)
@@ -99,19 +91,16 @@
     ("<C-tab>" . outline-cycle)))
 
 (use-package eldoc
-  :straight nil
   :config
   (setq eldoc-idle-delay my-show-delay)
   (setq eldoc-echo-area-use-multiline-p t))
 
 (use-package files
-  :straight nil
   :config
   (when (and (eq system-type 'darwin) (executable-find "gls"))
     (setq insert-directory-program "gls")))
 
 (use-package dired
-  :straight nil
   :config
   (require 'dired-x)
   (setq dired-listing-switches "-alh")
@@ -123,7 +112,6 @@
   (setq dired-isearch-filenames t))
 
 (use-package hl-line
-  :straight nil
   :init
   (defun global-hl-line-timer-function ()
     (global-hl-line-unhighlight-all)
@@ -150,6 +138,8 @@
 (add-hook 'after-init-hook #'recentf-mode)
 
 ;; non-builtin packages
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 (use-package doom-themes
   :config
   (load-theme 'doom-one t))
@@ -263,9 +253,8 @@
   :config
   (direnv-mode))
 
-(straight-use-package '(org :local-repo nil))
-(straight-use-package 'org-plus-contrib)
 (use-package org
+  :ensure org-plus-contrib
   :commands (org-clock-is-active)
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda))
