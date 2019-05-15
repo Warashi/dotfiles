@@ -268,6 +268,7 @@
 (straight-use-package '(org :local-repo nil))
 (straight-use-package 'org-plus-contrib)
 (use-package org
+  :commands (org-clock-is-active)
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda))
   :config
