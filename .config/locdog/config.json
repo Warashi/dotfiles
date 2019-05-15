@@ -20,6 +20,22 @@
                 "-c",
                 "test $(emacsclient -e '(org-clock-is-active)') != nil"
             ]
+        },
+        {
+            "alert_cmd": [
+                "terminal-notifier",
+                "-title",
+                "LocDog",
+                "-sound",
+                "default",
+                "-message",
+                "emacsを再起動しましょう！"
+            ],
+            "watch_cmd": [
+                "bash",
+                "-c",
+                "test $(emacsclient -e '(string-to-number (emacs-uptime \"%s\"))') -lt 86400"
+            ]
         }
     ]
 }
