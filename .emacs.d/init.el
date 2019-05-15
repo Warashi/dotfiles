@@ -1,6 +1,7 @@
 ;;; emacs -q -lした時に、user-emacs-directoryが変わるように
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
+(add-to-list 'load-path (locate-user-emacs-file "site-lisp"))
 
 ;; C-hをbackspaceとして使う
 (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
@@ -41,13 +42,10 @@
 ;; gz ファイルも編集できるようにする
 (auto-compression-mode t)
 
-;; mac-auto-ascii-mode を有効にしていると、C-hでascii-modeになってしまうのでoffにする
-;; (when (fboundp #'mac-auto-ascii-mode)
-;;     (mac-auto-ascii-mode 1))
-
-;; かわりに、minibufferに入るときにascii-modeにする
-(when (fboundp #'mac-auto-ascii-select-input-source)
-  (add-hook 'minibuffer-setup-hook #'mac-auto-ascii-select-input-source))
+;; mac-auto-ascii-mode を有効にしていると、C-hでascii-modeになってしまうので (locate-user-emacs-file "site-lisp") 以下の fix-mac-auto-ascii-mode を
+(when (fboundp #'mac-auto-ascii-mode)
+  (require 'fix-mac-auto-ascii-mode)
+  (mac-auto-ascii-mode 1))
 
 ;; IME patch の場合にはこっち
 (when (fboundp #'mac-input-method-mode)
