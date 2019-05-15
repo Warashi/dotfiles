@@ -277,3 +277,6 @@
 	  ("t" "TRPG" entry (file+headline "diary.org" "TRPG") "** %?\n" :jump-to-captured t)
 	  ("w" "TODO" entry (file+headline "diary.org" "Task") "** TODO %?\n")
 	  )))
+
+(use-package ox-hugo
+  :after ox)
