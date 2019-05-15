@@ -265,6 +265,7 @@
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda))
   :config
+  (setq org-log-done 'time)
   (setq org-use-speed-commands t)
   (setq org-directory (locate-user-emacs-file "org"))
   (setq org-agenda-files `(,(locate-user-emacs-file "org/diary.org")))
