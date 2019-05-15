@@ -80,7 +80,8 @@
 (global-unset-key (kbd "C-z"))
 (defalias 'exit 'save-buffers-kill-terminal)
 
-(set-face-attribute 'default nil :family "Source Han Code JP" :height 140)
+(set-face-attribute 'default nil :family "SF Mono Square" :height 240)
+(setq-default line-spacing 5)
 
 ;; builtin packages
 (use-package outline
