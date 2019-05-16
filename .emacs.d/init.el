@@ -80,7 +80,7 @@
 (global-unset-key (kbd "C-z"))
 (defalias 'exit 'save-buffers-kill-terminal)
 
-(set-face-attribute 'default nil :family "SF Mono Square" :height 240)
+(set-face-attribute 'default nil :family "SF Mono Square" :height 180)
 (setq-default line-spacing 5)
 
 ;; builtin packages
