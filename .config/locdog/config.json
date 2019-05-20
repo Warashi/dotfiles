@@ -1,11 +1,13 @@
 {
-    "default_interval": 5,
-    "default_threshold": 300,
+    "default_interval": "5s",
+    "default_threshold": "300s",
+    "default_timeout": "1s",
     "default_alert_cmd": [
         "echo"
     ],
     "targets": [
         {
+            "name": "org-clock-in",
             "alert_cmd": [
                 "terminal-notifier",
                 "-title",
@@ -13,15 +15,25 @@
                 "-sound",
                 "default",
                 "-message",
-                "org-clock-in しような！"
+                "you shoud org-clock-in"
             ],
             "watch_cmd": [
                 "bash",
                 "-c",
-                "test $(emacsclient -e '(org-clock-is-active)') != nil"
+                "test \"$(emacsclient -e '(org-clock-is-active)')\" != nil"
+            ],
+            "no_data_cmd": [
+                "terminal-notifier",
+                "-title",
+                "LocDog",
+                "-sound",
+                "default",
+                "-message",
+                "NoData: org-clock-in"
             ]
         },
         {
+            "name": "emacs-uptime",
             "alert_cmd": [
                 "terminal-notifier",
                 "-title",
@@ -34,7 +46,16 @@
             "watch_cmd": [
                 "bash",
                 "-c",
-                "test $(emacsclient -e '(string-to-number (emacs-uptime \"%s\"))') -lt 86400"
+                "test \"$(emacsclient -e '(string-to-number (emacs-uptime \"%s\"))')\" -lt 86400"
+            ],
+            "no_data_cmd": [
+                "terminal-notifier",
+                "-title",
+                "LocDog",
+                "-sound",
+                "default",
+                "-message",
+                "NoData: emacs-uptime"
             ]
         }
     ]
