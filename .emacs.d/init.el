@@ -179,6 +179,9 @@
   :init (ido-ubiquitous-mode 1))
 (use-package ido-at-point
   :init (ido-at-point-mode 1))
+(use-package ido-vertical-mode
+  :init (ido-vertical-mode 1)
+  :config (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
 (use-package eglot
   :init
