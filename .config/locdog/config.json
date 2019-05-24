@@ -21,15 +21,6 @@
                 "bash",
                 "-c",
                 "test \"$(emacsclient -e '(org-clock-is-active)')\" != nil"
-            ],
-            "no_data_cmd": [
-                "terminal-notifier",
-                "-title",
-                "LocDog",
-                "-sound",
-                "default",
-                "-message",
-                "NoData: org-clock-in"
             ]
         },
         {
@@ -47,15 +38,6 @@
                 "bash",
                 "-c",
                 "test \"$(emacsclient -e '(string-to-number (emacs-uptime \"%s\"))')\" -lt 86400"
-            ],
-            "no_data_cmd": [
-                "terminal-notifier",
-                "-title",
-                "LocDog",
-                "-sound",
-                "default",
-                "-message",
-                "NoData: emacs-uptime"
             ]
         }
     ]
