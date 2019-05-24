@@ -157,6 +157,7 @@
   (exec-path-from-shell-initialize))
 
 (use-package go-mode)
+(use-package rust-mode)
 (use-package docker)
 (use-package dockerfile-mode)
 (use-package docker-compose-mode)
