@@ -1,0 +1,3 @@
+[submodule ".config/bat/themes/dracula"]
+	path = .config/bat/themes/dracula
+	url = https://github.com/dracula/sublime.git
