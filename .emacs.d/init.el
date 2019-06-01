@@ -82,7 +82,8 @@
 (global-unset-key (kbd "C-z"))
 (defalias 'exit 'save-buffers-kill-terminal)
 
-(set-face-attribute 'default nil :family "SF Mono Square" :height 180)
+(defvar my-font-size 180)
+(set-face-attribute 'default nil :family "SF Mono Square" :height my-font-size)
 (setq-default line-spacing 5)
 
 ;; builtin packages
@@ -269,6 +270,11 @@
 (use-package direnv
   :config
   (direnv-mode))
+
+(use-package ace-window
+  :bind (("C-c o" . ace-window))
+  :config
+  (set-face-attribute 'aw-leading-char-face nil :height (* my-font-size 10)))
 
 (use-package org
   :ensure org-plus-contrib
