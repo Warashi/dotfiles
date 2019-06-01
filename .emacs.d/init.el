@@ -74,6 +74,8 @@
 (setq vc-follow-symlinks t)
 ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
 (setq auto-revert-check-vc-info t)
+;; スクロール時にカーソルの相対位置を保つ
+(setq scroll-preserve-screen-position :always)
 
 ;; 誤って終了しないようにする
 (global-set-key (kbd "C-x C-C") 'server-edit)
