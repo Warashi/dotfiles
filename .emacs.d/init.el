@@ -191,6 +191,7 @@
 (use-package eglot
   :init
   (add-hook 'go-mode-hook 'eglot-ensure)
+  (add-hook 'rust-mode-hook 'eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
   :bind
