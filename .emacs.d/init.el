@@ -169,9 +169,8 @@
 (use-package yaml-mode)
 (use-package fish-mode)
 (use-package markdown-mode)
-
-(use-package clipmon
-  :init (add-to-list 'after-init-hook 'clipmon-mode-start))
+(use-package browse-kill-ring
+  :bind (("C-c y" . browse-kill-ring)))
 
 ;; ido-mode
 (use-package ido
