@@ -4,15 +4,6 @@
 
 module.exports = {
   config: {
-    hyperline: {                                                                 
-      plugins: [
-        "hostname",
-	"battery",
-        "cpu",
-        "memory",
-        "network",
-      ],
-    },
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
     updateChannel: 'stable',
@@ -61,7 +52,7 @@ module.exports = {
     borderColor: '#333',
 
     // custom CSS to embed in the main window
-    css: '.line {font-size: 18px;}',
+    css: '',
 
     // custom CSS to embed in the terminal window
     termCSS: '',
@@ -158,7 +149,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-dracula", "hyperline"],
+  plugins: ["hyper-dracula", "hyper-statusline", "hyper-tab-icons-plus"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
