@@ -25,7 +25,7 @@
 (eval-when-compile (require 'use-package))
 
 ;; 各種バーを消す
-(menu-bar-mode -1)
+;; (menu-bar-mode -1) ;; native fullscreen にするために表示させる
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 ;; 画面端で折り返し表示をする
