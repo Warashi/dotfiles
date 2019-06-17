@@ -199,16 +199,6 @@
 	("C-c C-e f" . eglot-format-buffer)
 	("C-c C-e d" . flymake-show-diagnostics-buffer)))
 
-(use-package elscreen
-  :config
-  ;; プレフィクスキーはC-t
-  (setq elscreen-prefix-key (kbd "C-t"))
-  ;; タブの先頭に[X]を表示しない
-  (setq elscreen-tab-display-kill-screen nil)
-  ;; header-lineの先頭に[<->]を表示しない
-  (setq elscreen-tab-display-control nil)
-  (elscreen-start))
-
 (use-package editorconfig
   :init (editorconfig-mode 1))
 
