@@ -150,9 +150,9 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-(use-package doom-themes
+(use-package solarized-theme
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'solarized-dark t))
 
 (use-package exec-path-from-shell
   :config
