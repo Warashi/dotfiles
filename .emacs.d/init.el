@@ -161,6 +161,8 @@
 
 (use-package go-mode)
 (use-package rust-mode)
+(use-package scala-mode)
+(use-package sbt-mode)
 (use-package terraform-mode)
 (use-package docker)
 (use-package dockerfile-mode)
@@ -188,11 +190,13 @@
   :config (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
 (use-package eglot
-  :init
-  (add-hook 'go-mode-hook 'eglot-ensure)
-  (add-hook 'rust-mode-hook 'eglot-ensure)
+  :hook
+  ((go-mode . eglot-ensure)
+   (rust-mode . eglot-ensure)
+   (scala-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
+  (add-to-list 'eglot-server-programs '(scala-mode . ("metals-emacs")))
   :bind
   (:map eglot-mode-map
 	("C-c C-e a" . eglot-code-actions)
