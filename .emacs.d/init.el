@@ -279,13 +279,14 @@
   (setq org-log-done 'time)
   (setq org-use-speed-commands t)
   (setq org-directory (locate-user-emacs-file "org"))
-  (setq org-agenda-files `(,(locate-user-emacs-file "org/diary.org")))
+  (setq org-agenda-files `(,(locate-user-emacs-file "org/task.org")))
+  (setq org-refile-targets '((org-agenda-files :level . 1)))
   (setq org-capture-templates
 	'(
-	  ("m" "MEMO" entry (file+olp+datetree "diary.org" "Memo") "***** %U\n%?")
+	  ("m" "MEMO" entry (file+olp+datetree "memo.org" "Memo") "***** %U\n%?")
 	  ("d" "DIARY" entry (file+olp+datetree "diary.org" "Diary") "***** %?\n")
-	  ("t" "TRPG" entry (file+headline "diary.org" "TRPG") "** %?\n" :jump-to-captured t)
-	  ("w" "TODO" entry (file+headline "diary.org" "Task") "** TODO %?\n")
+	  ("t" "TRPG" entry (file+headline "trpg.org" "TRPG") "** %?\n" :jump-to-captured t)
+	  ("w" "TODO" entry (file+headline "task.org" "Task") "** TODO %?\n")
 	  )))
 
 (use-package ox-hugo
