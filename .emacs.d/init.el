@@ -189,19 +189,10 @@
   :init (ido-vertical-mode 1)
   :config (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
-(use-package eglot
-  :hook
-  ((go-mode . eglot-ensure)
-   (rust-mode . eglot-ensure)
-   (scala-mode . eglot-ensure))
-  :config
-  (add-to-list 'eglot-server-programs '(go-mode . ("gopls" "serve")))
-  (add-to-list 'eglot-server-programs '(scala-mode . ("metals-emacs")))
-  :bind
-  (:map eglot-mode-map
-	("C-c C-e a" . eglot-code-actions)
-	("C-c C-e f" . eglot-format-buffer)
-	("C-c C-e d" . flymake-show-diagnostics-buffer)))
+(use-package lsp-mode
+  :hook ((go-mode . lsp)
+         (rust-mode . lsp)
+         (scala-mode . lsp)))
 
 (use-package editorconfig
   :init (editorconfig-mode 1))
