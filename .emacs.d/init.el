@@ -197,7 +197,7 @@
 (use-package editorconfig
   :init (editorconfig-mode 1))
 
-(use-package outline-magic)
+(use-package outshine)
 
 (use-package highlight-symbol
   :init (highlight-symbol-mode t))
