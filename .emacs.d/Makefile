@@ -7,4 +7,4 @@ init.el: README.org
 			(org-babel-tangle-file \"$<\" \"$@\" \"emacs-lisp\"))"
 	$(EMACS) -q -l init.el --batch --eval '(kill-emacs)'
 %.elc: %.el
-	$(EMACS) -q -l init.el -batch -f batch-byte-compile $<
+	$(EMACS) -q -l init.el --batch -f batch-byte-compile $<
