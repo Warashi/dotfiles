@@ -49,6 +49,11 @@ init.el: README.org
 (defalias 'exit 'save-buffers-kill-terminal)
 #+end_src
 
+*** hippie-expandを使う
+#+begin_src emacs-lisp
+(substitute-key-definition 'dabbrev-expand 'hippie-expand global-map)
+#+end_src
+
 ** M-x customize したときの設定保存場所を変える
 #+begin_src emacs-lisp
 (setq custom-file (locate-user-emacs-file "customize.el"))
