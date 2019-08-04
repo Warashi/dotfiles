@@ -338,6 +338,19 @@ init.el: README.org
   (global-undo-tree-mode 1))
 #+end_src
 
+*** snippet
+#+begin_src emacs-lisp
+(leaf yasnippet
+  :el-get t
+  :hook (prog-mode-hook . yas-minor-mode)
+  :config
+  (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
+(leaf yasnippet-snippets
+  :el-get t
+  :require t
+  :after yasnippet)
+#+end_src
+
 *** eldoc
 #+begin_src emacs-lisp
 (leaf eldoc
