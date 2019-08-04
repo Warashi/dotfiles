@@ -10,6 +10,7 @@ set -x EMAIL 6warashi9@gmail.com
 
 set -x GOPATH $HOME/go
 
+set -x PATH /usr/local/opt/texinfo/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $GOPATH/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
@@ -24,8 +25,8 @@ set -x EDITOR emacsclient
 
 set -x GO111MODULE on
 
-alias v nvim
-alias e 'emacsclient'
+alias v vim
+alias e emacsclient
 alias ls exa
 alias git hub
 alias g git
