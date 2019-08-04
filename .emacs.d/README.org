@@ -9,12 +9,12 @@
                     (org-babel-tangle-file \"$<\" \"$@\" \"emacs-lisp\"))"
           $(EMACS) -q -l init.el --batch --eval '(kill-emacs)'
   %.elc: %.el
-          $(EMACS) -q -l init.el -batch -f batch-byte-compile $<
+          $(EMACS) -q -l init.el --batch -f batch-byte-compile $<
 #+end_src
 
 * init.el 本体
 ** おまじない
-#+begin_src emacs-lisp :tangle init.el
+#+begin_src emacs-lisp :tangle no
   ;; -*- lexical-binding: t -*-
 #+end_src
 
@@ -127,16 +127,19 @@
   (setq scroll-preserve-screen-position :always)
 #+end_src
 
-** leaf setup
+** package setup
+*** package.el setup
+#+begin_src emacs-lisp :tangle init.el
+  (prog1 "package"
+    (custom-set-variables
+     '(package-archives '(("org"   . "https://orgmode.org/elpa/")
+                          ("melpa" . "https://melpa.org/packages/")
+                          ("gnu"   . "https://elpa.gnu.org/packages/"))))
+    (package-initialize))
+#+end_src
+*** install leaf
 #+begin_src emacs-lisp :tangle init.el
   (prog1 "prepare leaf"
-    (prog1 "package"
-      (custom-set-variables
-       '(package-archives '(("org"   . "https://orgmode.org/elpa/")
-                            ("melpa" . "https://melpa.org/packages/")
-                            ("gnu"   . "https://elpa.gnu.org/packages/"))))
-      (package-initialize))
-
     (prog1 "leaf"
       (unless (package-installed-p 'leaf)
         (unless (assoc 'leaf package-archive-contents)
@@ -149,17 +152,24 @@
 
       (leaf leaf-keywords
             :package t
-            :config (leaf-keywords-init)))
-
-    (prog1 "optional packages for leaf-keywords"
-      ;; optional packages if you want to use :hydra, :el-get,,,
-      (leaf el-get
-            :package t
-            :custom ((el-get-git-shallow-clone  . t)))
-      (leaf hydra :el-get t)))
+            :config (leaf-keywords-init))))
 #+end_src
-
-** el-get sync
+*** install el-get
 #+begin_src emacs-lisp :tangle init.el
-  (el-get 'sync)
+  (leaf el-get
+    :init
+    (unless (require 'el-get nil 'noerror)
+      (unless (assoc 'el-get package-archive-contents)
+        (package-refresh-contents))
+      (condition-case err
+          (package-install 'el-get)
+        (error
+         (package-refresh-contents)       ; renew local melpa cache if fail
+         (package-install 'el-get))))
+    (require 'el-get)
+  :load-path `(,(locate-user-emacs-file "el-get/el-get"))
+  :custom ((el-get-git-shallow-clone . t))
+  :config
+  (add-to-list 'el-get-recipe-path (locate-user-emacs-file "el-get-user/recipes")
+               (el-get 'sync)))
 #+end_src
