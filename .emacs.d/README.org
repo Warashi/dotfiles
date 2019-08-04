@@ -403,7 +403,24 @@ init.el: README.org
 *** org-mode
 #+begin_src emacs-lisp
 (leaf org
-  :custom ((org-src-preserve-indentation . t)))
+  :commands (org-clock-is-active)
+  :bind (("C-c c" . org-capture)
+         ("C-c a" . org-agenda))
+  :custom `((org-src-preserve-indentation . t)
+            (org-log-done . 'time)
+            (org-use-speed-commands . t)
+            (org-directory . ,(locate-user-emacs-file "org"))
+            (org-agenda-files . ,(locate-user-emacs-file "org/task.org"))
+            (org-refile-targets . ((nil . (:level . 1))
+                                   (org-agenda-files . (:level . 1))))
+            (org-capture-templates . (("m" "MEMO" entry (file+olp+datetree "memo.org" "Memo") "***** %U\n%?")
+                                      ("d" "DIARY" entry (file+olp+datetree "diary.org" "Diary") "***** %?\n")
+                                      ("t" "TRPG" entry (file+headline "trpg.org" "TRPG") "** %?\n" :jump-to-captured t)
+                                      ("w" "TODO" entry (file+headline "task.org" "Task") "** TODO %?\n")))))
+
+(leaf ox-hugo
+  :el-get t
+  :after ox)
 #+end_src
 
 ** el-get sync
