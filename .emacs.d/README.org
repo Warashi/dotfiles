@@ -167,9 +167,9 @@
          (package-refresh-contents)       ; renew local melpa cache if fail
          (package-install 'el-get))))
     (require 'el-get)
-  :load-path `(,(locate-user-emacs-file "el-get/el-get"))
-  :custom ((el-get-git-shallow-clone . t))
-  :config
-  (add-to-list 'el-get-recipe-path (locate-user-emacs-file "el-get-user/recipes")
-               (el-get 'sync)))
+    :load-path `(,(locate-user-emacs-file "el-get/el-get"))
+    :custom ((el-get-git-shallow-clone . t))
+    :config
+    (add-to-list 'el-get-recipe-path (locate-user-emacs-file "el-get-user/recipes")
+                 (el-get 'sync)))
 #+end_src
