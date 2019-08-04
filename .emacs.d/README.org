@@ -268,6 +268,13 @@ init.el: README.org
          (scala-mode . lsp)))
 #+end_src
 
+*** prescient
+#+begin_src emacs-lisp
+(leaf prescient
+  :el-get t
+  :hook ((after-init-hook . prescient-persist-mode)))
+#+end_src
+
 *** company
 #+begin_src emacs-lisp
 (leaf company-mode
@@ -279,6 +286,19 @@ init.el: README.org
   :after company-mode
   :config
   (add-to-list 'company-backends 'company-lsp))
+(leaf company-prescient
+  :el-get t
+  :hook (after-init-hook . company-prescient-mode))
+#+end_src
+
+*** ivy, counsel, swiper
+#+begin_src emacs-lisp
+(leaf swiper
+  :el-get t
+  :hook ((after-init-hook . (ivy-mode counsel-mode))))
+(leaf ivy-prescient
+  :el-get t
+  :hook ((after-init-hook . ivy-prescient-mode)))
 #+end_src
 
 *** editorconfig
@@ -372,7 +392,8 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf magit
   :el-get t
-  :bind (("C-c g" . magit-status)))
+  :bind (("C-c g" . magit-status))
+  :custom ((magit-completing-read-function . 'ivy-completing-read)))
 #+end_src
 
 *** direnv
