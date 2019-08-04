@@ -263,6 +263,19 @@ init.el: README.org
          (scala-mode . lsp)))
 #+end_src
 
+*** company
+#+begin_src emacs-lisp
+(leaf company-mode
+  :el-get t
+  :hook (after-init-hook . global-company-mode)
+  :bind (("C-c y" . company-yasnippet)))
+(leaf company-lsp
+  :el-get t
+  :after company-mode
+  :config
+  (add-to-list 'company-backends 'company-lsp))
+#+end_src
+
 *** editorconfig
 #+begin_src emacs-lisp
 (leaf editorconfig
