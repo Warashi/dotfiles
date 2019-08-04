@@ -318,6 +318,26 @@ init.el: README.org
   :hook (prog-mode-hook . rainbow-delimiters-mode-enable))
 #+end_src
 
+*** regexpをpythonのやつをつかえるようにする
+#+begin_src emacs-lisp
+(leaf visual-regexp
+  :el-get t
+  :bind (("C-c r" . vr/replace)))
+(leaf visual-regexp-steroids
+  :el-get t
+  :require t
+  :after visual-regexp)
+#+end_src
+
+*** undo強化
+#+begin_src emacs-lisp
+(leaf undo-tree
+  :el-get t
+  :require t
+  :config
+  (global-undo-tree-mode 1))
+#+end_src
+
 *** eldoc
 #+begin_src emacs-lisp
 (leaf eldoc
