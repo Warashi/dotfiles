@@ -1,0 +1,47 @@
+* おまじない
+#+begin_src emacs-lisp :tangle yes
+  ;; -*- lexical-binding: t -*-
+#+end_src
+
+* emacs -q -lした時に、user-emacs-directoryが変わるように
+#+begin_src emacs-lisp :tangle yes
+  (when load-file-name
+    (setq user-emacs-directory (file-name-directory load-file-name)))
+#+end_src
+
+* leaf setup
+#+begin_src emacs-lisp :tangle yes
+  (prog1 "prepare leaf"
+    (prog1 "package"
+      (custom-set-variables
+       '(package-archives '(("org"   . "https://orgmode.org/elpa/")
+                            ("melpa" . "https://melpa.org/packages/")
+                            ("gnu"   . "https://elpa.gnu.org/packages/"))))
+      (package-initialize))
+
+    (prog1 "leaf"
+      (unless (package-installed-p 'leaf)
+        (unless (assoc 'leaf package-archive-contents)
+          (package-refresh-contents))
+        (condition-case err
+            (package-install 'leaf)
+          (error
+           (package-refresh-contents)       ; renew local melpa cache if fail
+           (package-install 'leaf))))
+
+      (leaf leaf-keywords
+            :package t
+            :config (leaf-keywords-init)))
+
+    (prog1 "optional packages for leaf-keywords"
+      ;; optional packages if you want to use :hydra, :el-get,,,
+      (leaf el-get
+            :package t
+            :custom ((el-get-git-shallow-clone  . t)))
+      (leaf hydra :el-get t)))
+#+end_src
+
+* el-get sync
+#+begin_src emacs-lisp :tangle yes
+  (el-get 'sync)
+#+end_src
