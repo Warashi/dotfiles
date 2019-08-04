@@ -366,6 +366,7 @@ init.el: README.org
   :config
   (direnv-mode 1))
 #+end_src
+
 *** eldoc
 #+begin_src emacs-lisp
 (leaf eldoc
