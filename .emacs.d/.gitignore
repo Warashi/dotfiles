@@ -1,3 +1,5 @@
-init.el
-*.elc
-README.el
+*
+!Makefile
+!README.org
+!site-lisp/
+!eshell/
