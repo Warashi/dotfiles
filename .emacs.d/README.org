@@ -351,6 +351,21 @@ init.el: README.org
   :after yasnippet)
 #+end_src
 
+*** magit
+#+begin_src emacs-lisp
+(leaf magit
+  :el-get t
+  :bind (("C-c g" . magit-status)))
+#+end_src
+
+*** direnv
+#+begin_src emacs-lisp
+(leaf direnv
+  :el-get t
+  :require t
+  :config
+  (direnv-mode 1))
+#+end_src
 *** eldoc
 #+begin_src emacs-lisp
 (leaf eldoc
