@@ -291,8 +291,7 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf jaword
   :el-get t
-  :require t
-  :config (global-jaword-mode))
+  :hook (after-init-hook . global-jaword-mode))
 #+end_src
 
 *** C-yとかで変更のあった場所をハイライトするやつ
@@ -402,7 +401,9 @@ init.el: README.org
 
 *** org-mode
 #+begin_src emacs-lisp
-(leaf org
+(leaf org-mode
+  :el-get '(org-plus-contrib
+            :repo ("org" . "https://orgmode.org/elpa/"))
   :commands (org-clock-is-active)
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda))
@@ -413,7 +414,7 @@ init.el: README.org
             (org-agenda-files . ,(locate-user-emacs-file "org/task.org"))
             (org-refile-targets . ((nil . (:level . 1))
                                    (org-agenda-files . (:level . 1))))
-            (org-capture-templates . (("m" "MEMO" entry (file+olp+datetree "memo.org" "Memo") "***** %U\n%?")
+            (org-capture-templates . '(("m" "MEMO" entry (file+olp+datetree "memo.org" "Memo") "***** %U\n%?")
                                       ("d" "DIARY" entry (file+olp+datetree "diary.org" "Diary") "***** %?\n")
                                       ("t" "TRPG" entry (file+headline "trpg.org" "TRPG") "** %?\n" :jump-to-captured t)
                                       ("w" "TODO" entry (file+headline "task.org" "Task") "** TODO %?\n")))))
