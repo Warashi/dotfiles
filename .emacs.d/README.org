@@ -295,7 +295,8 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf swiper
   :el-get t
-  :hook ((after-init-hook . (ivy-mode counsel-mode))))
+  :hook ((after-init-hook . ivy-mode)
+         (after-init-hook . counsel-mode)))
 (leaf ivy-prescient
   :el-get t
   :hook ((after-init-hook . ivy-prescient-mode)))
