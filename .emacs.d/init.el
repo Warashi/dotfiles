@@ -87,13 +87,6 @@
 (setq-default line-spacing 5)
 
 ;; builtin packages
-(use-package outline
-  :init (outline-minor-mode 1)
-  :config
-  (setq-default outline-level 'outline-level)
-  (bind-keys :map outline-minor-mode-map
-    ("<C-tab>" . outline-cycle)))
-
 (use-package eldoc
   :config
   (setq eldoc-idle-delay my-show-delay)
@@ -197,7 +190,8 @@
 (use-package editorconfig
   :init (editorconfig-mode 1))
 
-(use-package outshine)
+(use-package outshine
+  :bind (("C-c q" . outshine-cycle)))
 
 (use-package highlight-symbol
   :init (highlight-symbol-mode t))
