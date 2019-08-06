@@ -441,7 +441,7 @@ init.el: README.org
 
 *** org-mode
 #+begin_src emacs-lisp
-(leaf org-mode
+(leaf org
   :el-get '(org-plus-contrib
             :repo ("org" . "https://orgmode.org/elpa/"))
   :commands (org-clock-is-active)
@@ -451,7 +451,7 @@ init.el: README.org
            (org-log-done . 'time)
            (org-use-speed-commands . t)
            (org-directory . "~/org")
-           (org-agenda-files . "~/org/task.org")
+           (org-agenda-files . '("~/org/task.org"))
            (org-refile-targets . '((nil . (:level . 1))
                                    (org-agenda-files . (:level . 1))))
            (org-capture-templates . '(("m" "MEMO" entry (file+olp+datetree "memo.org" "Memo") "***** %U\n%?")
