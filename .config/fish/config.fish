@@ -10,6 +10,7 @@ set -x EMAIL 6warashi9@gmail.com
 
 set -x GOPATH $HOME/go
 
+set -x PATH /usr/local/sbin $PATH
 set -x PATH /usr/local/opt/texinfo/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $GOPATH/bin $PATH
