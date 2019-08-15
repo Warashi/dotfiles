@@ -257,6 +257,8 @@ init.el: README.org
   :el-get t)
 (leaf markdown-mode
   :el-get t)
+(leaf edit-indirect
+  :el-get t)
 #+end_src
 
 *** language server protocol
