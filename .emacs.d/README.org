@@ -279,9 +279,10 @@ init.el: README.org
 
 *** company
 #+begin_src emacs-lisp
-(leaf company-mode
-  :el-get t
+(leaf company
+  :el-get company-mode
   :hook (after-init-hook . global-company-mode)
+  :custom (company-global-modes . '(not org-mode text-mode))
   :bind (("C-c y" . company-yasnippet)))
 (leaf company-lsp
   :el-get t
