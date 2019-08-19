@@ -86,8 +86,8 @@ init.el: README.org
 ** 基本的なUI/UX設定
 *** フォント設定
 #+begin_src emacs-lisp
-(defvar my-font-size 180)
-(set-face-attribute 'default nil :family "SF Mono Square" :height my-font-size)
+(defvar my-font-size 140)
+(set-face-attribute 'default nil :family "Source Han Code JP" :height my-font-size)
 (setq-default line-spacing 5)
 #+end_src
 
