@@ -90,6 +90,10 @@ init.el: README.org
 (set-face-attribute 'default nil :family "Source Han Code JP" :height my-font-size)
 (setq-default line-spacing 5)
 #+end_src
+*** posframeの不具合対処のため、nativeのfullscreenは使わない
+#+begin_src emacs-lisp
+(setq ns-use-native-fullscreen nil)
+#+end_src
 
 *** 各種バーを消す
 #+begin_src emacs-lisp
