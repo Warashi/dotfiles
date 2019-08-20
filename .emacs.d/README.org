@@ -277,7 +277,7 @@ init.el: README.org
   :hook ((lsp-mode-hook . lsp-ui-mode)))
 (leaf lsp-java
   :el-get t
-  :after lsp
+  :after lsp-mode
   :hook ((java-mode-hook . lsp)))
 #+end_src
 
