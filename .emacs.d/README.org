@@ -278,6 +278,7 @@ init.el: README.org
 (leaf lsp-java
   :el-get t
   :after lsp-mode
+  :require t
   :hook ((java-mode-hook . lsp)))
 #+end_src
 
