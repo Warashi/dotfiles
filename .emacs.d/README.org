@@ -269,9 +269,16 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf lsp-mode
   :el-get t
-  :hook ((go-mode . lsp)
-         (rust-mode . lsp)
-         (scala-mode . lsp)))
+  :hook ((go-mode-hook . lsp)
+         (rust-mode-hook . lsp)
+         (scala-mode-hook . lsp)))
+(leaf lsp-ui
+  :el-get t
+  :hook ((lsp-mode-hook . lsp-ui-mode)))
+(leaf lsp-java
+  :el-get t
+  :after lsp
+  :hook ((java-mode-hook . lsp)))
 #+end_src
 
 *** prescient
