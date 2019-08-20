@@ -275,11 +275,6 @@ init.el: README.org
 (leaf lsp-ui
   :el-get t
   :hook ((lsp-mode-hook . lsp-ui-mode)))
-(leaf lsp-java
-  :el-get t
-  :after lsp-mode
-  :require t
-  :hook ((java-mode-hook . lsp)))
 #+end_src
 
 *** prescient
