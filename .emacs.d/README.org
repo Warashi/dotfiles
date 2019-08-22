@@ -248,6 +248,13 @@ init.el: README.org
   (add-to-list 'exec-path-from-shell-variables "EMAIL"))
 #+end_src
 
+*** ace-window
+#+begin_src emacs-lisp
+(leaf ace-window
+  :el-get t
+  :bind ("C-c o" . ace-window))
+#+end_src
+
 *** languages
 #+begin_src emacs-lisp
 (leaf go-mode
