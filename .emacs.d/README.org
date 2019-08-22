@@ -309,6 +309,7 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf swiper
   :el-get t
+  :bind ("M-s M-s" . swiper)
   :hook ((emacs-startup-hook . ivy-mode)
          (emacs-startup-hook . counsel-mode)))
 (leaf ivy-prescient
@@ -319,7 +320,8 @@ init.el: README.org
   :hook ((emacs-startup-hook . ivy-posframe-mode))
   :custom ((ivy-posframe-display-functions-alist . '((swiper          . nil)
                                                      (complete-symbol . ivy-posframe-display-at-point)
-                                                     (t               . ivy-posframe-display-at-frame-center)))))
+                                                     (counsel-M-x     . ivy-posframe-display-at-frame-center)
+                                                     (t               . nil)))))
 #+end_src
 
 *** editorconfig
