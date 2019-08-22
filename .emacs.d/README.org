@@ -167,42 +167,42 @@ init.el: README.org
 
 **** カーソルの位置が何文字目かを表示する
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'column-number-mode)
+(add-hook 'emacs-startup-hook #'column-number-mode)
 #+end_src
 
 **** カーソルの位置が何行目かを表示する
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'line-number-mode)
+(add-hook 'emacs-startup-hook #'line-number-mode)
 #+end_src
 
 **** 左に行番号を表示
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'global-linum-mode)
+(add-hook 'emacs-startup-hook #'global-linum-mode)
 #+end_src
 
 **** electric-pair-mode
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'electric-pair-mode)
+(add-hook 'emacs-startup-hook #'electric-pair-mode)
 #+end_src
 
 **** prettify
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'global-prettify-symbols-mode)
+(add-hook 'emacs-startup-hook #'global-prettify-symbols-mode)
 #+end_src
 
 **** 対応する括弧を表示
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'show-paren-mode)
+(add-hook 'emacs-startup-hook #'show-paren-mode)
 #+end_src
 
 **** emacsclientを使う
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'server-start)
+(add-hook 'emacs-startup-hook #'server-start)
 #+end_src
 
 **** 最近開いたファイル
 #+begin_src emacs-lisp
-(add-hook 'after-init-hook #'recentf-mode)
+(add-hook 'emacs-startup-hook #'recentf-mode)
 #+end_src
 
 **** mac固有設定まわり
@@ -212,7 +212,7 @@ init.el: README.org
   :when (fboundp #'mac-auto-ascii-mode)
   :load-path `(,(locate-user-emacs-file "site-lisp"))
   :require fix-mac-auto-ascii-mode
-  :config (mac-auto-ascii-mode 1))
+  :hook (emacs-startup-hook . mac-auto-ascii-mode))
 #+end_src
 
 ***** inline-patch はこっち
@@ -242,10 +242,9 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf exec-path-from-shell
   :el-get t
-  :require t
+  :hook (after-init-hook . exec-path-from-shell-initialize)
   :config
-  (add-to-list 'exec-path-from-shell-variables "EMAIL")
-  (exec-path-from-shell-initialize))
+  (add-to-list 'exec-path-from-shell-variables "EMAIL"))
 #+end_src
 
 *** languages
@@ -282,14 +281,14 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf prescient
   :el-get t
-  :hook ((after-init-hook . prescient-persist-mode)))
+  :hook ((emacs-startup-hook . prescient-persist-mode)))
 #+end_src
 
 *** company
 #+begin_src emacs-lisp
 (leaf company
   :el-get company-mode
-  :hook (after-init-hook . global-company-mode)
+  :hook (emacs-startup-hook . global-company-mode)
   :custom (company-global-modes . '(not org-mode text-mode))
   :bind (("C-c y" . company-yasnippet)))
 (leaf company-lsp
@@ -299,24 +298,24 @@ init.el: README.org
   (add-to-list 'company-backends 'company-lsp))
 (leaf company-prescient
   :el-get t
-  :hook (after-init-hook . company-prescient-mode))
+  :hook (emacs-startup-hook . company-prescient-mode))
 (leaf company-posframe
   :el-get t
-  :hook (after-init-hook . company-posframe-mode))
+  :hook (emacs-startup-hook . company-posframe-mode))
 #+end_src
 
 *** ivy, counsel, swiper
 #+begin_src emacs-lisp
 (leaf swiper
   :el-get t
-  :hook ((after-init-hook . ivy-mode)
-         (after-init-hook . counsel-mode)))
+  :hook ((emacs-startup-hook . ivy-mode)
+         (emacs-startup-hook . counsel-mode)))
 (leaf ivy-prescient
   :el-get t
-  :hook ((after-init-hook . ivy-prescient-mode)))
+  :hook ((emacs-startup-hook . ivy-prescient-mode)))
 (leaf ivy-posframe
   :el-get t
-  :hook ((after-init-hook . ivy-posframe-mode))
+  :hook ((emacs-startup-hook . ivy-posframe-mode))
   :custom ((ivy-posframe-display-functions-alist . '((swiper          . nil)
                                                      (complete-symbol . ivy-posframe-display-at-point)
                                                      (t               . ivy-posframe-display-at-frame-center)))))
@@ -326,9 +325,7 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf editorconfig
   :el-get t
-  :require t
-  :config
-  (editorconfig-mode 1))
+  :hook (emacs-startup-hook . editorconfig-mode))
 #+end_src
 
 *** outshine
@@ -342,31 +339,28 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf highlight-symbol
   :el-get t
-  :require t
-  :config (highlight-symbol-mode t))
+  :hook (emacs-startup-hook . highlight-symbol-mode))
 #+end_src
 
 *** M-n, M-pとかの区切りを日本語対応するやつ
 #+begin_src emacs-lisp
 (leaf jaword
   :el-get t
-  :hook (after-init-hook . global-jaword-mode))
+  :hook (emacs-startup-hook . global-jaword-mode))
 #+end_src
 
 *** C-yとかで変更のあった場所をハイライトするやつ
 #+begin_src emacs-lisp
 (leaf volatile-highlights
   :el-get t
-  :require t
-  :config (volatile-highlights-mode t))
+  :hook (emacs-startup-hook . volatile-highlights-mode))
 #+end_src
 
 *** 途中までコマンドのキー入力したら候補を表示するやつ
 #+begin_src emacs-lisp
 (leaf which-key
   :el-get t
-  :require t
-  :config (which-key-mode 1))
+  :hook (emacs-startup-hook . which-key-mode))
 #+end_src
 
 *** 括弧のネストに合わせて色をつけるやつ
@@ -391,16 +385,14 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf undo-tree
   :el-get t
-  :require t
-  :config
-  (global-undo-tree-mode 1))
+  :hook (emacs-startup-hook . global-undo-tree-mode))
 #+end_src
 
 *** snippet
 #+begin_src emacs-lisp
 (leaf yasnippet
   :el-get t
-  :hook (after-init-hook . yas-global-mode)
+  :hook (emacs-startup-hook . yas-global-mode)
   :config
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 (leaf yasnippet-snippets
@@ -421,9 +413,7 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf direnv
   :el-get t
-  :require t
-  :config
-  (direnv-mode 1))
+  :hook (emacs-startup-hook . direnv-mode))
 #+end_src
 
 *** eldoc
