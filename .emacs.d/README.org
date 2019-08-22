@@ -64,7 +64,8 @@ init.el: README.org
 *** install el-get
 #+begin_src emacs-lisp
 (add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
-(custom-set-variables '(el-get-git-shallow-clone t))
+(custom-set-variables '(el-get-git-shallow-clone t)
+                      '(el-get-bundle-sync nil))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
