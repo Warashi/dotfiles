@@ -424,7 +424,8 @@ init.el: README.org
   :require t
   :after yasnippet)
 (leaf ivy-yasnippet
-  :straight t)
+  :straight t
+  :bind (("C-c y" . ivy-yasnippet)))
 #+end_src
 
 *** magit
