@@ -255,6 +255,13 @@ init.el: README.org
   :bind ("C-c o" . ace-window))
 #+end_src
 
+*** minibufferにmodelineの情報を出すやつ
+#+begin_src emacs-lisp
+(el-get-bundle mini-modeline
+  :el-get t
+  :hook (after-init-hook . mini-modeline-mode))
+#+end_src
+
 *** languages
 #+begin_src emacs-lisp
 (leaf go-mode
