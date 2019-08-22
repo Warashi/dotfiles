@@ -7,7 +7,7 @@ init.el: README.org
 		"(progn \
 			(require 'ob-tangle) \
 			(org-babel-tangle-file \"$<\" \"$@\" \"emacs-lisp\"))"
-	$(EMACS) -q -l init.el --batch --eval '(kill-emacs)'
+	$(EMACS) -q -l init.el --batch --eval '(straight--transaction-finalize)' --eval '(kill-emacs)'
 %.elc: %.el
 	$(EMACS) -q -l init.el --batch -f batch-byte-compile $<
 #+end_src
@@ -60,28 +60,29 @@ init.el: README.org
 (add-hook 'after-init-hook #'(lambda () (load-file custom-file)))
 #+end_src
 
-** setup el-get and leaf
-*** install el-get
+** setup straight.el and leaf
+*** install straight.el
 #+begin_src emacs-lisp
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
-(custom-set-variables '(el-get-git-shallow-clone t)
-                      '(el-get-bundle-sync t))
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path (locate-user-emacs-file "el-get-user/recipes"))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+(custom-set-variables '(straight-vc-git-default-clone-depth 1))
 #+end_src
 
 *** install leaf
 #+begin_src emacs-lisp
-(el-get-bundle leaf)
-(el-get-bundle leaf-keywords
-  (leaf-keywords-init))
+(straight-use-package 'leaf)
+(straight-use-package 'leaf-keywords)
+(leaf-keywords-init)
 #+end_src
 
 ** 基本的なUI/UX設定
@@ -233,8 +234,8 @@ init.el: README.org
 ** package setup
 *** solarized-theme
 #+begin_src emacs-lisp
-(leaf solarized-emacs
-  :el-get t
+(leaf solarized-theme
+  :straight t
   :config
   (load-theme 'solarized-dark t))
 #+end_src
@@ -242,7 +243,7 @@ init.el: README.org
 *** exec-path-from-shell
 #+begin_src emacs-lisp
 (leaf exec-path-from-shell
-  :el-get t
+  :straight t
   :hook (after-init-hook . exec-path-from-shell-initialize)
   :config
   (add-to-list 'exec-path-from-shell-variables "EMAIL"))
@@ -251,89 +252,92 @@ init.el: README.org
 *** ace-window
 #+begin_src emacs-lisp
 (leaf ace-window
-  :el-get t
+  :straight t
   :bind ("C-c o" . ace-window))
 #+end_src
 
 *** minibufferにmodelineの情報を出すやつ
 #+begin_src emacs-lisp
 (leaf smart-mode-line
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . sml/setup))
 (leaf mini-modeline
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . mini-modeline-mode))
 #+end_src
 
 *** languages
 #+begin_src emacs-lisp
 (leaf go-mode
-  :el-get t)
+  :straight t)
 (leaf rust-mode
-  :el-get t)
+  :straight t)
 (leaf dockerfile-mode
-  :el-get t)
+  :straight t)
 (leaf yaml-mode
-  :el-get t)
+  :straight t)
 (leaf fish-mode
-  :el-get t)
+  :straight t)
 (leaf markdown-mode
-  :el-get t)
+  :straight t)
 (leaf edit-indirect
-  :el-get t)
+  :straight t)
 #+end_src
 
 *** language server protocol
 #+begin_src emacs-lisp
 (leaf lsp-mode
-  :el-get t
+  :straight t
   :hook ((go-mode-hook . lsp)
          (rust-mode-hook . lsp)
          (scala-mode-hook . lsp)))
 (leaf lsp-ui
-  :el-get t
+  :straight t
   :hook ((lsp-mode-hook . lsp-ui-mode)))
 #+end_src
 
 *** prescient
 #+begin_src emacs-lisp
 (leaf prescient
-  :el-get t
+  :straight t
   :hook ((emacs-startup-hook . prescient-persist-mode)))
 #+end_src
 
 *** company
 #+begin_src emacs-lisp
 (leaf company
-  :el-get company-mode
+  :straight t
   :hook (emacs-startup-hook . global-company-mode)
-  :custom (company-global-modes . '(not org-mode text-mode))
-  :bind (("C-c y" . company-yasnippet)))
+  :custom (company-global-modes . '(not org-mode text-mode)))
 (leaf company-lsp
-  :el-get t
+  :straight t
   :after company-mode
   :config
   (add-to-list 'company-backends 'company-lsp))
 (leaf company-prescient
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . company-prescient-mode))
 (leaf company-posframe
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . company-posframe-mode))
 #+end_src
 
 *** ivy, counsel, swiper
 #+begin_src emacs-lisp
+(leaf ivy
+  :straight t
+  :hook ((emacs-startup-hook . ivy-mode)))
+(leaf counsel
+  :straight t
+  :hook (emacs-startup-hook . counsel-mode))
 (leaf swiper
-  :el-get t
-  :bind ("M-s M-s" . swiper)
-  :hook ((emacs-startup-hook . ivy-mode)
-         (emacs-startup-hook . counsel-mode)))
+  :straight t
+  :bind ("M-s M-s" . swiper))
 (leaf ivy-prescient
-  :el-get t
+  :straight t
   :hook ((emacs-startup-hook . ivy-prescient-mode)))
 (leaf ivy-posframe
-  :el-get t
+  :straight t
   :hook ((emacs-startup-hook . ivy-posframe-mode))
   :custom ((ivy-posframe-display-functions-alist . '((swiper          . nil)
                                                      (complete-symbol . ivy-posframe-display-at-point)
@@ -344,59 +348,59 @@ init.el: README.org
 *** editorconfig
 #+begin_src emacs-lisp
 (leaf editorconfig
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . editorconfig-mode))
 #+end_src
 
 *** outshine
 #+begin_src emacs-lisp
 (leaf outshine
-  :el-get t
+  :straight t
   :bind (("C-c q" . outshine-cycle)))
 #+end_src
 
 *** highlight-symbol
 #+begin_src emacs-lisp
 (leaf highlight-symbol
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . highlight-symbol-mode))
 #+end_src
 
 *** M-n, M-pとかの区切りを日本語対応するやつ
 #+begin_src emacs-lisp
 (leaf jaword
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . global-jaword-mode))
 #+end_src
 
 *** C-yとかで変更のあった場所をハイライトするやつ
 #+begin_src emacs-lisp
 (leaf volatile-highlights
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . volatile-highlights-mode))
 #+end_src
 
 *** 途中までコマンドのキー入力したら候補を表示するやつ
 #+begin_src emacs-lisp
 (leaf which-key
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . which-key-mode))
 #+end_src
 
 *** 括弧のネストに合わせて色をつけるやつ
 #+begin_src emacs-lisp
 (leaf rainbow-delimiters
-  :el-get t
+  :straight t
   :hook (prog-mode-hook . rainbow-delimiters-mode-enable))
 #+end_src
 
 *** regexpをpythonのやつをつかえるようにする
 #+begin_src emacs-lisp
 (leaf visual-regexp
-  :el-get t
+  :straight t
   :bind (("C-c r" . vr/replace)))
 (leaf visual-regexp-steroids
-  :el-get t
+  :straight t
   :require t
   :after visual-regexp)
 #+end_src
@@ -404,27 +408,29 @@ init.el: README.org
 *** undo強化
 #+begin_src emacs-lisp
 (leaf undo-tree
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . global-undo-tree-mode))
 #+end_src
 
 *** snippet
 #+begin_src emacs-lisp
 (leaf yasnippet
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . yas-global-mode)
   :config
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 (leaf yasnippet-snippets
-  :el-get t
+  :straight t
   :require t
   :after yasnippet)
+(leaf ivy-yasnippet
+  :straight t)
 #+end_src
 
 *** magit
 #+begin_src emacs-lisp
 (leaf magit
-  :el-get t
+  :straight t
   :bind (("C-c g" . magit-status))
   :custom ((magit-completing-read-function . 'ivy-completing-read)))
 #+end_src
@@ -432,7 +438,7 @@ init.el: README.org
 *** direnv
 #+begin_src emacs-lisp
 (leaf direnv
-  :el-get t
+  :straight t
   :hook (emacs-startup-hook . direnv-mode))
 #+end_src
 
@@ -472,8 +478,7 @@ init.el: README.org
 *** org-mode
 #+begin_src emacs-lisp
 (leaf org
-  :el-get '(org-plus-contrib
-            :repo ("org" . "https://orgmode.org/elpa/"))
+  :straight org org-plus-contrib
   :commands (org-clock-is-active)
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda))
@@ -490,11 +495,7 @@ init.el: README.org
                                       ("w" "TODO" entry (file+headline "task.org" "Task") "** TODO %?\n")))))
 
 (leaf ox-hugo
-  :el-get t
+  :straight t
   :after ox)
 #+end_src
 
-** el-get sync
-#+begin_src emacs-lisp
-(el-get 'sync)
-#+end_src
