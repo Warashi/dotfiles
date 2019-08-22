@@ -299,6 +299,9 @@ init.el: README.org
 (leaf company-prescient
   :el-get t
   :hook (after-init-hook . company-prescient-mode))
+(leaf company-posframe
+  :el-get t
+  :hook (after-init-hook . company-posframe-mode))
 #+end_src
 
 *** ivy, counsel, swiper
@@ -310,6 +313,12 @@ init.el: README.org
 (leaf ivy-prescient
   :el-get t
   :hook ((after-init-hook . ivy-prescient-mode)))
+(leaf ivy-posframe
+  :el-get t
+  :hook ((after-init-hook . ivy-posframe-mode))
+  :custom ((ivy-posframe-display-functions-alist . '((swiper          . nil)
+                                                     (complete-symbol . ivy-posframe-display-at-point)
+                                                     (t               . ivy-posframe-display-at-frame-center)))))
 #+end_src
 
 *** editorconfig
