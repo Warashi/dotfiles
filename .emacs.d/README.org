@@ -209,6 +209,7 @@ init.el: README.org
 ***** emacs-mac はこっち
 #+begin_src emacs-lisp
 (leaf input-emacs-mac
+  :leaf-autoload nil
   :when (fboundp #'mac-auto-ascii-mode)
   :load-path `(,(locate-user-emacs-file "site-lisp"))
   :require fix-mac-auto-ascii-mode
