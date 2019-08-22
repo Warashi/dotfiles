@@ -65,7 +65,7 @@ init.el: README.org
 #+begin_src emacs-lisp
 (add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
 (custom-set-variables '(el-get-git-shallow-clone t)
-                      '(el-get-bundle-sync nil))
+                      '(el-get-bundle-sync t))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -477,5 +477,5 @@ init.el: README.org
 
 ** el-get sync
 #+begin_src emacs-lisp
-(el-get)
+(el-get 'sync)
 #+end_src
