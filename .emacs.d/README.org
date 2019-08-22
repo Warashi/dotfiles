@@ -257,9 +257,9 @@ init.el: README.org
 
 *** minibufferにmodelineの情報を出すやつ
 #+begin_src emacs-lisp
-(el-get-bundle mini-modeline
+(leaf mini-modeline
   :el-get t
-  :hook (after-init-hook . mini-modeline-mode))
+  :hook (emacs-startup-hook . mini-modeline-mode))
 #+end_src
 
 *** languages
