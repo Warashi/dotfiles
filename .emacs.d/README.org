@@ -257,6 +257,9 @@ init.el: README.org
 
 *** minibufferにmodelineの情報を出すやつ
 #+begin_src emacs-lisp
+(leaf smart-mode-line
+  :el-get t
+  :hook (emacs-startup-hook . sml/setup))
 (leaf mini-modeline
   :el-get t
   :hook (emacs-startup-hook . mini-modeline-mode))
