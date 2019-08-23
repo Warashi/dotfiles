@@ -232,12 +232,12 @@ init.el: README.org
 #+end_src
 
 ** package setup
-*** solarized-theme
+*** doom-one-theme
 #+begin_src emacs-lisp
-(leaf solarized-theme
+(leaf doom-themes
   :straight t
   :config
-  (load-theme 'solarized-dark t))
+  (load-theme 'doom-one t))
 #+end_src
 
 *** exec-path-from-shell
