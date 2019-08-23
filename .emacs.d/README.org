@@ -261,7 +261,12 @@ init.el: README.org
 #+begin_src emacs-lisp
 (leaf smart-mode-line
   :straight t
+  :custom (sml/no-confirm-load-theme . t)
   :hook (emacs-startup-hook . sml/setup))
+(leaf rich-minority
+  :straight t
+  :custom ((rm-blacklist . ".*"))
+  :hook (emacs-startup-hook . rich-minority-mode))
 (leaf mini-modeline
   :straight t
   :hook (emacs-startup-hook . mini-modeline-mode))
