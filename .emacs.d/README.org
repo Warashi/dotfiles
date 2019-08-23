@@ -61,7 +61,6 @@ init.el: README.org
 (substitute-key-definition 'dabbrev-expand 'hippie-expand global-map)
 #+end_src
 
-
 ** setup straight.el and leaf
 *** install straight.el
 #+begin_src emacs-lisp
