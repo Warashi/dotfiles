@@ -24,6 +24,13 @@ init.el: README.org
   (setq user-emacs-directory (file-name-directory load-file-name)))
 #+end_src
 
+** M-x customize したときの設定保存場所を変える
+#+begin_src emacs-lisp
+(setq custom-file (locate-user-emacs-file "customize.el"))
+(when (file-readable-p custom-file)
+  (load-file custom-file))
+#+end_src
+
 ** /site-lisp を load-path に追加
 #+begin_src emacs-lisp
 (add-to-list 'load-path (locate-user-emacs-file "site-lisp"))
@@ -54,11 +61,6 @@ init.el: README.org
 (substitute-key-definition 'dabbrev-expand 'hippie-expand global-map)
 #+end_src
 
-** M-x customize したときの設定保存場所を変える
-#+begin_src emacs-lisp
-(setq custom-file (locate-user-emacs-file "customize.el"))
-(add-hook 'after-init-hook #'(lambda () (load-file custom-file)))
-#+end_src
 
 ** setup straight.el and leaf
 *** install straight.el
