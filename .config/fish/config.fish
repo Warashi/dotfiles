@@ -36,5 +36,6 @@ alias tmux 'direnv exec / tmux'
 
 source /usr/local/opt/asdf/asdf.fish
 if status --is-interactive
-    source (direnv hook fish|psub)
+    eval (direnv hook fish)
+    eval (starship init fish)
 end
