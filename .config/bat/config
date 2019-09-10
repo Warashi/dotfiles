@@ -1,1 +1,1 @@
---theme="Solarized (dark)"
+--theme="Dracula"
