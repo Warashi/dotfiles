@@ -16,7 +16,7 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $GOPATH/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 
-set -x FZF_TMUX 1
+set -x FZF_CMD sk
 set -x FZF_HISTORY_SYNC 1
 set -x FZF_DEFAULT_OPTS "--reverse --color dark --height 10"
 
