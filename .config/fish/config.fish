@@ -36,6 +36,7 @@ alias p gopass
 alias tmux 'direnv exec / tmux'
 
 source /usr/local/opt/asdf/asdf.fish
+source ~/.asdf/plugins/java/set-java-home.fish
 if status --is-interactive
     eval (direnv hook fish)
     eval (starship init fish)
