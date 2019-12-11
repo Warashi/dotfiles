@@ -26,6 +26,7 @@ set -x EDITOR emacsclient
 
 set -x GO111MODULE on
 
+alias k kubectl
 alias v vim
 alias e emacsclient
 alias ls exa
