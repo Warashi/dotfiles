@@ -1,6 +1,3 @@
-[ghq]
-	root = ~/.ghq
-	root = ~/go/src
 [user]
 	name = Shinnosuke Sawada
 [push]
