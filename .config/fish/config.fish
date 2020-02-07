@@ -15,11 +15,7 @@ set -x FZF_HISTORY_SYNC 1
 set -x FZF_DEFAULT_OPTIONS "--reverse --color dark --height 10"
 set -x GHQ_OPTIONS "--vcs=git"
 
-set -x PIPENV_VENV_IN_PROJECT true
-
 set -x EDITOR emacsclient
-
-set -x GO111MODULE on
 
 alias k kubectl
 alias v vim
@@ -30,9 +26,6 @@ alias g git
 alias p gopass
 alias tmux 'direnv exec / tmux'
 
-source /usr/local/opt/asdf/asdf.fish
-source ~/.asdf/plugins/java/set-java-home.fish
 if status --is-interactive
     eval (direnv hook fish)
-    eval (starship init fish)
 end
