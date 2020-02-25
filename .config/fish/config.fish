@@ -21,6 +21,7 @@ alias k kubectl
 alias v vim
 alias e emacsclient
 alias s subl
+alias m smerge
 alias ls exa
 alias git hub
 alias g git
