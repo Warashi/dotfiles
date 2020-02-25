@@ -1,6 +1,5 @@
-[user]
-	name = Shinnosuke Sawada
-	email = 6warashi9@gmail.com
+[include]
+	path = ~/.config/git/local
 [push]
 	default = simple
 [alias]
