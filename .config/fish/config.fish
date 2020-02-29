@@ -15,7 +15,7 @@ set -x FZF_HISTORY_SYNC 1
 set -x FZF_DEFAULT_OPTIONS "--reverse --color dark --height 10"
 set -x GHQ_OPTIONS "--vcs=git"
 
-set -x EDITOR "subl -w"
+set -x EDITOR EDITOR.sh
 
 alias k kubectl
 alias v vim
