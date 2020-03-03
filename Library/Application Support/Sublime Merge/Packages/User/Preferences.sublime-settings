@@ -1,5 +1,5 @@
 {
 	"font_face": "Source Han Code JP",
-	"font_size": 14,
 	"theme": "Merge Dark.sublime-theme",
+	"translate_tabs_to_spaces": true
 }
