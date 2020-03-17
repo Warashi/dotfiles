@@ -6,6 +6,7 @@ set -x GOPATH $HOME/go
 
 set -x PATH /usr/local/sbin $PATH
 set -x PATH /usr/local/opt/texinfo/bin $PATH
+set -x PATH $HOME/Library/Python/3.7/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $GOPATH/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
