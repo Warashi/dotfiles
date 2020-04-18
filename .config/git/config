@@ -31,3 +31,5 @@
 	protocol = https
 [user]
 	useConfigOnly = true
+[commit]
+	gpgsign = true
