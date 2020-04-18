@@ -17,6 +17,7 @@
         sp = stash pop
         ss = stash save
         gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 [github]
 	user = Warashi
 [filter "lfs"]
@@ -28,3 +29,5 @@
 	helper = osxkeychain
 [hub]
 	protocol = https
+[user]
+	useConfigOnly = true
