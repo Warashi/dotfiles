@@ -7,8 +7,7 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"zzz A File Icon zzz"
+		"Vintage"
 	],
 	"line_padding_bottom": 2,
 	"line_padding_top": 2,
