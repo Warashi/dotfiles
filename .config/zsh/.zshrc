@@ -33,6 +33,8 @@ zinit light-mode for \
 
 [[ -f ~/.config/zsh/fzf.zsh ]] && source ~/.config/zsh/fzf.zsh
 
+eval "$(direnv hook zsh)"
+
 export EDITOR=EDITOR.sh
 export PIPENV_VENV_IN_PROJECT=1
 export GOPATH=$HOME/go
