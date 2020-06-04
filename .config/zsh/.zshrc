@@ -21,6 +21,9 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+setopt inc_append_history
+setopt share_history
+
 zinit ice depth=1
 
 zinit light-mode for \
@@ -41,6 +44,7 @@ export GOPATH=$HOME/go
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export DOCKER_BUILDKIT=1
 
 alias k=kubectl
 alias s=subl
