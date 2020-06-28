@@ -38,6 +38,7 @@ zinit light-mode for \
 
 eval "$(direnv hook zsh)"
 
+DISABLE_AUTO_TITLE="true"
 export EDITOR=EDITOR.sh
 export PIPENV_VENV_IN_PROJECT=1
 export GOPATH=$HOME/go
