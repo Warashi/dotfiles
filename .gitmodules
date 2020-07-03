@@ -1,6 +1,0 @@
-[submodule ".config/bat/themes/dracula"]
-	path = .config/bat/themes/dracula
-	url = https://github.com/dracula/sublime.git
-[submodule ".config/bat/themes/solarized-sublime"]
-	path = .config/bat/themes/solarized-sublime
-	url = https://github.com/paulcpederson/solarized-sublime.git
