@@ -61,6 +61,7 @@ export PATH=$HOME/.local/bin:$PATH
 export DOCKER_BUILDKIT=1
 
 alias k=kubectl
+alias kx=kubectx
 alias s=subl
 alias m=smerge
 alias ls=exa
