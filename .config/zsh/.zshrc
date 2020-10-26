@@ -47,7 +47,7 @@ zinit light-mode for \
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-[[ -f ~/.config/zsh/fzf.zsh ]] && source ~/.config/zsh/fzf.zsh
+[[ -f ~/.config/zsh/skim.zsh ]] && source ~/.config/zsh/skim.zsh
 
 eval "$(direnv hook zsh)"
 
