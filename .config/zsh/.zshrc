@@ -65,6 +65,7 @@ export DOCKER_BUILDKIT=1
 
 alias k=kubectl
 alias kx=kubectx
+alias k9s="command k9s --readonly"
 alias s=subl
 alias m=smerge
 alias ls=exa
