@@ -1,3 +1,6 @@
+### tmux auto attach
+[[ -v TMUX ]] || exec direnv exec / tmux attach
+[[ -v REATTACHED ]] || exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.config/zsh/.zinit/bin/zinit.zsh ]]; then
