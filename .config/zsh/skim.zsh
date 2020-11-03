@@ -1,5 +1,5 @@
 function skim-ghq() {
-	ghq list --full-path --vcs=git | sk --query "$LBUFFER" --preview="exa -alh {}" | read RBUFFER
+	ghq list --full-path --vcs=git | sk --preview="exa -alh {}" | read RBUFFER
 	CURSOR=${#BUFFER}
 }
 function skim-history() {
