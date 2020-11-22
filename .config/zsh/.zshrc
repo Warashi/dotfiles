@@ -1,5 +1,5 @@
 ### tmux auto attach
-[[ -v TMUX ]] || exec direnv exec / tmux attach
+[[ -v TMUX ]] || exec direnv exec / tmux new-session -t 0
 [[ -v REATTACHED ]] || exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
 
 ### Added by Zinit's installer
