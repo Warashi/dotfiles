@@ -69,7 +69,6 @@ alias k9s="command k9s --readonly"
 alias s=subl
 alias m=smerge
 alias ls=exa
-alias g=hub
-alias git=hub
+alias g=git
 
 autoload -Uz compinit; compinit; zinit cdreplay -q 
