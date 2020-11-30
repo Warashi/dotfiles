@@ -26,7 +26,6 @@ alias kx kubectx
 alias s subl
 alias m smerge
 alias ls exa
-alias git hub
 alias g git
 alias tmux 'direnv exec / tmux'
 
