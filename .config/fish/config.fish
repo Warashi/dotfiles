@@ -18,11 +18,13 @@ set -x FZF_HISTORY_SYNC 1
 set -x FZF_DEFAULT_OPTIONS "--reverse --color dark --height 10"
 set -x GHQ_OPTIONS "--vcs=git"
 set -x PIPENV_VENV_IN_PROJECT 1
+set -x DOCKER_BUILDKIT 1
 
 set -x EDITOR EDITOR.sh
 
 alias k kubectl
 alias kx kubectx
+alias k9s 'command k9s --readonly'
 alias s subl
 alias m smerge
 alias ls exa
