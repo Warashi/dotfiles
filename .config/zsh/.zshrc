@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ### tmux auto attach
 [[ -v TMUX ]] || exec direnv exec / tmux new-session -t 0
 [[ -v REATTACHED ]] || exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
@@ -50,12 +43,8 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 zinit ice depth=1
 
 zinit light-mode for \
-	zsh-users/zsh-autosuggestions \
-    zdharma/fast-syntax-highlighting \
-    romkatv/powerlevel10k
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+    zsh-users/zsh-autosuggestions \
+    zdharma/fast-syntax-highlighting
 
 [[ -f ~/.config/zsh/skim.zsh ]] && source ~/.config/zsh/skim.zsh
 
@@ -64,9 +53,8 @@ eval "$(direnv hook zsh)"
 DISABLE_AUTO_TITLE="true"
 export EDITOR=EDITOR.sh
 export PIPENV_VENV_IN_PROJECT=1
-export GOPATH=$HOME/go
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
+whence rustup &> /dev/null && export PATH=$HOME/.cargo/bin:$PATH
+whence go &> /dev/null && export PATH=$(go env GOPATH)/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export DOCKER_BUILDKIT=1
 
@@ -78,4 +66,6 @@ alias m=smerge
 alias ls=exa
 alias g=git
 
-autoload -Uz compinit; compinit; zinit cdreplay -q 
+autoload -Uz compinit; compinit -u; zinit cdreplay -q 
+eval "$(starship init zsh)"
+
