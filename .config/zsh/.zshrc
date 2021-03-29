@@ -51,7 +51,7 @@ zinit light-mode for \
 eval "$(direnv hook zsh)"
 
 DISABLE_AUTO_TITLE="true"
-export EDITOR=EDITOR.sh
+export EDITOR=vim
 export PIPENV_VENV_IN_PROJECT=1
 whence rustup &> /dev/null && export PATH=$HOME/.cargo/bin:$PATH
 whence go &> /dev/null && export PATH=$(go env GOPATH)/bin:$PATH
@@ -60,11 +60,13 @@ export DOCKER_BUILDKIT=1
 
 alias k=kubectl
 alias kx=kubectx
-alias k9s="command k9s --readonly"
+alias k9s='command k9s --readonly'
 alias s=subl
 alias m=smerge
 alias ls=exa
 alias g=git
+alias ll='ls -al'
+alias la='ls -a'
 
 autoload -Uz compinit; compinit -u; zinit cdreplay -q 
 eval "$(starship init zsh)"
