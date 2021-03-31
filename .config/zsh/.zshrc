@@ -51,7 +51,7 @@ zinit light-mode for \
 eval "$(direnv hook zsh)"
 
 DISABLE_AUTO_TITLE="true"
-export EDITOR=vim
+export EDITOR=nvim
 export PIPENV_VENV_IN_PROJECT=1
 whence rustup &> /dev/null && export PATH=$HOME/.cargo/bin:$PATH
 whence go &> /dev/null && export PATH=$(go env GOPATH)/bin:$PATH
@@ -67,6 +67,7 @@ alias ls=exa
 alias g=git
 alias ll='ls -al'
 alias la='ls -a'
+alias v=nvim
 
 autoload -Uz compinit; compinit -u; zinit cdreplay -q 
 eval "$(starship init zsh)"
