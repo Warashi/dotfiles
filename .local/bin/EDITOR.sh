@@ -1,2 +1,2 @@
 #!/bin/sh
-exec subl -w "$@"
+exec code -w "$@"
