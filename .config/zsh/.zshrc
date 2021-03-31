@@ -2,6 +2,13 @@
 [[ -v TMUX ]] || exec direnv exec / tmux new-session -t 0
 [[ -v REATTACHED ]] || exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.config/zsh/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
@@ -24,6 +31,8 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+bindkey -v
+
 HISTSIZE=100000000
 SAVEHIST=100000000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
@@ -43,6 +52,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 zinit ice depth=1
 
 zinit light-mode for \
+    romkatv/powerlevel10k \
     zsh-users/zsh-autosuggestions \
     zdharma/fast-syntax-highlighting
 
@@ -70,5 +80,6 @@ alias la='ls -a'
 alias v=nvim
 
 autoload -Uz compinit; compinit -u; zinit cdreplay -q 
-eval "$(starship init zsh)"
 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
