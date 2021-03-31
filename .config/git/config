@@ -35,6 +35,8 @@
 [commit]
     gpgsign = true
 [pull]
-	ff = only
+    ff = only
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[diff]
+    algorithm = histogram
