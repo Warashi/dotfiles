@@ -32,6 +32,7 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 bindkey -v
+KEYTIMEOUT=1
 
 HISTSIZE=100000000
 SAVEHIST=100000000
