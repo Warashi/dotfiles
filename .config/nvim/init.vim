@@ -11,6 +11,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-goimports'
 call plug#end()
 
+set timeoutlen=1000 ttimeoutlen=0
 syntax enable
 set background=dark
 
