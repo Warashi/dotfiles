@@ -54,6 +54,7 @@ zinit ice depth=1
 
 zinit light-mode for \
     romkatv/powerlevel10k \
+    zsh-users/zsh-autosuggestions \
     zdharma/fast-syntax-highlighting
 
 [[ -f ~/.config/zsh/skim.zsh ]] && source ~/.config/zsh/skim.zsh
