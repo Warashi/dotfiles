@@ -68,6 +68,7 @@ whence rustup &> /dev/null && export PATH=$HOME/.cargo/bin:$PATH
 whence go &> /dev/null && export PATH=$(go env GOPATH)/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export DOCKER_BUILDKIT=1
+export BW_SESSION
 
 alias k=kubectl
 alias kx=kubectx
@@ -79,6 +80,8 @@ alias g=git
 alias ll='ls -al'
 alias la='ls -a'
 alias v=nvim
+alias bwu='bw unlock --raw | read BW_SESSION'
+alias bwl='bw lock'
 
 autoload -Uz compinit; compinit -u; zinit cdreplay -q 
 
