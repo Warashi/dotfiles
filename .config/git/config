@@ -40,3 +40,7 @@
 	defaultBranch = main
 [diff]
 	algorithm = histogram
+[fetch]
+	prune = true
+[merge]
+	ff = false
