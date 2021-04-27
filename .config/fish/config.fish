@@ -20,7 +20,7 @@ set -x GHQ_OPTIONS "--vcs=git"
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x DOCKER_BUILDKIT 1
 
-set -x EDITOR EDITOR.sh
+set -x EDITOR nvim
 
 alias k kubectl
 alias kx kubectx
@@ -30,7 +30,9 @@ alias m smerge
 alias ls exa
 alias g git
 alias tmux 'direnv exec / tmux'
+alias v nvim
 
 if status --is-interactive
-    eval (direnv hook fish)
+  eval (direnv hook fish)
+  fish_vi_key_bindings
 end
