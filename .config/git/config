@@ -3,17 +3,16 @@
 [push]
 	default = simple
 [alias]
-	s = status -uno
-	co = checkout
-	com = checkout master
-	cob = checkout -b
+	st = status -unormal
 	b = branch
 	tb = symbolic-ref --short HEAD
-	c = commit
+	co = commit
+	fa = fetch --all --prune
+	sw = switch
+	sc = switch -c
 	d = diff
 	dw = diff --word-diff
 	dn = diff --name-only
-	g = grep
 	sp = stash pop
 	ss = stash save
 	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
@@ -44,3 +43,4 @@
 	prune = true
 [merge]
 	ff = false
+	conflictStyle = diff3
