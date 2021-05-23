@@ -18,6 +18,7 @@
 	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; git config hub.host \"$(git config user.$1.host)\"; :"
 	copr = "! gh pr list | sk | awk '{ print $1 }' | xargs gh pr checkout"
+	wr = "! git worktree add -f /Volumes/ramdisk/$(basename $(pwd)) HEAD"
 [github]
 	user = Warashi
 [filter "lfs"]
