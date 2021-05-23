@@ -1,0 +1,4 @@
+nnoremap ,a :action GotoAction<CR>
+nnoremap ,e :action SearchEverywhere<CR>
+nnoremap ,i :action ImplementMethods<CR>
+nnoremap ,g :action Generate<CR>
