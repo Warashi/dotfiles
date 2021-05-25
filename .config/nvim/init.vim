@@ -10,6 +10,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-goimports'
 Plug 'lifepillar/vim-solarized8'
+Plug 'dag/vim-fish'
 call plug#end()
 
 set timeoutlen=1000 ttimeoutlen=0
