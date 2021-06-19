@@ -46,3 +46,15 @@
 [merge]
 	ff = false
 	conflictStyle = diff3
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+[delta]
+	features = side-by-side line-numbers decorations
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+
