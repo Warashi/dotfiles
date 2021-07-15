@@ -33,6 +33,6 @@ alias tmux 'direnv exec / tmux'
 alias v nvim
 
 if status --is-interactive
-  eval (direnv hook fish)
+  type -q direnv ;and eval (direnv hook fish)
   fish_vi_key_bindings
 end
