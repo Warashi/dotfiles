@@ -34,5 +34,6 @@ alias v nvim
 
 if status --is-interactive
   type -q direnv ;and eval (direnv hook fish)
+  type -q pyenv ;and eval (pyenv init --path)
   fish_vi_key_bindings
 end
