@@ -11,6 +11,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-goimports'
 Plug 'lifepillar/vim-solarized8'
 Plug 'dag/vim-fish'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 set timeoutlen=1000 ttimeoutlen=0
@@ -22,6 +23,10 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
 syntax enable
 set background=dark
 colorscheme solarized8
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 autocmd FileType go setlocal omnifunc=lsp#complete
 let g:goimports_simplify = 1
