@@ -31,6 +31,7 @@ alias ls exa
 alias g git
 alias tmux 'direnv exec / tmux'
 alias v nvim
+alias t telepresence
 
 if status --is-interactive
   type -q direnv ;and eval (direnv hook fish)
