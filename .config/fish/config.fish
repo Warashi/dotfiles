@@ -1,5 +1,5 @@
 if status --is-interactive 
-  set -q TMUX ;or exec direnv exec / tmux new-session -t 0
+  set -q TMUX ;or exec direnv exec / tmux -CC new-session -t 0
   set -q REATTACHED ;or exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
 end
 
