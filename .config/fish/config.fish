@@ -37,4 +37,9 @@ if status --is-interactive
   type -q direnv ;and eval (direnv hook fish)
   type -q pyenv ;and eval (pyenv init --path)
   fish_vi_key_bindings
+  set fish_vi_force_cursor true
+  set fish_cursor_default block
+  set fish_cursor_insert line
+  set fish_cursor_replace_one underscore
+  set fish_cursor_visual block
 end
