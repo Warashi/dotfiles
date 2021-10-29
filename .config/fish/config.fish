@@ -1,6 +1,6 @@
 if status --is-interactive 
-  # set -q TMUX ;or exec direnv exec / tmux new-session -t 0
-  # set -q REATTACHED ;or exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
+  set -q TMUX ;or exec direnv exec / tmux new-session -t 0
+  set -q REATTACHED ;or exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
 end
 
 set fish_complete_path /usr/local/share/fish/vendor_completions.d $fish_complete_path
