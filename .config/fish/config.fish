@@ -19,7 +19,7 @@ set -x FZF_DEFAULT_OPTIONS "--reverse --color dark --height 10"
 set -x GHQ_OPTIONS "--vcs=git"
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x DOCKER_BUILDKIT 1
-set -x SUDO_PROMPT "SUDO_PROMPT=[sudo] password for %p:"
+set -x SUDO_PROMPT "[sudo] password for %p:"
 
 set -x EDITOR nvim
 
