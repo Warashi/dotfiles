@@ -20,7 +20,7 @@
 	copr = "! gh pr list | sk | awk '{ print $1 }' | xargs gh pr checkout"
 	wr = "! git worktree add -f /Volumes/ramdisk/$(basename $(pwd)) HEAD"
 	release = "!gh pr create --draft --assignee '@me' --base master --head develop --title release --fill"
-	delete-merged = "git branch --merged | cut -c3- | xargs git branch -d"
+	delete-merged = "!git branch --merged | cut -c3- | xargs git branch -d"
 [github]
 	user = Warashi
 [filter "lfs"]
