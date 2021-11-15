@@ -35,8 +35,9 @@ alias v nvim
 alias t telepresence
 
 if status --is-interactive
-  type -q direnv ;and eval (direnv hook fish)
-  type -q pyenv ;and eval (pyenv init --path)
+  type -q direnv ;and source (direnv hook fish | psub)
+  type -q pyenv ;and source (pyenv init --path | psub)
+  type -q jump; ;and source (jump shell fish | psub)
   fish_vi_key_bindings
   set fish_vi_force_cursor true
   set fish_cursor_default block
