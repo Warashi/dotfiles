@@ -1,5 +1,3 @@
-[include]
-	path = ~/.config/git/local
 [push]
 	default = simple
 [alias]
@@ -59,4 +57,5 @@
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
-
+[include]
+	path = ~/.config/git/local
