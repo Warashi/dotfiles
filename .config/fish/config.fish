@@ -34,9 +34,12 @@ alias tmux 'direnv exec / tmux'
 alias v nvim
 alias t telepresence
 
+if status --is-login
+  type -q pyenv ;and source (pyenv init --path | psub)
+end
 if status --is-interactive
   type -q direnv ;and source (direnv hook fish | psub)
-  type -q pyenv ;and source (pyenv init --path | psub)
+  type -q pyenv ;and source (pyenv init - | psub)
   type -q jump; ;and source (jump shell fish | psub)
   fish_vi_key_bindings
   set fish_vi_force_cursor true
