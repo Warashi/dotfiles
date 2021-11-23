@@ -20,6 +20,7 @@ set -x GHQ_OPTIONS "--vcs=git"
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x DOCKER_BUILDKIT 1
 set -x SUDO_PROMPT "[sudo] password for %p:"
+set -x ORG_JETBRAINS_PROJECTOR_SERVER_AUTO_KEYMAP false
 
 set -x EDITOR nvim
 
