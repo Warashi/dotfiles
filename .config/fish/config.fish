@@ -40,9 +40,10 @@ if status --is-login
   type -q pyenv ;and source (pyenv init --path | psub)
 end
 if status --is-interactive
-  type -q direnv ;and source (direnv hook fish | psub)
-  type -q pyenv ;and source (pyenv init - | psub)
-  type -q jump; ;and source (jump shell fish | psub)
+  type -q direnv ;and direnv hook fish | source
+  type -q pyenv ;and pyenv init - | source
+  type -q jump; ;and jump shell fish | source
+  type -q starship ;and starship init fish | source
   fish_vi_key_bindings
   set fish_vi_force_cursor true
   set fish_cursor_default block
