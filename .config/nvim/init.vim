@@ -28,9 +28,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-autocmd FileType go setlocal omnifunc=lsp#complete
-let g:goimports_simplify = 1
-
 lua << EOF
 local custom_lsp_attach = function(client)
   -- See `:help nvim_buf_set_keymap()` for more information
