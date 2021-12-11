@@ -1,3 +1,13 @@
+if ! set -q HOMEBREW_SETUP_DONE
+  # homebrew
+  ## Intel
+  test -x /usr/local/bin/brew && /usr/local/bin/brew shellenv | source
+  ## M1
+  test -x /opt/homebrew/bin/brew && /opt/homebrew/bin/brew shellenv | source
+
+  set -x HOMEBREW_SETUP_DONE 1
+end
+
 if status --is-interactive 
   ! set -q TMUX ;and type -q tmux ;and exec direnv exec / tmux -CC new-session -t 0
   ! set -q REATTACHED ;and type -q reattach-to-user-namespace; and exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
