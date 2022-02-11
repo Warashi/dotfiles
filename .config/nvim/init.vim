@@ -27,6 +27,7 @@ colorscheme solarized8
 set expandtab
 set tabstop=2
 set shiftwidth=2
+set clipboard+=unnamedplus
 
 lua << EOF
 local custom_lsp_attach = function(client)
