@@ -9,9 +9,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mattn/vim-goimports'
-Plug 'lifepillar/vim-solarized8'
 Plug 'dag/vim-fish'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 set timeoutlen=1000 ttimeoutlen=0
@@ -22,7 +22,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
 
 syntax enable
 set background=dark
-colorscheme solarized8
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 set expandtab
 set tabstop=2
