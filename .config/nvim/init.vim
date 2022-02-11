@@ -28,6 +28,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set clipboard+=unnamedplus
+set number
 
 lua << EOF
 local custom_lsp_attach = function(client)
