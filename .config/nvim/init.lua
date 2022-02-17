@@ -1,37 +1,29 @@
-" install vim-plug
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+vim.cmd([[ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色 ]])
+vim.cmd([[ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色 ]])
 
-call plug#begin('~/.vim/plugged')
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'mattn/vim-goimports'
-Plug 'dag/vim-fish'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'morhetz/gruvbox'
-call plug#end()
+vim.g.gruvbox_italic = 1
 
-set timeoutlen=1000 ttimeoutlen=0
-set termguicolors
-" $TERMがxterm以外のときは以下を設定する必要がある。
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeoutlen = 0
+vim.opt.termguicolors = true
+vim.opt.background = 'dark'
+vim.opt.number = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.clipboard = 'unnamedplus'
 
-syntax enable
-set background=dark
-let g:gruvbox_italic=1
-colorscheme gruvbox
+vim.cmd 'colorscheme gruvbox'
 
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set clipboard+=unnamedplus
-set number
+require('jetpack').startup(function(use)
+  use 'neovim/nvim-lspconfig'
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'dag/vim-fish'
+  use 'editorconfig/editorconfig-vim'
+  use 'morhetz/gruvbox'
+end)
 
-lua << EOF
+---- lsp-settings ----
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -76,7 +68,9 @@ for _, lsp in pairs(servers) do
   }
 end
 
-require'nvim-treesitter.configs'.setup {
+
+---- nvim-treesitter ----
+require('nvim-treesitter.configs').setup {
   ensure_installed = "maintained",
   sync_install = false,
   highlight = {
@@ -84,4 +78,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-EOF
