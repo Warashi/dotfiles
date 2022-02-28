@@ -13,15 +13,28 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.clipboard = 'unnamedplus'
 
-vim.cmd 'colorscheme gruvbox'
-
 require('jetpack').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'nvim-treesitter/nvim-treesitter'
   use 'dag/vim-fish'
   use 'editorconfig/editorconfig-vim'
-  use 'morhetz/gruvbox'
+  use 'EdenEast/nightfox.nvim'
+  use 'nvim-lualine/lualine.nvim'
+  use 'kyazdani42/nvim-web-devicons'
 end)
+
+local nightfox = require('nightfox')
+nightfox.setup {
+  fox = 'nordfox',
+  transparent = true,
+}
+nightfox.load()
+
+require('lualine').setup {
+  options = {
+    theme = "nightfox"
+  }
+}
 
 ---- lsp-settings ----
 -- Mappings.
