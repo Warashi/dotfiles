@@ -102,3 +102,4 @@ parser_config.cue = {
   },
   filetype = "cue", -- if filetype does not agrees with parser name
 }
+vim.cmd([[autocmd BufNewFile,BufRead *.cue set filetype=cue]])
