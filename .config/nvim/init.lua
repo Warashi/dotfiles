@@ -21,6 +21,7 @@ require('jetpack').startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'nvim-lualine/lualine.nvim'
   use 'kyazdani42/nvim-web-devicons'
+  use 'mattn/vim-goimports'
 end)
 
 local nightfox = require('nightfox')
@@ -90,4 +91,14 @@ require('nvim-treesitter.configs').setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+}
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.cue = {
+  install_info = {
+    url = "https://github.com/eonpatapon/tree-sitter-cue", -- local path or git repo
+    files = {"src/parser.c", "src/scanner.c"},
+    branch = "main"
+  },
+  filetype = "cue", -- if filetype does not agrees with parser name
 }
