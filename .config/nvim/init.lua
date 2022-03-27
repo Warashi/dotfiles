@@ -25,12 +25,11 @@ require('jetpack').startup(function(use)
   use 'deton/jasegment.vim'
 end)
 
-local nightfox = require('nightfox')
-nightfox.setup {
-  fox = 'nordfox',
-  transparent = true,
+require('nightfox').init {
+  dim_inactive = true,
 }
-nightfox.load()
+vim.cmd([[ colorscheme nordfox ]])
+
 
 require('lualine').setup {
   options = {
