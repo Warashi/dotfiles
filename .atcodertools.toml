@@ -7,7 +7,7 @@ compile_command='go build -o main main.go'
 compile_only_when_diff_detected=true
 [tester]
 compile_before_testing=true
-compile_only_when_diff_detected=true
+compile_only_when_diff_detected=false
 timeout_adjustment=1.0
 [submit.go]
 exec_before_submit='mkdir -p gottani && gottani > gottani/combined.go'
