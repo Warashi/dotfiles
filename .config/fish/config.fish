@@ -46,6 +46,7 @@ alias g git
 alias tmux 'direnv exec / tmux'
 alias v nvim
 alias t telepresence
+alias at atcoder-tools
 
 if status --is-login
   type -q pyenv ;and source (pyenv init --path | psub)
