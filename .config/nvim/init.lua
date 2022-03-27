@@ -22,6 +22,7 @@ require('jetpack').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'mattn/vim-goimports'
+  use 'deton/jasegment.vim'
 end)
 
 local nightfox = require('nightfox')
