@@ -26,14 +26,14 @@ require('jetpack').startup(function(use)
 end)
 
 require('nightfox').init {
-  dim_inactive = true,
+  transparent = true
 }
 vim.cmd([[ colorscheme nordfox ]])
 
 
 require('lualine').setup {
   options = {
-    theme = "nightfox"
+    theme = "nordfox"
   }
 }
 
