@@ -56,10 +56,4 @@ if status --is-interactive
   type -q pyenv ;and pyenv init - | source
   type -q jump; ;and jump shell fish | source
   type -q starship ;and starship init fish | source
-  fish_vi_key_bindings
-  set fish_vi_force_cursor true
-  set fish_cursor_default block
-  set fish_cursor_insert line
-  set fish_cursor_replace_one underscore
-  set fish_cursor_visual block
 end
