@@ -1,10 +1,12 @@
 vim.cmd([[ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色 ]])
 vim.cmd([[ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色 ]])
 
+vim.g.mapleader = ',' 
 vim.env.EDITOR = 'nvr -cc tabnew'
 vim.env.GIT_EDITOR = 'nvr -cc tabnew --remote-wait-silent'
 vim.cmd([[ autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete ]])
 vim.cmd([[ autocmd TermOpen * startinsert ]])
+vim.cmd([[ autocmd BufLeave term://* stopinsert ]])
 
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
@@ -26,6 +28,8 @@ require('jetpack').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'mattn/vim-goimports'
   use 'deton/jasegment.vim'
+  use 'junegunn/fzf.vim'
+  use {'junegunn/fzf', run = 'call fzf#install()'}
 end)
 
 require('nightfox').init {
@@ -40,9 +44,12 @@ require('lualine').setup {
   }
 }
 
-
 -- Mappings.
 vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader>f', ':Files<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader>gf', ':GFiles<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader>rg', ':Rg<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader><leader>', ':source $MYVIMRC<CR>', { noremap=true, silent=true })
 
 ---- lsp-settings ----
 -- Mappings.
