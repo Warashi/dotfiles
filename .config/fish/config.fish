@@ -44,7 +44,7 @@ alias m smerge
 alias ls exa
 alias g git
 alias tmux 'direnv exec / tmux'
-alias v nvim
+alias e '$EDITOR'
 alias t telepresence
 alias at atcoder-tools
 
