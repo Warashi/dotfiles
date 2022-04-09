@@ -48,6 +48,7 @@ abbr -a -g g git
 abbr -a -g tmux direnv exec / tmux
 abbr -a -g t telepresence
 abbr -a -g at atcoder-tools
+abbr -a -g et e -c ':terminal'
 alias e '$EDITOR'
 
 if status --is-login
