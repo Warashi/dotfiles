@@ -30,6 +30,7 @@ require('jetpack').startup(function(use)
   use 'deton/jasegment.vim'
   use 'junegunn/fzf.vim'
   use {'junegunn/fzf', run = 'call fzf#install()'}
+  use 'obaland/vfiler.vim'
 end)
 
 require('nightfox').init {
