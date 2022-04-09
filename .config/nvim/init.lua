@@ -1,7 +1,7 @@
 vim.cmd([[ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色 ]])
 vim.cmd([[ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色 ]])
 
-vim.env.EDITOR = 'nvr -cc split --remote-wait'
+vim.env.EDITOR = 'nvr -cc split --remote-wait-silent'
 
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
