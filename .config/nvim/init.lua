@@ -12,6 +12,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.bufhidden = 'delete'
 
 require('jetpack').startup(function(use)
   use 'neovim/nvim-lspconfig'
