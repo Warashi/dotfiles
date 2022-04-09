@@ -34,19 +34,21 @@ set -x SUDO_PROMPT "[sudo] password for %p:"
 set -x ORG_JETBRAINS_PROJECTOR_SERVER_AUTO_KEYMAP false
 set -x ORG_JETBRAINS_PROJECTOR_SERVER_PIXEL_PER_UNIT 30
 
-set -q EDITOR || set -x EDITOR nvim
+if set -q EDITOR
+  set -x EDITOR (echo $EDITOR | string split ' ')
+else
+  set -x EDITOR nvim
+end
 
-alias k kubectl
-alias kx kubectx
-alias k9s 'command k9s --readonly'
-alias s subl
-alias m smerge
-alias ls exa
-alias g git
-alias tmux 'direnv exec / tmux'
+abbr -a -g k kubectl
+abbr -a -g kx kubectx
+abbr -a -g k9s command k9s --readonly
+abbr -a -g ls exa
+abbr -a -g g git
+abbr -a -g tmux direnv exec / tmux
+abbr -a -g t telepresence
+abbr -a -g at atcoder-tools
 alias e '$EDITOR'
-alias t telepresence
-alias at atcoder-tools
 
 if status --is-login
   type -q pyenv ;and source (pyenv init --path | psub)
