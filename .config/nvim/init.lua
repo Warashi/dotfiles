@@ -37,6 +37,10 @@ require('lualine').setup {
   }
 }
 
+
+-- Mappings.
+vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { noremap=true, silent=true })
+
 ---- lsp-settings ----
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
