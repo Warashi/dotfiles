@@ -34,7 +34,7 @@ set -x SUDO_PROMPT "[sudo] password for %p:"
 set -x ORG_JETBRAINS_PROJECTOR_SERVER_AUTO_KEYMAP false
 set -x ORG_JETBRAINS_PROJECTOR_SERVER_PIXEL_PER_UNIT 30
 
-set -x EDITOR nvim
+set -q EDITOR || set -x EDITOR nvim
 
 alias k kubectl
 alias kx kubectx
