@@ -1,3 +1,38 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'dag/vim-fish'
+  use 'gpanders/editorconfig.nvim'
+  use 'EdenEast/nightfox.nvim'
+  use 'nvim-lualine/lualine.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'mattn/vim-goimports'
+  use 'deton/jasegment.vim'
+  use 'obaland/vfiler.vim'
+  use 'hotwatermorning/auto-git-diff'
+  use 'weilbith/nvim-lsp-smag'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'windwp/nvim-autopairs'
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
+
 vim.cmd([[ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色 ]])
 vim.cmd([[ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色 ]])
 
@@ -18,21 +53,6 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.clipboard = 'unnamedplus'
 
-require('jetpack').startup(function(use)
-  use 'neovim/nvim-lspconfig'
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'dag/vim-fish'
-  use 'editorconfig/editorconfig-vim'
-  use 'EdenEast/nightfox.nvim'
-  use 'nvim-lualine/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'mattn/vim-goimports'
-  use 'deton/jasegment.vim'
-  use 'junegunn/fzf.vim'
-  use {'junegunn/fzf', run = 'call fzf#install()'}
-  use 'obaland/vfiler.vim'
-end)
-
 require('nightfox').init {
   transparent = true
 }
@@ -45,11 +65,16 @@ require('lualine').setup {
   }
 }
 
+require('telescope').load_extension('fzf')
+
+require('nvim-autopairs').setup()
+
 -- Mappings.
 vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { noremap=true, silent=true })
-vim.api.nvim_set_keymap('n', '<leader>f', ':Files<CR>', { noremap=true, silent=true })
-vim.api.nvim_set_keymap('n', '<leader>gf', ':GFiles<CR>', { noremap=true, silent=true })
-vim.api.nvim_set_keymap('n', '<leader>rg', ':Rg<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', '<leader><leader>', ':source $MYVIMRC<CR>', { noremap=true, silent=true })
 
 ---- lsp-settings ----
@@ -100,7 +125,8 @@ end
 
 ---- nvim-treesitter ----
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
+  ignore_install = { "swift" },
   sync_install = false,
   highlight = {
     enable = true,
