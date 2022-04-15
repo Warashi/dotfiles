@@ -3,7 +3,6 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
-
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
@@ -19,12 +18,17 @@ require('packer').startup(function(use)
   use 'obaland/vfiler.vim'
   use 'hotwatermorning/auto-git-diff'
   use 'weilbith/nvim-lsp-smag'
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
   use 'windwp/nvim-autopairs'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use {'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -52,6 +56,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.completeopt = 'menu,menuone,noselect'
 
 require('nightfox').init {
   transparent = true
@@ -111,10 +116,12 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'jdtls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
@@ -122,6 +129,61 @@ for _, lsp in pairs(servers) do
   }
 end
 
+-- Setup nvim-cmp.
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' }, -- For luasnip users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 
 ---- nvim-treesitter ----
 require('nvim-treesitter.configs').setup {
