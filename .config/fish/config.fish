@@ -5,9 +5,6 @@ if ! set -q HOMEBREW_SETUP_DONE
   ## M1
   test -x /opt/homebrew/bin/brew && /opt/homebrew/bin/brew shellenv | source
   
-  ## LD_LIBRARY_PATHを設定
-  set -q LD_LIBRARY_PATH && set -x LD_LIBRARY_PATH (brew --prefix)/lib:$LD_LIBRARY_PATH || set -x LD_LIBRARY_PATH (brew --prefix)/lib
-
   set -x HOMEBREW_SETUP_DONE 1
 end
 
