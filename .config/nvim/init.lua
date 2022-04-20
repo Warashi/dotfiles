@@ -9,6 +9,7 @@ require('packer').startup(function(use)
   use 'williamboman/nvim-lsp-installer'
   use 'nvim-treesitter/nvim-treesitter'
   use 'dag/vim-fish'
+  use 'jjo/vim-cue'
   use 'gpanders/editorconfig.nvim'
   use 'EdenEast/nightfox.nvim'
   use 'nvim-lualine/lualine.nvim'
@@ -26,9 +27,10 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  use 'L3MON4D3/LuaSnip'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
   use 'rafamadriz/friendly-snippets'
-  use 'saadparwaiz1/cmp_luasnip'
   use {'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim'}
 
   -- Automatically set up your configuration after cloning packer.nvim
@@ -38,12 +40,11 @@ require('packer').startup(function(use)
   end
 end)
 
-vim.cmd([[ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色 ]])
-vim.cmd([[ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色 ]])
-
+vim.o.t_8f = '\\<Esc>[38;2;%lu;%lu;%lum' -- 文字色
+vim.o.t_8b = '\\<Esc>[48;2;%lu;%lu;%lum' -- 背景色 
 vim.g.mapleader = ',' 
-vim.env.EDITOR = 'nvr -cc tabnew'
-vim.env.GIT_EDITOR = 'nvr -cc tabnew --remote-wait-silent'
+vim.env.EDITOR = 'nvr -cc split'
+vim.env.GIT_EDITOR = 'nvr -cc split --remote-wait-silent'
 vim.cmd([[ autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete ]])
 vim.cmd([[ autocmd TermOpen * startinsert ]])
 vim.cmd([[ autocmd BufLeave term://* stopinsert ]])
@@ -118,7 +119,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'jdtls' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -137,7 +138,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   window = {
@@ -153,7 +154,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'luasnip' }, -- For luasnip users.
+    { name = 'vsnip' },
   }, {
     { name = 'buffer' },
   })
@@ -187,18 +188,7 @@ cmp.setup.cmdline(':', {
 })
 
 ---- nvim-treesitter ----
-require('nvim-treesitter.configs').setup {
-  ensure_installed = "all",
-  ignore_install = { "swift" },
-  sync_install = false,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-}
-
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.cue = {
+require("nvim-treesitter.parsers").get_parser_configs().cue = {
   install_info = {
     url = "https://github.com/eonpatapon/tree-sitter-cue", -- local path or git repo
     files = {"src/parser.c", "src/scanner.c"},
@@ -206,4 +196,12 @@ parser_config.cue = {
   },
   filetype = "cue", -- if filetype does not agrees with parser name
 }
-vim.cmd([[autocmd BufNewFile,BufRead *.cue set filetype=cue]])
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = "all",
+  sync_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
