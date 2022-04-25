@@ -46,7 +46,6 @@ require('packer').startup(function(use)
   use {'jose-elias-alvarez/null-ls.nvim', config = function() require('null-ls').setup {sources = {require("null-ls").builtins.completion.spell}} end}
   use {'stevearc/aerial.nvim', config = function() require('aerial').setup {on_attach = function(bufnr) vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {}) end} end}
   use {'kevinhwang91/nvim-hclipboard', config = function() require('hclipboard').start() end}
-  use 'antonk52/amake.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
