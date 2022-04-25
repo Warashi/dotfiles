@@ -8,6 +8,7 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'nvim-treesitter/nvim-treesitter'
+  use {'romgrk/nvim-treesitter-context', config = function() require('treesitter-context').setup {} end}
   use 'dag/vim-fish'
   use 'jjo/vim-cue'
   use 'gpanders/editorconfig.nvim'
@@ -30,9 +31,22 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
+  use 'hrsh7th/cmp-emoji'
   use 'rafamadriz/friendly-snippets'
   use {'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim'}
   use 'wakatime/vim-wakatime'
+  use 'kevinhwang91/nvim-bqf'
+  use {'akinsho/bufferline.nvim', tag = '*', requires = 'kyazdani42/nvim-web-devicons', config = function() require('bufferline').setup {} end}
+  use 'RRethy/vim-illuminate'
+  use {'sidebar-nvim/sidebar.nvim', config = function() require('sidebar-nvim').setup {open = true} end}
+  use {'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end}
+  use {'akinsho/toggleterm.nvim', config = function() require('toggleterm').setup {open_mapping = [[<c-\>]], direction = 'float'} end}
+  use {'folke/which-key.nvim', config = function() require('which-key').setup {} end}
+  use {'lukas-reineke/indent-blankline.nvim', config = function() require('indent_blankline').setup {} end}
+  use {'jose-elias-alvarez/null-ls.nvim', config = function() require('null-ls').setup {sources = {require("null-ls").builtins.completion.spell}} end}
+  use {'stevearc/aerial.nvim', config = function() require('aerial').setup {on_attach = function(bufnr) vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {}) end} end}
+  use {'kevinhwang91/nvim-hclipboard', config = function() require('hclipboard').start() end}
+  use 'antonk52/amake.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -44,8 +58,9 @@ end)
 vim.o.t_8f = '\\<Esc>[38;2;%lu;%lu;%lum' -- 文字色
 vim.o.t_8b = '\\<Esc>[48;2;%lu;%lu;%lum' -- 背景色 
 vim.g.mapleader = ',' 
-vim.env.EDITOR = 'nvr -cc vsplit'
-vim.env.GIT_EDITOR = 'nvr -cc vsplit --remote-wait-silent'
+vim.env.EDITOR = 'nvr -cc tabnew'
+vim.env.TIG_EDITOR = 'nvr -cc tabnew'
+vim.env.GIT_EDITOR = 'nvr -cc tabnew --remote-wait-silent'
 vim.cmd([[ autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete ]])
 vim.cmd([[ autocmd TermOpen * startinsert ]])
 vim.cmd([[ autocmd BufLeave term://* stopinsert ]])
@@ -69,7 +84,7 @@ vim.cmd([[ colorscheme nordfox ]])
 
 require('lualine').setup {
   options = {
-    theme = "nordfox"
+    theme = 'nordfox'
   }
 }
 
@@ -97,6 +112,9 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  -- aerial
+  require("aerial").on_attach(client, bufnr)
+
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -139,7 +157,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      vim.fn['vsnip#anonymous'](args.body)
     end,
   },
   window = {
@@ -155,6 +173,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'emoji' },
     { name = 'vsnip' },
   }, {
     { name = 'buffer' },
@@ -189,17 +208,17 @@ cmp.setup.cmdline(':', {
 })
 
 ---- nvim-treesitter ----
-require("nvim-treesitter.parsers").get_parser_configs().cue = {
+require('nvim-treesitter.parsers').get_parser_configs().cue = {
   install_info = {
-    url = "https://github.com/eonpatapon/tree-sitter-cue", -- local path or git repo
-    files = {"src/parser.c", "src/scanner.c"},
-    branch = "main"
+    url = 'https://github.com/eonpatapon/tree-sitter-cue', -- local path or git repo
+    files = {'src/parser.c', 'src/scanner.c'},
+    branch = 'main'
   },
-  filetype = "cue", -- if filetype does not agrees with parser name
+  filetype = 'cue', -- if filetype does not agrees with parser name
 }
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "all",
+  ensure_installed = 'all',
   sync_install = false,
   highlight = {
     enable = true,
