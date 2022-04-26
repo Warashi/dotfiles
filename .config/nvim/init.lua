@@ -39,7 +39,6 @@ require('packer').startup(function(use)
   use {'akinsho/bufferline.nvim', tag = '*', requires = 'kyazdani42/nvim-web-devicons', config = function() require('bufferline').setup {} end}
   use 'RRethy/vim-illuminate'
   use {'sidebar-nvim/sidebar.nvim', config = function() require('sidebar-nvim').setup {open = true} end}
-  use {'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end}
   use {'akinsho/toggleterm.nvim', config = function() require('toggleterm').setup {open_mapping = [[<c-\>]], direction = 'float'} end}
   use {'folke/which-key.nvim', config = function() require('which-key').setup {} end}
   use {'lukas-reineke/indent-blankline.nvim', config = function() require('indent_blankline').setup {} end}
