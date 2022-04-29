@@ -31,6 +31,7 @@ require('packer').startup(function(use)
     requires = {
       'neovim/nvim-lspconfig',
       'williamboman/nvim-lsp-installer',
+      'jose-elias-alvarez/null-ls.nvim',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -49,7 +50,6 @@ require('packer').startup(function(use)
   use {'sidebar-nvim/sidebar.nvim', config = function() require('sidebar-nvim').setup {open = true} end}
   use {'akinsho/toggleterm.nvim', config = function() require('toggleterm').setup {open_mapping = [[<c-\>]], direction = 'float'} end}
   use {'folke/which-key.nvim', config = function() require('which-key').setup {} end}
-  use {'jose-elias-alvarez/null-ls.nvim', config = function() require('null-ls').setup {sources = {require("null-ls").builtins.completion.spell}} end}
   use {'stevearc/aerial.nvim', config = function() require('aerial').setup {on_attach = function(bufnr) vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {}) end} end}
   use {'kevinhwang91/nvim-hclipboard', config = function() require('hclipboard').start() end}
 

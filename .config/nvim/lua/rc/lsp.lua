@@ -1,3 +1,6 @@
+---- nvim-lsp-installer setup ----
+require("nvim-lsp-installer").setup {}
+require('null-ls').setup { sources = { require("null-ls").builtins.completion.spell } }
 ---- lsp-settings ----
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -36,7 +39,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'sumneko_lua', 'null-ls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -104,4 +107,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
