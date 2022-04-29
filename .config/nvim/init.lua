@@ -60,8 +60,8 @@ require('packer').startup(function(use)
   end
 end)
 
-vim.o.t_8f = '\\<Esc>[38;2;%lu;%lu;%lum' -- 文字色
-vim.o.t_8b = '\\<Esc>[48;2;%lu;%lu;%lum' -- 背景色 
+vim.o.t_8f = [[\<Esc>[38;2;%lu;%lu;%lum]] -- 文字色
+vim.o.t_8b = [[\<Esc>[48;2;%lu;%lu;%lum]] -- 背景色 
 vim.g.mapleader = ',' 
 vim.env.EDITOR = 'nvr -cc tabnew'
 vim.env.TIG_EDITOR = 'nvr -cc tabnew'
