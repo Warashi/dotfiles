@@ -38,7 +38,7 @@ require('packer').startup(function(use)
       'hrsh7th/cmp-emoji',
       {'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim'},
       {'hrsh7th/cmp-vsnip', requires = {
-        'hrsh7th/vim-vsnip',
+        {'hrsh7th/vim-vsnip', config = function() require('rc/vsnip') end},
         'hrsh7th/vim-vsnip-integ',
         'rafamadriz/friendly-snippets'
       }},
