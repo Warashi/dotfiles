@@ -1,6 +1,6 @@
 ---- nvim-lsp-installer setup ----
-require("nvim-lsp-installer").setup {}
-require('null-ls').setup { sources = { require("null-ls").builtins.completion.spell } }
+require('nvim-lsp-installer').setup {}
+require('null-ls').setup { sources = { require('null-ls').builtins.completion.spell } }
 ---- lsp-settings ----
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', op
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
-require("aerial").setup {
+require('aerial').setup {
   open_automatic = true,
   close_behavior = 'close',
   on_attach = function(bufnr)
@@ -29,7 +29,7 @@ require("aerial").setup {
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   -- aerial
-  require("aerial").on_attach(client, bufnr)
+  require('aerial').on_attach(client, bufnr)
 
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
