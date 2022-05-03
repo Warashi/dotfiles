@@ -13,6 +13,7 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 require('aerial').setup {
   open_automatic = true,
   close_behavior = 'close',
+  show_guides = true,
   on_attach = function(bufnr)
     -- Toggle the aerial window with <leader>a
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
