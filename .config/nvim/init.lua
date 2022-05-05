@@ -52,6 +52,7 @@ require('packer').startup(function(use)
   use {'folke/which-key.nvim', config = function() require('which-key').setup {} end}
   use {'stevearc/aerial.nvim', config = function() require('rc/aerial') end}
   use {'kevinhwang91/nvim-hclipboard', config = function() require('hclipboard').start() end}
+  use {'bkad/CamelCaseMotion', config = function() require('rc/camel-case-motion') end}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
