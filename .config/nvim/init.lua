@@ -26,8 +26,8 @@ require('packer').startup(function(use)
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
   }}
   use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end}
-  use {'hrsh7th/nvim-cmp', 
-    config = function() require('rc/lsp') end, 
+  use {'hrsh7th/nvim-cmp',
+    config = function() require('rc/lsp') end,
     requires = {
       'neovim/nvim-lspconfig',
       'williamboman/nvim-lsp-installer',
