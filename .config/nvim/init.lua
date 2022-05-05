@@ -16,7 +16,14 @@ require('packer').startup(function(use)
   }}
   use 'mattn/vim-goimports'
   use 'deton/jasegment.vim'
-  use 'obaland/vfiler.vim'
+  use {'nvim-neo-tree/neo-tree.nvim',
+    config = function() require('rc/neo-tree') end,
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+    }
+  }
   use 'hotwatermorning/auto-git-diff'
   use 'weilbith/nvim-lsp-smag'
   use {'nvim-telescope/telescope.nvim',

@@ -47,7 +47,7 @@ abbr -a -g t telepresence
 abbr -a -g at atcoder-tools
 abbr -a -g sf ssh -fN forward-workbench
 alias et 'e -c :terminal'
-alias f 'e -c ":VFiler $(pwd)"'
+alias f 'e -c ":Neotree $(pwd)"'
 alias e '$EDITOR'
 
 if status --is-login
