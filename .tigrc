@@ -5,6 +5,5 @@ bind main <Ctrl-C> ?git cherry-pick %(commit)
 bind diff C ?git checkout %(commit) %(file)
 bind status Y ?git stash push %(file)
 bind refs C ?git checkout %(branch)%(tag)
-bind main <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --template "{{ .url }}")/commit/%(commit)"'
-bind diff <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --template "{{ .url }}")/blob/%(commit)/%(file)"'
-bind status <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --template "{{ .url }}")/blob/%(commit)/%(file)"'
+bind main   <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --jq .url)/commit/%(commit)"'
+bind diff   <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --jq .url)/blob/%(commit)/%(file)"'
