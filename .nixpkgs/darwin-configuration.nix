@@ -19,6 +19,7 @@
       git
       go_1_18
       jq
+      jump
       mas
       neovim
       neovim-remote
@@ -26,6 +27,7 @@
       reattach-to-user-namespace
       ripgrep
       skim
+      starship
       tig
       tmux
     ];
