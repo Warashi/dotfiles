@@ -22,6 +22,7 @@
       mas
       neovim
       neovim-remote
+      pipenv
       reattach-to-user-namespace
       ripgrep
       skim
