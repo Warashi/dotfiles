@@ -67,6 +67,7 @@ require('packer').startup(function(use)
     config = function() require('rc/bufferline') end,
   }
   use 'famiu/bufdelete.nvim'
+  use 'rcarriga/nvim-notify'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
