@@ -14,6 +14,7 @@
     home.packages = with pkgs; [
       exa
       fd
+      fswatch
       gh
       ghq
       git
