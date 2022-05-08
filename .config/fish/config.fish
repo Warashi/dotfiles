@@ -15,11 +15,11 @@ end
 
 set fish_complete_path /usr/local/share/fish/vendor_completions.d $fish_complete_path
 
-set -x PATH /usr/local/sbin $PATH
-set -x PATH /usr/local/opt/texinfo/bin $PATH
-set -x PATH $HOME/.cargo/bin $PATH
-type -q go && set -x PATH (go env GOPATH)/bin $PATH
-set -x PATH $HOME/.local/bin $PATH
+fish_add_path -g -m /usr/local/sbin
+fish_add_path -g -m /usr/local/opt/texinfo/bin
+fish_add_path -g -m $HOME/.cargo/bin
+type -q go && fish_add_path -g -m (go env GOPATH)/bin 
+fish_add_path -g -m $HOME/.local/bin
 
 set -x FZF_CMD sk
 set -x FZF_HISTORY_SYNC 1
