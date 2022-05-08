@@ -61,6 +61,13 @@
   # programs.zsh.enable = true;  # default shell on catalina
   programs.fish.enable = true;
 
+  services.autossh.sessions = [{
+    name = "workbench";
+    user = "sawada";
+    extraArguments = "-N forward-workbench";
+    monitoringPort = 20000;
+  }];
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
