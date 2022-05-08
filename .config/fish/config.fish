@@ -40,13 +40,10 @@ end
 
 abbr -a -g k kubectl
 abbr -a -g kx kubectx
-abbr -a -g k9s command k9s --readonly
-abbr -a -g ls exa
+abbr -a -g k9s k9s --readonly
 abbr -a -g g git
-abbr -a -g tmux direnv exec / tmux
-abbr -a -g t telepresence
 abbr -a -g at atcoder-tools
-abbr -a -g sf ssh -fN forward-workbench
+alias ls exa
 alias et 'e -c :terminal'
 alias f 'e -c ":Neotree $(pwd)"'
 alias e '$EDITOR'
