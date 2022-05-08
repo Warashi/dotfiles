@@ -6,6 +6,7 @@
   home.username = "ubuntu";
   home.homeDirectory = "/home/ubuntu";
   home.packages = with pkgs; [
+    delta
     exa
     fd
     fish
