@@ -1,3 +1,4 @@
+set -x SHELL (which fish)
 if ! set -q HOMEBREW_SETUP_DONE
   # homebrew
   ## Intel
