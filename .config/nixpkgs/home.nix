@@ -14,6 +14,7 @@
     ghq
     git
     go_1_18
+    htop
     jq
     jump
     neovim
