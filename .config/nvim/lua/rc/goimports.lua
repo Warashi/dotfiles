@@ -14,3 +14,5 @@ function organizeImports(wait_ms)
 end
 
 vim.cmd [[autocmd BufWritePre *.go lua organizeImports(1000)]]
+vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)]]
+
