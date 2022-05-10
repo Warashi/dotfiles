@@ -14,7 +14,6 @@ require('packer').startup(function(use)
     'kyazdani42/nvim-web-devicons',
     'EdenEast/nightfox.nvim',
   }}
-  use 'mattn/vim-goimports'
   use 'deton/jasegment.vim'
   use {'nvim-neo-tree/neo-tree.nvim',
     config = function() require('rc/neo-tree') end,
