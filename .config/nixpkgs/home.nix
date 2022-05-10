@@ -20,6 +20,7 @@
     jump
     neovim
     neovim-remote
+    nodejs
     pipenv
     ripgrep
     skim
