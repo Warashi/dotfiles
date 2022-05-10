@@ -13,7 +13,10 @@ null_ls.setup {
     --- dictionary / spell ---
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.diagnostics.misspell,
-    null_ls.builtins.diagnostics.textlint.with { prefer_local = "node_modules/.bin" },
+    null_ls.builtins.diagnostics.textlint.with {
+      prefer_local = 'node_modules/.bin',
+      filetypes = { 'markdown', 'text' },
+    },
 
     --- fish ---
     null_ls.builtins.diagnostics.fish,
