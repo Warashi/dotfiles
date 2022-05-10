@@ -51,6 +51,9 @@ for _, lsp in pairs(servers) do
   }
 end
 
+-- Setup Go organize imports
+require('rc/goimports')
+
 -- Setup nvim-cmp.
 local cmp = require('cmp')
 
