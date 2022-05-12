@@ -7,10 +7,12 @@
   home.homeDirectory = "/home/ubuntu";
   home.packages = with pkgs; [
     delta
+    docker-client
     exa
     fd
     fish
     fswatch
+    gcc
     gh
     ghq
     git
