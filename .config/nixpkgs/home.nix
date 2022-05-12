@@ -29,6 +29,7 @@
     starship
     tig
     tmux
+    unzip
   ];
 
   # This value determines the Home Manager release that your
