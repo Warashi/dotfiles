@@ -27,6 +27,9 @@ null_ls.setup {
 -- Setup Go organize imports
 require('rc/goimports')
 
+-- format on save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 1000)]]
+
 -- Setup nvim-cmp.
 require('rc/cmp')
 
