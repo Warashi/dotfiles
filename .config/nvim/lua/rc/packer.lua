@@ -70,7 +70,7 @@ require('packer').startup(function(use)
   -- misc
   use { 'wakatime/vim-wakatime' }
   use { 'kevinhwang91/nvim-hclipboard', config = function() require('hclipboard').start() end }
-  use { 'famiu/bufdelete.nvim' }
+  use { 'famiu/bufdelete.nvim', config = function() require('rc/bufdelete') end }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
