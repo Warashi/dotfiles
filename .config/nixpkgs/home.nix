@@ -45,6 +45,17 @@
 # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+# bash integration
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      f = "exec fish -l";
+    };
+    sessionVariables = {
+      TZ = "Asia/Tokyo";
+    };
+  };
+
 # direnv integration
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
