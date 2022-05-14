@@ -1,4 +1,6 @@
 require('trouble').setup {
   auto_open = true,
-  auto_close = true,
+
+  -- 開いたり閉じたりするとうざいので開きっぱなしにする
+  auto_close = false,
 }
