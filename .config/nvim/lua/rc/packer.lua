@@ -64,6 +64,7 @@ require('packer').startup(function(use)
   use { 'folke/which-key.nvim', config = function() require('which-key').setup {} end }
   use { 'stevearc/aerial.nvim', config = function() require('rc/aerial') end }
   use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('rc/bufferline') end }
+  use { "folke/trouble.nvim", config = function() require("rc/trouble") end }
 
   -- misc
   use { 'wakatime/vim-wakatime' }
