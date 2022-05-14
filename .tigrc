@@ -7,4 +7,4 @@ bind status Y ?git stash push %(file)
 bind refs C ?git checkout %(branch)%(tag)
 bind main   <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --jq .url)/commit/%(commit)"'
 bind pager  <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --jq .url)/commit/%(commit)"'
-bind diff   <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --jq .url)/blob/%(commit)/%(file)"'
+bind diff   <Ctrl-O> ?@sh -c 'muscat open "$(gh repo view --json url --jq .url)/commit/%(commit)"'
