@@ -63,7 +63,7 @@ require('packer').startup(function(use)
   use { 'akinsho/toggleterm.nvim', config = function() require('rc/toggleterm') end }
   use { 'folke/which-key.nvim', config = function() require('which-key').setup {} end }
   use { 'stevearc/aerial.nvim', config = function() require('rc/aerial') end }
-  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = function() require('rc/bufferline') end }
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('rc/bufferline') end }
 
   -- misc
   use { 'wakatime/vim-wakatime' }
