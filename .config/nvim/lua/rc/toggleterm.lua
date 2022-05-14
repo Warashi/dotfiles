@@ -10,11 +10,11 @@ local terms    = require('toggleterm.terminal')
 local Terminal = terms.Terminal
 local tig      = Terminal:new({ cmd = 'tig', hidden = true })
 
-function _tig_toggle()
+function TIG_toggle()
   tig:toggle()
 end
 
-vim.keymap.set('n', '<leader>g', '<cmd>lua _tig_toggle()<CR>', { silent = true })
+vim.keymap.set('n', '<leader>g', TIG_toggle, { silent = true })
 
 local function smart_close()
   if tig:is_open() then
