@@ -16,6 +16,7 @@ require('packer').startup(function(use)
   -- lsp
   use { 'neovim/nvim-lspconfig' }
   use { 'williamboman/nvim-lsp-installer' }
+  use { 'tamago324/nlsp-settings.nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim', config = function() require('rc/null-ls') end }
   use { 'weilbith/nvim-lsp-smag' }
 

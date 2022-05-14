@@ -7,6 +7,7 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 1000)]]
 require('rc/lsp-keymaps')
 
 require('nvim-lsp-installer').setup {}
+require('nlspsettings').setup {}
 local lspconfig = require('lspconfig')
 
 local on_attach = function(client, bufnr)
