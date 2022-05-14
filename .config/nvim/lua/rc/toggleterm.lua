@@ -13,4 +13,4 @@ function _tig_toggle()
   tig:toggle()
 end
 
-vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua _tig_toggle()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>g', '<cmd>lua _tig_toggle()<CR>', { silent = true })
