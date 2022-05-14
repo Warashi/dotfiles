@@ -5,6 +5,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use { 'neovim/nvim-lspconfig' }
+  use { 'williamboman/nvim-lsp-installer' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'nvim-treesitter/nvim-treesitter', config = function() require('rc/nvim-treesitter') end }
   use { 'romgrk/nvim-treesitter-context', config = function() require('treesitter-context').setup {} end }
   use 'dag/vim-fish'
@@ -32,24 +35,20 @@ require('packer').startup(function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     } }
   use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }
+  use { 'hrsh7th/vim-vsnip', config = function() require('rc/vsnip') end }
+  use 'rafamadriz/friendly-snippets'
   use { 'hrsh7th/nvim-cmp',
-    config = function() require('rc/lsp') end,
+    config = function() require('rc/cmp') end,
     requires = {
-      'neovim/nvim-lspconfig',
-      'williamboman/nvim-lsp-installer',
-      'jose-elias-alvarez/null-ls.nvim',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-emoji',
+      'hrsh7th/cmp-vsnip',
       { 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' },
-      { 'hrsh7th/cmp-vsnip', requires = {
-        { 'hrsh7th/vim-vsnip', config = function() require('rc/vsnip') end },
-        'hrsh7th/vim-vsnip-integ',
-        'rafamadriz/friendly-snippets'
-      } },
-    } }
+    },
+  }
   use 'wakatime/vim-wakatime'
   use 'kevinhwang91/nvim-bqf'
   use 'RRethy/vim-illuminate'
