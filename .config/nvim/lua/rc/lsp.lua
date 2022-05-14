@@ -1,10 +1,10 @@
 -- Setup Go organize imports
-require('rc/goimports')
+require('rc.goimports')
 
 -- format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 1000)]]
 
-require('rc/lsp-keymaps')
+require('rc.lsp-keymaps')
 
 require('nvim-lsp-installer').setup {}
 require('nlspsettings').setup {}
