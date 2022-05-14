@@ -8,7 +8,15 @@ require('toggleterm').setup {
 
 local terms    = require('toggleterm.terminal')
 local Terminal = terms.Terminal
-local tig      = Terminal:new({ cmd = 'tig', hidden = true })
+local tig      = Terminal:new {
+  cmd = 'tig',
+  hidden = true,
+  on_open = function(term)
+    vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = term.bufnr, silent = true })
+    vim.keymap.set('n', [[<c-\>]], '<cmd>close<cr>', { buffer = term.bufnr, silent = true })
+    vim.keymap.set('t', [[<c-\>]], '<cmd>close<cr>', { buffer = term.bufnr, silent = true })
+  end
+}
 
 function TIG_toggle()
   tig:toggle()
