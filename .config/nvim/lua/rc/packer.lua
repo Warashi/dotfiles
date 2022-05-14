@@ -58,9 +58,7 @@ require('packer').startup(function(use)
   use { 'kevinhwang91/nvim-bqf' }
   use { 'RRethy/vim-illuminate' }
   use { 'hotwatermorning/auto-git-diff' }
-  use { 'nvim-telescope/telescope.nvim',
-    config = function() require('rc/telescope') end,
-    requires = { { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } } }
+  use { 'nvim-telescope/telescope.nvim', config = function() require('rc/telescope') end, requires = { { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } } }
   use { 'sidebar-nvim/sidebar.nvim', config = function() require('sidebar-nvim').setup { open = true } end }
   use { 'akinsho/toggleterm.nvim', config = function() require('rc/toggleterm') end }
   use { 'folke/which-key.nvim', config = function() require('which-key').setup {} end }
