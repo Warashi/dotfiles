@@ -9,5 +9,5 @@ require('bufferline').setup {
     always_show_bufferline = true,
   },
 }
-vim.keymap.set('n', '[b', '<cmd>BufferLineCycleNext<cr>', { silent = true })
-vim.keymap.set('n', ']b', '<cmd>BufferLineCyclePrev<cr>', { silent = true })
+vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<cr>', { silent = true })
+vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<cr>', { silent = true })
