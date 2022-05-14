@@ -51,9 +51,6 @@
     shellAliases = {
       f = "exec fish -l";
     };
-    sessionVariables = {
-      TZ = "Asia/Tokyo";
-    };
   };
 
 # direnv integration
