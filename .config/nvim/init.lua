@@ -4,7 +4,6 @@ vim.g.mapleader = ','
 vim.env.EDITOR = 'nvr -cc ToggleTermClose'
 vim.env.TIG_EDITOR = 'nvr -cc ToggleTermClose'
 vim.env.GIT_EDITOR = 'nvr -cc ToggleTermClose --remote-wait-silent'
-vim.cmd([[ autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete ]])
 
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
