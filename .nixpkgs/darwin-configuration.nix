@@ -61,6 +61,10 @@
   # programs.zsh.enable = true;  # default shell on catalina
   programs.fish.enable = true;
 
+  # gpg-agent
+  programs.gnupg.agent.enable = true;
+
+  # autossh
   services.autossh.sessions = [{
     name = "workbench";
     user = "sawada";
