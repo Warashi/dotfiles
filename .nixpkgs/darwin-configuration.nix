@@ -22,7 +22,6 @@
       jq
       jump
       mas
-      mosh
       neovim
       neovim-remote
       pipenv
