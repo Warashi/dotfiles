@@ -10,7 +10,7 @@ if ! set -q HOMEBREW_SETUP_DONE
 end
 
 if status --is-interactive
-    ! set -q TMUX; and type -q tmux; and exec direnv exec / tmux -CC new-session -t 0
+    ! set -q TMUX; and type -q tmux; and exec direnv exec / tmux new-session -t 0
     ! set -q REATTACHED; and type -q reattach-to-user-namespace; and exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
 end
 
