@@ -39,6 +39,19 @@
       [[ ! -v TMUX ]] && whence tmux && exec direnv exec / tmux new-session -t 0
       [[ ! -v REATTACHED ]] && whence reattach-to-user-namespace && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
     '';
+
+    plugins = with pkgs; [
+      {
+        name = "zsh-fzf-ghq";
+        file = "zsh-fzf-ghq.plugin.zsh";
+        src = fetchFromGitHub {
+          owner = "subaru-shoji";
+          repo = "zsh-fzf-ghq";
+          rev = "850ad834b1b140886ded159947b4b8d5588757e6";
+          sha256 = "SsRWsA0JuRC4e9ojwt1MQEdFU1tad0Sr2K4ajHjXDTY=";
+        };
+      }
+    ];
   };
 
   programs.tmux = {
