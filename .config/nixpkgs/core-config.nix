@@ -2,7 +2,14 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # bash integration
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      [[ ! -v TMUX ]] && type tmux && exec direnv exec / tmux new-session -t 0
+      [[ ! -v REATTACHED ]] && type reattach-to-user-namespace && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
+    '';
+  };
+
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -27,6 +34,11 @@
       la = "ll -a";
       f = ''e -c ":Neotree $(pwd)"'';
     };
+
+    initExtraFirst = ''
+      [[ ! -v TMUX ]] && whence tmux && exec direnv exec / tmux new-session -t 0
+      [[ ! -v REATTACHED ]] && whence reattach-to-user-namespace && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
+    '';
   };
 
   programs.tmux = {
