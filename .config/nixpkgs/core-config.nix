@@ -73,13 +73,20 @@
     extraConfig = ''
       # C-w で window 一覧を開く
       bind C-w choose-tree -Zw
+
       # C-c でwindow作成
       bind C-c new-window
+
       # C-t で現在のwindowを一番左へ移動
       bind C-t move-window -t 0
+
       # C-h, C-v で画面分割
       bind C-h split-window -h
       bind C-v split-window -v
+
+      # H, V で pane 再配置
+      bind H select-layout main-horizontal
+      bind V select-layout main-vertical
 
       # C-o, M-o で分割した画面をRotate
       bind -r C-o rotate-window -D
