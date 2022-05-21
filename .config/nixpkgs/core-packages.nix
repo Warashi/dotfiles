@@ -12,8 +12,6 @@
   neovim
   neovim-remote
   ripgrep
-  skim
-  starship
+  rnix-lsp
   tig
-  tmux
 ]
