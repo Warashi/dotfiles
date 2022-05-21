@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  warashiPkgs = import <warashi> {};
+in
 {
   # import home-manager
   imports = [ <home-manager/nix-darwin> ];
@@ -11,7 +13,7 @@
   };
   home-manager.useUserPackages = true;
   home-manager.users.sawada = { pkgs, ... }: {
-    home.packages = with pkgs; [ mas ] ++ import ./core-packages.nix { pkgs = pkgs; };
+    home.packages = with pkgs; [ mas warashiPkgs.muscat ] ++ import ./core-packages.nix { pkgs = pkgs; };
     imports = [ ./core-config.nix ];
   };
 
