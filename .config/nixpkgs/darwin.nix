@@ -75,6 +75,9 @@
       right_padding                = 12;
       window_gap                   = 6;
     };
+    extraConfig = ''
+      yabai -m rule --add app=TweetShot manage=off
+    '';
   };
 
   services.skhd = {
