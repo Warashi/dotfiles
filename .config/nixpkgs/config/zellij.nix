@@ -26,13 +26,13 @@
           { key = [{ Ctrl = "g"; }]; action = [{ SwitchToMode = "Normal"; }]; }
         ];
         normal = [
-          { key = [{ Ctrl = "p"; }]; action = [{ SwitchToMode = "Pane"; }]; }
-          { key = [{ Ctrl = "n"; }]; action = [{ SwitchToMode = "Resize"; }]; }
-          { key = [{ Ctrl = "t"; }]; action = [{ SwitchToMode = "Tab"; }]; }
-          { key = [{ Ctrl = "s"; }]; action = [{ SwitchToMode = "Scroll"; }]; }
-          { key = [{ Ctrl = "o"; }]; action = [{ SwitchToMode = "Session"; }]; }
-          { key = [{ Ctrl = "h"; }]; action = [{ SwitchToMode = "Move"; }]; }
-          { key = [ "Esc" ]; action = [{ SwitchToMode = "Locked"; }]; }
+          { key = [{ Char = "p"; }]; action = [{ SwitchToMode = "Pane"; }]; }
+          { key = [{ Char = "n"; }]; action = [{ SwitchToMode = "Resize"; }]; }
+          { key = [{ Char = "t"; }]; action = [{ SwitchToMode = "Tab"; }]; }
+          { key = [{ Char = "s"; }]; action = [{ SwitchToMode = "Scroll"; }]; }
+          { key = [{ Char = "o"; }]; action = [{ SwitchToMode = "Session"; }]; }
+          { key = [{ Char = "h"; }]; action = [{ SwitchToMode = "Move"; }]; }
+          { key = [{ Ctrl = "g"; } { Char = "\n"; } "Esc"]; action = [{ SwitchToMode = "Locked"; }]; }
         ];
         pane = [
           { key = [{ Char = "h"; }]; action = [{ MoveFocus = "Left"; }]; }
@@ -42,39 +42,39 @@
           { key = [{ Char = "n"; }]; action = [{ NewPane = null; }]; }
           { key = [{ Char = "x"; }]; action = [ "CloseFocus" ]; }
           { key = [{ Char = "f"; }]; action = [ "ToggleFocusFullscreen" ]; }
-          { key = [ "Esc" ]; action = [{ SwitchToMode = "Locked"; }]; }
+          { key = [{ Ctrl = "g"; } { Char = "\n"; } "Esc"]; action = [{ SwitchToMode = "Locked"; }]; }
         ];
         resize = [
           { key = [{ Char = "h"; }]; action = [{ Resize = "Left"; }]; }
           { key = [{ Char = "j"; }]; action = [{ Resize = "Down"; }]; }
           { key = [{ Char = "k"; }]; action = [{ Resize = "Up"; }]; }
           { key = [{ Char = "l"; }]; action = [{ Resize = "Right"; }]; }
-          { key = [ "Esc" ]; action = [{ SwitchToMode = "Locked"; }]; }
+          { key = [{ Ctrl = "g"; } { Char = "\n"; } "Esc"]; action = [{ SwitchToMode = "Locked"; }]; }
         ];
         tab = [
           { key = [{ Char = "h"; } { Char = "k"; }]; action = [ "GoToPreviousTab" ]; }
           { key = [{ Char = "l"; } { Char = "j"; }]; action = [ "GoToNextTab" ]; }
           { key = [{ Char = "n"; }]; action = [{ NewTab = null; }]; }
           { key = [{ Char = "x"; }]; action = [{ CloseTab = null; }]; }
-          { key = [ "Esc" ]; action = [{ SwitchToMode = "Locked"; }]; }
+          { key = [{ Ctrl = "g"; } { Char = "\n"; } "Esc"]; action = [{ SwitchToMode = "Locked"; }]; }
         ];
         scroll = [
           { key = [{ Char = "j"; }]; action = [ "ScrollDown" ]; }
           { key = [{ Char = "k"; }]; action = [ "ScrollUp" ]; }
           { key = [{ Ctrl = "d"; }]; action = [ "HalfPageScrollDown" ]; }
           { key = [{ Ctrl = "u"; }]; action = [ "HalfPageScrollUp" ]; }
-          { key = [ "Esc" ]; action = [{ SwitchToMode = "Locked"; }]; }
+          { key = [{ Ctrl = "g"; } { Char = "\n"; } "Esc"]; action = [{ SwitchToMode = "Locked"; }]; }
         ];
         session = [
-          { key = [{ Ctrl = "d"; }]; action = [ "Detach" ]; }
-          { key = [ "Esc" ]; action = [{ SwitchToMode = "Locked"; }]; }
+          { key = [{ Char = "d"; }]; action = [ "Detach" ]; }
+          { key = [{ Ctrl = "g"; } { Char = "\n"; } "Esc"]; action = [{ SwitchToMode = "Locked"; }]; }
         ];
         move = [
           { key = [{ Char = "h"; }]; action = [{ MovePane = "Left"; }]; }
           { key = [{ Char = "j"; }]; action = [{ MovePane = "Down"; }]; }
           { key = [{ Char = "k"; }]; action = [{ MovePane = "Up"; }]; }
           { key = [{ Char = "l"; }]; action = [{ MovePane = "Right"; }]; }
-          { key = [ "Esc" ]; action = [{ SwitchToMode = "Locked"; }]; }
+          { key = [{ Ctrl = "g"; } { Char = "\n"; } "Esc"]; action = [{ SwitchToMode = "Locked"; }]; }
         ];
       };
     };
