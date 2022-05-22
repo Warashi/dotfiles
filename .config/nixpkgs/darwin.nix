@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  warashiPkgs = import <warashi> {};
+  warashiPkgs = import <warashi> { };
 in
 {
   # import home-manager
@@ -39,16 +39,16 @@ in
 
   nixpkgs.overlays = [
     (final: prev: {
-      yabai = prev.yabai.overrideAttrs(attrs: {
-            version = "4.0.1";
-            src = prev.fetchurl {
-              url = "https://github.com/koekeishiya/yabai/releases/download/v4.0.1/yabai-v4.0.1.tar.gz";
-              sha256 = "sha256-UFtPBftcBytzvrELOjE4vPCKc3CCaA4bpqusok5sUMU=";
-            };
-            buildPhase = ''
-              echo noop
-            '';
-          });
+      yabai = prev.yabai.overrideAttrs (attrs: {
+        version = "4.0.1";
+        src = prev.fetchurl {
+          url = "https://github.com/koekeishiya/yabai/releases/download/v4.0.1/yabai-v4.0.1.tar.gz";
+          sha256 = "sha256-UFtPBftcBytzvrELOjE4vPCKc3CCaA4bpqusok5sUMU=";
+        };
+        buildPhase = ''
+          echo noop
+        '';
+      });
     })
   ];
 
@@ -56,26 +56,26 @@ in
     enable = true;
     package = pkgs.yabai;
     config = {
-      focus_follows_mouse          = "off";
-      mouse_follows_focus          = "off";
-      window_origin_display        = "default";
-      window_placement             = "second_child";
-      window_opacity               = "off";
-      window_topmost               = "off";
-      window_shadow                = "on";
-      active_window_opacity        = "1.0";
-      normal_window_opacity        = "0.9";
-      split_ratio                  = "0.50";
-      auto_balance                 = "on";
-      mouse_modifier               = "fn";
-      mouse_action1                = "move";
-      mouse_action2                = "resize";
-      layout                       = "bsp";
-      top_padding                  = 12;
-      bottom_padding               = 12;
-      left_padding                 = 12;
-      right_padding                = 12;
-      window_gap                   = 6;
+      focus_follows_mouse = "off";
+      mouse_follows_focus = "off";
+      window_origin_display = "default";
+      window_placement = "second_child";
+      window_opacity = "off";
+      window_topmost = "off";
+      window_shadow = "on";
+      active_window_opacity = "1.0";
+      normal_window_opacity = "0.9";
+      split_ratio = "0.50";
+      auto_balance = "on";
+      mouse_modifier = "fn";
+      mouse_action1 = "move";
+      mouse_action2 = "resize";
+      layout = "bsp";
+      top_padding = 12;
+      bottom_padding = 12;
+      left_padding = 12;
+      right_padding = 12;
+      window_gap = 6;
     };
     extraConfig = ''
       yabai -m rule --add app=TweetShot manage=off
