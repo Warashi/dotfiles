@@ -8,7 +8,6 @@
   go_1_18
   htop
   jq
-  jump
   neovim
   neovim-remote
   ripgrep

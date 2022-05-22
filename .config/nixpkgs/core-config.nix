@@ -4,10 +4,7 @@
 
   programs.bash = {
     enable = true;
-    initExtra = ''
-      [[ ! -v TMUX ]] && type tmux && exec direnv exec / tmux new-session -t 0
-      [[ ! -v REATTACHED ]] && type reattach-to-user-namespace && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
-    '';
+    initExtra = "exec zsh --login";
   };
 
   programs.zsh = {
@@ -27,7 +24,6 @@
 
     shellAliases = {
       e = "nvr -s -cc ToggleTermClose";
-      t = "tmux new-session -t 0";
       g = "git";
       ls = "exa";
       ll = "ls -l";
@@ -36,12 +32,9 @@
     };
 
     initExtraFirst = ''
-      [[ ! -v TMUX ]] && whence tmux > /dev/null && exec direnv exec / tmux new-session -t 0
+      [[ "$SHELL" == "/bin/bash" ]] && export SHELL=${pkgs.zsh}/bin/zsh
+      [[ ! -v ZELLIJ ]] && whence zellij > /dev/null && exec direnv exec / zellij attach --create
       [[ ! -v REATTACHED ]] && whence reattach-to-user-namespace > /dev/null && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
-    '';
-
-    initExtra = ''
-      whence jump > /dev/null && eval "$(jump shell)"
     '';
 
     plugins = with pkgs; [
@@ -56,48 +49,6 @@
         };
       }
     ];
-  };
-
-  programs.tmux = {
-    enable = true;
-    baseIndex = 1;
-    clock24 = true;
-    escapeTime = 0;
-    keyMode = "vi";
-    shortcut = "Space";
-    shell = "${pkgs.zsh}/bin/zsh";
-    terminal = "screen-256color";
-    plugins = with pkgs; [
-      tmuxPlugins.nord
-    ];
-    extraConfig = ''
-      # C-w で window 一覧を開く
-      bind C-w choose-tree -Zw
-
-      # C-c でwindow作成
-      bind C-c new-window
-
-      # C-t で現在のwindowを一番左へ移動
-      bind C-t move-window -t 0
-
-      # C-h, C-v で画面分割
-      bind C-h split-window -h
-      bind C-v split-window -v
-
-      # H, V で pane 再配置
-      bind H select-layout main-horizontal
-      bind V select-layout main-vertical
-
-      # C-o, M-o で分割した画面をRotate
-      bind -r C-o rotate-window -D
-      bind -r M-o rotate-window -U
-
-      # vim っぽいキーバインドでpaneを移動
-      bind -r h select-pane -L
-      bind -r j select-pane -D
-      bind -r k select-pane -U
-      bind -r l select-pane -R
-    '';
   };
 
   programs.direnv = {
@@ -117,6 +68,35 @@
     enableZshIntegration = true;
     settings = {
       time.disabled = false;
+    };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [ "--cmd j" ];
+  };
+
+  programs.zellij = {
+    enable = true;
+    settings = {
+      default_mode = "locked";
+      copy_command = "muscat copy";
+      theme = "nord";
+      themes.nord = {
+        fg = [ 216 222 233 ]; #D8DEE9
+        bg = [ 46 52 64 ]; #2E3440
+        black = [ 59 66 82 ]; #3B4252
+        red = [ 191 97 106 ]; #BF616A
+        green = [ 163 190 140 ]; #A3BE8C
+        yellow = [ 235 203 139 ]; #EBCB8B
+        blue = [ 129 161 193 ]; #81A1C1
+        magenta = [ 180 142 173 ]; #B48EAD
+        cyan = [ 136 192 208 ]; #88C0D0
+        white = [ 229 233 240 ]; #E5E9F0
+        orange = [ 208 135 112 ]; #D08770
+      };
+      ui.pane_frames.rounded_corners = true;
     };
   };
 }
