@@ -102,6 +102,8 @@ in
       shift + ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
       # toggle window split type
       shift + ctrl + alt - e : yabai -m window --toggle split
+      # minimize window
+      shift + ctrl + alt - m : yabai -m window --minimize
     '';
   };
 
