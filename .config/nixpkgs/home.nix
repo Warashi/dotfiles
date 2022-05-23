@@ -1,7 +1,11 @@
 { config, pkgs, home, ... }:
 
 {
-  imports = [ ./ubuntu.nix ./core-config.nix ];
+  imports = [
+    ./ubuntu.nix
+    ./core-config.nix
+    ./overlays.nix
+  ];
   home.packages = with pkgs; [ docker-client unzip ]
     ++ import ./core-packages.nix { pkgs = pkgs; };
 
