@@ -1,5 +1,6 @@
 require('aerial').setup {
-  open_automatic = true,
+  open_automatic = false,
+  close_on_select = true,
   close_behavior = 'close',
   show_guides = true,
   on_attach = function(bufnr)
