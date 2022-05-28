@@ -1,4 +1,10 @@
-{ pkgs }: with pkgs; [
+{ pkgs }:
+
+let
+  warashiPkgs = import <warashi> { };
+in
+
+with pkgs; [
   exa
   fd
   gcc
@@ -13,4 +19,6 @@
   ripgrep
   rnix-lsp
   tig
+
+  warashiPkgs.muscat
 ]

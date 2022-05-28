@@ -1,6 +1,4 @@
-{ config, pkgs, home, ... }:
-
-{
+{ config, pkgs, home, ... }: {
   imports = [
     ./ubuntu.nix
     ./core-config.nix
