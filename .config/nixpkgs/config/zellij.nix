@@ -1,24 +1,17 @@
-{ programs, pkgs, ... }: {
+{ programs, pkgs, ... }:
+let
+  solarized = import ./solarized.nix;
+in
+{
   programs.zellij = {
     enable = true;
     settings = {
       default_mode = "locked";
       copy_command = "muscat copy";
-      theme = "solarized";
+      theme = "solarized-light";
       themes = {
-        solarized = {
-          fg = [ 253 246 227 ];
-          bg = [ 0 43 54 ];
-          black = [ 7 54 66 ];
-          red = [ 220 50 47 ];
-          green = [ 133 153 0 ];
-          yellow = [ 181 137 0 ];
-          blue = [ 38 139 210 ];
-          magenta = [ 211 54 130 ];
-          cyan = [ 42 161 152 ];
-          white = [ 238 232 213 ];
-          orange = [ 203 75 22 ];
-        };
+        solarized-light = solarized.light;
+        solarized-dark = solarized.dark;
         nord = {
           fg = [ 216 222 233 ]; #D8DEE9
           bg = [ 46 52 64 ]; #2E3440
