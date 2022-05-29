@@ -2,7 +2,7 @@
   imports = [
     ./ubuntu.nix
     ./core-config.nix
-    ./overlays.nix
+    ./config/overlays.nix
   ];
   home.packages = with pkgs; [ docker-client unzip ]
     ++ import ./core-packages.nix { pkgs = pkgs; };

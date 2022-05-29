@@ -2,7 +2,7 @@
   # import home-manager
   imports = [
     <home-manager/nix-darwin>
-    ./overlays.nix
+    ./config/overlays.nix
   ];
 
   # user config
