@@ -1,0 +1,10 @@
+abbrevs:
+  - name: git
+    abbr: g
+    snippet: git
+  - name: ls -l
+    abbr: ll
+    snippet: ls -l
+  - name: ls -al
+    abbr: la
+    snippet: ls -al

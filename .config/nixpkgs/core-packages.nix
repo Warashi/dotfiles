@@ -21,4 +21,5 @@ with pkgs; [
   tig
 
   warashiPkgs.muscat
+  warashiPkgs.zabrze
 ]

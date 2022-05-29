@@ -11,10 +11,7 @@
     };
 
     shellAliases = {
-      g = "git";
       ls = "exa";
-      ll = "ls -l";
-      la = "ll -a";
       f = ''e -c ":Neotree $(pwd)"'';
     };
 
@@ -32,6 +29,7 @@
         export EDITOR="nvim"
         alias e="nvim"
       fi
+      eval "$(zabrze init --bind-keys)"
     '';
   };
 }
