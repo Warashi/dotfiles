@@ -22,8 +22,8 @@ in
   dark = {
     fg = solarized.base0;
     bg = solarized.base03;
-    white = solarized.base3;
-    black = solarized.base00;
+    white = solarized.base2;
+    black = solarized.base01;
     red = solarized.red;
     green = solarized.green;
     yellow = solarized.yellow;
@@ -36,8 +36,8 @@ in
   light = {
     fg = solarized.base00;
     bg = solarized.base3;
-    white = solarized.base0;
-    black = solarized.base03;
+    white = solarized.base2;
+    black = solarized.base01;
     red = solarized.red;
     green = solarized.green;
     yellow = solarized.yellow;
