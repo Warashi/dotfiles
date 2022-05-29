@@ -53,7 +53,7 @@ require('packer').startup(function(use)
   }
 
   -- UI
-  use { 'EdenEast/nightfox.nvim', config = function() require('rc.nightfox') end }
+  use { 'shaunsingh/solarized.nvim', config = function() require('rc.colorscheme') end }
   use { 'nvim-lualine/lualine.nvim', config = function() require('rc.lualine') end, requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-neo-tree/neo-tree.nvim', config = function() require('rc.neo-tree') end }
   use { 'kevinhwang91/nvim-bqf' }
