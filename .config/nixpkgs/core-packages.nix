@@ -11,6 +11,7 @@ with pkgs; [
   gh
   ghq
   git
+  git-lfs
   go_1_18
   htop
   jq
