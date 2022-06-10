@@ -4,7 +4,7 @@
     ./core-config.nix
     ./config/overlays.nix
   ];
-  home.packages = with pkgs; [ docker-client unzip ]
+  home.packages = with pkgs; [ unzip ]
     ++ import ./core-packages.nix { pkgs = pkgs; };
 
   # This value determines the Home Manager release that your
