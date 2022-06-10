@@ -7,7 +7,10 @@
     ./config/zellij.nix
   ];
 
-  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/go/bin"
+  ];
 
   programs.bash = {
     enable = true;
