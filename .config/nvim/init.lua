@@ -8,7 +8,6 @@ vim.env.GIT_EDITOR = 'nvr -cc ToggleTermClose --remote-wait-silent'
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.opt.termguicolors = true
-vim.opt.background = 'dark'
 vim.opt.number = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
