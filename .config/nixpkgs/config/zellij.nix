@@ -1,6 +1,7 @@
 { programs, pkgs, ... }:
 let
   solarized = import ./solarized.nix;
+  gruvbox = import ./gruvbox.nix;
 in
 {
   programs.zellij = {
@@ -8,10 +9,12 @@ in
     settings = {
       default_mode = "locked";
       copy_command = "muscat copy";
-      theme = "solarized-light";
+      theme = "gruvbox-dark";
       themes = {
         solarized-light = solarized.light;
         solarized-dark = solarized.dark;
+        gruvbox-light = gruvbox.light;
+        gruvbox-dark = gruvbox.dark;
         nord = {
           fg = [ 216 222 233 ]; #D8DEE9
           bg = [ 46 52 64 ]; #2E3440
