@@ -1,4 +1,4 @@
-{ programs, pkgs, ... }: {
+{ home, programs, pkgs, ... }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -6,6 +6,8 @@
     ./config/zsh.nix
     ./config/zellij.nix
   ];
+
+  home.sessionPath = [ "$HOME/.local/bin" ];
 
   programs.bash = {
     enable = true;
