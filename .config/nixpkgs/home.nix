@@ -1,11 +1,19 @@
-{ config, pkgs, home, ... }: {
+{ config, pkgs, home, ... }:
+let
+  warashiPkgs = import <warashi> { };
+in
+{
   imports = [
     ./ubuntu.nix
     ./core-config.nix
     ./config/overlays.nix
   ];
-  home.packages = with pkgs; [ unzip ]
-    ++ import ./core-packages.nix { pkgs = pkgs; };
+  home.packages = with pkgs; [
+    unzip
+
+    warashiPkgs.muscat
+  ]
+  ++ import ./core-packages.nix { pkgs = pkgs; };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

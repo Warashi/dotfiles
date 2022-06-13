@@ -21,6 +21,5 @@ with pkgs; [
   rnix-lsp
   tig
 
-  warashiPkgs.muscat
   warashiPkgs.zabrze
 ]
