@@ -20,7 +20,7 @@
 	release = "!gh pr create --draft --assignee '@me' --base master --head develop --title release --fill"
 	delete-merged = "!git branch --merged | cut -c3- | xargs git branch -d"
 	fo = "! git fetch origin \"$1:$1\""
-	psw = "! git switch -d HEAD && git fetch origin \"$1:$1\" && git switch"
+	psw = "! git switch -d HEAD && (git fetch origin \"$1:$1\" && git switch - && git switch $1) || git switch -; :"
 [github]
 	user = Warashi
 [filter "lfs"]
