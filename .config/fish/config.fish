@@ -44,7 +44,7 @@ abbr -a -g g git
 abbr -a -g at atcoder-tools
 alias ls exa
 alias et 'e -c :terminal'
-alias f 'e -c ":Neotree $(pwd)"'
+alias f 'e -c ":VFiler $(pwd)"'
 alias e '$EDITOR'
 
 if status --is-login

@@ -54,12 +54,15 @@ require('packer').startup(function(use)
 
   -- UI
   use { 'ellisonleao/gruvbox.nvim', config = function() require('rc.colorscheme') end }
-  use { 'nvim-lualine/lualine.nvim', config = function() require('rc.lualine') end, requires = { 'kyazdani42/nvim-web-devicons' } }
-  use { 'nvim-neo-tree/neo-tree.nvim', config = function() require('rc.neo-tree') end }
+  use { 'nvim-lualine/lualine.nvim', config = function() require('rc.lualine') end,
+    requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { 'obaland/vfiler.vim', config = function() require('rc.filer') end,
+    requires = { 'obaland/vfiler-column-devicons' } }
   use { 'kevinhwang91/nvim-bqf' }
   use { 'RRethy/vim-illuminate' }
   use { 'hotwatermorning/auto-git-diff' }
-  use { 'nvim-telescope/telescope.nvim', config = function() require('rc.telescope') end, requires = { { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } } }
+  use { 'nvim-telescope/telescope.nvim', config = function() require('rc.telescope') end,
+    requires = { { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } } }
   use { 'sidebar-nvim/sidebar.nvim', config = function() require('rc.sidebar') end }
   use { 'akinsho/toggleterm.nvim', config = function() require('rc.toggleterm') end }
   use { 'folke/which-key.nvim', config = function() require('which-key').setup {} end }
