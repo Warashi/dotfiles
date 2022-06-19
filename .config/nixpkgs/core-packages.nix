@@ -15,6 +15,7 @@ with pkgs; [
   go_1_18
   htop
   jq
+  mosh
   neovim
   neovim-remote
   ripgrep
