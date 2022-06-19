@@ -12,7 +12,7 @@
 
     shellAliases = {
       ls = "exa";
-      f = ''e -c ":Neotree $(pwd)"'';
+      f = ''e -c ":VFiler $(pwd)"'';
     };
 
     initExtraFirst = ''
