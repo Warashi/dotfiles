@@ -38,20 +38,6 @@ require('packer').startup(function(use)
   use { 'hrsh7th/vim-vsnip', config = function() require('rc.vsnip') end }
   use { 'rafamadriz/friendly-snippets' }
 
-  -- auto completion
-  use { 'hrsh7th/nvim-cmp',
-    config = function() require('rc.cmp') end,
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      'hrsh7th/cmp-emoji',
-      'hrsh7th/cmp-vsnip',
-      'petertriho/cmp-git',
-    },
-  }
-
   -- UI
   use { 'ellisonleao/gruvbox.nvim', config = function() require('rc.colorscheme') end }
   use { 'nvim-lualine/lualine.nvim', config = function() require('rc.lualine') end,
