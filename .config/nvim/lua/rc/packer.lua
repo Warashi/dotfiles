@@ -36,6 +36,7 @@ require('packer').startup(function(use)
 
   -- snippets
   use { 'hrsh7th/vim-vsnip', config = function() require('rc.vsnip') end }
+  use { 'hrsh7th/vim-vsnip-integ' }
   use { 'rafamadriz/friendly-snippets' }
 
   -- UI
