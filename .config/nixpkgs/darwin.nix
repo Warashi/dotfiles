@@ -1,8 +1,10 @@
-{ config, pkgs, ... }: {
+{ nixpkgs, config, pkgs, ... }: {
   # import home-manager
   imports = [
     <home-manager/nix-darwin>
   ];
+  # home-manager と nix-darwin で同じoverlaysを使うための方策
+  nixpkgs.overlays = import ./overlays.nix;
 
   # user config
   users.users.sawada = {
