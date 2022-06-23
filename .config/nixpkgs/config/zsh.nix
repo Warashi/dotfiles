@@ -13,12 +13,12 @@
     shellAliases = {
       ls = "exa";
       f = ''e -c ":VFiler $(pwd)"'';
+      z = "exec direnv exec / zellij attach --create";
+      m = "mosh workbench";
     };
 
     initExtraFirst = ''
-      [[ "$SHELL" == "/bin/bash" ]] && export SHELL=${pkgs.zsh}/bin/zsh
-      [[ ! -v ZELLIJ ]] && whence zellij > /dev/null && exec direnv exec / zellij attach --create
-      [[ ! -v REATTACHED ]] && whence reattach-to-user-namespace > /dev/null && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
+      [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh
     '';
 
     initExtra = ''
