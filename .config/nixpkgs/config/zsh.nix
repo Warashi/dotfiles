@@ -14,7 +14,7 @@
       ls = "exa";
       f = ''e -c ":VFiler $(pwd)"'';
       z = "exec direnv exec / zellij attach --create";
-      m = "mosh workbench";
+      m = "mosh workbench --server=~/.nix-profile/bin/mosh-server";
     };
 
     initExtraFirst = ''
