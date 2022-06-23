@@ -6,7 +6,6 @@ in
   imports = [
     ./ubuntu.nix
     ./core-config.nix
-    ./config/overlays.nix
   ];
   home.packages = with pkgs; [
     unzip
