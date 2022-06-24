@@ -18,9 +18,13 @@ local on_attach = function(client, bufnr)
   require('aerial').on_attach(client, bufnr)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'sumneko_lua', 'clangd', 'rnix' }
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
