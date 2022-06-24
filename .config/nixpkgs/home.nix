@@ -7,6 +7,9 @@ in
     ./ubuntu.nix
     ./core-config.nix
   ];
+
+  nixpkgs.overlays = import ./overlays.nix;
+
   home.packages = with pkgs; [
     unzip
 
