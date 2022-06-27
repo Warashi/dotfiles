@@ -15,6 +15,7 @@ with pkgs; [
   ghq
   git
   git-lfs
+  glow
   go_1_18
   htop
   jq
