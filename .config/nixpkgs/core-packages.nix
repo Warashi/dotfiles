@@ -5,6 +5,7 @@ let
 in
 
 with pkgs; [
+  delta
   exa
   fd
   gcc
@@ -20,6 +21,7 @@ with pkgs; [
   neovim-remote
   ripgrep
   rnix-lsp
+  skim
   tig
 
   warashiPkgs.zabrze
