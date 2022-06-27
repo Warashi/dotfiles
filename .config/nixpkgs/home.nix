@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    ./ubuntu.nix
+    ./local.nix
     ./core-config.nix
   ];
 
