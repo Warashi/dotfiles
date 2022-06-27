@@ -5,7 +5,9 @@ let
 in
 
 with pkgs; [
+  bat
   delta
+  deno
   exa
   fd
   gcc

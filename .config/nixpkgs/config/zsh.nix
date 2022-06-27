@@ -21,7 +21,7 @@
       [[ "$SHELL" == "/bin/bash" ]] && export SHELL=${pkgs.zsh}/bin/zsh
       [[ ! -v ZELLIJ ]] && whence zellij > /dev/null && exec direnv exec / zellij attach --create
       [[ ! -v REATTACHED ]] && whence reattach-to-user-namespace > /dev/null && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
-    '';
+    '' + import ./zeno.nix;
 
     initExtra = ''
       if [[ -v NVIM_LISTEN_ADDRESS ]]; then
@@ -31,7 +31,19 @@
         export EDITOR="nvim"
         alias e="nvim"
       fi
-      eval "$(zabrze init --bind-keys)"
-    '';
+    '' + import ./zeno-bind.nix;
+
+    plugins = [
+      {
+        name = "zeno.zsh";
+        file = "zeno.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "yuki-yano";
+          repo = "zeno.zsh";
+          rev = "045d0b8eebad9202666a7da0d0a8093f4fbca418";
+          sha256 = "0zx930psrbmbjxcrl4mbfcrvxqj9bdsybxmg02k013lm6r1i3rk8";
+        };
+      }
+    ];
   };
 }

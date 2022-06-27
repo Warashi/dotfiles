@@ -1,0 +1,11 @@
+snippets:
+  - name: git
+    keyword: g
+    snippet: git
+  - name: ls -l
+    keyword: ll
+    snippet: ls -l
+  - name: ls -al
+    keyword: la
+    snippet: ls -al
+  - name: git
