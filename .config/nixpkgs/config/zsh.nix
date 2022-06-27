@@ -15,6 +15,7 @@
       f = ''e -c ":VFiler $(pwd)"'';
       z = "exec direnv exec / zellij attach --create";
       m = "mosh workbench --server=~/.nix-profile/bin/mosh-server";
+      mm = " wezterm cli spawn --new-window -- mosh workbench --server=~/.nix-profile/bin/mosh-server";
     };
 
     initExtraFirst = ''
