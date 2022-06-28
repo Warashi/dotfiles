@@ -34,9 +34,7 @@ require('packer').startup(function(use)
   use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }
 
   -- snippets
-  use { 'hrsh7th/vim-vsnip', config = function() require('rc.vsnip') end }
-  use { 'hrsh7th/vim-vsnip-integ' }
-  use { 'rafamadriz/friendly-snippets' }
+  use { 'dcampos/nvim-snippy', config = function() require('rc.snippets') end }
 
   -- UI
   use { 'ellisonleao/gruvbox.nvim', config = function() require('rc.colorscheme') end }
