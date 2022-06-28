@@ -23,7 +23,7 @@
     clock24 = true;
     escapeTime = 0;
     keyMode = "vi";
-    shortcut = "Space";
+    shortcut = "g";
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";
     plugins = with pkgs; [
