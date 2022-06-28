@@ -37,7 +37,7 @@ require('packer').startup(function(use)
   use { 'dcampos/nvim-snippy', config = function() require('rc.snippets') end }
 
   -- UI
-  use { 'ellisonleao/gruvbox.nvim', config = function() require('rc.colorscheme') end }
+  use { 'EdenEast/nightfox.nvim', config = function() require('rc.colorscheme') end }
   use { 'nvim-lualine/lualine.nvim', config = function() require('rc.lualine') end,
     requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'obaland/vfiler.vim', config = function() require('rc.filer') end,
