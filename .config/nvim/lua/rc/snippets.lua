@@ -9,3 +9,4 @@ require('snippy').setup({
     },
   },
 })
+vim.cmd([[ autocmd CompleteDone * lua require 'snippy'.complete_done() ]])
