@@ -32,7 +32,6 @@ require('packer').startup(function(use)
   -- motion
   use { 'deton/jasegment.vim' }
   use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }
-  use { 'bkad/CamelCaseMotion', config = function() require('rc.camel-case-motion') end }
 
   -- snippets
   use { 'hrsh7th/vim-vsnip', config = function() require('rc.vsnip') end }
