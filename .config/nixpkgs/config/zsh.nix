@@ -13,15 +13,12 @@
     shellAliases = {
       ls = "exa";
       f = ''e -c ":VFiler $(pwd)"'';
-      z = "exec direnv exec / zellij attach --create";
-      m = "mosh workbench --server=~/.nix-profile/bin/mosh-server";
-      mm = " wezterm cli spawn --new-window -- mosh workbench --server=~/.nix-profile/bin/mosh-server";
+      mm = "wezterm cli spawn --new-window -- mosh workbench --server=~/.nix-profile/bin/mosh-server";
     };
 
     initExtraFirst = ''
-      [[ "$SHELL" == "/bin/bash" ]] && export SHELL=${pkgs.zsh}/bin/zsh
+      [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
       [[ ! -v TMUX ]] && whence tmux > /dev/null && exec direnv exec / tmux new-session -t 0
-      [[ ! -v REATTACHED ]] && whence reattach-to-user-namespace > /dev/null && exec env REATTACHED=1 reattach-to-user-namespace -l $SHELL
     '' + import ./zeno.nix;
 
     initExtra = ''
