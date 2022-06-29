@@ -14,3 +14,7 @@ shift + ctrl + alt - r : yabai -m space --rotate 90
 shift + ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
 # toggle window split type
 shift + ctrl + alt - e : yabai -m window --toggle split
+# minimize window
+shift + ctrl + alt - m : yabai -m window --minimize
+# close window
+shift + ctrl + alt - w : yabai -m window --close
