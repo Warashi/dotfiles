@@ -30,6 +30,13 @@
       tmuxPlugins.nord
     ];
     extraConfig = ''
+      set -g set-titles on
+      set -g set-titles-string '#T'
+
+      # TrueColor 表示
+      set -g default-terminal "screen-256color"
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
+
       # C-w で window 一覧を開く
       bind C-w choose-tree -Zw
 
