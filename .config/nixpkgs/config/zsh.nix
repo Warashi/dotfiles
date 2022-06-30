@@ -3,7 +3,8 @@
     enable = true;
     dotDir = ".config/zsh";
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    enableSyntaxHighlighting = false;
+    enableVteIntegration = true;
 
     history = {
       extended = true;
