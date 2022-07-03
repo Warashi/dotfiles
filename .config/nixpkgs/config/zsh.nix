@@ -39,8 +39,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "yuki-yano";
           repo = "zeno.zsh";
-          rev = "045d0b8eebad9202666a7da0d0a8093f4fbca418";
-          sha256 = "0zx930psrbmbjxcrl4mbfcrvxqj9bdsybxmg02k013lm6r1i3rk8";
+          rev = "a3a489781d37522fa1336672441e48fd36bf41bd";
+          sha256 = "0h7srf64l78dpy7jqdlvji6yplg8qh6k69p1pvgdg6symfyl853n";
         };
       }
     ];
