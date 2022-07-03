@@ -4,7 +4,7 @@
     dotDir = ".config/zsh";
     enableAutosuggestions = true;
     enableSyntaxHighlighting = false;
-    enableVteIntegration = true;
+    enableVteIntegration = false;
 
     history = {
       extended = true;
