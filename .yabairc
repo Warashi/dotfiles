@@ -33,5 +33,6 @@ yabai -m config window_gap                   06
 
 # rules
 yabai -m rule --add app="Cisco AnyConnect Secure Mobility Client" manage=off
+yabai -m rule --add title="ピクチャ イン ピクチャ" manage=off
 
 echo "yabai configuration loaded.."
