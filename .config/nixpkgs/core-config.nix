@@ -31,7 +31,7 @@
     ];
     extraConfig = ''
       set -g set-titles on
-      set -g set-titles-string '#W \ #{pane_current_path}'
+      set -g set-titles-string '#T'
 
       # TrueColor 表示
       set -g default-terminal "screen-256color"
