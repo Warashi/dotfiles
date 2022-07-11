@@ -26,6 +26,7 @@ with pkgs; [
   rnix-lsp
   skim
   tig
+  yq-go
 
   warashiPkgs.zabrze
 ]
