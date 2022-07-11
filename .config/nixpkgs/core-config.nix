@@ -78,14 +78,6 @@
     tmux.enableShellIntegration = true;
   };
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      time.disabled = false;
-    };
-  };
-
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
