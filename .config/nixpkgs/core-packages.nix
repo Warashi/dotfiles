@@ -27,6 +27,4 @@ with pkgs; [
   skim
   tig
   yq-go
-
-  warashiPkgs.zabrze
 ]
