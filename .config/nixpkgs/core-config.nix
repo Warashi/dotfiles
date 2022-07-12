@@ -26,10 +26,16 @@
     shortcut = "g";
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";
-    plugins = with pkgs; [
-      tmuxPlugins.nord
+    plugins = with pkgs.tmuxPlugins; [
+      better-mouse-mode
+      nord
+      tmux-thumbs
     ];
     extraConfig = ''
+      # マウスを有効化
+      set-option -g mouse on
+
+      # title設定
       set -g set-titles on
       set -g set-titles-string '#T'
 
