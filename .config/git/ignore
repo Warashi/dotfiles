@@ -4,6 +4,7 @@ shell.nix
 ## direnv
 .envrc
 .direnv/
+.env.local
 .envrc.local
 
 ## vim

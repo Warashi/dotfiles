@@ -76,6 +76,12 @@
     enable = true;
     nix-direnv.enable = true;
     enableZshIntegration = true;
+    stdlib = ''
+      if test -e shell.nix; then
+        use nix
+      fi
+      source_env_if_exists .env.local
+    '';
   };
 
   programs.fzf = {
