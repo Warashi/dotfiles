@@ -77,6 +77,7 @@
     nix-direnv.enable = true;
     enableZshIntegration = true;
     stdlib = ''
+      source_up_if_exists
       if test -e shell.nix; then
         use nix
       fi
