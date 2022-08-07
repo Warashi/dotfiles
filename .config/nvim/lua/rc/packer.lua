@@ -61,6 +61,7 @@ require('packer').startup(function(use)
   use { 'kevinhwang91/nvim-hclipboard', config = function() require('hclipboard').start() end }
   use { 'famiu/bufdelete.nvim', config = function() require('rc.bufdelete') end }
   use { 'lambdalisue/guise.vim' }
+  use { 'yutkat/confirm-quit.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
