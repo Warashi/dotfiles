@@ -12,6 +12,10 @@
       expireDuplicatesFirst = true;
     };
 
+    sessionVariables = {
+      LANG = "en_US.UTF-8";
+    };
+
     shellAliases = {
       e = "nvim";
       neovide = "/Applications/Neovide.app/Contents/MacOS/neovide";
