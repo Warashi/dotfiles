@@ -5,6 +5,7 @@
     enableAutosuggestions = true;
     enableSyntaxHighlighting = false;
     enableVteIntegration = false;
+    defaultKeymap = "emacs";
 
     history = {
       extended = true;
@@ -12,6 +13,7 @@
     };
 
     shellAliases = {
+      e = "nvim";
       ls = "exa";
       f = ''e -c ":VFiler $(pwd)"'';
       mm = "wezterm cli spawn --new-window -- mosh workbench --server=~/.nix-profile/bin/mosh-server";
