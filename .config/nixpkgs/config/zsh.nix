@@ -23,7 +23,7 @@
     '' + import ./p10k.nix + import ./zeno.nix;
 
     initExtra = ''
-      if [[ -v NVIM_LISTEN_ADDRESS ]]; then
+      if [[ -v NVIM ]]; then
         export EDITOR="nvr -cc ToggleTermClose --remote-wait-silent"
         alias e="nvr -cc ToggleTermClose"
       else
