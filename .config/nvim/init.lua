@@ -1,9 +1,6 @@
 vim.o.t_8f = [[\<Esc>[38;2;%lu;%lu;%lum]] -- 文字色
 vim.o.t_8b = [[\<Esc>[48;2;%lu;%lu;%lum]] -- 背景色
 vim.g.mapleader = ','
-vim.env.EDITOR = 'nvr -cc ToggleTermClose'
-vim.env.TIG_EDITOR = 'nvr -cc ToggleTermClose'
-vim.env.GIT_EDITOR = 'nvr -cc ToggleTermClose --remote-wait-silent'
 
 vim.opt.title = true
 vim.opt.timeoutlen = 1000
