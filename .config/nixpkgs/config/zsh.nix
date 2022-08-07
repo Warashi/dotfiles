@@ -14,6 +14,7 @@
 
     shellAliases = {
       e = "nvim";
+      neovide = "/Applications/Neovide.app/Contents/MacOS/neovide";
       ls = "exa";
       f = ''e -c ":VFiler $(pwd)"'';
       mm = "wezterm cli spawn --new-window -- mosh workbench --server=~/.nix-profile/bin/mosh-server";
