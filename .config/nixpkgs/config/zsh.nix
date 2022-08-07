@@ -22,15 +22,7 @@
       [[ ! -v TMUX ]] && whence tmux > /dev/null && exec direnv exec / tmux new-session -t 0
     '' + import ./p10k.nix + import ./zeno.nix;
 
-    initExtra = ''
-      if [[ -v NVIM ]]; then
-        export EDITOR="nvr -cc ToggleTermClose --remote-wait-silent"
-        alias e="nvr -cc ToggleTermClose"
-      else
-        export EDITOR="nvim"
-        alias e="nvim"
-      fi
-    '' + import ./zeno-bind.nix;
+    initExtra = import ./zeno-bind.nix;
 
     plugins = [
       {

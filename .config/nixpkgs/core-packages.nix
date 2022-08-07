@@ -21,7 +21,6 @@ with pkgs; [
   jq
   mosh
   neovim
-  neovim-remote
   ripgrep
   rnix-lsp
   skim

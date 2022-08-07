@@ -12,6 +12,7 @@ require('packer').startup(function(use)
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'MunifTanjim/nui.nvim' }
   use { 'rcarriga/nvim-notify', config = function() require('rc.notify') end }
+  use { 'vim-denops/denops.vim' }
 
   -- lsp
   use { 'neovim/nvim-lspconfig' }
@@ -59,6 +60,7 @@ require('packer').startup(function(use)
   use { 'wakatime/vim-wakatime' }
   use { 'kevinhwang91/nvim-hclipboard', config = function() require('hclipboard').start() end }
   use { 'famiu/bufdelete.nvim', config = function() require('rc.bufdelete') end }
+  use { 'lambdalisue/guise.vim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
