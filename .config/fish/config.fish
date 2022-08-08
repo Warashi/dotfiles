@@ -30,18 +30,15 @@ set -x DOCKER_BUILDKIT 1
 set -x SUDO_PROMPT "[sudo] password for %p:"
 set -x ORG_JETBRAINS_PROJECTOR_SERVER_AUTO_KEYMAP false
 set -x ORG_JETBRAINS_PROJECTOR_SERVER_PIXEL_PER_UNIT 30
-
-if set -q EDITOR
-    set -x EDITOR (echo $EDITOR | string split ' ')
-else
-    set -x EDITOR nvim
-end
+set -x EDITOR nvim
+set -x NEOVIDE_MULTIGRID 1
 
 abbr -a -g k kubectl
 abbr -a -g kx kubectx
 abbr -a -g k9s k9s --readonly
 abbr -a -g g git
 abbr -a -g at atcoder-tools
+abbr -a -g nvr neovide --remote-tcp localhost:6666
 alias ls exa
 alias et 'e -c :terminal'
 alias f 'e -c ":VFiler $(pwd)"'
