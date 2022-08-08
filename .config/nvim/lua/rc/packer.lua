@@ -8,6 +8,7 @@ require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- libraries
+  use { 'nvim-lua/popup.nvim' }
   use { 'nvim-lua/plenary.nvim' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'MunifTanjim/nui.nvim' }
@@ -48,14 +49,16 @@ require('packer').startup(function(use)
   use { 'RRethy/vim-illuminate' }
   use { 'hotwatermorning/auto-git-diff' }
   use { 'nvim-telescope/telescope.nvim', config = function() require('rc.telescope') end,
-    requires = { { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } } }
+    requires = {
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { 'jvgrootveld/telescope-zoxide' },
+  } }
   use { 'sidebar-nvim/sidebar.nvim', config = function() require('rc.sidebar') end }
   use { 'akinsho/toggleterm.nvim', config = function() require('rc.toggleterm') end }
   use { 'folke/which-key.nvim', config = function() require('which-key').setup {} end }
   use { 'stevearc/aerial.nvim', config = function() require('rc.aerial') end }
   use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('rc.bufferline') end }
   use { "folke/trouble.nvim", config = function() require("rc/trouble") end }
-  use { 'nanotee/zoxide.vim' }
 
   -- misc
   use { 'wakatime/vim-wakatime' }
