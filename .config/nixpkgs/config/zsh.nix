@@ -14,6 +14,7 @@
 
     sessionVariables = {
       LANG = "en_US.UTF-8";
+      NEOVIDE_MULTIGRID = 1;
     };
 
     shellAliases = {
