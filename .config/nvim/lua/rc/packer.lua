@@ -55,6 +55,7 @@ require('packer').startup(function(use)
   use { 'stevearc/aerial.nvim', config = function() require('rc.aerial') end }
   use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function() require('rc.bufferline') end }
   use { "folke/trouble.nvim", config = function() require("rc/trouble") end }
+  use { 'nanotee/zoxide.vim' }
 
   -- misc
   use { 'wakatime/vim-wakatime' }
