@@ -1,5 +1,7 @@
 ## nix-shell
 shell.nix
+### nix-shell でいれたJDKでmavenを起動すると $HOME 相当がなぜかこいつになる
+/?/
 
 ## direnv
 .envrc
