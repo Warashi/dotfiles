@@ -10,13 +10,12 @@ with pkgs; [
   deno
   exa
   fd
-  gcc
   gh
   ghq
   git
   git-lfs
   glow
-  go_1_18
+  go_1_19
   htop
   jq
   mosh
