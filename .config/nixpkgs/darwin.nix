@@ -181,10 +181,6 @@
       # hot corner actions
       wvous-bl-corner = 2; # mission control
       wvous-br-corner = 3; # application windows
-
-      # この後で試す
-      showhidden = false;
-      static-only = false;
     };
 
     finder = {
