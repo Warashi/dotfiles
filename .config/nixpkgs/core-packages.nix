@@ -7,7 +7,7 @@ in
 with pkgs; [
   bat
   delta
-  deno
+  # deno
   exa
   fd
   gh

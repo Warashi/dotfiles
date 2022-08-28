@@ -1,0 +1,16 @@
+[
+  "1password"
+  "atok"
+  "caffeine"
+  "discord"
+  "docker"
+  "dropbox"
+  "iterm2"
+  "jetbrains-toolbox"
+  "karabiner-elements"
+  "microsoft-edge"
+  "mimestream"
+  "raycast"
+  "slack"
+  "tailscale"
+]
