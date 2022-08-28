@@ -76,7 +76,8 @@
     };
     extraConfig = ''
       yabai -m rule --add app=TweetShot manage=off
-      yabai -m rule --add app='System Preferences' manage=off
+      yabai -m rule --add app='システム環境設定' manage=off
+      yabai -m rule --add title='Discord Updater' manage=off
     '';
   };
 
