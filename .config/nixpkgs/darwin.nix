@@ -13,7 +13,9 @@
   };
   home-manager.useUserPackages = true;
   home-manager.users.sawada = { pkgs, ... }: {
-    home.packages = with pkgs; [ mas ] ++ import ./core-packages.nix { pkgs = pkgs; };
+    home.packages =
+      import ./darwin-packages.nix { pkgs = pkgs; }
+      ++ import ./core-packages.nix { pkgs = pkgs; };
     imports = [ ./core-config.nix ];
   };
 
