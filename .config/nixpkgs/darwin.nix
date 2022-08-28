@@ -75,9 +75,10 @@
       external_bar = "all:26:0";
     };
     extraConfig = ''
-      yabai -m rule --add app=TweetShot manage=off
       yabai -m rule --add app='システム環境設定' manage=off
-      yabai -m rule --add title='Discord Updater' manage=off
+      yabai -m rule --add app=Discord title='Discord Updater' manage=off
+      yabai -m rule --add app=Timemator title=Timemator manage=off
+      yabai -m rule --add app=TweetShot manage=off
     '';
   };
 
