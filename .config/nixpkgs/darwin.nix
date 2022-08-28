@@ -137,6 +137,87 @@
     };
   };
 
+  system.defaults = {
+    NSGlobalDomain = {
+      AppleInterfaceStyle = "Dark";
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+
+      NSAutomaticWindowAnimationsEnabled = false;
+
+      NSNavPanelExpandedStateForSaveMode = true;
+      NSNavPanelExpandedStateForSaveMode2 = true;
+      PMPrintingExpandedStateForPrint = true;
+      PMPrintingExpandedStateForPrint2 = true;
+
+      _HIHideMenuBar = true;
+
+      "com.apple.keyboard.fnState" = true;
+      "com.apple.springing.enabled" = true;
+    };
+
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+
+    dock = {
+      autohide = true;
+      enable-spring-load-actions-on-all-items = true;
+      appswitcher-all-displays = true;
+      expose-group-by-app = false;
+      launchanim = true;
+      mineffect = "scale";
+      minimize-to-application = true;
+      mouse-over-hilite-stack = true;
+      mru-spaces = false;
+      orientation = "left";
+      show-process-indicators = true;
+      show-recents = false;
+
+      # hot corner actions
+      wvous-bl-corner = 2; # mission control
+      wvous-br-corner = 3; # application windows
+
+      # この後で試す
+      showhidden = false;
+      static-only = false;
+    };
+
+    finder = {
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      CreateDesktop = false;
+      FXPreferredViewStyle = "Nlsv"; # List view
+      ShowPathbar = true;
+      ShowStatusBar = true;
+    };
+
+    loginwindow = {
+      GuestEnabled = false;
+    };
+
+    screencapture = {
+      disable-shadow = true;
+      type = "png";
+    };
+
+    spaces = {
+      spans-displays = false;
+    };
+
+    trackpad = {
+      ActuationStrength = 1;
+      Clicking = true;
+      Dragging = true;
+      FirstClickThreshold = 0;
+      SecondClickThreshold = 0;
+    };
+  };
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
