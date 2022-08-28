@@ -35,6 +35,7 @@
 
   homebrew = {
     enable = true;
+    brews = import ./brews.nix;
     casks = import ./casks.nix;
     masApps = import ./mas.nix;
     cleanup = "zap";
