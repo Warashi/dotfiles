@@ -12,5 +12,4 @@
   "mimestream"
   "raycast"
   "slack"
-  "tailscale"
 ]
