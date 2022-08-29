@@ -35,6 +35,10 @@
 
     initExtra = import ./zeno-bind.nix;
 
+    envExtra = ''
+      test -f $HOME/.cargo/env && . $HOME/.cargo/env
+    '';
+
     plugins = [
       {
         name = "zeno.zsh";
