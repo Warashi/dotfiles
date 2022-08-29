@@ -11,6 +11,7 @@ in
   nixpkgs.overlays = import ./overlays.nix;
 
   home.packages = with pkgs; [
+    deno
     unzip
 
     warashiPkgs.muscat

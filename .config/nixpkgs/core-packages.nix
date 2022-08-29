@@ -7,7 +7,6 @@ in
 with pkgs; [
   bat
   delta
-  deno
   exa
   fd
   gh
