@@ -21,7 +21,6 @@ with pkgs; [
   mosh
   neovim
   ripgrep
-  rnix-lsp
   skim
   tig
   yq-go
