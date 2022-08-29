@@ -22,12 +22,11 @@
       neovide = "/Applications/Neovide.app/Contents/MacOS/neovide";
       ls = "exa";
       f = ''e -c ":VFiler $(pwd)"'';
-      mm = "wezterm cli spawn --new-window -- mosh workbench --server=~/.nix-profile/bin/mosh-server";
+      tnc = "exec direnv exec / tmux -CC new-session -t 0";
     };
 
     initExtraFirst = ''
       [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
-      [[ ! -v TMUX ]] && whence tmux > /dev/null && exec direnv exec / tmux new-session -t 0
     '' + import ./p10k.nix + import ./zeno.nix;
 
     initExtra = import ./zeno-bind.nix;
