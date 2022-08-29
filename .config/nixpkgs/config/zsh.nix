@@ -29,6 +29,10 @@
       [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
     '' + import ./p10k.nix + import ./zeno.nix;
 
+    localVariables = {
+      POWERLEVEL9K_TERM_SHELL_INTEGRATION = true;
+    };
+
     initExtra = import ./zeno-bind.nix;
 
     plugins = [
