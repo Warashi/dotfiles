@@ -3,6 +3,7 @@
   users.users.sawada = {
     name = "sawada";
     home = "/Users/sawada";
+    shell = pkgs.zsh;
   };
 
   home-manager.users.sawada = { pkgs, ... }: {
