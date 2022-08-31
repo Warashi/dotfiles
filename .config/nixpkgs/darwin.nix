@@ -2,24 +2,12 @@
   # import home-manager
   imports = [
     <home-manager/nix-darwin>
+    ./local.nix
   ];
   # home-manager と nix-darwin で同じoverlaysを使うための方策
   nixpkgs.overlays = import ./overlays.nix;
 
-  # user config
-  users.users.sawada = {
-    name = "sawada";
-    home = "/Users/sawada";
-  };
   home-manager.useUserPackages = true;
-  home-manager.users.sawada = { pkgs, ... }: {
-    home.packages =
-      import ./darwin-packages.nix { pkgs = pkgs; }
-      ++ import ./core-packages.nix { pkgs = pkgs; };
-    imports = [ ./core-config.nix ];
-
-    home.stateVersion = "22.05";
-  };
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
@@ -40,14 +28,6 @@
     masApps = import ./mas.nix;
     cleanup = "zap";
   };
-
-  # autossh
-  services.autossh.sessions = [{
-    name = "workbench";
-    user = "sawada";
-    extraArguments = "-N forward-workbench";
-    monitoringPort = 20000;
-  }];
 
   services.yabai = {
     enable = true;
