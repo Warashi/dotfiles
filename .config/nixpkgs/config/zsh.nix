@@ -37,6 +37,7 @@
 
     envExtra = ''
       test -f $HOME/.cargo/env && . $HOME/.cargo/env
+      test -d /opt/homebrew/bin && export PATH=/opt/homebrew/bin:$PATH
     '';
 
     plugins = [
