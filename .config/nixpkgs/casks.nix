@@ -12,4 +12,5 @@
   "mimestream"
   "raycast"
   "slack"
+  "zoom"
 ]
