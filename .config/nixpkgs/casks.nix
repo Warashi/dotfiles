@@ -2,7 +2,7 @@
   "1password"
   "atok"
   "caffeine"
-  "discord"
+  "homebrew/cask-versions/discord-ptb"
   "docker"
   "dropbox"
   "iterm2"
