@@ -70,6 +70,15 @@
           sha256 = "1rvfbinh4mr1fm5zizf2m397s43x46zq9cga6a1swzfhqlcmyw09";
         };
       }
+      {
+        name = "fast-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zdharma-continuum";
+          repo = "fast-syntax-highlighting";
+          rev = "13dd94ba828328c18de3f216ec4a746a9ad0ef55";
+          sha256 = "1l7szi9lc1b0g0c0p1c1pqhbvgz66wp1a1ib6rhsly4vdz8y5ksm";
+        };
+      }
     ];
   };
 }
