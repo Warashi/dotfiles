@@ -194,8 +194,8 @@
 
     trackpad = {
       ActuationStrength = 1;
-      Clicking = true;
-      Dragging = true;
+      Clicking = false;
+      Dragging = false;
       FirstClickThreshold = 0;
       SecondClickThreshold = 0;
     };
