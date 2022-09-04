@@ -33,7 +33,7 @@
 [user]
 	useConfigOnly = true
 [commit]
-	gpgsign = true
+	gpgsign = false
 	verbose = true
 [pull]
 	ff = only
