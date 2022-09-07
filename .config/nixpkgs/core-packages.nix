@@ -21,7 +21,6 @@ with pkgs; [
   neovim
   ripgrep
   skim
-  sta
   tig
   yq-go
 ]

@@ -12,6 +12,7 @@ in
 
   home.packages = with pkgs; [
     deno
+    sta
     unzip
 
     warashiPkgs.muscat
