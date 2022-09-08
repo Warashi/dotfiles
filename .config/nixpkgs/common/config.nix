@@ -3,8 +3,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./config/zsh.nix
-    ./config/zellij.nix
+    ./zsh.nix
   ];
 
   home.sessionPath = [

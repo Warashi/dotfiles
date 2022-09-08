@@ -1,17 +1,47 @@
-{ nixpkgs, config, pkgs, ... }: {
+{ nixpkgs, config, pkgs, ... }:
+let
+  local = import ../local.nix;
+in
+{
   # import home-manager
   imports = [
     <home-manager/nix-darwin>
-    ./local.nix
   ];
+
   # home-manager と nix-darwin で同じoverlaysを使うための方策
-  nixpkgs.overlays = import ./overlays.nix;
+  nixpkgs.overlays = import ../common/overlays.nix;
 
   home-manager.useUserPackages = true;
 
+  # user config
+  users.users.${local.user} = {
+    name = "${local.user}";
+    home = "/Users/${local.user}";
+    shell = pkgs.zsh;
+  };
+
+  home-manager.users.${local.user} = { pkgs, ... }: {
+    imports = [
+      ../common/config.nix
+    ];
+
+    home.packages =
+      import ./packages.nix { pkgs = pkgs; }
+      ++ import ../common/packages.nix { pkgs = pkgs; };
+
+    home.stateVersion = "22.05";
+  };
+
+  services.autossh.sessions = [{
+    name = "workbench";
+    user = "${local.user}";
+    extraArguments = "-N forward-workbench";
+    monitoringPort = 20000;
+  }];
+
   # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin.nix";
+  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/config.nix
+  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/config.nix";
   environment.shells = [ pkgs.zsh ];
 
   # Auto upgrade nix package and the daemon service.
