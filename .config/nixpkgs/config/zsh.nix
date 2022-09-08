@@ -36,6 +36,7 @@
         else
           # echo "update $zcompdump"
           compinit
+          compdump
         fi
         if [[ $zcompdump -nt $zcompdump.zwc ]]; then
           # echo "compile $zcompdump"
