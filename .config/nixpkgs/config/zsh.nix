@@ -31,14 +31,14 @@
         setopt extended_glob
         zcompdump="''${ZDOTDIR:-$HOME}/.zcompdump"
         if [[ -e $zcompdump(#qN.mh-24) ]]; then
-          echo "omit the check for new functions since we updated today"
+          # echo "omit the check for new functions since we updated today"
           compinit -C
         else
-          echo "update $zcompdump"
+          # echo "update $zcompdump"
           compinit
         fi
         if [[ $zcompdump -nt $zcompdump.zwc ]]; then
-          echo "compile $zcompdump"
+          # echo "compile $zcompdump"
           zcompile $zcompdump
         fi
       }
