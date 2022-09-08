@@ -25,6 +25,27 @@
       tnc = "exec direnv exec / tmux -CC new-session -t 0";
     };
 
+    completionInit = ''
+      _compinit() {
+        autoload -Uz compinit
+        setopt extended_glob
+        zcompdump="''${ZDOTDIR:-$HOME}/.zcompdump"
+        if [[ -e $zcompdump(#qN.mh-24) ]]; then
+          echo "omit the check for new functions since we updated today"
+          compinit -C
+        else
+          echo "update $zcompdump"
+          compinit
+        fi
+        if [[ $zcompdump -nt $zcompdump.zwc ]]; then
+          echo "compile $zcompdump"
+          zcompile $zcompdump
+        fi
+      }
+      _compinit
+    '';
+
+
     initExtraFirst = ''
       [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
     '' + import ./p10k.nix + import ./zeno.nix;
@@ -33,9 +54,15 @@
       POWERLEVEL9K_TERM_SHELL_INTEGRATION = true;
     };
 
-    initExtra = import ./zeno-bind.nix;
+    initExtra = import ./zeno-bind.nix + ''
+      if (which zprof > /dev/null 2>&1) ;then
+        zprof
+      fi
+    '';
 
     envExtra = ''
+      # zshの起動profileを取る時はここを有効にする
+      # zmodload zsh/zprof && zprof
       test -f $HOME/.cargo/env && . $HOME/.cargo/env
       test -d /opt/homebrew/bin && export PATH=/opt/homebrew/bin:$PATH
     '';
