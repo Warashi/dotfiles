@@ -30,17 +30,12 @@
         autoload -Uz compinit
         setopt extended_glob
         zcompdump="''${ZDOTDIR:-$HOME}/.zcompdump"
-        if [[ -e $zcompdump(#qN.mh-24) ]]; then
-          # echo "omit the check for new functions since we updated today"
-          compinit -C
-        else
-          # echo "update $zcompdump"
+        if [[ ! -e $zcompdump.zwc(#qN.mh-24) ]]; then
+          echo "update $zcompdump.zwc" >&2
           compinit
-          compdump
-        fi
-        if [[ $zcompdump -nt $zcompdump.zwc ]]; then
-          # echo "compile $zcompdump"
           zcompile $zcompdump
+        else
+          compinit -C
         fi
       }
       _compinit
