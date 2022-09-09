@@ -42,12 +42,17 @@ in
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin.nix
   environment.darwinConfig = "$HOME/.config/nixpkgs/darwin.nix";
-  environment.systemPackages = [ pkgs.zsh ];
   environment.shells = [ pkgs.zsh ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nixUnstable;
+  programs.zsh = {
+    enable = true;
+    enableBashCompletion = false;
+    enableCompletion = false;
+    promptInit = "";
+  };
 
   # gpg-agent
   programs.gnupg.agent.enable = true;
