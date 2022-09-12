@@ -2,10 +2,10 @@ vim.cmd [[
 
 " input method
 let s:Ascii = 'com.apple.keylayout.US'
-let s:Current = system('muscat get-im')
+let s:Current = system('muscat input-method get')
 
 function! s:ImActivateFunc(name)
-  call system('muscat set-im ' . a:name)
+  call system('muscat input-method set ' . a:name)
 endfunction
 
 function! s:insertEnter()
@@ -13,7 +13,7 @@ function! s:insertEnter()
 endfunction
 
 function! s:insertLeave()
-  let s:Current = system('muscat get-im')
+  let s:Current = system('muscat input-method get')
   call s:ImActivateFunc(s:Ascii)
 endfunction
 
