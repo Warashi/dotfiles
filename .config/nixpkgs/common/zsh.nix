@@ -1,4 +1,8 @@
-{ programs, pkgs, ... }: {
+{
+  programs,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -41,20 +45,24 @@
       _compinit
     '';
 
-
-    initExtraFirst = ''
-      [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
-    '' + import ./p10k.nix + import ./zeno.nix;
+    initExtraFirst =
+      ''
+        [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
+      ''
+      + import ./p10k.nix
+      + import ./zeno.nix;
 
     localVariables = {
       POWERLEVEL9K_TERM_SHELL_INTEGRATION = true;
     };
 
-    initExtra = import ./zeno-bind.nix + ''
-      if (which zprof > /dev/null 2>&1) ;then
-        zprof
-      fi
-    '';
+    initExtra =
+      import ./zeno-bind.nix
+      + ''
+        if (which zprof > /dev/null 2>&1) ;then
+          zprof
+        fi
+      '';
 
     envExtra = ''
       # zshの起動profileを取る時はここを有効にする

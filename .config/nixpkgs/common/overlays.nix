@@ -10,7 +10,8 @@
         echo noop
       '';
     });
-    mosh = prev.mosh.overrideAttrs
+    mosh =
+      prev.mosh.overrideAttrs
       (attrs: {
         version = "1.4.0-pre.1";
         src = prev.fetchFromGitHub {

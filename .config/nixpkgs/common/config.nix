@@ -1,4 +1,9 @@
-{ home, programs, pkgs, ... }: {
+{
+  home,
+  programs,
+  pkgs,
+  ...
+}: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -93,6 +98,6 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
-    options = [ "--cmd j" ];
+    options = ["--cmd j"];
   };
 }

@@ -1,8 +1,11 @@
-{ nixpkgs, config, pkgs, ... }:
-let
-  local = import ../local.nix;
-in
 {
+  nixpkgs,
+  config,
+  pkgs,
+  ...
+}: let
+  local = import ../local.nix;
+in {
   # import home-manager
   imports = [
     <home-manager/nix-darwin>
@@ -20,29 +23,31 @@ in
     shell = pkgs.zsh;
   };
 
-  home-manager.users.${local.user} = { pkgs, ... }: {
+  home-manager.users.${local.user} = {pkgs, ...}: {
     imports = [
       ../common/config.nix
     ];
 
     home.packages =
-      import ./packages.nix { pkgs = pkgs; }
-      ++ import ../common/packages.nix { pkgs = pkgs; };
+      import ./packages.nix {pkgs = pkgs;}
+      ++ import ../common/packages.nix {pkgs = pkgs;};
 
     home.stateVersion = "22.05";
   };
 
-  services.autossh.sessions = [{
-    name = "workbench";
-    user = "${local.user}";
-    extraArguments = "-N forward-workbench";
-    monitoringPort = 20000;
-  }];
+  services.autossh.sessions = [
+    {
+      name = "workbench";
+      user = "${local.user}";
+      extraArguments = "-N forward-workbench";
+      monitoringPort = 20000;
+    }
+  ];
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin.nix
   environment.darwinConfig = "$HOME/.config/nixpkgs/darwin.nix";
-  environment.shells = [ pkgs.zsh ];
+  environment.shells = [pkgs.zsh];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -131,31 +136,31 @@ in
     enable = true;
     package = pkgs.spacebar;
     config = {
-      position                   = "top";
-      display                    = "all";
-      height                     = 26;
-      title                      = "on";
-      spaces                     = "off";
-      clock                      = "on";
-      power                      = "on";
-      padding_left               = 20;
-      padding_right              = 20;
-      spacing_left               = 25;
-      spacing_right              = 15;
-      text_font                  = ''"UDEV Gothic 35JPDOC:Regular:12.0"'';
-      icon_font                  = ''"Font Awesome 6 Free:Solid:12.0"'';
-      background_color           = "0xff202020";
-      foreground_color           = "0xffa8a8a8";
-      power_icon_color           = "0xffcd950c";
-      battery_icon_color         = "0xffd75f5f";
-      dnd_icon_color             = "0xffa8a8a8";
-      clock_icon_color           = "0xffa8a8a8";
-      power_icon_strip           = " ";
-      display_separator          = "on";
-      display_separator_icon     = "";
-      clock_icon                 = "";
-      dnd_icon                   = "";
-      clock_format               = ''"%y/%m/%d %R"'';
+      position = "top";
+      display = "all";
+      height = 26;
+      title = "on";
+      spaces = "off";
+      clock = "on";
+      power = "on";
+      padding_left = 20;
+      padding_right = 20;
+      spacing_left = 25;
+      spacing_right = 15;
+      text_font = ''"UDEV Gothic 35JPDOC:Regular:12.0"'';
+      icon_font = ''"Font Awesome 6 Free:Solid:12.0"'';
+      background_color = "0xff202020";
+      foreground_color = "0xffa8a8a8";
+      power_icon_color = "0xffcd950c";
+      battery_icon_color = "0xffd75f5f";
+      dnd_icon_color = "0xffa8a8a8";
+      clock_icon_color = "0xffa8a8a8";
+      power_icon_strip = " ";
+      display_separator = "on";
+      display_separator_icon = "";
+      clock_icon = "";
+      dnd_icon = "";
+      clock_format = ''"%y/%m/%d %R"'';
     };
   };
 

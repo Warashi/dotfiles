@@ -1,8 +1,11 @@
-{ config, pkgs, home, ... }:
-let
-  local = import ../local.nix;
-in
 {
+  config,
+  pkgs,
+  home,
+  ...
+}: let
+  local = import ../local.nix;
+in {
   imports = [
     ../common/config.nix
   ];
@@ -12,8 +15,8 @@ in
   home.username = local.user;
   home.homeDirectory = "/home/${local.user}";
   home.packages =
-    import ./packages.nix { pkgs = pkgs; }
-    ++ import ../common/packages.nix { pkgs = pkgs; };
+    import ./packages.nix {pkgs = pkgs;}
+    ++ import ../common/packages.nix {pkgs = pkgs;};
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
