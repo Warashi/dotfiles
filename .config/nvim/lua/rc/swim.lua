@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 
 " input method
 let s:Ascii = 'com.apple.keylayout.US'
@@ -23,4 +23,4 @@ augroup ime
   autocmd InsertLeave * call s:insertLeave()
 augroup END
 
-]]
+]])
