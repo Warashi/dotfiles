@@ -1,8 +1,4 @@
-{
-  programs,
-  pkgs,
-  ...
-}: let
+{programs, ...}: let
   solarized = import ./solarized.nix;
   gruvbox = import ./gruvbox.nix;
 in {

@@ -1,6 +1,6 @@
 [
-  (final: prev: {
-    yabai = prev.yabai.overrideAttrs (attrs: {
+  (_: prev: {
+    yabai = prev.yabai.overrideAttrs (_: {
       version = "4.0.1";
       src = prev.fetchurl {
         url = "https://github.com/koekeishiya/yabai/releases/download/v4.0.1/yabai-v4.0.1.tar.gz";
@@ -12,7 +12,7 @@
     });
     mosh =
       prev.mosh.overrideAttrs
-      (attrs: {
+      (_: {
         version = "1.4.0-pre.1";
         src = prev.fetchFromGitHub {
           owner = "mobile-shell";
