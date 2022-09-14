@@ -19,31 +19,17 @@ let
   };
 in {
   dark = {
+    inherit (solarized) red green yellow blue magenta cyan orange violet;
     fg = solarized.base0;
     bg = solarized.base03;
     white = solarized.base2;
     black = solarized.base01;
-    red = solarized.red;
-    green = solarized.green;
-    yellow = solarized.yellow;
-    blue = solarized.blue;
-    magenta = solarized.magenta;
-    cyan = solarized.cyan;
-    orange = solarized.orange;
-    violet = solarized.violet;
   };
   light = {
+    inherit (solarized) red green yellow blue magenta cyan orange violet;
     fg = solarized.base00;
     bg = solarized.base3;
     white = solarized.base2;
     black = solarized.base01;
-    red = solarized.red;
-    green = solarized.green;
-    yellow = solarized.yellow;
-    blue = solarized.blue;
-    magenta = solarized.magenta;
-    cyan = solarized.cyan;
-    orange = solarized.orange;
-    violet = solarized.violet;
   };
 }

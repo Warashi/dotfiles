@@ -29,8 +29,8 @@ in {
     ];
 
     home.packages =
-      import ./packages.nix {pkgs = pkgs;}
-      ++ import ../common/packages.nix {pkgs = pkgs;};
+      import ./packages.nix {inherit pkgs;}
+      ++ import ../common/packages.nix {inherit pkgs;};
 
     home.stateVersion = "22.05";
   };

@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   home,
   ...
@@ -15,8 +14,8 @@ in {
   home.username = local.user;
   home.homeDirectory = "/home/${local.user}";
   home.packages =
-    import ./packages.nix {pkgs = pkgs;}
-    ++ import ../common/packages.nix {pkgs = pkgs;};
+    import ./packages.nix {inherit pkgs;}
+    ++ import../common/packages.nix {inherit pkgs;};
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
