@@ -138,7 +138,7 @@ require("packer").startup(function(use)
 	use({
 		"folke/trouble.nvim",
 		config = function()
-			require("rc/trouble")
+			require("rc.trouble")
 		end,
 	})
 

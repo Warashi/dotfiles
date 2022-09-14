@@ -1,6 +1,2 @@
-require("trouble").setup({
-	auto_open = true,
-
-	-- 開いたり閉じたりするとうざいので開きっぱなしにする
-	auto_close = false,
-})
+require("trouble").setup({})
+vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<cr>", { silent = true })
