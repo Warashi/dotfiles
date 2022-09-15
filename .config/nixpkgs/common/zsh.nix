@@ -58,11 +58,7 @@
 
     initExtra =
       import ./zeno-bind.nix
-      + ''
-        if (which zprof > /dev/null 2>&1) ;then
-          zprof
-        fi
-      '';
+      + import ./zprof.nix;
 
     envExtra = ''
       # zshの起動profileを取る時はここを有効にする
