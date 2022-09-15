@@ -59,9 +59,6 @@
     initExtra =
       import ./zeno-bind.nix
       + ''
-      setopt hist_reduce_blanks
-      ''
-      + ''
         if (which zprof > /dev/null 2>&1) ;then
           zprof
         fi
@@ -81,8 +78,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "yuki-yano";
           repo = "zeno.zsh";
-          rev = "a3a489781d37522fa1336672441e48fd36bf41bd";
-          sha256 = "0h7srf64l78dpy7jqdlvji6yplg8qh6k69p1pvgdg6symfyl853n";
+          rev = "9b95adcb8093e19bf22725265ae8248c166bc2e6";
+          sha256 = "sha256-8whZ7PuYxk+MMyJcQb0/y41SqawoGl6ONRa95MXu3iI=";
         };
       }
       {
