@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  awscli2
   bat
   delta
   exa
