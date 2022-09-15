@@ -59,6 +59,9 @@
     initExtra =
       import ./zeno-bind.nix
       + ''
+      setopt hist_reduce_blanks
+      ''
+      + ''
         if (which zprof > /dev/null 2>&1) ;then
           zprof
         fi
