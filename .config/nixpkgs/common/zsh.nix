@@ -23,9 +23,7 @@
 
     shellAliases = {
       e = "nvim";
-      neovide = "/Applications/Neovide.app/Contents/MacOS/neovide";
       ls = "exa";
-      f = ''e -c ":VFiler $(pwd)"'';
       tnc = "exec direnv exec / tmux -CC new-session -t 0";
     };
 
