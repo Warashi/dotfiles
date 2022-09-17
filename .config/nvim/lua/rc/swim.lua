@@ -1,26 +1,46 @@
-vim.cmd([[
+local job = require("plenary.job")
+local ascii = "com.apple.keylayout.US"
+local current = nil
 
-" input method
-let s:Ascii = 'com.apple.keylayout.US'
-let s:Current = system('muscat input-method get')
+function activate(name)
+	if name == nil then
+		return
+	end
+	job:new({
+		command = "muscat",
+		args = { "input-method", "set", name },
+	}):sync()
+end
 
-function! s:ImActivateFunc(name)
-  call system('muscat input-method set ' . a:name)
-endfunction
+function set_current()
+	local stdout = ""
+	job:new({
+		command = "muscat",
+		args = { "input-method", "get" },
+		on_stdout = function(_, line)
+			stdout = stdout .. line
+		end,
+	}):sync()
+	current = stdout
+end
 
-function! s:insertEnter()
-  call s:ImActivateFunc(s:Current)
-endfunction
+function insert_enter()
+	activate(current)
+end
 
-function! s:insertLeave()
-  let s:Current = system('muscat input-method get')
-  call s:ImActivateFunc(s:Ascii)
-endfunction
+function insert_leave()
+	set_current()
+	activate(ascii)
+end
 
-augroup ime
-  autocmd!
-  autocmd InsertEnter * call s:insertEnter()
-  autocmd InsertLeave * call s:insertLeave()
-augroup END
-
-]])
+local id = vim.api.nvim_create_augroup("ime", {})
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+	group = id,
+	pattern = "*",
+	callback = insert_enter,
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+	group = id,
+	pattern = "*",
+	callback = insert_leave,
+})
