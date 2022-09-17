@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  _1password
   awscli2
   bat
   delta

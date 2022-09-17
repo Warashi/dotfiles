@@ -17,8 +17,9 @@
     };
 
     sessionVariables = {
-      LANG = "en_US.UTF-8";
       EDITOR = "nvim";
+      LANG = "en_US.UTF-8";
+      NIXPKGS_ALLOW_UNFREE = "1";
     };
 
     shellAliases = {
