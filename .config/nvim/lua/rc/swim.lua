@@ -2,33 +2,37 @@ local job = require("plenary.job")
 local ascii = "com.apple.keylayout.US"
 local current = nil
 
-function activate(name)
+local function activate(name)
 	if name == nil then
 		return
 	end
-	job:new({
-		command = "muscat",
-		args = { "input-method", "set", name },
-	}):sync()
+	job
+		:new({
+			command = "muscat",
+			args = { "input-method", "set", name },
+		})
+		:sync()
 end
 
-function set_current()
+local function set_current()
 	local stdout = ""
-	job:new({
-		command = "muscat",
-		args = { "input-method", "get" },
-		on_stdout = function(_, line)
-			stdout = stdout .. line
-		end,
-	}):sync()
+	job
+		:new({
+			command = "muscat",
+			args = { "input-method", "get" },
+			on_stdout = function(_, line)
+				stdout = stdout .. line
+			end,
+		})
+		:sync()
 	current = stdout
 end
 
-function insert_enter()
+local function insert_enter()
 	activate(current)
 end
 
-function insert_leave()
+local function insert_leave()
 	set_current()
 	activate(ascii)
 end

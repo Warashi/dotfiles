@@ -53,8 +53,8 @@ require("packer").startup(function(use)
 	})
 
 	-- languages
-	use({ "dag/vim-fish" })
-	use({ "jjo/vim-cue" })
+	use({ "dag/vim-fish", opt = true, ft = { "fish" } })
+	use({ "jjo/vim-cue", opt = true, ft = { "cue" } })
 	use({ "gpanders/editorconfig.nvim" })
 
 	-- motion
@@ -90,12 +90,13 @@ require("packer").startup(function(use)
 	})
 	use({
 		"obaland/vfiler.vim",
+		opt = true,
+		cmd = { "VFiler" },
 		config = function()
 			require("rc.filer")
 		end,
 		requires = { "obaland/vfiler-column-devicons" },
 	})
-	use({ "kevinhwang91/nvim-bqf" })
 	use({ "RRethy/vim-illuminate" })
 	use({ "hotwatermorning/auto-git-diff" })
 	use({
@@ -147,13 +148,6 @@ require("packer").startup(function(use)
 	})
 
 	-- misc
-	use({ "wakatime/vim-wakatime" })
-	use({
-		"kevinhwang91/nvim-hclipboard",
-		config = function()
-			require("hclipboard").start()
-		end,
-	})
 	use({
 		"famiu/bufdelete.nvim",
 		config = function()

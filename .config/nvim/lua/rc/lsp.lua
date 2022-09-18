@@ -2,7 +2,12 @@
 require("rc.goimports")
 
 -- format on save
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 1000)]])
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = "*",
+	callback = function()
+		vim.lsp.buf.formatting_seq_sync(nil, 1000)
+	end,
+})
 
 require("rc.lsp-keymaps")
 

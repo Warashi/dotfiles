@@ -20,8 +20,8 @@ vim.opt.guifont = "UDEV Gothic NFLG"
 vim.keymap.set("n", "<leader><leader>", ":source $MYVIMRC<CR>", { silent = true })
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { silent = true })
 
-require("rc.swim")
 require("rc.packer")
+require("rc.swim")
 
 -- 依存がいろいろあるので最後にやる
 require("rc.lsp")
