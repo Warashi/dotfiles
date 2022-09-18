@@ -8,7 +8,6 @@ require("nvim-treesitter.parsers").get_parser_configs().cue = {
 }
 
 require("nvim-treesitter.configs").setup({
-	ensure_installed = "all",
 	sync_install = false,
 	highlight = {
 		enable = true,
