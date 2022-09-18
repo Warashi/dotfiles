@@ -12,7 +12,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 require("rc.lsp-keymaps")
 
 require("mason").setup({})
-require("nlspsettings").setup({})
+require("nlspsettings").setup({
+	config_home = vim.fn.stdpath("config") .. "/nlsp-settings",
+	local_settings_dir = ".nlsp-settings",
+	local_settings_root_markers_fallback = { ".git" },
+	append_default_schemas = true,
+	loader = "json",
+})
 local lspconfig = require("lspconfig")
 
 require("mason-lspconfig").setup_handlers({
