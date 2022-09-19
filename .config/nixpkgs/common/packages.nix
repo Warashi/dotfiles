@@ -10,6 +10,7 @@ with pkgs; [
   ghq
   git
   git-lfs
+  gitui
   glow
   go_1_19
   htop
