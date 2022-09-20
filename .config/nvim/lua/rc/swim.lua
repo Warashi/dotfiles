@@ -4,28 +4,20 @@ local current = nil
 
 local function activate(name)
 	if name == nil then
-		return
+		return ""
 	end
-	job
-		:new({
-			command = "muscat",
-			args = { "input-method", "set", name },
-		})
-		:sync()
-end
 
-local function set_current()
 	local stdout = ""
 	job
 		:new({
 			command = "muscat",
-			args = { "input-method", "get" },
+			args = { "input-method", "set", name },
 			on_stdout = function(_, line)
 				stdout = stdout .. line
 			end,
 		})
 		:sync()
-	current = stdout
+	return stdout
 end
 
 local function insert_enter()
@@ -33,8 +25,7 @@ local function insert_enter()
 end
 
 local function insert_leave()
-	set_current()
-	activate(ascii)
+	current = activate(ascii)
 end
 
 local id = vim.api.nvim_create_augroup("ime", {})
