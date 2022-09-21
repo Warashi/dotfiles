@@ -100,11 +100,12 @@ packer.startup(function(use)
 	use({ "hotwatermorning/auto-git-diff" })
 	use({
 		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
 		config = function()
 			require("rc.telescope")
 		end,
 		requires = {
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make", opt = false },
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "jvgrootveld/telescope-zoxide" },
 		},
 	})
@@ -122,18 +123,14 @@ packer.startup(function(use)
 	})
 	use({
 		"folke/trouble.nvim",
+		cmd = "Trouble",
 		config = function()
 			require("rc.trouble")
 		end,
 	})
 
 	-- misc
-	use({
-		"famiu/bufdelete.nvim",
-		config = function()
-			require("rc.bufdelete")
-		end,
-	})
+	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
 	use({ "lambdalisue/guise.vim" })
 	use({ "yutkat/confirm-quit.nvim" })
 

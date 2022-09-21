@@ -1,16 +1,3 @@
--- Setup Go organize imports
-require("rc.goimports")
-
--- format on save
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	pattern = "*",
-	callback = function()
-		vim.lsp.buf.formatting_seq_sync(nil, 1000)
-	end,
-})
-
-require("rc.lsp-keymaps")
-
 require("mason").setup({})
 require("nlspsettings").setup({
 	config_home = vim.fn.stdpath("config") .. "/nlsp-settings",
@@ -23,9 +10,17 @@ local lspconfig = require("lspconfig")
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		local on_attach = function(_, _)
+		local on_attach = function(_, bufnr)
 			-- omnifunc
 			vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+
+			-- format on save
+			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.formatting_seq_sync(nil, 1000)
+				end,
+			})
 		end
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()

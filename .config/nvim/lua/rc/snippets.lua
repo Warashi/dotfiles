@@ -1,4 +1,5 @@
-require("snippy").setup({
+local snippy = require("snippy")
+snippy.setup({
 	mappings = {
 		is = {
 			["<Tab>"] = "expand_or_advance",
@@ -9,4 +10,6 @@ require("snippy").setup({
 		},
 	},
 })
-vim.cmd([[ autocmd CompleteDone * lua require 'snippy'.complete_done() ]])
+vim.api.nvim_create_autocmd("CompleteDone", {
+	callback = snippy.complete_done,
+})
