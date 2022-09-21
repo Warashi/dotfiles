@@ -13,12 +13,12 @@ end
 local packer_bootstrap = ensure_packer()
 local packer = require("packer")
 
--- packer.init({
--- 	profile = {
--- 		enable = true,
--- 	},
--- })
--- packer.reset()
+packer.init({
+	profile = {
+		enable = true,
+	},
+})
+packer.reset()
 packer.startup(function(use)
 	-- packer
 	use({ "wbthomason/packer.nvim", opt = true })
