@@ -25,3 +25,5 @@ require("rc.swim")
 
 -- 依存がいろいろあるので最後にやる
 require("rc.lsp")
+
+require("rc.keymaps")

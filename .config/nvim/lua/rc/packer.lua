@@ -96,22 +96,6 @@ packer.startup(function(use)
 			require("rc.colorscheme")
 		end,
 	})
-	use({
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("rc.lualine")
-		end,
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-	use({
-		"obaland/vfiler.vim",
-		opt = true,
-		cmd = { "VFiler" },
-		config = function()
-			require("rc.filer")
-		end,
-		requires = { "obaland/vfiler-column-devicons" },
-	})
 	use({ "RRethy/vim-illuminate" })
 	use({ "hotwatermorning/auto-git-diff" })
 	use({
@@ -120,7 +104,7 @@ packer.startup(function(use)
 			require("rc.telescope")
 		end,
 		requires = {
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make", opt = false },
 			{ "jvgrootveld/telescope-zoxide" },
 		},
 	})
@@ -140,19 +124,6 @@ packer.startup(function(use)
 		"folke/which-key.nvim",
 		config = function()
 			require("which-key").setup({})
-		end,
-	})
-	use({
-		"stevearc/aerial.nvim",
-		config = function()
-			require("rc.aerial")
-		end,
-	})
-	use({
-		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		config = function()
-			require("rc.bufferline")
 		end,
 	})
 	use({

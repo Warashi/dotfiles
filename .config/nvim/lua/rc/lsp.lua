@@ -23,12 +23,9 @@ local lspconfig = require("lspconfig")
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		local on_attach = function(client, bufnr)
+		local on_attach = function(_, _)
 			-- omnifunc
 			vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
-
-			-- aerial
-			require("aerial").on_attach(client, bufnr)
 		end
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()

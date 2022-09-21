@@ -1,6 +1,1 @@
 require("telescope").load_extension("fzf")
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope git_files<cr>", { silent = true })
-vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { silent = true })
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { silent = true })
-vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { silent = true })
-vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", { silent = true })
