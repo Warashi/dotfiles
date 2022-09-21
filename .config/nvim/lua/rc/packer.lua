@@ -109,12 +109,6 @@ packer.startup(function(use)
 		},
 	})
 	use({
-		"sidebar-nvim/sidebar.nvim",
-		config = function()
-			require("rc.sidebar")
-		end,
-	})
-	use({
 		"akinsho/toggleterm.nvim",
 		config = function()
 			require("rc.toggleterm")
