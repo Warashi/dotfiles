@@ -51,7 +51,6 @@ packer.startup(function(use)
 			require("rc.null-ls")
 		end,
 	})
-	use({ "weilbith/nvim-lsp-smag" })
 
 	-- tree-sitter
 	use({
