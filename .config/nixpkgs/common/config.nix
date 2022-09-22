@@ -80,13 +80,6 @@
     enable = true;
     nix-direnv.enable = true;
     enableZshIntegration = true;
-    stdlib = ''
-      source_up_if_exists
-      if test -e shell.nix; then
-        use nix
-      fi
-      source_env_if_exists .env.local
-    '';
   };
 
   programs.fzf = {
