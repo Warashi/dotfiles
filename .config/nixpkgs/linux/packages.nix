@@ -5,6 +5,7 @@ in
     deno
     sta
     unzip
+    zip
 
     warashiPkgs.muscat
   ]
