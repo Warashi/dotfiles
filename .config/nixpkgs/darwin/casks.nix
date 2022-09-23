@@ -16,6 +16,5 @@
   "mimestream"
   "raycast"
   "slack"
-  "vivaldi"
   "zoom"
 ]
