@@ -45,12 +45,7 @@ packer.startup(function(use)
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "tamago324/nlsp-settings.nvim" })
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("rc.null-ls")
-		end,
-	})
+	use({ "jose-elias-alvarez/null-ls.nvim" })
 
 	-- tree-sitter
 	use({
