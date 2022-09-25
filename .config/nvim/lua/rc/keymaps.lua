@@ -17,4 +17,4 @@ vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
 
 -- trouble --
-vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<cr>", opts)
+vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>", opts)
