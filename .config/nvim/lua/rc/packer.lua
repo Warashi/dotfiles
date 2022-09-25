@@ -38,6 +38,7 @@ packer.startup(function(use)
   use({
     "rcarriga/nvim-notify",
     config = function() require("rc.notify") end,
+    event = "VimEnter",
   })
   use({ "vim-denops/denops.vim" })
 
@@ -105,6 +106,7 @@ packer.startup(function(use)
   use({
     "folke/which-key.nvim",
     config = function() require("which-key").setup({}) end,
+    event = "VimEnter",
   })
   use({
     "folke/trouble.nvim",
