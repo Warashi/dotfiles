@@ -1,7 +1,7 @@
 require("filetype").setup({
-	overrides = {
-		extensions = {
-			tf = "terraform",
-		},
-	},
+  overrides = {
+    extensions = {
+      tf = "terraform",
+    },
+  },
 })
