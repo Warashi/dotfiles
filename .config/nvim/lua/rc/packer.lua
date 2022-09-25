@@ -25,7 +25,12 @@ packer.startup(function(use)
 
 	-- 高速化
 	use({ "lewis6991/impatient.nvim" })
-	use({ "nathom/filetype.nvim" })
+	use({
+		"nathom/filetype.nvim",
+		config = function()
+			require("rc.filetype")
+		end,
+	})
 
 	-- libraries
 	use({ "nvim-lua/popup.nvim" })
