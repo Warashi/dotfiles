@@ -52,9 +52,6 @@ in {
     promptInit = "";
   };
 
-  # gpg-agent
-  programs.gnupg.agent.enable = true;
-
   homebrew = {
     enable = true;
     brews = import ./brews.nix;
