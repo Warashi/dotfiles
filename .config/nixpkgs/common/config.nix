@@ -11,6 +11,9 @@
     ./zsh.nix
   ];
 
+  # home-manager と nix-darwin で同じoverlaysを使うための方策
+  nixpkgs.overlays = import ./overlays.nix;
+
   home.sessionPath = [
     "$HOME/.local/bin"
     "$HOME/go/bin"

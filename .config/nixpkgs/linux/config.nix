@@ -9,8 +9,6 @@ in {
     ../common/config.nix
   ];
 
-  nixpkgs.overlays = import ../common/overlays.nix;
-
   home.username = local.user;
   home.homeDirectory = "/home/${local.user}";
   home.packages =
