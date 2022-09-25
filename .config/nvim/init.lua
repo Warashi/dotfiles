@@ -1,4 +1,7 @@
 require("impatient")
 require("rc.disable-defaults")
 require("rc.packer")
-require("rc.init")
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function() require("rc.init") end,
+})

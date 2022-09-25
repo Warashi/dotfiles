@@ -52,10 +52,12 @@ packer.startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     config = function() require("rc.nvim-treesitter") end,
+    event = "VimEnter",
   })
   use({
     "romgrk/nvim-treesitter-context",
     config = function() require("treesitter-context").setup({}) end,
+    event = "VimEnter",
   })
 
   -- languages
@@ -68,18 +70,21 @@ packer.startup(function(use)
   use({
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup({}) end,
+    event = "VimEnter",
   })
 
   -- snippets
   use({
     "dcampos/nvim-snippy",
     config = function() require("rc.snippets") end,
+    event = "VimEnter",
   })
 
   -- UI
   use({
     "EdenEast/nightfox.nvim",
     config = function() require("rc.colorscheme") end,
+    event = "VimEnter",
   })
   use({ "RRethy/vim-illuminate" })
   use({ "hotwatermorning/auto-git-diff" })
@@ -95,6 +100,7 @@ packer.startup(function(use)
   use({
     "akinsho/toggleterm.nvim",
     config = function() require("rc.toggleterm") end,
+    event = "VimEnter",
   })
   use({
     "folke/which-key.nvim",
