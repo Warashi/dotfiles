@@ -41,6 +41,11 @@
             url = "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/tools/networking/mosh/bash_completion_datadir.patch";
             sha256 = "fHLmlZzilJBnNQflaPdIccoQWftI0tV+BdMY+MeYYRI=";
           })
+          (prev.fetchpatch {
+            name = "improve_cursor_style_handling_pr-1167.patch";
+            url = "https://patch-diff.githubusercontent.com/raw/mobile-shell/mosh/pull/1167.patch";
+            sha256 = "ratfcw8gvvwhTpjCSdHPznEDp/jpBtx0Xavbx03pTDg=";
+          })
         ];
         postPatch = ''
           substituteInPlace scripts/mosh.pl \
