@@ -110,7 +110,7 @@ packer.startup(function(use)
   })
   use({
     "folke/trouble.nvim",
-    cmd = "Trouble",
+    cmd = "TroubleToggle",
     config = function() require("rc.trouble") end,
   })
 
