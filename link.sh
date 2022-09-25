@@ -1,8 +1,8 @@
 #!/bin/sh
 cd "$(dirname "${BASH_SOURCE:-$0}")" || exit 1
-DOTPATH="$(pwd)"
+DOTPATH="$PWD"
 
-find "$DOTPATH" \
+find -L "$DOTPATH" \
   -type f \
   -and -not -path "$DOTPATH/.git/*" \
   -and -not -path "$DOTPATH/link.sh" \
