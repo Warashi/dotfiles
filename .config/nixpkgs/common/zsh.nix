@@ -9,7 +9,7 @@
     enableAutosuggestions = false;
     enableSyntaxHighlighting = false;
     enableVteIntegration = false;
-    defaultKeymap = "emacs";
+    defaultKeymap = "viins";
 
     history = {
       extended = true;
@@ -20,6 +20,7 @@
       EDITOR = "nvim";
       LANG = "en_US.UTF-8";
       NIXPKGS_ALLOW_UNFREE = "1";
+      KEYTIMEOUT = "1";
     };
 
     shellAliases = {
@@ -57,7 +58,8 @@
 
     initExtra =
       import ./zeno-bind.nix
-      + import ./zprof.nix;
+      + import ./zprof.nix
+      + ''eval "$(bindkey -e && bindkey -L)"''; # emacs bindings を viins に取り込む。
 
     envExtra = ''
       # zshの起動profileを取る時はここを有効にする
