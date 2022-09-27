@@ -12,6 +12,7 @@ vim.opt.shiftwidth = 2
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.guifont = "UDEV Gothic NFLG"
+vim.opt.cmdheight = 0
 
 require("rc.keymaps")
 require("rc.autocmd")
