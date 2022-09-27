@@ -38,6 +38,7 @@ packer.startup(function(use)
   use({
     "rcarriga/nvim-notify",
     config = function() require("rc.notify") end,
+    event = "VimEnter",
   })
   use({ "vim-denops/denops.vim" })
 
