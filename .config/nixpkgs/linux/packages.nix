@@ -3,6 +3,7 @@
 in
   with pkgs; [
     deno
+    gcc
     sta
     unzip
     zip

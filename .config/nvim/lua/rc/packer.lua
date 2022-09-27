@@ -53,7 +53,6 @@ packer.startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     config = function() require("rc.nvim-treesitter") end,
-    event = "VimEnter",
   })
   use({
     "romgrk/nvim-treesitter-context",
