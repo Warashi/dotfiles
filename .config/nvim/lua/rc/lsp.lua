@@ -26,7 +26,7 @@ local function on_attach(_, bufnr)
   -- format on save
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     buffer = bufnr,
-    callback = function() vim.lsp.buf.formatting_seq_sync(nil, 1000) end,
+    callback = function() vim.lsp.buf.format() end,
   })
 end
 
