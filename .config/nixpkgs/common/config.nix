@@ -24,6 +24,13 @@
     initExtra = "exec zsh --login";
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "ansi";
+    };
+  };
+
   programs.tmux = {
     enable = true;
     baseIndex = 1;
