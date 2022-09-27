@@ -11,6 +11,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.background = "light"
 vim.opt.guifont = "UDEV Gothic NFLG"
 
 require("rc.keymaps")

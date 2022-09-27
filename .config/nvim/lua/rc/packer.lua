@@ -81,7 +81,7 @@ packer.startup(function(use)
 
   -- UI
   use({
-    "EdenEast/nightfox.nvim",
+    "RRethy/nvim-base16",
     config = function() require("rc.colorscheme") end,
     event = "VimEnter",
   })
