@@ -57,7 +57,9 @@ in {
     brews = import ./brews.nix;
     casks = import ./casks.nix;
     masApps = import ./mas.nix;
-    cleanup = "zap";
+    onActivation = {
+      cleanup = "zap";
+    };
   };
 
   services.yabai = {
