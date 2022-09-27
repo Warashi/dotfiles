@@ -48,7 +48,6 @@
     initExtraFirst =
       ''
         [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
-        eval "$(bindkey -e && bindkey -L)" # emacs bindings を viins に取り込む。プラグインでキーバインドを上書きするため、最初に書く。
       ''
       + import ./p10k.nix
       + import ./zeno.nix;
@@ -58,7 +57,8 @@
     };
 
     initExtra =
-      import ./zeno-bind.nix
+      import ./zsh-binds.nix
+      + import ./zeno-bind.nix
       + import ./zprof.nix;
 
     envExtra = ''
