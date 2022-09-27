@@ -156,7 +156,6 @@ in {
 
   system.defaults = {
     NSGlobalDomain = {
-      AppleInterfaceStyle = "Dark";
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
 
