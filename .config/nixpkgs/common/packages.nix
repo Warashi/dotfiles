@@ -17,7 +17,7 @@ in
     htop
     jq
     mosh
-    neovim-nightly
+    neovim
     ripgrep
     skim
     tig
