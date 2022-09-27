@@ -14,6 +14,6 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.guifont = "UDEV Gothic NFLG"
 
 require("rc.keymaps")
-require("rc.lsp")
-require("rc.swim")
 require("rc.autocmd")
+require("rc.swim")
+require("rc.lsp")
