@@ -1,7 +1,0 @@
-#!/bin/sh
-set -eu
-
-level="$1"
-title="$2"
-message="$3"
-nvr --nostart -s -c "lua require('notify')('$message', '$level', {title = '$title'})"
