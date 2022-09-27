@@ -3,5 +3,8 @@ require("filetype").setup({
     extensions = {
       tf = "terraform",
     },
+    complex = {
+      ["zsh.nix"] = "nix",
+    },
   },
 })
