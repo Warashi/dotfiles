@@ -26,7 +26,6 @@
     shellAliases = {
       e = "nvim";
       ls = "exa";
-      tnc = "exec direnv exec / tmux -CC new-session -t 0";
     };
 
     completionInit = ''
@@ -48,6 +47,7 @@
     initExtraFirst =
       ''
         [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
+        (( ''${+TMUX} )) || exec direnv exec / tmux new-session -t 0
       ''
       + import ./p10k.nix
       + import ./zeno.nix;
