@@ -45,6 +45,9 @@
       tmux-thumbs
     ];
     extraConfig = ''
+      # C-g 2回で C-g が送られるようにする
+      bind C-g send-prefix
+
       # マウスを有効化
       set-option -g mouse on
 
