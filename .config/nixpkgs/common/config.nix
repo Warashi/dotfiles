@@ -3,7 +3,9 @@
   programs,
   pkgs,
   ...
-}: {
+}: let
+  warashiPkgs = import <warashi> {};
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -43,6 +45,10 @@
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs
+      {
+        plugin = warashiPkgs.tmux-statusline-themes;
+        extraConfig = "set -g @tmux-statusline-theme 'ayu-light'";
+      }
     ];
     extraConfig = ''
       # C-g 2回で C-g が送られるようにする
