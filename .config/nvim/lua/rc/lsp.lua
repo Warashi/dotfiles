@@ -53,6 +53,7 @@ null_ls.setup({
 
     --- git ---
     null_ls.builtins.diagnostics.commitlint.with({
+      condition = function(_) return vim.fn.executable("commitlint") == 1 end,
       prefer_local = "node_modules/.bin",
     }),
 
