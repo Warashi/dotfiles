@@ -90,7 +90,7 @@ in {
       left_padding = 12;
       right_padding = 12;
       window_gap = 6;
-      external_bar = "all:26:0";
+      external_bar = "all:24:0";
     };
     extraConfig = ''
       yabai -m rule --add app='Cisco AnyConnect Secure Mobility Client' manage=off
@@ -134,7 +134,7 @@ in {
     config = {
       position = "top";
       display = "all";
-      height = 26;
+      height = 24;
       title = "on";
       spaces = "off";
       clock = "on";
