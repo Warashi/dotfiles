@@ -14,6 +14,10 @@ in {
   # home-manager と nix-darwin で同じoverlaysを使うための方策
   nixpkgs.overlays = import ../common/overlays.nix;
 
+  environment.systemPackages = with pkgs; [
+    cachix
+  ];
+
   home-manager.useUserPackages = true;
 
   # user config
