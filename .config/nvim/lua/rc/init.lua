@@ -17,6 +17,6 @@ vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 
 require("rc.keymaps")
-require("rc.autocmd")
 require("rc.swim")
 require("rc.lsp")
+require("rc.goimports")
