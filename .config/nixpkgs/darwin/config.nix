@@ -100,6 +100,7 @@ in {
       yabai -m rule --add app='TweetShot' manage=off
       yabai -m rule --add app='システム環境設定' manage=off
       yabai -m rule --add title='ピクチャ イン ピクチャ' manage=off
+      yabai -m rule --add app='1Password' title='ロックスクリーン — 1Password' manage=off
     '';
   };
 
