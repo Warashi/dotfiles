@@ -51,6 +51,9 @@ in {
       }
     ];
     extraConfig = ''
+      # SSH_AUTH_SOCK を symlink に向ける
+      set-environment -g 'SSH_AUTH_SOCK' ~/.ssh/ssh_auth_sock
+
       # C-g 2回で C-g が送られるようにする
       bind C-g send-prefix
 
