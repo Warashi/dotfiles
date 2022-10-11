@@ -69,6 +69,7 @@ null_ls.setup({
     --- shell ---
     null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.diagnostics.zsh,
+    null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.shellharden,
 
     --- other ---

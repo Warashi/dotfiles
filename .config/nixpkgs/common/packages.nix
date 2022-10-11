@@ -31,6 +31,7 @@ in
     selene
     shellcheck
     shellharden
+    shfmt
     statix
     stylua
     vale
