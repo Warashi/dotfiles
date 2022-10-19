@@ -41,6 +41,15 @@ in {
     home.stateVersion = "22.05";
   };
 
+  services.autossh.sessions = [
+    {
+      name = "workbench";
+      user = "${local.user}";
+      extraArguments = "-N forward-workbench";
+      monitoringPort = 20000;
+    }
+  ];
+
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin.nix
   environment.darwinConfig = "$HOME/.config/nixpkgs/darwin.nix";
