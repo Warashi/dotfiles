@@ -89,10 +89,19 @@ packer.startup(function(use)
   use({
     "RRethy/nvim-base16",
     config = function() require("rc.colorscheme") end,
-    event = "VimEnter",
+    -- event = "VimEnter",
+  })
+  use({
+    "nvim-lualine/lualine.nvim",
+    config = function() require("lualine").setup() end,
   })
   use({ "RRethy/vim-illuminate" })
   use({ "hotwatermorning/auto-git-diff" })
+  use({
+    "lewis6991/gitsigns.nvim",
+    config = function() require("gitsigns").setup() end,
+    event = "VimEnter",
+  })
   use({
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
