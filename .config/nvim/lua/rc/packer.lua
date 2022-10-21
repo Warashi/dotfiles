@@ -48,6 +48,11 @@ packer.startup(function(use)
   use({ "williamboman/mason-lspconfig.nvim" })
   use({ "tamago324/nlsp-settings.nvim" })
   use({ "jose-elias-alvarez/null-ls.nvim" })
+  use({
+    "folke/neodev.nvim",
+    config = function() require("rc.neodev") end,
+    event = "VimEnter",
+  })
 
   -- tree-sitter
   use({
@@ -112,6 +117,13 @@ packer.startup(function(use)
     cmd = "TroubleToggle",
     config = function() require("rc.trouble") end,
   })
+
+  -- autocomplete
+  use({ "hrsh7th/cmp-nvim-lsp" })
+  use({ "hrsh7th/cmp-buffer" })
+  use({ "hrsh7th/cmp-path" })
+  use({ "hrsh7th/cmp-cmdline" })
+  use({ "hrsh7th/nvim-cmp" })
 
   -- misc
   use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
