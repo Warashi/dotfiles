@@ -92,8 +92,8 @@ packer.startup(function(use)
     -- event = "VimEnter",
   })
   use({
-    "nvim-lualine/lualine.nvim",
-    config = function() require("lualine").setup() end,
+    "vimpostor/vim-tpipeline",
+    config = function() require("rc.tpipeline") end,
   })
   use({ "RRethy/vim-illuminate" })
   use({ "hotwatermorning/auto-git-diff" })

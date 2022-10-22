@@ -45,10 +45,6 @@ in {
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs
-      {
-        plugin = warashiPkgs.tmux-statusline-themes;
-        extraConfig = "set -g @tmux-statusline-theme 'ayu-light'";
-      }
     ];
     extraConfig = ''
       # SSH_AUTH_SOCK を symlink に向ける
@@ -94,6 +90,13 @@ in {
       bind -r j select-pane -D
       bind -r k select-pane -U
       bind -r l select-pane -R
+
+      # vim-tpipeline
+      set -g focus-events on
+      set -g status-style bg=default
+      set -g status-left-length 90
+      set -g status-right-length 90
+      set -g status-justify absolute-centre
     '';
   };
 

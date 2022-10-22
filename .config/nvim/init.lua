@@ -13,8 +13,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.background = "light"
 vim.opt.guifont = "UDEV Gothic NFLG"
--- vim.opt.cmdheight = 0
--- vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
 
 require("rc.disable-defaults")
 require("rc.packer")
