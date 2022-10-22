@@ -4,10 +4,10 @@
   # }))
   (_: prev: {
     yabai = prev.yabai.overrideAttrs (_: {
-      version = "4.0.4";
+      version = "5.0.1";
       src = prev.fetchurl {
-        url = "https://github.com/koekeishiya/yabai/releases/download/v4.0.4/yabai-v4.0.4.tar.gz";
-        sha256 = "Ox+iZUwDGCIU+GswISblnbVGrNjF3uWzBkiv2O9q3fg=";
+        url = "https://github.com/koekeishiya/yabai/releases/download/v5.0.1/yabai-v5.0.1.tar.gz";
+        sha256 = "0czxhf95mnpycbp7aqz9ajgnb0zmazdh9lhj14gn4kpnwj64kwmd";
       };
       buildPhase = ''
         echo noop
