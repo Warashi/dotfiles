@@ -3,6 +3,7 @@
   DaisyDisk = 411643860;
   Dictionary = 1380563956;
   Fantastical = 975937182;
+  GoodLinks = 1474335294;
   HomeControl = 1547121417;
   LINE = 539883307;
   Parcel = 639968404;
