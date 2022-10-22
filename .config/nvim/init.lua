@@ -14,6 +14,7 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.background = "light"
 vim.opt.guifont = "UDEV Gothic NFLG"
 vim.opt.cmdheight = 0
+vim.opt.showmode = false
 
 require("rc.disable-defaults")
 require("rc.packer")
