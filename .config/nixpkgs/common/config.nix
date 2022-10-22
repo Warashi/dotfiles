@@ -101,6 +101,7 @@ in {
       set -g status-left-length 90
       set -g status-right-length 90
       set -g status-justify absolute-centre
+      set -g visual-activity off
     '';
   };
 
