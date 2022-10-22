@@ -45,6 +45,10 @@ in {
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs
+      {
+        plugin = warashiPkgs.tmux-statusline-themes;
+        extraConfig = "set -g @tmux-statusline-theme 'ayu-light'";
+      }
     ];
     extraConfig = ''
       # SSH_AUTH_SOCK を symlink に向ける
