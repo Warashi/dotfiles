@@ -57,7 +57,10 @@
     };
 
     initExtra =
-      import ./zsh-binds.nix
+      ''
+        setopt ignore_eof
+      ''
+      + import ./zsh-binds.nix
       + import ./zeno-bind.nix
       + import ./zprof.nix;
 
