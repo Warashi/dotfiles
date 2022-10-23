@@ -1,4 +1,3 @@
 [
-  "deno"
   "mackup"
 ]

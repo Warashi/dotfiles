@@ -6,6 +6,7 @@ in
     awscli2
     bat
     delta
+    deno
     exa
     fd
     gh
