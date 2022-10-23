@@ -1,4 +1,4 @@
 vim.cmd([[
-  colorscheme base16-ayu-light
+  colorscheme base16-solarized-light
   highlight Visual gui=reverse
 ]])
