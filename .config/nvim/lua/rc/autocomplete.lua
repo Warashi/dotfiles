@@ -1,54 +1,11 @@
-local fn = vim.fn
-
-local function commandline_post(maps)
-  for lhs, _ in pairs(maps) do
-    pcall(vim.keymap.del, "c", lhs)
-  end
-  if vim.b.prev_buffer_config ~= nil then
-    fn["ddc#custom#set_buffer"](vim.b.prev_buffer_config)
-    vim.b.prev_buffer_config = nil
-  else
-    fn["ddc#custom#set_buffer"]({})
-  end
-end
-
-local function commandline_pre()
-  local maps = {
-    ["<C-n>"] = function() fn["pum#map#insert_relative"](1) end,
-    ["<C-p>"] = function() fn["pum#map#insert_relative"](-1) end,
-  }
-  for lhs, rhs in pairs(maps) do
-    vim.keymap.set("c", lhs, rhs)
-  end
-  if vim.b.prev_buffer_config == nil then
-    -- Overwrite sources
-    vim.b.prev_buffer_config = fn["ddc#custom#get_buffer"]()
-  end
-  fn["ddc#custom#patch_buffer"]("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "DDCCmdLineLeave",
-    once = true,
-    callback = function() pcall(commandline_post, maps) end,
-  })
-  vim.api.nvim_create_autocmd("InsertEnter", {
-    once = true,
-    buffer = 0,
-    callback = function() pcall(commandline_post, maps) end,
-  })
-
-  -- Enable command line completion
-  fn["ddc#enable_cmdline_completion"]()
-end
-
-vim.keymap.set("n", ":", function()
-  commandline_pre()
-  return ":"
-end, { expr = true })
-
 local patch_global = vim.fn["ddc#custom#patch_global"]
-patch_global("autoCompleteEvents", { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" })
-patch_global("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
+
+-- pum
 patch_global("completionMenu", "pum.vim")
+vim.keymap.set("i", "<C-n>", function() vim.fn["pum#map#insert_relative"](1) end)
+vim.keymap.set("i", "<C-p>", function() vim.fn["pum#map#insert_relative"](-1) end)
+
+-- sources
 patch_global("sources", { "nvim-lsp", "around", "file" })
 patch_global("sourceOptions", {
   around = { mark = "A", maxSize = 500 },
@@ -66,4 +23,55 @@ patch_global("sourceOptions", {
     converters = { "converter_fuzzy" },
   },
 })
+
+-- cmdline
+local function commandline_post(maps)
+  for lhs, _ in pairs(maps) do
+    pcall(vim.keymap.del, "c", lhs)
+  end
+  if vim.b.prev_buffer_config ~= nil then
+    vim.fn["ddc#custom#set_buffer"](vim.b.prev_buffer_config)
+    vim.b.prev_buffer_config = nil
+  else
+    vim.fn["ddc#custom#set_buffer"]({})
+  end
+end
+
+local function commandline_pre()
+  local maps = {
+    ["<C-n>"] = function() vim.fn["pum#map#insert_relative"](1) end,
+    ["<C-p>"] = function() vim.fn["pum#map#insert_relative"](-1) end,
+  }
+  for lhs, rhs in pairs(maps) do
+    vim.keymap.set("c", lhs, rhs)
+  end
+  if vim.b.prev_buffer_config == nil then
+    -- Overwrite sources
+    vim.b.prev_buffer_config = vim.fn["ddc#custom#get_buffer"]()
+  end
+  vim.fn["ddc#custom#patch_buffer"]("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "DDCCmdLineLeave",
+    once = true,
+    callback = function() pcall(commandline_post, maps) end,
+  })
+  vim.api.nvim_create_autocmd("InsertEnter", {
+    once = true,
+    buffer = 0,
+    callback = function() pcall(commandline_post, maps) end,
+  })
+
+  -- Enable command line completion
+  vim.fn["ddc#enable_cmdline_completion"]()
+end
+
+vim.keymap.set("n", ":", function()
+  commandline_pre()
+  return ":"
+end, { expr = true })
+
+patch_global("autoCompleteEvents", { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" })
+patch_global("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
+
+-- enable
 vim.fn["ddc#enable"]()
