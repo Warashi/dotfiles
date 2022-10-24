@@ -103,15 +103,6 @@ packer.startup(function(use)
     event = "VimEnter",
   })
   use({
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    config = function() require("rc.telescope") end,
-    requires = {
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-      { "jvgrootveld/telescope-zoxide" },
-    },
-  })
-  use({
     "akinsho/toggleterm.nvim",
     config = function() require("rc.toggleterm") end,
     event = "VimEnter",
@@ -127,12 +118,40 @@ packer.startup(function(use)
     config = function() require("rc.trouble") end,
   })
 
-  -- autocomplete
-  use({ "hrsh7th/cmp-nvim-lsp" })
-  use({ "hrsh7th/cmp-buffer" })
-  use({ "hrsh7th/cmp-path" })
-  use({ "hrsh7th/cmp-cmdline" })
-  use({ "hrsh7th/nvim-cmp" })
+  -- pum
+  use({ "Shougo/pum.vim" })
+
+  -- ddu
+  use({ "Shougo/ddu-commands.vim" })
+  use({ "Shougo/ddu-filter-matcher_substring" })
+  use({ "Shougo/ddu-kind-file" })
+  use({ "Shougo/ddu-kind-word" })
+  use({ "Shougo/ddu-source-file" })
+  use({ "Shougo/ddu-source-file_rec" })
+  use({ "Shougo/ddu-source-register" })
+  use({ "Shougo/ddu-ui-ff" })
+  use({ "kuuote/ddu-source-mr" })
+  use({ "lambdalisue/mr.vim" })
+  use({ "matsui54/ddu-source-file_external" })
+  use({ "shun/ddu-source-buffer" })
+  use({ "shun/ddu-source-rg" })
+  use({
+    "Shougo/ddu.vim",
+    config = function() require("rc.ddu") end,
+  })
+
+  -- ddc
+  use({ "Shougo/ddc-around" })
+  use({ "Shougo/ddc-cmdline" })
+  use({ "Shougo/ddc-cmdline-history" })
+  use({ "Shougo/ddc-converter_remove_overlap" })
+  use({ "Shougo/ddc-nvim-lsp" })
+  use({ "LumaKernel/ddc-file" })
+  use({ "tani/ddc-fuzzy" })
+  use({
+    "Shougo/ddc.vim",
+    config = function() require("rc.autocomplete") end,
+  })
 
   -- misc
   use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })

@@ -1,51 +1,69 @@
-local cmp = require("cmp")
+local fn = vim.fn
 
-cmp.setup({
-  snippet = {
-    expand = function(args) require("snippy").expand_snippet(args.body) end,
+local function commandline_post(maps)
+  for lhs, _ in pairs(maps) do
+    pcall(vim.keymap.del, "c", lhs)
+  end
+  if vim.b.prev_buffer_config ~= nil then
+    fn["ddc#custom#set_buffer"](vim.b.prev_buffer_config)
+    vim.b.prev_buffer_config = nil
+  else
+    fn["ddc#custom#set_buffer"]({})
+  end
+end
+
+local function commandline_pre()
+  local maps = {
+    ["<C-n>"] = function() fn["pum#map#insert_relative"](1) end,
+    ["<C-p>"] = function() fn["pum#map#insert_relative"](-1) end,
+  }
+  for lhs, rhs in pairs(maps) do
+    vim.keymap.set("c", lhs, rhs)
+  end
+  if vim.b.prev_buffer_config == nil then
+    -- Overwrite sources
+    vim.b.prev_buffer_config = fn["ddc#custom#get_buffer"]()
+  end
+  fn["ddc#custom#patch_buffer"]("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "DDCCmdLineLeave",
+    once = true,
+    callback = function() pcall(commandline_post, maps) end,
+  })
+  vim.api.nvim_create_autocmd("InsertEnter", {
+    once = true,
+    buffer = 0,
+    callback = function() pcall(commandline_post, maps) end,
+  })
+
+  -- Enable command line completion
+  fn["ddc#enable_cmdline_completion"]()
+end
+
+vim.keymap.set("n", ":", function()
+  commandline_pre()
+  return ":"
+end, { expr = true })
+
+local patch_global = vim.fn["ddc#custom#patch_global"]
+patch_global("autoCompleteEvents", { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" })
+patch_global("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
+patch_global("completionMenu", "pum.vim")
+patch_global("sources", { "nvim-lsp", "around", "file" })
+patch_global("sourceOptions", {
+  around = { mark = "A", maxSize = 500 },
+  ["nvim-lsp"] = { mark = "L" },
+  file = {
+    mark = "F",
+    isVolatile = true,
+    forceCompletionPattern = [[\S/\S*]],
   },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "snippy" },
-  }, {
-    { name = "buffer" },
-  }),
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype("gitcommit", {
-  sources = cmp.config.sources({
-    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = "buffer" },
-  }),
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ "/", "?" }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "buffer" },
+  cmdline = { mark = "CMD" },
+  ["cmdline-history"] = { mark = "CMD" },
+  ["_"] = {
+    matchers = { "matcher_fuzzy" },
+    sorters = { "sorter_fuzzy" },
+    converters = { "converter_fuzzy" },
   },
 })
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = "path" },
-  }, {
-    { name = "cmdline" },
-  }),
-})
+vim.fn["ddc#enable"]()
