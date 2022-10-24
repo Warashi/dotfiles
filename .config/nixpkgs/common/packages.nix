@@ -28,7 +28,6 @@ in
 
     # null-ls から利用
     alejandra
-    nodePackages.cspell
     deadnix
     selene
     shellcheck

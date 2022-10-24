@@ -44,8 +44,6 @@ null_ls.setup({
   sources = {
     --- dictionary / spell ---
     null_ls.builtins.hover.dictionary,
-    null_ls.builtins.diagnostics.cspell,
-    null_ls.builtins.code_actions.cspell,
     null_ls.builtins.diagnostics.vale,
     null_ls.builtins.diagnostics.textlint.with({
       condition = function(_) return vim.fn.executable("textlint") == 1 end,
