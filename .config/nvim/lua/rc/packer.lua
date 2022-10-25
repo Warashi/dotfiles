@@ -146,6 +146,7 @@ packer.startup(function(use)
   use({ "Shougo/ddc-cmdline-history" })
   use({ "Shougo/ddc-converter_remove_overlap" })
   use({ "Shougo/ddc-nvim-lsp" })
+  use({ "Shougo/ddc-ui-pum" })
   use({ "LumaKernel/ddc-file" })
   use({ "tani/ddc-fuzzy" })
   use({

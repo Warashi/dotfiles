@@ -2,6 +2,7 @@ local patch_global = vim.fn["ddc#custom#patch_global"]
 
 -- pum
 patch_global("completionMenu", "pum.vim")
+patch_global("ui", "pum")
 vim.keymap.set("i", "<C-n>", function() vim.fn["pum#map#insert_relative"](1) end)
 vim.keymap.set("i", "<C-p>", function() vim.fn["pum#map#insert_relative"](-1) end)
 
