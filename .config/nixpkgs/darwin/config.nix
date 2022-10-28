@@ -80,7 +80,7 @@ in {
     package = pkgs.yabai;
     config = {
       focus_follows_mouse = "off";
-      mouse_follows_focus = "on";
+      mouse_follows_focus = "off";
       window_origin_display = "default";
       window_placement = "second_child";
       split_ratio = "0.50";
