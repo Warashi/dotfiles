@@ -118,10 +118,10 @@ in {
       shift + ctrl + alt - k : yabai -m window --focus north || yabai -m display --focus north
       shift + ctrl + alt - l : yabai -m window --focus east  || yabai -m display --focus east
       # swap window
-      cmd + shift + ctrl + alt - h : yabai -m window --swap west  || ( yabai -m window --display west  && yabai -m display --focus west )
-      cmd + shift + ctrl + alt - j : yabai -m window --swap south || ( yabai -m window --display south && yabai -m display --focus south)
-      cmd + shift + ctrl + alt - k : yabai -m window --swap north || ( yabai -m window --display north && yabai -m display --focus north)
-      cmd + shift + ctrl + alt - l : yabai -m window --swap east  || ( yabai -m window --display east  && yabai -m display --focus east )
+      cmd + shift + ctrl + alt - h : yabai -m window --warp west  || ( yabai -m window --display west  && yabai -m display --focus west )
+      cmd + shift + ctrl + alt - j : yabai -m window --warp south || ( yabai -m window --display south && yabai -m display --focus south)
+      cmd + shift + ctrl + alt - k : yabai -m window --warp north || ( yabai -m window --display north && yabai -m display --focus north)
+      cmd + shift + ctrl + alt - l : yabai -m window --warp east  || ( yabai -m window --display east  && yabai -m display --focus east )
       # rotate tree
       shift + ctrl + alt - r : yabai -m space --rotate 90
       # toggle window fullscreen zoom
