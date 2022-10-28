@@ -76,7 +76,7 @@ in {
   };
 
   services.yabai = {
-    enable = false;
+    enable = true;
     package = pkgs.yabai;
     config = {
       focus_follows_mouse = "off";
@@ -109,7 +109,7 @@ in {
   };
 
   services.skhd = {
-    enable = false;
+    enable = true;
     package = pkgs.skhd;
     skhdConfig = ''
       # focus window
@@ -134,7 +134,7 @@ in {
   };
 
   services.spacebar = {
-    enable = false;
+    enable = true;
     package = pkgs.spacebar;
     config = {
       position = "top";
