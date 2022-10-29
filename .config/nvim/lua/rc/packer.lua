@@ -80,9 +80,13 @@ packer.startup(function(use)
 
   -- snippets
   use({
-    "dcampos/nvim-snippy",
+    "hrsh7th/vim-vsnip",
     config = function() require("rc.snippets") end,
     event = "VimEnter",
+  })
+  use({
+    "hrsh7th/vim-vsnip-integ",
+    opt = true,
   })
 
   -- UI
