@@ -93,7 +93,6 @@ packer.startup(function(use)
   use({
     "RRethy/nvim-base16",
     config = function() require("rc.colorscheme") end,
-    -- event = "VimEnter",
   })
   use({
     "vimpostor/vim-tpipeline",
