@@ -1,4 +1,6 @@
 vim.cmd([[
+  autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
+
   " Expand
   imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
   smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'

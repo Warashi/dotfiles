@@ -2,11 +2,13 @@ local patch_global = vim.fn["ddc#custom#patch_global"]
 
 -- pum
 patch_global("ui", "pum")
-vim.keymap.set("i", "<C-n>", function() vim.fn["pum#map#insert_relative"](1) end)
-vim.keymap.set("i", "<C-p>", function() vim.fn["pum#map#insert_relative"](-1) end)
+vim.keymap.set("i", "<C-n>", function() vim.fn["pum#map#select_relative"](1) end)
+vim.keymap.set("i", "<C-p>", function() vim.fn["pum#map#select_relative"](-1) end)
+vim.keymap.set("i", "<C-y>", function() vim.fn["pum#map#confirm"]() end)
+vim.keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end)
 
 -- sources
-patch_global("sources", { "nvim-lsp", "around", "file" })
+patch_global("sources", { "nvim-lsp", "around", "file", "vsnip" })
 patch_global("sourceOptions", {
   around = { mark = "A", maxSize = 500 },
   ["nvim-lsp"] = { mark = "L" },
@@ -69,7 +71,6 @@ vim.keymap.set("n", ":", function()
   commandline_pre()
   return ":"
 end, { expr = true })
-
 patch_global("autoCompleteEvents", { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" })
 patch_global("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
 
