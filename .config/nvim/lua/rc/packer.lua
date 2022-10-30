@@ -87,7 +87,7 @@ packer.startup(function(use)
     "hrsh7th/vim-vsnip-integ",
     event = "VimEnter",
   })
-  use({"rafamadriz/friendly-snippets"})
+  use({ "rafamadriz/friendly-snippets" })
 
   -- UI
   use({
