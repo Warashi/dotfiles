@@ -14,6 +14,7 @@
   "karabiner-elements"
   "microsoft-edge"
   "mimestream"
+  "raindropio"
   "raycast"
   "slack"
   "zoom"
