@@ -42,21 +42,6 @@ local null_ls = require("null-ls")
 null_ls.setup({
   on_attach = on_attach,
   sources = {
-    --- dictionary / spell ---
-    null_ls.builtins.hover.dictionary,
-    null_ls.builtins.diagnostics.vale,
-    null_ls.builtins.diagnostics.textlint.with({
-      condition = function(_) return vim.fn.executable("textlint") == 1 end,
-      prefer_local = "node_modules/.bin",
-      filetypes = { "markdown", "text" },
-    }),
-
-    --- git ---
-    null_ls.builtins.diagnostics.commitlint.with({
-      condition = function(_) return vim.fn.executable("commitlint") == 1 end,
-      prefer_local = "node_modules/.bin",
-    }),
-
     --- nix ---
     null_ls.builtins.diagnostics.deadnix,
     null_ls.builtins.diagnostics.statix,

@@ -36,5 +36,4 @@ in
     shfmt
     statix
     stylua
-    vale
   ]
