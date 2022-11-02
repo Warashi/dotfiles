@@ -1,9 +1,27 @@
 local patch_global = vim.fn["ddc#custom#patch_global"]
 
+local function complete_or_select(rel)
+  if vim.fn["pum#visible"]() == 1 then
+    vim.fn["pum#map#select_relative"](rel)
+  else
+    return vim.fn["ddc#map#manual_complete"]()
+  end
+end
+
 -- pum
 patch_global("ui", "pum")
-vim.keymap.set("i", "<C-n>", function() vim.fn["pum#map#select_relative"](1) end)
-vim.keymap.set("i", "<C-p>", function() vim.fn["pum#map#select_relative"](-1) end)
+vim.keymap.set(
+  "i",
+  "<C-n>",
+  function() return complete_or_select(1) end,
+  { silent = true, expr = true, replace_keycodes = false }
+)
+vim.keymap.set(
+  "i",
+  "<C-p>",
+  function() return complete_or_select(-1) end,
+  { silent = true, expr = true, replace_keycodes = false }
+)
 vim.keymap.set("i", "<C-y>", function() vim.fn["pum#map#confirm"]() end)
 vim.keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end)
 
