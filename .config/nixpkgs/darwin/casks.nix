@@ -9,7 +9,6 @@
   "homebrew/cask-fonts/font-mplus"
   "homebrew/cask-fonts/font-udev-gothic"
   "homebrew/cask-fonts/font-udev-gothic-nf"
-  "obsidian"
   "homebrew/cask-versions/discord-ptb"
   "iterm2"
   "jetbrains-toolbox"
