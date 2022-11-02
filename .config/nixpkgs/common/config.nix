@@ -47,7 +47,7 @@ in {
       tmux-thumbs
       {
         plugin = warashiPkgs.tmux-statusline-themes;
-        extraConfig = "set -g @tmux-statusline-theme 'solarized-light'";
+        extraConfig = "set -g @tmux-statusline-theme 'gruvbox-dark'";
       }
     ];
     extraConfig = ''

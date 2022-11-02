@@ -23,6 +23,7 @@ in
     skim
     tig
     yq-go
+    zk
 
     warashiPkgs.felix
 
