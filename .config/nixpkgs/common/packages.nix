@@ -7,7 +7,6 @@ in
     bat
     delta
     deno
-    exa
     fd
     gh
     ghq
@@ -17,6 +16,7 @@ in
     go_1_19
     htop
     jq
+    lsd
     mosh
     neovim
     ripgrep

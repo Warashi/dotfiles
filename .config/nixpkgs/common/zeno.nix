@@ -21,5 +21,5 @@
   export ZENO_GIT_CAT="bat --color=always"
 
   # git folder preview with color
-  export ZENO_GIT_TREE="exa --tree"
+  export ZENO_GIT_TREE="lsd --tree"
 ''
