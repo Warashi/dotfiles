@@ -120,6 +120,10 @@ packer.startup(function(use)
     cmd = "TroubleToggle",
     config = function() require("rc.trouble") end,
   })
+  use({
+    "matsui54/denops-popup-preview.vim",
+    config = function() vim.fn["popup_preview#enable"]() end,
+  })
 
   -- pum
   use({ "Shougo/pum.vim" })
