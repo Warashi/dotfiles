@@ -76,6 +76,11 @@ packer.startup(function(use)
     config = function() require("nvim-autopairs").setup({}) end,
     event = "VimEnter",
   })
+  use({
+    "yuki-yano/fuzzy-motion.vim",
+    cmd = "FuzzyMotion",
+    config = function() vim.keymap.set("n", "<leader>f", "<cmd>FuzzyMotion<cr>") end,
+  })
 
   -- snippets
   use({
