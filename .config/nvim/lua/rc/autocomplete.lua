@@ -1,7 +1,7 @@
 local patch_global = vim.fn["ddc#custom#patch_global"]
 
 local function complete_or_select(rel)
-  if vim.fn["pum#visible"]() == 1 then
+  if vim.fn["pum#visible"]() then
     vim.fn["pum#map#select_relative"](rel)
   else
     return vim.fn["ddc#map#manual_complete"]()
