@@ -1,4 +1,4 @@
-local function on_attach(_, bufnr)
+local function on_attach(client, bufnr)
   -- omnifunc, tagfunc
   vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
   vim.bo.tagfunc = "v:lua.vim.lsp.tagfunc"
@@ -24,10 +24,12 @@ local function on_attach(_, bufnr)
   vim.keymap.set("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
   -- format on save
-  vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    buffer = bufnr,
-    callback = function() vim.lsp.buf.format() end,
-  })
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+      buffer = bufnr,
+      callback = function() vim.lsp.buf.format() end,
+    })
+  end
 end
 
 require("nlspsettings").setup({
