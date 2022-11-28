@@ -62,8 +62,6 @@ null_ls.setup({
   },
 })
 
-require("rc.autocomplete")
-
 -- Set up lspconfig.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true

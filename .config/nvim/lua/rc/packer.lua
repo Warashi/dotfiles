@@ -38,6 +38,7 @@ packer.startup(function(use)
   use({
     "rcarriga/nvim-notify",
     config = function() require("rc.notify") end,
+    event = "VimEnter",
   })
   use({ "vim-denops/denops.vim" })
 
@@ -50,18 +51,20 @@ packer.startup(function(use)
   use({
     "folke/neodev.nvim",
     config = function() require("rc.neodev") end,
-    event = "VimEnter",
+    event = "BufEnter",
   })
 
   -- tree-sitter
   use({
     "nvim-treesitter/nvim-treesitter",
     config = function() require("rc.nvim-treesitter") end,
+    event = "BufEnter",
   })
   use({
     "romgrk/nvim-treesitter-context",
     config = function() require("treesitter-context").setup({}) end,
-    event = "VimEnter",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    event = "BufEnter",
   })
 
   -- languages
@@ -98,6 +101,7 @@ packer.startup(function(use)
   use({
     "RRethy/nvim-base16",
     config = function() require("rc.colorscheme") end,
+    event = "BufEnter",
   })
   use({
     "vimpostor/vim-tpipeline",
@@ -128,6 +132,7 @@ packer.startup(function(use)
   use({
     "matsui54/denops-popup-preview.vim",
     config = function() vim.fn["popup_preview#enable"]() end,
+    event = "VimEnter",
   })
 
   -- pum
@@ -150,6 +155,7 @@ packer.startup(function(use)
   use({
     "Shougo/ddu.vim",
     config = function() require("rc.ddu") end,
+    event = "VimEnter",
   })
 
   -- ddc
@@ -164,6 +170,7 @@ packer.startup(function(use)
   use({
     "Shougo/ddc.vim",
     config = function() require("rc.autocomplete") end,
+    event = "BufEnter",
   })
 
   -- misc
