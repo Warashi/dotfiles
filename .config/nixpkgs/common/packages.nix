@@ -24,6 +24,8 @@ in
     tig
     yq-go
 
+    python310Packages.pipx
+
     warashiPkgs.felix
 
     # null-ls から利用
