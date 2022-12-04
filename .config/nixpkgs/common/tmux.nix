@@ -19,7 +19,7 @@ in {
       tmux-thumbs
       {
         plugin = warashiPkgs.tmux-statusline-themes;
-        extraConfig = "set -g @tmux-statusline-theme 'gruvbox-dark'";
+        extraConfig = "set-option -g @tmux-statusline-theme 'gruvbox-dark'";
       }
     ];
     extraConfig = ''
@@ -36,11 +36,11 @@ in {
       set-option -g mouse on
 
       # title設定
-      set -g set-titles on
-      set -g set-titles-string '#T'
+      set-option -g set-titles on
+      set-option -g set-titles-string '#T'
 
       # TrueColor 表示
-      set -g default-terminal "screen-256color"
+      set-option -g default-terminal "screen-256color"
       set-option -ga terminal-overrides ",xterm-256color:Tc"
 
       # C-w で window 一覧を開く
@@ -70,13 +70,17 @@ in {
       bind -r k select-pane -U
       bind -r l select-pane -R
 
+      # statusline
+      set-option -g status-interval 1
+      set-option -g status-justify absolute-centre
+      set-option -g status-left ""
+      set-option -g status-right ""
+
       # vim-tpipeline
-      set -g focus-events on
-      set -g status-style bg=default
-      set -g status-left-length 90
-      set -g status-right-length 90
-      set -g status-justify absolute-centre
-      set -g visual-activity off
+      set-option -g focus-events on
+      set-option -g status-left-length 90
+      set-option -g status-right-length 90
+      set-option -g visual-activity off
     '';
   };
 }
