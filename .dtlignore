@@ -1,0 +1,6 @@
+/.dtlignore
+/state.json
+/.git
+/.nlsp-settings
+/selene.toml
+/vim.toml
