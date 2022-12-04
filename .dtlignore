@@ -1,7 +1,8 @@
 /.dtlignore
-/.gitignore
-/state.json
 /.git
+/.gitignore
 /.nlsp-settings
+/Makefile
 /selene.toml
+/state.json
 /vim.toml
