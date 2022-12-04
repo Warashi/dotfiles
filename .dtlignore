@@ -1,4 +1,5 @@
 /.dtlignore
+/.gitignore
 /state.json
 /.git
 /.nlsp-settings
