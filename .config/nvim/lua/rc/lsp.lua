@@ -59,6 +59,9 @@ null_ls.setup({
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.shellharden,
 
+    --- go ---
+    require("rc.null-ls-gci").source,
+
     --- other ---
     null_ls.builtins.diagnostics.todo_comments,
   },
