@@ -41,30 +41,31 @@ require("nlspsettings").setup({
 })
 
 local null_ls = require("null-ls")
+local sources = {
+  --- nix ---
+  null_ls.builtins.diagnostics.deadnix,
+  null_ls.builtins.diagnostics.statix,
+  null_ls.builtins.formatting.alejandra,
+
+  --- lua ---
+  null_ls.builtins.diagnostics.selene,
+  null_ls.builtins.formatting.stylua,
+
+  --- shell ---
+  null_ls.builtins.diagnostics.shellcheck,
+  null_ls.builtins.diagnostics.zsh,
+  null_ls.builtins.formatting.shfmt,
+  null_ls.builtins.formatting.shellharden,
+
+  --- other ---
+  null_ls.builtins.diagnostics.todo_comments,
+}
+
+if vim.fn["executable"]("gci") then table.insert(sources, require("rc.null-ls-gci").source) end
+
 null_ls.setup({
   on_attach = on_attach,
-  sources = {
-    --- nix ---
-    null_ls.builtins.diagnostics.deadnix,
-    null_ls.builtins.diagnostics.statix,
-    null_ls.builtins.formatting.alejandra,
-
-    --- lua ---
-    null_ls.builtins.diagnostics.selene,
-    null_ls.builtins.formatting.stylua,
-
-    --- shell ---
-    null_ls.builtins.diagnostics.shellcheck,
-    null_ls.builtins.diagnostics.zsh,
-    null_ls.builtins.formatting.shfmt,
-    null_ls.builtins.formatting.shellharden,
-
-    --- go ---
-    require("rc.null-ls-gci").source,
-
-    --- other ---
-    null_ls.builtins.diagnostics.todo_comments,
-  },
+  sources = sources,
 })
 
 -- Set up lspconfig.

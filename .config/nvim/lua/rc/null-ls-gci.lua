@@ -5,6 +5,7 @@ local helpers = require("null-ls.helpers")
 local go_module = nil
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "go",
+  once = true,
   callback = function()
     job
       :new({
@@ -25,6 +26,7 @@ my_source_gci.filetypes = { "go" }
 my_source_gci.generator = helpers.formatter_factory({
   command = "gci",
   args = function()
+    if go_module == nil then return { "print", "$FILENAME", "--skip-generated" } end
     return {
       "print",
       "$FILENAME",
