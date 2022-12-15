@@ -61,7 +61,8 @@ local sources = {
   null_ls.builtins.diagnostics.todo_comments,
 }
 
-if vim.fn["executable"]("gci") then table.insert(sources, require("rc.null-ls-gci").source) end
+--- go ---
+if vim.fn["executable"]("gci") > 0 then table.insert(sources, require("rc.null-ls-gci").source) end
 
 null_ls.setup({
   on_attach = on_attach,
