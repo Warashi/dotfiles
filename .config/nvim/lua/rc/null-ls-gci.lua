@@ -28,7 +28,7 @@ my_source_gci.generator = helpers.formatter_factory({
   args = function()
     if go_module == nil then return { "print", "$FILENAME", "--skip-generated" } end
     return {
-      "print",
+      "write",
       "$FILENAME",
       "--skip-generated",
       "--custom-order",
@@ -36,7 +36,7 @@ my_source_gci.generator = helpers.formatter_factory({
       "standard,default,prefix(" .. go_module .. "),blank,dot",
     }
   end,
-  to_stdin = true,
+  to_temp_file = true,
   from_temp_file = true,
 })
 
