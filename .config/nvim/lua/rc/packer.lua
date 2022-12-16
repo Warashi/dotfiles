@@ -48,6 +48,7 @@ packer.startup(function(use)
   use({ "williamboman/mason-lspconfig.nvim" })
   use({ "tamago324/nlsp-settings.nvim" })
   use({ "jose-elias-alvarez/null-ls.nvim" })
+  use({ "matsui54/denops-signature_help", config = function() vim.fn["signature_help#enable"]() end })
   use({
     "folke/neodev.nvim",
     config = function() require("rc.neodev") end,
@@ -111,7 +112,7 @@ packer.startup(function(use)
   use({ "hotwatermorning/auto-git-diff" })
   use({
     "lewis6991/gitsigns.nvim",
-    config = function() require("gitsigns").setup() end,
+    config = function() require("rc.gitsigns") end,
     event = "VimEnter",
   })
   use({
@@ -126,8 +127,8 @@ packer.startup(function(use)
   })
   use({
     "folke/trouble.nvim",
-    cmd = "TroubleToggle",
     config = function() require("rc.trouble") end,
+    event = "BufEnter",
   })
   use({
     "matsui54/denops-popup-preview.vim",
