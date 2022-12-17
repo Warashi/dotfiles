@@ -1,0 +1,69 @@
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+depends = ['impatient.nvim']
+
+[[plugins]]
+repo = 'tamago324/nlsp-settings.nvim'
+depends = ['impatient.nvim', 'nvim-lspconfig']
+
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
+depends = ['impatient.nvim', 'nvim-lspconfig']
+
+[[plugins]]
+repo = '~/.config/nvim/null-ls-gci'
+depends = ['impatient.nvim', 'plenary.nvim', 'null-ls.nvim']
+on_ft = ['go']
+lua_source = '''
+  if vim.fn["executable"]("gci") > 0 then
+    local source = require("null-ls-gci").source
+    require("null-ls.sources").register(source)
+  end
+'''
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'
+depends = ['nvim-lspconfig', 'mason.nvim']
+
+[[plugins]]
+repo = '~/.config/nvim/my-lspconfig'
+depends = ['impatient.nvim', 'nvim-lspconfig', 'nlsp-settings.nvim', 'null-ls.nvim', 'mason.nvim', 'mason-lspconfig.nvim']
+on_event = ['BufRead', 'BufNewFile']
+lua_source = '''
+  require("my-lspconfig")
+'''
+
+[[plugins]]
+repo = 'folke/neodev.nvim'
+depends = ['nvim-lspconfig']
+on_ft = ['lua']
+lua_source = '''
+  require("neodev").setup({
+    library = {
+      enabled = true,
+      runtime = true,
+      types = true,
+      plugins = true,
+    },
+    setup_jsonls = true,
+  })
+'''
+
+[[plugins]]
+repo = 'matsui54/denops-signature_help'
+depends = ['denops.vim']
+on_event = ['CursorHold']
+on_source = '''
+  call signature_help#enable()
+'''
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+depends = ['denops.vim']
+on_event = ['CursorHold']
+on_source = '''
+  call popup_preview#enable()
+'''
