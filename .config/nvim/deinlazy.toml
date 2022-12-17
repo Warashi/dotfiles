@@ -36,3 +36,23 @@ lua_source = '''
     },
   })
 '''
+
+[[plugins]]
+repo = 'romgrk/nvim-treesitter-context'
+depends = ['impatient.nvim', 'nvim-treesitter']
+on_event = ['BufRead', 'CursorHold']
+lua_source = '''
+  require("treesitter-context").setup({})
+'''
+
+[[plugins]]
+repo = 'gpanders/editorconfig.nvim'
+depends = ['impatient.nvim']
+on_event = ['BufRead', 'BufNewFile']
+
+[[plugins]]
+repo = 'yuki-yano/fuzzy-motion.vim'
+on_cmd = 'FuzzyMotion'
+lua_add = '''
+  vim.keymap.set("n", "<leader>f", "<cmd>FuzzyMotion<cr>") 
+'''

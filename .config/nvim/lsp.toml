@@ -86,3 +86,50 @@ lua_source = '''
     require("null-ls.sources").register(source)
   end
 '''
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+on_cmd = ['Mason']
+lua_source = '''
+  require("mason").setup()
+'''
+
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'
+depends = ['nvim-lspconfig', 'mason.nvim']
+on_event = ['BufEnter']
+lua_source = '''
+  require("mason-lspconfig").setup()
+  require("mason-lspconfig").setup_handlers({
+    function(server_name)
+      require("lspconfig")[server_name].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+    end,
+  })
+'''
+
+[[plugins]]
+repo = 'folke/neodev.nvim'
+depends = ['nvim-lspconfig']
+on_ft = ['lua']
+lua_source = '''
+  require("neodev").setup({
+    library = {
+      enabled = true,
+      runtime = true,
+      types = true,
+      plugins = true,
+    },
+    setup_jsonls = true,
+  })
+'''
+
+[[plugins]]
+repo = 'matsui54/denops-signature_help'
+depends = ['denops.vim']
+on_event = ['CursorHold']
+lua_source = '''
+  vim.fn["signature_help#enable"]()
+'''
