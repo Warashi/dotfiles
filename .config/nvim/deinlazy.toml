@@ -59,3 +59,8 @@ on_cmd = 'FuzzyMotion'
 lua_add = '''
   vim.keymap.set("n", "<leader>f", "<cmd>FuzzyMotion<cr>") 
 '''
+
+[[plugins]]
+repo = 'lambdalisue/guise.vim'
+depends = ['denops.vim']
+on_event = ['CursorHold']
