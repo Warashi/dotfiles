@@ -61,6 +61,19 @@ lua_add = '''
 '''
 
 [[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_event = ['VimEnter']
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
+depends = ['vim-vsnip']
+on_event = ['VimEnter']
+
+[[plugins]]
+repo = 'rafamadriz/friendly-snippets'
+on_source = 'vim-vsnip'
+
+[[plugins]]
 repo = 'lambdalisue/guise.vim'
 depends = ['denops.vim']
 on_source = 'denops.vim'
