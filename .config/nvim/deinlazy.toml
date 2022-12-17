@@ -63,4 +63,5 @@ lua_add = '''
 [[plugins]]
 repo = 'lambdalisue/guise.vim'
 depends = ['denops.vim']
-on_event = ['CursorHold']
+on_source = 'denops.vim'
+on_event = ['VimEnter']

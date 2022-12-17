@@ -63,7 +63,7 @@ lua_source = '''
 
 [[plugins]]
 repo = 'akinsho/toggleterm.nvim'
-on_event = 'CursorHold'
+on_event = 'VimEnter'
 lua_source = '''
   require("toggleterm").setup({
     open_mapping = [[<c-\>]],
