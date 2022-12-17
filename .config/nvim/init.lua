@@ -35,7 +35,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menu,menuone,longest,preview"
 vim.opt.background = "dark"
 vim.opt.guifont = "UDEV Gothic NFLG"
-vim.opt.cmdheight = 0
 vim.opt.showmode = false
 
 --- misc keymaps ---
