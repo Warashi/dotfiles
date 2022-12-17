@@ -38,6 +38,11 @@ vim.opt.guifont = "UDEV Gothic NFLG"
 vim.opt.cmdheight = 0
 vim.opt.showmode = false
 
+--- misc keymaps ---
+vim.g.mapleader = ","
+vim.keymap.set("n", "<leader><leader>", ":source $MYVIMRC<CR>", { silent = true })
+vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { silent = true })
+
 --- configure dein.vim ---
 local config_base = vim.fn.stdpath("config") .. "/"
 local dein_base = vim.env.HOME .. "/.cache/dein"
