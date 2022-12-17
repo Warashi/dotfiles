@@ -53,10 +53,8 @@ dein.setup({
 if dein.load_state(dein_base) > 0 then
   dein.begin(dein_base)
 
-  dein.add(dein_src)
-
+  dein.load_toml(config_base .. "libraries.toml")
   dein.load_toml(config_base .. "dein.toml")
-  dein.load_toml(config_base .. "libraries.toml", { lazy = true })
   dein.load_toml(config_base .. "lsp.toml", { lazy = true })
   dein.load_toml(config_base .. "deinlazy.toml", { lazy = true })
 

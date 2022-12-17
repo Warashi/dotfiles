@@ -15,7 +15,6 @@ repo = 'MunifTanjim/nui.nvim'
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify',
-on_event = 'VimEnter'
 lua_source = '''
   vim.notify = require("notify")
   require("notify").setup({
@@ -25,4 +24,3 @@ lua_source = '''
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-on_event = 'CursorHold'
