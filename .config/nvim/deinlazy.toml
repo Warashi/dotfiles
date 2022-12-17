@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
 repo = 'nathom/filetype.nvim'
 depends = 'impatient.nvim'
 on_event = ['BufRead', 'BufNewFile']
