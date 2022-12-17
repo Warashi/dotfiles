@@ -65,6 +65,10 @@ repo = 'cohama/lexima.vim'
 on_event = ['VimEnter']
 
 [[plugins]]
+repo = 'machakann/vim-sandwich'
+on_event = ['BufRead', 'BufNewFile']
+
+[[plugins]]
 repo = 'thinca/vim-partedit'
 depends = ['context_filetype.vim']
 on_func = ['partedit#']
