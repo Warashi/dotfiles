@@ -27,3 +27,6 @@ repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
