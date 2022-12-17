@@ -1,0 +1,28 @@
+[[plugins]]
+repo = 'lewis6991/impatient.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'
+
+[[plugins]]
+repo = 'rcarriga/nvim-notify',
+on_event = 'VimEnter'
+lua_source = '''
+  vim.notify = require("notify")
+  require("notify").setup({
+    stages = "slide",
+  })
+'''
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+on_event = 'CursorHold'
