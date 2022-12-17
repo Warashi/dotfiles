@@ -1,0 +1,7 @@
+[[plugins]]
+repo = 'RRethy/nvim-base16'
+on_event = ['BufEnter']
+hook_source = '''
+  colorscheme base16-gruvbox-dark-medium
+  highlight Visual gui=reverse
+'''
