@@ -106,6 +106,16 @@ lua_source = '''
 repo = 'folke/trouble.nvim'
 on_cmd = ['TroubleToggle']
 on_source = ['gitsigns.nvim']
+lua_add = '''
+  vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>", opts)
+'''
 lua_source = '''
   require("trouble").setup({})
+'''
+
+[[plugins]]
+repo = '~/.config/nvim/swim'
+on_event = 'CursorHold'
+lua_source = '''
+  require("swim")
 '''
