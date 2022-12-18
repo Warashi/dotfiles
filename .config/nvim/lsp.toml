@@ -53,6 +53,13 @@ lua_source = '''
 '''
 
 [[plugins]]
+repo = 'j-hui/fidget.nvim'
+on_source = 'my-lspconfig'
+lua_source = '''
+  require("fidget").setup()
+'''
+
+[[plugins]]
 repo = 'matsui54/denops-signature_help'
 depends = ['denops.vim']
 on_event = ['CursorHold']
