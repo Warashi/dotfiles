@@ -6,7 +6,6 @@ vim.g.did_load_filetypes = true
 vim.g.did_load_ftplugin = true
 vim.g.loaded_2html_plugin = true
 vim.g.loaded_gzip = true
-vim.g.loaded_man = true
 vim.g.loaded_matchit = true
 vim.g.loaded_matchparen = true
 vim.g.loaded_netrwPlugin = true
