@@ -52,13 +52,16 @@ in {
       # C-t で現在のwindowを一番左へ移動
       bind C-t move-window -t 0
 
+      # C-\ で popup window
+      bind C-\\ run-shell "zsh -c \"tmuxpopup\""
+
       # C-h, C-v で画面分割
-      bind C-h split-window -h
-      bind C-v split-window -v
+      bind C-h split-window -h -c "#{pane_current_path}"
+      bind C-v split-window -v -c "#{pane_current_path}"
 
       # H, V で pane 再配置
-      bind H select-layout main-horizontal
-      bind V select-layout main-vertical
+      bind H select-layout main-vertical
+      bind V select-layout main-horizontal
 
       # C-o, M-o で分割した画面をRotate
       bind -r C-o rotate-window -D
@@ -75,12 +78,6 @@ in {
       set-option -g status-justify absolute-centre
       set-option -g status-left ""
       set-option -g status-right ""
-
-      # vim-tpipeline
-      set-option -g focus-events on
-      set-option -g status-left-length 90
-      set-option -g status-right-length 90
-      set-option -g visual-activity off
     '';
   };
 }
