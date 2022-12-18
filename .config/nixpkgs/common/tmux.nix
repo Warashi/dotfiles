@@ -55,6 +55,9 @@ in {
       # C-\ で popup window
       bind C-\\ run-shell "zsh -c \"tmuxpopup\""
 
+      # g で tig in popup window
+      bind g popup -d "#{pane_current_path}" -xC -yC -w80% -h80% -E tig
+
       # C-h, C-v で画面分割
       bind C-h split-window -h -c "#{pane_current_path}"
       bind C-v split-window -v -c "#{pane_current_path}"
