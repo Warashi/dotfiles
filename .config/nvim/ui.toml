@@ -1,4 +1,11 @@
 [[plugins]]
+repo = '~/.config/nvim/swim'
+on_event = 'CursorHold'
+lua_source = '''
+  require("swim")
+'''
+
+[[plugins]]
 repo = 'RRethy/nvim-base16'
 on_event = ['BufEnter']
 hook_source = '''
@@ -114,8 +121,8 @@ lua_source = '''
 '''
 
 [[plugins]]
-repo = '~/.config/nvim/swim'
-on_event = 'CursorHold'
+repo = 'nvim-zh/colorful-winsep.nvim'
+on_event = 'VimEnter'
 lua_source = '''
-  require("swim")
+  require("colorful-winsep").setup()
 '''

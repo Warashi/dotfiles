@@ -35,6 +35,7 @@ vim.opt.completeopt = "menu,menuone,longest,preview"
 vim.opt.background = "dark"
 vim.opt.guifont = "UDEV Gothic NFLG"
 vim.opt.showmode = false
+vim.opt.laststatus = 3
 
 --- misc keymaps ---
 vim.g.mapleader = ","
