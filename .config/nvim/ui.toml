@@ -126,3 +126,29 @@ on_event = 'VimEnter'
 lua_source = '''
   require("colorful-winsep").setup()
 '''
+
+[[plugins]]
+repo = 'delphinus/dwm.nvim'
+depends = ['nvim-notify']
+on_event = 'VimEnter'
+lua_source = '''
+  local notify = require("notify")
+  local dwm = require("dwm")
+  dwm.setup{
+    key_maps = false,
+    master_pane_count = 1,
+    master_pane_width = "60%",
+  }
+  vim.keymap.set("n", "<C-j>", "<C-w>w")
+  vim.keymap.set("n", "<C-k>", "<C-w>W")
+  vim.keymap.set("n", "<C-Space>", dwm.focus)
+  vim.keymap.set("n", "<C-l>", dwm.grow)
+  vim.keymap.set("n", "<C-h>", dwm.shrink)
+  vim.keymap.set("n", "<C-n>", dwm.new)
+  vim.keymap.set("n", "<C-q>", dwm.rotateLeft)
+  vim.keymap.set("n", "<C-s>", dwm.rotate)
+  vim.keymap.set("n", "<C-c>", function()
+    notify("closing!", vim.log.levels.INFO)
+    dwm.close()
+  end)
+'''
