@@ -82,8 +82,7 @@ hook_add = '''
       return
     endif
     call partedit#start(context.range[0][0], context.range[1][0],
-          \ {'filetype': context.filetype})
-    nnoremap <buffer> q <Cmd>ParteditEnd<CR>
+          \ {'filetype': context.filetype, 'opener': ':split'})
   endfunction
   nnoremap <leader>x <Cmd>call <SID>operator_partedit()<CR>
 '''
