@@ -124,7 +124,7 @@ lua_source = '''
 repo = 'nvim-zh/colorful-winsep.nvim'
 on_event = 'VimEnter'
 lua_source = '''
-  require("colorful-winsep").setup()
+  require("colorful-winsep").setup({})
 '''
 
 [[plugins]]
