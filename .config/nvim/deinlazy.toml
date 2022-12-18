@@ -99,9 +99,3 @@ on_event = ['VimEnter']
 [[plugins]]
 repo = 'rafamadriz/friendly-snippets'
 on_source = 'vim-vsnip'
-
-[[plugins]]
-repo = 'lambdalisue/guise.vim'
-depends = ['denops.vim']
-on_source = 'denops.vim'
-on_event = ['VimEnter']

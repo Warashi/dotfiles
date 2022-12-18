@@ -26,6 +26,10 @@ lua_source = '''
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
+repo = 'lambdalisue/guise.vim'
+depends = ['denops.vim']
+
+[[plugins]]
 repo = 'Shougo/pum.vim'
 
 [[plugins]]
