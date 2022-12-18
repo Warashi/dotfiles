@@ -46,6 +46,11 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { silent = true })
 local config_base = vim.fn.stdpath("config") .. "/"
 local dein_base = vim.env.HOME .. "/.cache/dein"
 local dein_src = dein_base .. "/repos/github.com/Shougo/dein.vim"
+
+--- ensure dein ---
+if vim.fn.empty(vim.fn.glob(dein_src)) > 0 then
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/Shougo/dein.vim", dein_src })
+end
 vim.opt.runtimepath:append(dein_src)
 
 local dein = require("dein")
