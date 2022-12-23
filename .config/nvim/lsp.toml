@@ -13,7 +13,7 @@ depends = ['impatient.nvim', 'nvim-lspconfig']
 [[plugins]]
 repo = '~/.config/nvim/null-ls-gci'
 depends = ['impatient.nvim', 'plenary.nvim', 'null-ls.nvim']
-on_ft = ['go']
+on_lua = 'null-ls'
 lua_source = '''
   if vim.fn["executable"]("gci") > 0 then
     local source = require("null-ls-gci").source
@@ -63,7 +63,7 @@ lua_source = '''
 repo = 'matsui54/denops-signature_help'
 depends = ['denops.vim']
 on_event = ['CursorHold']
-on_source = '''
+hook_source = '''
   call signature_help#enable()
 '''
 
@@ -71,6 +71,6 @@ on_source = '''
 repo = 'matsui54/denops-popup-preview.vim'
 depends = ['denops.vim']
 on_event = ['CursorHold']
-on_source = '''
+hook_source = '''
   call popup_preview#enable()
 '''
