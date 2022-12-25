@@ -1,6 +1,6 @@
 [[plugins]]
 repo = '~/.config/nvim/swim'
-on_event = 'CursorHold'
+on_event = 'InsertEnter'
 lua_source = '''
   require("swim")
 '''
