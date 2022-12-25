@@ -77,7 +77,7 @@ lua_source = '''
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-depends = 'nvim-web-devicons'
+depends = ['nvim-web-devicons', 'nvim-base16']
 lua_source = '''
   require('lualine').setup()
 '''

@@ -73,3 +73,10 @@ if dein.load_state(dein_base) > 0 then
 
   dein.save_state()
 end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    dein.call_hook("source")
+    dein.call_hook("post_source")
+  end,
+})

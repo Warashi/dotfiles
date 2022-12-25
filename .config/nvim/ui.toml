@@ -15,7 +15,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'RRethy/vim-illuminate'
-on_event = ['BufEnter']
+on_event = ['BufRead', 'BufNewFile']
 
 [[plugins]]
 repo = 'hotwatermorning/auto-git-diff'
