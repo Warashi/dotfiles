@@ -121,4 +121,3 @@ lua_source = '''
 
   vim.api.nvim_create_user_command("ToggleTermClose", smart_close, {})
 '''
-
