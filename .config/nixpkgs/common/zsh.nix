@@ -20,6 +20,7 @@
       EDITOR = "nvim";
       MANPAGER = "nvim +Man!";
       LANG = "en_US.UTF-8";
+      DENO_NO_UPDATE_CHECK = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       KEYTIMEOUT = "1";
     };
