@@ -60,6 +60,17 @@ lua_source = '''
 '''
 
 [[plugins]]
+repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+on_source = 'my-lspconfig'
+lua_source = '''
+  -- Disable virtual_text since it's redundant due to lsp_lines.
+  vim.diagnostic.config({
+    virtual_text = false,
+  })
+  require("lsp_lines").setup()
+'''
+
+[[plugins]]
 repo = 'matsui54/denops-signature_help'
 depends = ['denops.vim']
 on_event = ['CursorHold']
