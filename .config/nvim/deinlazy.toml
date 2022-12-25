@@ -19,7 +19,7 @@ lua_source = '''
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 depends = 'impatient.nvim'
-on_event = ['BufRead', 'CursorHold']
+on_event = ['BufRead', 'BufNewFile']
 hook_post_update = 'TSUpdate'
 lua_source = '''
   require("nvim-treesitter.configs").setup({
@@ -43,7 +43,7 @@ lua_source = '''
 [[plugins]]
 repo = 'romgrk/nvim-treesitter-context'
 depends = ['impatient.nvim', 'nvim-treesitter']
-on_event = ['BufRead', 'CursorHold']
+on_event = ['BufRead', 'BufNewFile']
 lua_source = '''
   require("treesitter-context").setup({})
 '''

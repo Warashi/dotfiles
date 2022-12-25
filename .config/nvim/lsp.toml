@@ -73,7 +73,7 @@ lua_source = '''
 [[plugins]]
 repo = 'matsui54/denops-signature_help'
 depends = ['denops.vim']
-on_event = ['CursorHold']
+on_event = ['InsertEnter', 'CursorHold']
 hook_source = '''
   call signature_help#enable()
 '''
@@ -81,7 +81,7 @@ hook_source = '''
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
 depends = ['denops.vim']
-on_event = ['CursorHold']
+on_event = ['InsertEnter', 'CursorHold']
 hook_source = '''
   call popup_preview#enable()
 '''
