@@ -61,10 +61,6 @@ lua_add = '''
 '''
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
-on_event = ['VimEnter']
-
-[[plugins]]
 repo = 'machakann/vim-sandwich'
 on_event = ['BufRead', 'BufNewFile']
 
