@@ -1,6 +1,7 @@
 {
   home,
   programs,
+  pkgs,
   ...
 }: {
   # Let Home Manager install and manage itself.
@@ -12,7 +13,7 @@
   ];
 
   # home-manager と nix-darwin で同じoverlaysを使うための方策
-  nixpkgs.overlays = import ./overlays.nix;
+  nixpkgs.overlays = import ./overlays.nix {inherit pkgs;};
 
   home.sessionPath = [
     "$HOME/.local/bin"
