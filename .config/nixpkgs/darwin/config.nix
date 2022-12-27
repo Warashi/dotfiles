@@ -34,6 +34,11 @@ in {
 
     home.sessionVariables.SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
 
+    home.file.".nix-bin" = {
+      source = "/etc/profiles/per-user/${local.user}/bin";
+      target = ".nix-bin";
+    };
+
     home.packages =
       import ./packages.nix {inherit pkgs;}
       ++ import ../common/packages.nix {inherit pkgs;};
