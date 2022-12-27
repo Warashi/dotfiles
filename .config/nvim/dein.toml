@@ -45,12 +45,6 @@ lua_source = '''
 '''
 
 [[plugins]]
-repo = 'nvim-zh/colorful-winsep.nvim'
-lua_source = '''
-  require("colorful-winsep").setup({})
-'''
-
-[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 depends = ['nvim-web-devicons', 'nvim-base16']
 lua_source = '''
