@@ -45,6 +45,9 @@ lua_source = '''
 [[plugins]]
 repo = '~/.config/nvim/my-lspconfig'
 depends = ['impatient.nvim']
+lua_source = '''
+  require("my-lspconfig").goimports()
+'''
 
 [[plugins]]
 repo = 'folke/neodev.nvim'
