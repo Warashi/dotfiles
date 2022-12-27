@@ -17,7 +17,6 @@ in
     htop
     jq
     lsd
-    mosh
     neovim
     ripgrep
     skim
