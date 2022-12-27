@@ -1,4 +1,9 @@
-{pkgs}: [
+{pkgs}: let
+  locale =
+    if pkgs.stdenv.isDarwin
+    then pkgs.darwin.locale
+    else pkgs.glibcLocales;
+in [
   # (import (builtins.fetchTarball {
   #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
   # }))
@@ -18,7 +23,7 @@
         postInstall =
           prev.mosh.postInstall
           + ''
-            wrapProgram $out/bin/mosh-server --set LOCALE_ARCHIVE ${pkgs.glibcLocales}/lib/locale/locale-archive;
+            wrapProgram $out/bin/mosh-server --set LOCALE_ARCHIVE ${locale}/lib/locale/locale-archive;
           '';
       });
   })
