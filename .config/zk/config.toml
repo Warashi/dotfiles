@@ -6,3 +6,12 @@
 wiki-title = "hint"
 # Warn for dead links between notes.
 dead-link = "error"
+
+# EXTERNAL TOOLS
+[tool]
+
+# Pager used to scroll through long output.
+pager = "less -FIRX"
+
+# Command used to preview a note during interactive fzf mode.
+fzf-preview = "bat -p --color always {-1}"
