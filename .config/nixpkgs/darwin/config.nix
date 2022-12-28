@@ -5,7 +5,6 @@
   ...
 }: let
   local = import ../local.nix;
-  warashiPkgs = import <warashi> {};
 in {
   # import home-manager
   imports = [
@@ -43,7 +42,7 @@ in {
       enable = true;
       config = {
         Label = "dev.warashi.muscat";
-        ProgramArguments = ["${warashiPkgs.muscat}/bin/muscat" "server"];
+        ProgramArguments = ["/bin/sh" "-c" "$HOME/.local/bin/muscat server"];
         RunAtLoad = true;
         KeepAlive = true;
       };
