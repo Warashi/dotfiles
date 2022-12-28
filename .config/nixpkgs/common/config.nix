@@ -8,6 +8,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./files.nix
     ./tmux.nix
     ./zsh.nix
   ];
