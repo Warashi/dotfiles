@@ -8,9 +8,3 @@ snippets:
   - name: ls -al
     keyword: la
     snippet: ls -al
-  - name: neovide-remote
-    keyword: nvr
-    snippet: neovide --remote-tcp localhost:6666
-  - name: neovim-server
-    keyword: nvs
-    snippet: rm -f $XDG_RUNTIME_DIR/neovide && nvim --headless --listen $XDG_RUNTIME_DIR/neovide
