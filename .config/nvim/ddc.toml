@@ -93,7 +93,7 @@ lua_source = '''
   vim.keymap.set("n", ":", function()
     commandline_pre()
     return ":"
-  end, { expr = true })
+  end, { expr = true, remap = true })
   patch_global("autoCompleteEvents", { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" })
   patch_global("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
 
