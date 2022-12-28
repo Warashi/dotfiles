@@ -54,9 +54,16 @@ end
 vim.opt.runtimepath:append(dein_src)
 
 local dein = require("dein")
-
+vim.g["dein#types#git#enable_partial_clone"] = true
 dein.setup({
+  auto_recache = true,
+  auto_remote_plugins = false,
   enable_notification = true,
+  install_check_diff = true,
+  install_check_remote_threshold = 24 * 60 * 60,
+  install_copy_vim = true,
+  install_progress_type = true,
+  lazy_rplugins = true,
 })
 
 if dein.load_state(dein_base) > 0 then
