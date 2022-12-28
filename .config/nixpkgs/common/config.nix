@@ -8,8 +8,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./zsh.nix
     ./tmux.nix
+    ./zsh.nix
   ];
 
   # home-manager と nix-darwin で同じoverlaysを使うための方策
