@@ -38,6 +38,16 @@ in {
       import ./packages.nix {inherit pkgs;}
       ++ import ../common/packages.nix {inherit pkgs;};
 
+    launchd.agents.muscat = {
+      enable = true;
+      config = {
+        Label = "dev.warashi.muscat";
+        ProgramArguments = ["/bin/sh" "-c" "$HOME/.local/bin/muscat server"];
+        RunAtLoad = true;
+        KeepAlive = true;
+      };
+    };
+
     home.stateVersion = "22.05";
   };
 
