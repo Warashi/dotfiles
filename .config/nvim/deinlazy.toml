@@ -85,12 +85,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
-on_event = ['VimEnter']
+on_event = ['InsertEnter']
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 depends = ['vim-vsnip']
-on_event = ['VimEnter']
+on_event = ['InsertEnter']
 
 [[plugins]]
 repo = 'rafamadriz/friendly-snippets'
