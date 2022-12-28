@@ -18,6 +18,7 @@ depends = ['impatient.nvim', 'nvim-lspconfig', 'my-lspconfig']
 on_event = ['BufRead', 'BufNewFile']
 lua_source = '''
   require("my-lspconfig").null_ls()
+  require("my-lspconfig").hover_handler_config()
 '''
 
 [[plugins]]
