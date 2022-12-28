@@ -4,9 +4,9 @@
     then pkgs.darwin.locale
     else pkgs.glibcLocales;
 in [
-  # (import (builtins.fetchTarball {
-  #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-  # }))
+  (import (builtins.fetchTarball {
+    url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+  }))
   (_: prev: {
     mosh =
       prev.mosh.overrideAttrs
