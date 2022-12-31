@@ -51,9 +51,3 @@ bind -r h select-pane -L
 bind -r j select-pane -D
 bind -r k select-pane -U
 bind -r l select-pane -R
-
-# statusline
-set-option -g status-interval 1
-set-option -g status-justify absolute-centre
-set-option -g status-left ""
-set-option -g status-right ""
