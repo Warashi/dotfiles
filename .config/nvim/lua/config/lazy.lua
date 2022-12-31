@@ -8,7 +8,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("config.plugins", {
   defaults = { lazy = true },
   install = {
-    colorscheme = { "nightfox" },
+    colorscheme = { "dayfox" },
   },
   diff = {
     cmd = "terminal_git",
