@@ -1,8 +1,23 @@
-[[plugins]]
-repo = 'Shougo/ddc.vim'
-depends = ['denops.vim', 'pum.vim']
-on_event = ['InsertEnter', 'CursorHold']
-lua_source = '''
+local M = {
+  "Shougo/ddc.vim",
+  event = "InsertEnter",
+  dependencies = {
+    "Shougo/pum.vim",
+    "vim-denops/denops.vim",
+
+    --- plugins ---
+    "Shougo/ddc-around",
+    "Shougo/ddc-cmdline",
+    "Shougo/ddc-cmdline-history",
+    "Shougo/ddc-converter_remove_overlap",
+    "Shougo/ddc-nvim-lsp",
+    "Shougo/ddc-ui-pum",
+    "LumaKernel/ddc-file",
+    "tani/ddc-fuzzy",
+  },
+}
+
+function M.config()
   local patch_global = vim.fn["ddc#custom#patch_global"]
 
   local function complete_or_select(rel)
@@ -94,41 +109,14 @@ lua_source = '''
     commandline_pre()
     return ":"
   end, { expr = true, remap = true })
-  patch_global("autoCompleteEvents", { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" })
+  patch_global(
+    "autoCompleteEvents",
+    { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" }
+  )
   patch_global("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
 
   -- enable
   vim.fn["ddc#enable"]()
-'''
+end
 
-[[plugins]]
-repo = 'Shougo/ddc-around'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-cmdline'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-cmdline-history'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-converter_remove_overlap'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
-on_source = 'nvim-lspconfig'
-
-[[plugins]]
-repo = 'Shougo/ddc-ui-pum'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'LumaKernel/ddc-file'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'tani/ddc-fuzzy'
-on_source = 'ddc.vim'
+return M
