@@ -4,12 +4,12 @@ local M = {
 }
 
 M.config = {
-    overrides = {
-      extensions = {
-        tf = "terraform",
-        nix = "nix",
-      },
+  overrides = {
+    extensions = {
+      tf = "terraform",
+      nix = "nix",
     },
-  }
+  },
+}
 
 return M
