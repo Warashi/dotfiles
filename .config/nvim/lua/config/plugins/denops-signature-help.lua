@@ -3,7 +3,7 @@ local M = {
   dependencies = {
     "vim-denops/denops.vim",
   },
-  event = "VeryLazy",
+  event = "User DenopsReady",
 }
 
 function M.config() vim.fn["signature_help#enable"]() end
