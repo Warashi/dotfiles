@@ -5,7 +5,7 @@ local mason_lspconfig = {
     "neovim/nvim-lspconfig",
     "my-lspconfig",
   },
-  event = { "BufRead", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile" },
   config = function() require("my-lspconfig").mason() end,
 }
 
