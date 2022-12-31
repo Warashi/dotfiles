@@ -15,6 +15,7 @@ with pkgs; [
   htop
   jq
   lsd
+  nap
   neovim
   ripgrep
   skim
