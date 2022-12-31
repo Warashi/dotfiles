@@ -1,4 +1,5 @@
 local M = {
-  "machakann/vim-sandwich"
+  "machakann/vim-sandwich",
+  cmd = "InsertEnter",
 }
 return M
