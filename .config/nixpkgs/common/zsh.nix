@@ -27,7 +27,7 @@
 
     shellAliases = {
       e = "nvim";
-      ls = "lsd";
+      ls = "exa --icons";
       ":q" = "exit";
     };
 

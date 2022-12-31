@@ -5,6 +5,7 @@ with pkgs; [
   bat
   delta
   deno
+  exa
   fd
   gh
   ghq
@@ -14,7 +15,6 @@ with pkgs; [
   go_1_19
   htop
   jq
-  lsd
   nap
   neovim
   ripgrep
