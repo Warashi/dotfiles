@@ -1,5 +1,6 @@
 [
   "1password"
+  "alt-tab"
   "atok"
   "caffeine"
   "docker"
