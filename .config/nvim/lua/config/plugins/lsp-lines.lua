@@ -1,6 +1,6 @@
 local M = {
   url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.config()

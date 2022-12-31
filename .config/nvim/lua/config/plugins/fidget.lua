@@ -1,7 +1,7 @@
 local M = {
   "j-hui/fidget.nvim",
   config = true,
-  event = { "VeryLazy" },
+  event = { "BufReadPre", "BufNewFile" },
 }
 
 return M
