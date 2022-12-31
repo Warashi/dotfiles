@@ -28,6 +28,7 @@
     shellAliases = {
       e = "nvim";
       ls = "lsd";
+      ":q" = "exit";
     };
 
     completionInit = ''
