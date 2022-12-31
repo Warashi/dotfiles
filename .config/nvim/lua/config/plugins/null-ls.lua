@@ -3,9 +3,6 @@ local M = {
   dependencies = { "my-lspconfig" },
   event = { "BufReadPre", "BufNewFile" },
 }
-function M.config()
-  require("my-lspconfig").null_ls()
-  require("my-lspconfig").hover_handler_config()
-end
+function M.config() require("my-lspconfig").null_ls() end
 
 return M
