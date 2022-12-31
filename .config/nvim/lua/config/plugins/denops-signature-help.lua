@@ -1,8 +1,6 @@
 local M = {
   "matsui54/denops-signature_help",
-  dependencies = {
-    "vim-denops/denops.vim",
-  },
+  dependencies = { "vim-denops/denops.vim" },
   event = "User DenopsReady",
 }
 
