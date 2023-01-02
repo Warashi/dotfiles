@@ -15,7 +15,6 @@ with pkgs; [
   go_1_19
   htop
   jq
-  nap
   neovim
   ripgrep
   skim
