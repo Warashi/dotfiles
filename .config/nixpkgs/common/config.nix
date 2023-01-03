@@ -68,7 +68,7 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
-    defaultOptions = ["--color=dark"];
+    defaultOptions = ["--color=light"];
     tmux.enableShellIntegration = true;
   };
 
