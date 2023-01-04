@@ -10,4 +10,17 @@
       --glob=!.git/
     '';
   };
+  home.file.oj-template = {
+    target = ".config/online-judge-tools/template/main.go";
+    text = ''
+      package main
+
+      import "github.com/Warashi/go-atcoder/lib/myio"
+
+      func main() {
+      	defer myio.Flush()
+
+      }
+    '';
+  };
 }
