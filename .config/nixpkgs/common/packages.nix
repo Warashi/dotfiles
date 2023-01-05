@@ -14,6 +14,7 @@ with pkgs; [
   glow
   go_1_19
   htop
+  hyperfine
   jq
   neovim
   ripgrep
