@@ -6,7 +6,7 @@
     if test "''${session#*popup}" != "$session"; then # $session contains "popup"
       tmux detach-client
     else
-      tmux popup -d '#{pane_current_path}' -xC -yC -w$width -h$height -E "tmux attach -t popup || tmux new -s popup"
+      tmux popup -d '#{pane_current_path}' -xC -yC -w$width -h$height -E "tmux new -A -s popup"
     fi
   }
 ''
