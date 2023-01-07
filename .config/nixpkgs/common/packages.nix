@@ -17,7 +17,6 @@ with pkgs; [
   hyperfine
   jq
   neovim
-  nodejs
   ripgrep
   skim
   tig
