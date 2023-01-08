@@ -10,7 +10,6 @@
   imports = [
     ./files.nix
     ./git.nix
-    ./systemd.nix
     ./tmux.nix
     ./zsh.nix
   ];
