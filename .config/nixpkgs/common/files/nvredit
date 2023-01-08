@@ -2,5 +2,5 @@
 set -euo pipefail
 lastwin=$(tmux display-message -p '#{active_window_index}')
 tmux select-window -t 1
-nvr -c 'set bufhidden=delete' --remote-tab-wait-silent "$@"
+nvr --remote-tab-wait-silent "$@"
 tmux select-window -t "$lastwin"
