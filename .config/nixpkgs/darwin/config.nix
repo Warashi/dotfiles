@@ -32,7 +32,10 @@ in {
       ../common/config.nix
     ];
 
-    home.sessionVariables.SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+    home.sessionVariables = {
+      XDG_RUNTIME_DIR = "/Users/${local.user}/.local/run";
+      SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+    };
 
     home.packages =
       import ./packages.nix {inherit pkgs;}
