@@ -9,7 +9,6 @@ local M = {
     "Shougo/ddc-around",
     "Shougo/ddc-cmdline",
     "Shougo/ddc-cmdline-history",
-    "Shougo/ddc-converter_remove_overlap",
     "Shougo/ddc-nvim-lsp",
     "Shougo/ddc-ui-pum",
     "LumaKernel/ddc-file",
