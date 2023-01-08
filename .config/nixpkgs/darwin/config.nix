@@ -41,13 +41,24 @@ in {
       import ./packages.nix {inherit pkgs;}
       ++ import ../common/packages.nix {inherit pkgs;};
 
-    launchd.agents.muscat = {
-      enable = true;
-      config = {
-        Label = "dev.warashi.muscat";
-        ProgramArguments = ["/bin/sh" "-c" "$HOME/.local/bin/muscat server"];
-        RunAtLoad = true;
-        KeepAlive = true;
+    launchd.agents = {
+      neovim = {
+        enable = true;
+        config = {
+          Label = "dev.warashi.neovim";
+          ProgramArguments = ["${pkgs.zsh}/bin/zsh" "-c" "exec ${pkgs.neovim}/bin/nvim --headless --listen $XDG_RUNTIME_DIR/nvim.socket"];
+          RunAtLoad = true;
+          KeepAlive = true;
+        };
+      };
+      muscat = {
+        enable = true;
+        config = {
+          Label = "dev.warashi.muscat";
+          ProgramArguments = ["/bin/sh" "-c" "$HOME/.local/bin/muscat server"];
+          RunAtLoad = true;
+          KeepAlive = true;
+        };
       };
     };
 
