@@ -17,16 +17,18 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "nvr -s --remote-tab-wait-silent";
       MANPAGER = "nvim +Man!";
       LANG = "en_US.UTF-8";
       DENO_NO_UPDATE_CHECK = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       KEYTIMEOUT = "1";
+      NVIM = "${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket";
     };
 
     shellAliases = {
-      e = "nvim";
+      e = "nvr -s --remote-tab-wait-silent";
+      eui = "nvim --server ${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket --remote-ui";
       ls = "exa --icons";
       ":q" = "exit";
     };
@@ -49,8 +51,9 @@
 
     initExtraFirst =
       ''
+        [[ "$TMUX_PANE" == "%0" ]] && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui
         [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
-        (( ''${+TMUX} )) || exec direnv exec / tmux new-session -t 0
+        (( ''${+NVIM_LOG_FILE} )) || (( ''${+TMUX} )) || exec direnv exec / tmux new-session -t 0
       ''
       + import ./p10k.nix
       + import ./zeno.nix;

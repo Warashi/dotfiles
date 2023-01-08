@@ -17,6 +17,7 @@ with pkgs; [
   hyperfine
   jq
   neovim
+  neovim-remote
   ripgrep
   skim
   tig
