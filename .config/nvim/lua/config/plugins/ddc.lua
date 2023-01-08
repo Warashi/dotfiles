@@ -13,6 +13,7 @@ local M = {
     "Shougo/ddc-ui-pum",
     "LumaKernel/ddc-file",
     "tani/ddc-fuzzy",
+    "matsui54/ddc-buffer",
   },
 }
 
@@ -45,7 +46,7 @@ function M.config()
   vim.keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end)
 
   -- sources
-  patch_global("sources", { "nvim-lsp", "around", "file", "vsnip" })
+  patch_global("sources", { "nvim-lsp", "around", "buffer", "file", "vsnip" })
   patch_global("sourceOptions", {
     around = { mark = "A", maxSize = 500 },
     ["nvim-lsp"] = { mark = "L" },
@@ -53,6 +54,9 @@ function M.config()
       mark = "F",
       isVolatile = true,
       forceCompletionPattern = [[\S/\S*]],
+    },
+    buffer = {
+      mark = "B",
     },
     cmdline = { mark = "CMD" },
     ["cmdline-history"] = { mark = "CMD" },
