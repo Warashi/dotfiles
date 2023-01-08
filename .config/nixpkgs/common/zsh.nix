@@ -29,7 +29,7 @@
     shellAliases = {
       e = "nvredit";
       ee = "nvr --remote-tab-silent";
-      eui = "nvim --server ${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket --remote-ui";
+      eui = "tmux move-window -t 0 && nvim --server ${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket --remote-ui";
       ls = "exa --icons";
       ":q" = "exit";
     };
