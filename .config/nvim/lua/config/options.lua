@@ -15,6 +15,5 @@ vim.opt.laststatus = 3
 
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
-vim.keymap.set("n", "<leader>d", "<cmd>bdelete<cr>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", "<cmd>source $MYVIMRC<cr>", { silent = true })
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { silent = true })
