@@ -23,13 +23,13 @@
       DENO_NO_UPDATE_CHECK = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       KEYTIMEOUT = "1";
-      NVIM = "${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket";
+      NVIM = "$XDG_RUNTIME_DIR/nvim.socket";
     };
 
     shellAliases = {
       e = "nvredit";
       ee = "nvr --remote-tab-silent";
-      eui = "tmux move-window -t 0 && nvim --server ${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket --remote-ui";
+      eui = "tmux move-window -t 0 && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui";
       ls = "exa --icons";
       ":q" = "exit";
     };
