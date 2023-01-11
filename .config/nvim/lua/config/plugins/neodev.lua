@@ -3,7 +3,7 @@ local M = {
   dependencies = { "neovim/nvim-lspconfig" },
   ft = "lua",
 }
-M.config = {
+M.opts = {
   library = {
     enabled = true,
     runtime = true,

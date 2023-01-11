@@ -3,7 +3,7 @@ local M = {
   event = { "BufReadPost" },
 }
 
-M.config = {
+M.opts = {
   on_attach = function(bufnr)
     local gs = require("gitsigns")
 

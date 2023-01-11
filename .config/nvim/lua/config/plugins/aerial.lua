@@ -5,7 +5,7 @@ local M = {
 
 function M.init() vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<cr>") end
 
-M.config = {
+M.opts = {
   backends = {
     "lsp",
     "treesitter",

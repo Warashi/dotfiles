@@ -1,7 +1,7 @@
 local M = {
   "nvim-tree/nvim-web-devicons",
 }
-M.config = {
+M.opts = {
   default = true,
 }
 return M

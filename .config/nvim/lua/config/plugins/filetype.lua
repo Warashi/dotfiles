@@ -3,7 +3,7 @@ local M = {
   lazy = false,
 }
 
-M.config = {
+M.opts = {
   overrides = {
     extensions = {
       tf = "terraform",
