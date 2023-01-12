@@ -41,6 +41,12 @@ in {
       import ./packages.nix {inherit pkgs;}
       ++ import ../common/packages.nix {inherit pkgs;};
 
+    home.file.AquaSKK = {
+      source = ./. + "/files/AquaSKK";
+      target = "Library/Application Support/AquaSKK";
+      recursive = true;
+    };
+
     launchd.agents = {
       neovim = {
         enable = true;
