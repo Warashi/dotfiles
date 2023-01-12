@@ -4,9 +4,8 @@ local M = {
 }
 
 local function skkeleton_init()
-  vim.fn["skkeleton#config"]({
-    useSkkServer = true,
-  })
+  vim.fn["skkeleton#config"]({ useSkkServer = true })
+  vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
 end
 
 function M.config()
