@@ -6,6 +6,9 @@ local M = {
 local function skkeleton_init()
   vim.fn["skkeleton#config"]({ useSkkServer = true })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
+  vim.fn["skkeleton#register_kanatable"]("rom", {
+    ["~"] = { "～" },
+  })
 end
 
 function M.config()

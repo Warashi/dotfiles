@@ -4,3 +4,4 @@
 
 exclamation.rule	！を全角にする
 question.rule			？を全角にする
+wave-dash.rule		～を全角にする
