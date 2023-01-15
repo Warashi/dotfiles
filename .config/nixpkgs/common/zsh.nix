@@ -54,7 +54,7 @@
       ''
         [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
         (( ''${+NVIM_LOG_FILE} )) || (( ''${+TMUX} )) || exec direnv exec / tmux new-session -A
-        [[ "$TMUX_PANE" == "%0" ]] && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui
+        [[ "$TMUX_PANE" == "%0" ]] && tmux new-window && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui
       ''
       + import ./p10k.nix
       + import ./zeno.nix;
