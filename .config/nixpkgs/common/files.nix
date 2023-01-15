@@ -1,12 +1,12 @@
 {home, ...}: {
-  home.file.editor = {
+  home.file.nvredit = {
     target = ".local/bin/nvredit";
-    text = builtins.readFile ./files/nvredit;
+    source = ./. + "/files/nvredit";
     executable = true;
   };
   home.file.p10k = {
     target = ".config/zsh/.p10k.zsh";
-    text = builtins.readFile ./files/p10k-config.zsh;
+    source = ./. + "/files/p10k-config.zsh";
   };
   home.file.rg = {
     target = ".config/ripgrep/config";
