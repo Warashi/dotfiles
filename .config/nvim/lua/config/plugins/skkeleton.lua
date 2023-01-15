@@ -1,6 +1,10 @@
 local M = {
   "vim-skk/skkeleton",
-  lazy = false,
+  event = "User DenopsReady",
+
+  dependencies = {
+    "vim-denops/denops.vim",
+  },
 }
 
 local function skkeleton_init()
