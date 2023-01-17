@@ -66,6 +66,7 @@
     initExtra =
       ''
         setopt ignore_eof
+        test -f "$HOME/.sdkman/bin/sdkman-init.sh" && . "$HOME/.sdkman/bin/sdkman-init.sh"
       ''
       + import ./zsh-binds.nix
       + import ./zeno-bind.nix
@@ -76,7 +77,6 @@
         # zshの起動profileを取る時はここを有効にする
         # zmodload zsh/zprof && zprof
         test -f $HOME/.cargo/env && . $HOME/.cargo/env
-        test -f "$HOME/.sdkman/bin/sdkman-init.sh" && . "$HOME/.sdkman/bin/sdkman-init.sh"
         test -d /opt/homebrew/bin && export PATH=/opt/homebrew/bin:$PATH
         test -S $XDG_RUNTIME_DIR/docker.sock && export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
         test -S $HOME/.ssh/ssh_auth_sock && export SSH_AUTH_SOCK=$HOME/.ssh/ssh_auth_sock
