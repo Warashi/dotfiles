@@ -17,13 +17,21 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvredit";
-      MANPAGER = "nvim +Man!";
-      LANG = "en_US.UTF-8";
       DENO_NO_UPDATE_CHECK = "1";
-      NIXPKGS_ALLOW_UNFREE = "1";
+      EDITOR = "nvredit";
       KEYTIMEOUT = "1";
+      LANG = "en_US.UTF-8";
+      MANPAGER = "nvim +Man!";
+      NIXPKGS_ALLOW_UNFREE = "1";
       NVIM = "$XDG_RUNTIME_DIR/nvim.socket";
+
+      # zeno config
+      ZENO_HOME = "~/.config/zeno";
+      ZENO_ENABLE_FZF_TMUX = "1";
+      ZENO_FZF_TMUX_OPTIONS = "-p 80%";
+      ZENO_ENABLE_SOCK = "1";
+      ZENO_GIT_CAT = "bat --color=always";
+      ZENO_GIT_TREE = "exa --tree";
     };
 
     shellAliases = {
@@ -57,7 +65,7 @@
         [[ "$TMUX_PANE" == "%0" ]] && tmux new-window && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui
       ''
       + import ./p10k.nix
-      + import ./zeno.nix;
+      + import ./sheldon.nix;
 
     localVariables = {
       POWERLEVEL9K_TERM_SHELL_INTEGRATION = true;
@@ -83,46 +91,5 @@
         test -f "$HOME/.config/ripgrep/config" && export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
       ''
       + import ./zsh-tmux-popup.nix;
-
-    plugins = [
-      {
-        name = "zeno.zsh";
-        file = "zeno.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "yuki-yano";
-          repo = "zeno.zsh";
-          rev = "9b95adcb8093e19bf22725265ae8248c166bc2e6";
-          sha256 = "sha256-8whZ7PuYxk+MMyJcQb0/y41SqawoGl6ONRa95MXu3iI=";
-        };
-      }
-      {
-        name = "powerlevel10k";
-        file = "powerlevel10k.zsh-theme";
-        src = pkgs.fetchFromGitHub {
-          owner = "romkatv";
-          repo = "powerlevel10k";
-          rev = "cf67cad46557d57d5d2399e6d893c317126e037c";
-          sha256 = "109k9kj4xjjrdzkd44sm5cdm97d6i81ljfbkfxryj098g5yi3995";
-        };
-      }
-      {
-        name = "terminal-title";
-        src = pkgs.fetchFromGitHub {
-          owner = "AnimiVulpis";
-          repo = "zsh-terminal-title";
-          rev = "6e5d156e155f0e17a9e10074d27a383c19794266";
-          sha256 = "1rvfbinh4mr1fm5zizf2m397s43x46zq9cga6a1swzfhqlcmyw09";
-        };
-      }
-      {
-        name = "fast-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          owner = "zdharma-continuum";
-          repo = "fast-syntax-highlighting";
-          rev = "13dd94ba828328c18de3f216ec4a746a9ad0ef55";
-          sha256 = "1l7szi9lc1b0g0c0p1c1pqhbvgz66wp1a1ib6rhsly4vdz8y5ksm";
-        };
-      }
-    ];
   };
 }
