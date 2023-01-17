@@ -35,5 +35,9 @@ apply = ["defer"]
 github = "desyncr/auto-ls"
 apply = ["defer"]
 
+[plugins.autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
 [templates]
 defer = """{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}"""
