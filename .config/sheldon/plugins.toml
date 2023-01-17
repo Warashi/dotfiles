@@ -31,10 +31,6 @@ apply = ["defer"]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.auto-ls]
-github = "desyncr/auto-ls"
-apply = ["defer"]
-
 [plugins.autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
