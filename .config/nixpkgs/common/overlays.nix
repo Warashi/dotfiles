@@ -34,10 +34,7 @@ in [
     sheldon =
       prev.sheldon.overrideAttrs
       (_: {
-        meta.platforms = with lib.platforms; [
-          linux
-          darwin
-        ];
+        meta.platforms = lib.platforms.unix;
       });
   })
 ]
