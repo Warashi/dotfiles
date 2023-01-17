@@ -38,11 +38,11 @@
       _compinit() {
         autoload -Uz compinit
         setopt extended_glob
-        zcompdump="''${ZDOTDIR:-$HOME}/.zcompdump"
-        if [[ ! -e $zcompdump.zwc(#qN.mh-24) ]]; then
-          echo "update $zcompdump.zwc" >&2
+        local zcompdumpfile="''${ZDOTDIR:-$HOME}/.zcompdump"
+        if [[ ! -e $zcompdumpfile.zwc(#qN.mh-24) ]]; then
+          echo "update $zcompdumpfile.zwc" >&2
           compinit
-          zcompile $zcompdump
+          zcompile $zcompdumpfile
         else
           compinit -C
         fi
