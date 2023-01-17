@@ -35,5 +35,9 @@ apply = ["defer"]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
 
+[plugins.autopair]
+github = "hlissner/zsh-autopair"
+apply = ["defer"]
+
 [templates]
 defer = """{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}"""
