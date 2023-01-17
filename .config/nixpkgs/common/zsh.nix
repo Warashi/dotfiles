@@ -64,8 +64,7 @@
         (( ''${+NVIM_LOG_FILE} )) || (( ''${+TMUX} )) || exec direnv exec / tmux new-session -A
         [[ "$TMUX_PANE" == "%0" ]] && tmux new-window && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui
       ''
-      + import ./p10k.nix
-      + import ./sheldon.nix;
+      + import ./p10k.nix;
 
     localVariables = {
       POWERLEVEL9K_TERM_SHELL_INTEGRATION = true;
@@ -76,6 +75,7 @@
         setopt ignore_eof
         test -f "$HOME/.sdkman/bin/sdkman-init.sh" && . "$HOME/.sdkman/bin/sdkman-init.sh"
       ''
+      + import ./sheldon.nix
       + import ./zsh-binds.nix
       + import ./zeno-bind.nix
       + import ./zprof.nix;
