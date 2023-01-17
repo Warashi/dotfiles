@@ -24,9 +24,10 @@
       MANPAGER = "nvim +Man!";
       NIXPKGS_ALLOW_UNFREE = "1";
       NVIM = "$XDG_RUNTIME_DIR/nvim.socket";
+      XDG_CONFIG_HOME = "$HOME/.config";
 
       # zeno config
-      ZENO_HOME = "~/.config/zeno";
+      ZENO_HOME = "$HOME/.config/zeno";
       ZENO_ENABLE_FZF_TMUX = "1";
       ZENO_FZF_TMUX_OPTIONS = "-p 80%";
       ZENO_ENABLE_SOCK = "1";
