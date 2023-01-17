@@ -1,4 +1,7 @@
-{pkgs}: let
+{
+  pkgs,
+  lib,
+}: let
   locale =
     if pkgs.stdenv.isDarwin
     then pkgs.darwin.locale
@@ -25,6 +28,16 @@ in [
           + ''
             wrapProgram $out/bin/mosh-server --set LOCALE_ARCHIVE ${locale}/lib/locale/locale-archive;
           '';
+      });
+  })
+  (_: prev: {
+    sheldon =
+      prev.sheldon.overrideAttrs
+      (_: {
+        meta.platforms = with lib.platforms; [
+          linux
+          darwin
+        ];
       });
   })
 ]

@@ -19,6 +19,7 @@ with pkgs; [
   neovim
   neovim-remote
   ripgrep
+  sheldon
   skim
   tig
   yq-go
