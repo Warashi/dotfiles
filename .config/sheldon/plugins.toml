@@ -22,7 +22,6 @@ github = "romkatv/powerlevel10k"
 
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
-apply =  ["defer"]
 
 [plugins.zsh-terminal-title]
 github = "AnimiVulpis/zsh-terminal-title"
