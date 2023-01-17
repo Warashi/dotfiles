@@ -2,7 +2,6 @@
   nixpkgs,
   config,
   pkgs,
-  lib,
   ...
 }: let
   local = import ../local.nix;
@@ -13,7 +12,7 @@ in {
   ];
 
   # home-manager と nix-darwin で同じoverlaysを使うための方策
-  nixpkgs.overlays = import ../common/overlays.nix {inherit pkgs lib;};
+  nixpkgs.overlays = import ../common/overlays.nix {inherit pkgs;};
 
   environment.systemPackages = with pkgs; [
     cachix

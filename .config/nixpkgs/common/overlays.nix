@@ -1,7 +1,4 @@
-{
-  pkgs,
-  lib,
-}: let
+{pkgs}: let
   locale =
     if pkgs.stdenv.isDarwin
     then pkgs.darwin.locale
@@ -33,8 +30,24 @@ in [
   (_: prev: {
     sheldon =
       prev.sheldon.overrideAttrs
-      (_: {
-        meta.platforms = lib.platforms.unix;
+      (old: rec {
+        inherit (old) pname;
+        version = "0.7.1";
+
+        src = prev.fetchCrate {
+          inherit pname version;
+          sha256 = "sha256-E2p4hGKqFvLn8EgX+0AkBzQTGAhARlPjo1mE/xv2U0o";
+        };
+
+        cargoDeps = old.cargoDeps.overrideAttrs (prev.lib.const {
+          inherit src;
+          name = "${old.pname}-${version}-vendor.tar.gz";
+          outputHash = "sha256-4PP38eNdKLQddTkPhCbVnddsUlIDCTj9ZgPH+WJfBEk";
+        });
+
+        doCheck = false;
+
+        meta.platforms = prev.lib.platforms.unix;
       });
   })
 ]
