@@ -39,5 +39,9 @@ apply = ["defer"]
 github = "hlissner/zsh-autopair"
 apply = ["defer"]
 
+[plugins.bd]
+github = "Tarrasch/zsh-bd"
+apply = ["defer"]
+
 [templates]
 defer = """{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}"""
