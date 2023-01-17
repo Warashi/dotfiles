@@ -31,5 +31,9 @@ apply = ["defer"]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
 
+[plugins.auto-ls]
+github = "desyncr/auto-ls"
+apply = ["defer"]
+
 [templates]
 defer = """{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}"""
