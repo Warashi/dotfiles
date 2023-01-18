@@ -1,5 +1,6 @@
 local M = {
   "machakann/vim-sandwich",
-  cmd = "InsertEnter",
+  lazy = false,
 }
+
 return M
