@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+rg -0 -l "$@" | xargs -0 readlink -f

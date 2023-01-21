@@ -4,6 +4,11 @@
     source = ./. + "/files/nvredit";
     executable = true;
   };
+  home.file.rgfind = {
+    target = ".local/bin/rgfind";
+    source = ./. + "/files/rgfind";
+    executable = true;
+  };
   home.file.p10k = {
     target = ".config/zsh/.p10k.zsh";
     source = ./. + "/files/p10k-config.zsh";
