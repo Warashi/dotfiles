@@ -23,7 +23,6 @@ with pkgs; [
   skim
   tig
   yq-go
-  zk
 
   python310Packages.pipx
 
