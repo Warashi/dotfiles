@@ -20,6 +20,9 @@
     ignores = [
       (builtins.readFile ./files/gitignore)
     ];
+    lfs = {
+      enable = true;
+    };
     extraConfig = {
       push.default = "simple";
       commit = {
