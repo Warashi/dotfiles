@@ -1,8 +1,8 @@
 [
   "1password"
   "alt-tab"
-  "atok"
   "caffeine"
+  "discord"
   "docker"
   "dropbox"
   "iterm2"
@@ -15,8 +15,6 @@
   "raycast"
   "slack"
   "zoom"
-
-  "homebrew/cask-versions/discord-ptb"
 
   "homebrew/cask-fonts/font-biz-udgothic"
   "homebrew/cask-fonts/font-biz-udmincho"
