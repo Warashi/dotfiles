@@ -9,6 +9,6 @@ vim.api.nvim_create_autocmd("TabClosed", {
   nested = true,
   pattern = "*",
   callback = function(event)
-    if vim.b[event.buf].warashi_remote then vim.cmd(string.format("bdelete %d", event.buf)) end
+    if vim.b[event.buf].warashi_remote then vim.cmd(string.format("bdelete! %d", event.buf)) end
   end,
 })
