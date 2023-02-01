@@ -33,4 +33,12 @@
       }
     '';
   };
+  home.file.largedict = {
+    source = builtins.fetchurl "https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L";
+    target = ".config/skk/SKK-JISYO.L";
+  };
+  home.file.wikidict = {
+    source = builtins.fetchurl "https://github.com/tokuhirom/skk-jisyo-jawiki/raw/master/SKK-JISYO.jawiki";
+    target = ".config/skk/SKK-JISYO.jawiki";
+  };
 }

@@ -47,10 +47,6 @@ in {
         target = "Library/Application Support/AquaSKK";
         recursive = true;
       };
-      wikidict = {
-        source = builtins.fetchurl "https://github.com/tokuhirom/skk-jisyo-jawiki/raw/master/SKK-JISYO.jawiki";
-        target = "Library/Application Support/AquaSKK/SKK-JISYO.jawiki";
-      };
     };
 
     launchd.agents = {

@@ -8,7 +8,13 @@ local M = {
 }
 
 local function skkeleton_init()
-  vim.fn["skkeleton#config"]({ useSkkServer = true })
+  vim.fn["skkeleton#config"]({
+    useSkkServer = false,
+    globalDictionaries = {
+      vim.fn.expand("~/.config/skk/SKK-JISYO.L"),
+      vim.fn.expand("~/.config/skk/SKK-JISYO.jawiki"),
+    },
+  })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
   vim.fn["skkeleton#register_kanatable"]("rom", {
     ["~"] = { "～" },
