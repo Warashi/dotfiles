@@ -12,7 +12,7 @@ with pkgs; [
   git
   git-lfs
   glow
-  go_1_19
+  go_1_20
   htop
   hyperfine
   jq
