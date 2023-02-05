@@ -10,6 +10,7 @@ local M = {
     "Shougo/ddc-cmdline",
     "Shougo/ddc-cmdline-history",
     "Shougo/ddc-nvim-lsp",
+    "Shougo/ddc-source-zsh",
     "Shougo/ddc-ui-pum",
     "LumaKernel/ddc-file",
     "tani/ddc-fuzzy",
@@ -46,7 +47,7 @@ function M.config()
   vim.keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end)
 
   -- sources
-  patch_global("sources", { "nvim-lsp", "around", "buffer", "file", "vsnip" })
+  patch_global("sources", { "nvim-lsp", "around", "buffer", "file", "vsnip", "zsh" })
   patch_global("sourceOptions", {
     around = { mark = "A", maxSize = 500 },
     ["nvim-lsp"] = { mark = "L" },
@@ -55,11 +56,10 @@ function M.config()
       isVolatile = true,
       forceCompletionPattern = [[\S/\S*]],
     },
-    buffer = {
-      mark = "B",
-    },
+    buffer = { mark = "B" },
     cmdline = { mark = "CMD" },
     ["cmdline-history"] = { mark = "CMD" },
+    zsh = { mark = "Z" },
     ["_"] = {
       matchers = { "matcher_fuzzy" },
       sorters = { "sorter_fuzzy" },
