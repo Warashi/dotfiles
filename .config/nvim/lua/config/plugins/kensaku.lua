@@ -4,4 +4,6 @@ local M = {
   lazy = false,
 }
 
+function M.config() vim.keymap.set("c", "<CR>", "<Plug>(kensaku-search-replace)<CR>", {}) end
+
 return M
