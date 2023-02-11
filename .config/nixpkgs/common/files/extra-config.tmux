@@ -28,15 +28,9 @@ bind C-c new-window
 # C-t で現在のwindowを一番左へ移動
 bind C-t move-window -t 0
 
-# C-\ で popup window
-bind C-\\ run-shell "zsh -c \"tmuxpopup\""
-
-# g で tig in popup window
-bind g popup -d "#{pane_current_path}" -xC -yC -w80% -h80% -E tig
-
-# C-h, C-v で画面分割
-bind C-h split-window -h -c "#{pane_current_path}"
-bind C-v split-window -v -c "#{pane_current_path}"
+# h, v で画面分割
+bind h split-window -h -c "#{pane_current_path}"
+bind v split-window -v -c "#{pane_current_path}"
 
 # H, V で pane 再配置
 bind H select-layout main-vertical
@@ -47,7 +41,7 @@ bind -r C-o rotate-window -D
 bind -r M-o rotate-window -U
 
 # vim っぽいキーバインドでpaneを移動
-bind -r h select-pane -L
-bind -r j select-pane -D
-bind -r k select-pane -U
-bind -r l select-pane -R
+bind -r C-h select-pane -L
+bind -r C-j select-pane -D
+bind -r C-k select-pane -U
+bind -r C-l select-pane -R
