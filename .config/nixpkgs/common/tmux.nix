@@ -19,7 +19,6 @@ in {
       tmux-thumbs
     ];
     extraConfig =
-      builtins.readFile ./files/extra-config.tmux
-      + builtins.readFile ./files/dayfox.tmux;
+      builtins.readFile ./files/extra-config.tmux;
   };
 }

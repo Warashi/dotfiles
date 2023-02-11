@@ -1,11 +1,13 @@
 local M = {
-  "EdenEast/nightfox.nvim",
+  "bluz71/vim-nightfly-colors",
+  name = "nightfly",
   lazy = false,
-  priority = 1000, -- make sure to load this before all the other start plugins
+  priority = 1000,
 }
+
 function M.config()
   -- load the colorscheme here
-  vim.cmd([[colorscheme dayfox]])
+  vim.cmd([[colorscheme nightfly]])
 end
 
 return M
