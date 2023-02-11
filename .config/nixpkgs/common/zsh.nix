@@ -9,7 +9,7 @@
     enableAutosuggestions = false;
     enableSyntaxHighlighting = false;
     enableVteIntegration = false;
-    defaultKeymap = "viins";
+    defaultKeymap = "emacs";
 
     history = {
       extended = true;
