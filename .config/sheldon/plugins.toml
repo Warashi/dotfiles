@@ -43,9 +43,5 @@ apply = ["defer"]
 github = "Tarrasch/zsh-bd"
 apply = ["defer"]
 
-[plugins.replace-multiple-dots]
-github = "momo-lab/zsh-replace-multiple-dots"
-apply = ["defer"]
-
 [templates]
 defer = """{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}"""
