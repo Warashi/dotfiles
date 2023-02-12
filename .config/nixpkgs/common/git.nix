@@ -4,10 +4,6 @@
     includes = [
       {path = "~/.config/git/local";}
     ];
-    difftastic = {
-      enable = true;
-      background = "dark";
-    };
     aliases = {
       sw = "switch";
       sc = "switch -c";
