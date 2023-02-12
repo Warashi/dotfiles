@@ -18,7 +18,12 @@ in {
       better-mouse-mode
       tmux-thumbs
 
-      warashiPkgs.tmux-catppuccin
+      {
+        plugin = warashiPkgs.tmux-catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavour 'latte'
+        '';
+      }
     ];
     extraConfig =
       builtins.readFile ./files/extra-config.tmux;
