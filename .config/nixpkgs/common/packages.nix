@@ -22,6 +22,7 @@ with pkgs; [
   sheldon
   skim
   tig
+  vivid
   yq-go
 
   python310Packages.pipx

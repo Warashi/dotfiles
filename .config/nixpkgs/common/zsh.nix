@@ -25,6 +25,7 @@
       NIXPKGS_ALLOW_UNFREE = "1";
       NVIM = "$XDG_RUNTIME_DIR/nvim.socket";
       XDG_CONFIG_HOME = "$HOME/.config";
+      LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-latte)";
 
       # zeno config
       ZENO_HOME = "$HOME/.config/zeno";
