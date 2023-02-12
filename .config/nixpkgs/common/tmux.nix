@@ -17,6 +17,8 @@ in {
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs
+
+      warashiPkgs.tmux-catppuccin
     ];
     extraConfig =
       builtins.readFile ./files/extra-config.tmux;

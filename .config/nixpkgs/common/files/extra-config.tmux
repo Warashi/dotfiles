@@ -45,3 +45,6 @@ bind -r C-h select-pane -L
 bind -r C-j select-pane -D
 bind -r C-k select-pane -U
 bind -r C-l select-pane -R
+
+# set catppuccin_flavour
+#set -g @catppuccin_flavour 'latte'
