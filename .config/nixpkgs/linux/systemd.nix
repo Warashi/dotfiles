@@ -15,5 +15,29 @@
         Restart = ''always'';
       };
     };
+    eternal-terminal = {
+      Unit = {
+        Description = "Eternal Terminal server.";
+        After = ["syslog.target" "network.target"];
+      };
+      Install = {
+        WantedBy = ["multi-user.target"];
+      };
+      Service = {
+        Type = "forking";
+        ExecStart = "${pkgs.eternal-terminal}/bin/etserver --pidfile ${builtins.getEnv "XDG_RUNTIME_DIR"}/etserver.pid --daemon --cfgfile=${pkgs.writeText "et.cfg" ''
+          ; et.cfg : Config file for Eternal Terminal
+          ;
+          [Networking]
+          port = 2022
+          [Debug]
+          verbose = 0
+          silent = 0
+          logsize = 20971520
+        ''}";
+        Restart = "on-failure";
+        KillMode = "process";
+      };
+    };
   };
 }
