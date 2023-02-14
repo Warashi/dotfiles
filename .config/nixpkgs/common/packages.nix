@@ -5,7 +5,6 @@ with pkgs; [
   bat
   delta
   deno
-  eternal-terminal
   exa
   fd
   gh
