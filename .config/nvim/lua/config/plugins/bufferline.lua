@@ -1,15 +1,21 @@
 local M = {
   "akinsho/bufferline.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "catppuccin/nvim",
+    "nvim-tree/nvim-web-devicons",
+  },
   lazy = false,
 }
 
-M.opts = {
-  options = {
-    mode = "tabs",
-    show_close_icon = false,
-    show_buffer_close_icons = false,
-  },
-}
+function M.config()
+  require("bufferline").setup({
+    highlights = require("catppuccin.groups.integrations.bufferline").get(),
+    options = {
+      mode = "tabs",
+      show_close_icon = false,
+      show_buffer_close_icons = false,
+    },
+  })
+end
 
 return M

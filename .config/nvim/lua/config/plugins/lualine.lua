@@ -1,8 +1,16 @@
 local M = {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "catppuccin/nvim",
+    "nvim-tree/nvim-web-devicons",
+  },
   lazy = false,
-  config = true,
+}
+
+M.opts = {
+  options = {
+    theme = "catppuccin",
+  },
 }
 
 return M
