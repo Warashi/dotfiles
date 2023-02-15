@@ -49,7 +49,7 @@ function M.config()
   -- sources
   patch_global("sources", { "nvim-lsp", "around", "buffer", "file", "vsnip", "zsh" })
   patch_global("sourceOptions", {
-    around = { mark = "A", maxSize = 500 },
+    around = { mark = "A" },
     ["nvim-lsp"] = { mark = "L" },
     file = {
       mark = "F",
@@ -65,6 +65,9 @@ function M.config()
       sorters = { "sorter_fuzzy" },
       converters = { "converter_fuzzy" },
     },
+  })
+  patch_global("sourceParams", {
+    around = { maxSize = 500 },
   })
 
   -- cmdline
