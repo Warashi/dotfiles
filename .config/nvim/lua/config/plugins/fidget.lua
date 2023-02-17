@@ -1,12 +1,12 @@
 local M = {
-  "j-hui/fidget.nvim",
-  dependencies = { "catppuccin" },
+	"j-hui/fidget.nvim",
+	dependencies = { "catppuccin" },
 }
 
 M.opts = {
-  window = {
-    blend = 0,
-  },
+	window = {
+		blend = 0,
+	},
 }
 
 return M

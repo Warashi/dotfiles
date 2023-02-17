@@ -1,7 +1,7 @@
 local M = {
-  "nvim-tree/nvim-web-devicons",
+	"nvim-tree/nvim-web-devicons",
 }
 M.opts = {
-  default = true,
+	default = true,
 }
 return M
