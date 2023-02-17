@@ -1,4 +1,5 @@
 local M = {
-	"neovim/nvim-lspconfig",
+  "neovim/nvim-lspconfig",
+  dependencies = { "folke/neoconf.nvim" },
 }
 return M

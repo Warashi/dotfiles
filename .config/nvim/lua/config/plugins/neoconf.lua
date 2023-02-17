@@ -1,5 +1,5 @@
 local M = {
-  "windwp/nvim-autopairs",
+  "folke/neoconf.nvim",
   config = true,
 }
 

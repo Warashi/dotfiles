@@ -1,5 +1,5 @@
 local M = {
-	"romgrk/nvim-treesitter-context",
-	config = true,
+  "romgrk/nvim-treesitter-context",
+  config = true,
 }
 return M

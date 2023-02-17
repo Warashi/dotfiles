@@ -1,5 +1,5 @@
 local M = {
-	"machakann/vim-sandwich",
+  "machakann/vim-sandwich",
 }
 
 return M

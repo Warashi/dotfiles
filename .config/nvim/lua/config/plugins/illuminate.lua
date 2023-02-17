@@ -1,5 +1,5 @@
 local M = {
-	"RRethy/vim-illuminate",
+  "RRethy/vim-illuminate",
 }
 
 return M

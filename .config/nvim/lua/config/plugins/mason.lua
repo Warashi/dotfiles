@@ -1,16 +1,14 @@
 local mason = { "williamboman/mason.nvim" }
 local mason_lspconfig = {
-	"williamboman/mason-lspconfig.nvim",
-	dependencies = {
-		"neovim/nvim-lspconfig",
-		"my-lspconfig",
-	},
-	config = function()
-		require("my-lspconfig").mason()
-	end,
+  "williamboman/mason-lspconfig.nvim",
+  dependencies = {
+    "neovim/nvim-lspconfig",
+    "my-lspconfig",
+  },
+  config = function() require("my-lspconfig").mason() end,
 }
 
 return {
-	mason,
-	mason_lspconfig,
+  mason,
+  mason_lspconfig,
 }
