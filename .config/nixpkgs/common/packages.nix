@@ -30,6 +30,7 @@ with pkgs; [
   # null-ls から利用
   alejandra
   deadnix
+  nodePackages.cspell
   selene
   shellcheck
   shellharden

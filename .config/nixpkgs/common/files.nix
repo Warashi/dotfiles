@@ -1,5 +1,9 @@
 {home, ...}: {
   home.file = {
+    cspel = {
+      target = ".config/cpell/cspell.json";
+      source = ./. + "/files/cspell.json";
+    };
     nvredit = {
       target = ".local/bin/nvredit";
       source = ./. + "/files/nvredit";

@@ -1,15 +1,5 @@
 local M = {}
 
-function M.nlspsettings()
-  require("nlspsettings").setup({
-    config_home = vim.fn.stdpath("config") .. "/nlsp-settings",
-    local_settings_dir = ".nlsp-settings",
-    local_settings_root_markers_fallback = { ".git" },
-    append_default_schemas = true,
-    loader = "json",
-  })
-end
-
 function M.on_attach(client, bufnr)
   -- omnifunc, tagfunc
   vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
