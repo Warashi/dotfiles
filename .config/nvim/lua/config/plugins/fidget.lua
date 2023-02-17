@@ -1,6 +1,6 @@
 local M = {
   "j-hui/fidget.nvim",
-  dependencies = { "catppuccin/nvim" },
+  dependencies = { "catppuccin" },
 }
 
 M.opts = {

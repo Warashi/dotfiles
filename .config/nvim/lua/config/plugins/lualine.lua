@@ -1,7 +1,7 @@
 local M = {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "catppuccin/nvim",
+    "catppuccin",
     "nvim-tree/nvim-web-devicons",
   },
 }

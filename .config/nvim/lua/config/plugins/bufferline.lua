@@ -1,7 +1,7 @@
 local M = {
   "akinsho/bufferline.nvim",
   dependencies = {
-    "catppuccin/nvim",
+    "catppuccin",
     "nvim-tree/nvim-web-devicons",
   },
 }
