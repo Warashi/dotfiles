@@ -1,8 +1,9 @@
 /.dtlignore
 /.git
 /.gitignore
-/.nlsp-settings
+/.neoconf.json
 /Makefile
 /selene.toml
 /state.json
+/stylua.toml
 /vim.toml
