@@ -1,6 +1,5 @@
 local M = {
   "stevearc/aerial.nvim",
-  cmd = "AerialToggle",
 }
 
 function M.init() vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<cr>") end

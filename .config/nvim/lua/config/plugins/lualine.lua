@@ -4,7 +4,6 @@ local M = {
     "catppuccin/nvim",
     "nvim-tree/nvim-web-devicons",
   },
-  lazy = false,
 }
 
 M.opts = {

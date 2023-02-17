@@ -4,7 +4,6 @@ local M = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
-  lazy = false,
   enabled = false,
 }
 

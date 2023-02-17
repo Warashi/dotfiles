@@ -6,7 +6,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("config.plugins", {
-  defaults = { lazy = true },
+  defaults = { lazy = false },
   install = {
     colorscheme = { "dayfox" },
   },

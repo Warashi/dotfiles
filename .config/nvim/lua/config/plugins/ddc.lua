@@ -1,6 +1,5 @@
 local M = {
   "Shougo/ddc.vim",
-  event = "InsertEnter",
   dependencies = {
     "Shougo/pum.vim",
     "vim-denops/denops.vim",

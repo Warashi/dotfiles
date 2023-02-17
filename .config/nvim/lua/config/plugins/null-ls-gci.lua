@@ -5,7 +5,6 @@ local M = {
     "nvim-lua/plenary.nvim",
     "jose-elias-alvarez/null-ls.nvim",
   },
-  ft = "go",
 }
 
 function M.config()

@@ -1,7 +1,5 @@
 local M = {
   "vim-skk/skkeleton",
-  event = "User DenopsReady",
-
   dependencies = {
     "vim-denops/denops.vim",
   },
