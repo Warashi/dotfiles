@@ -6,9 +6,8 @@ local config_dir = "~/.config/cspell"
 local data_dir = "~/.local/share/cspell"
 local files = {
   config = vim.fn.expand(config_dir .. "/cspell.json"),
-  dotfiles = vim.fn.expand(config_dir .. "/dotfiles.txt"),
   vim = vim.fn.expand(data_dir .. "/vim.txt.gz"),
-  user = vim.fn.expand(data_dir .. "/user.txt"),
+  user = vim.fn.expand(config_dir .. "/user-dict.txt"),
 }
 
 local M = {}
@@ -20,14 +19,11 @@ local function append(opts)
     word = vim.fn.expand("<cword>"):lower()
   end
 
-  -- bangの有無で保存先を分岐
-  local dictionary_name = opts.bang and "dotfiles" or "user"
-
   -- shellのechoコマンドで辞書ファイルに追記
-  io.popen("echo " .. word .. " >> " .. files[dictionary_name])
+  io.popen("echo " .. word .. " >> " .. files.user)
 
   -- 追加した単語および辞書を表示
-  vim.notify('"' .. word .. '" is appended to ' .. dictionary_name .. " dictionary.", vim.log.levels.INFO, {})
+  vim.notify('"' .. word .. '" is appended to user dictionary.', vim.log.levels.INFO, {})
 
   -- cspellをリロードするため、現在行を更新してすぐ戻す
   if vim.api.nvim_get_option_value("modifiable", {}) then
@@ -68,10 +64,6 @@ M.custom_actions = {
         {
           title = 'Append "' .. word .. '" to user dictionary',
           action = function() append({ args = word }) end,
-        },
-        {
-          title = 'Append "' .. word .. '" to dotfiles dictionary',
-          action = function() append({ args = word, bang = true }) end,
         },
       }
     end,

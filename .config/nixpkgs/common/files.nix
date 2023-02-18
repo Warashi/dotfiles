@@ -1,7 +1,7 @@
 {home, ...}: {
   home.file = {
     cspel = {
-      target = ".config/cpell/cspell.json";
+      target = ".config/cspell/cspell.json";
       source = ./. + "/files/cspell.json";
     };
     nvredit = {
