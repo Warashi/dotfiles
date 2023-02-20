@@ -12,6 +12,7 @@ local function skkeleton_init()
       vim.fn.expand("~/.config/skk/SKK-JISYO.L"),
       vim.fn.expand("~/.config/skk/SKK-JISYO.jawiki"),
     },
+    completionRankFile = "~/.config/skk/rank.json",
   })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
   vim.fn["skkeleton#register_kanatable"]("rom", {

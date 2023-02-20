@@ -14,6 +14,7 @@ local M = {
     "LumaKernel/ddc-file",
     "tani/ddc-fuzzy",
     "matsui54/ddc-buffer",
+    "vim-skk/skkeleton",
   },
 }
 
@@ -46,7 +47,7 @@ function M.config()
   vim.keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end)
 
   -- sources
-  patch_global("sources", { "nvim-lsp", "around", "buffer", "file", "vsnip", "zsh" })
+  patch_global("sources", { "skkeleton", "nvim-lsp", "buffer", "around", "file", "vsnip", "zsh" })
   patch_global("sourceOptions", {
     around = { mark = "A" },
     ["nvim-lsp"] = { mark = "L" },
@@ -59,6 +60,12 @@ function M.config()
     cmdline = { mark = "CMD" },
     ["cmdline-history"] = { mark = "CMD" },
     zsh = { mark = "Z" },
+    skkeleton = {
+      mark = "skkeleton",
+      matchers = { "skkeleton" },
+      sorters = {},
+      isVolatile = true,
+    },
     ["_"] = {
       matchers = { "matcher_fuzzy" },
       sorters = { "sorter_fuzzy" },
