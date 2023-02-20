@@ -13,22 +13,5 @@ require("lazy").setup("config.plugins", {
   diff = {
     cmd = "terminal_git",
   },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
-        "rplugin",
-        "shada",
-        "spellfile",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-      },
-    },
-  },
 })
 vim.keymap.set("n", "<leader>l", "<cmd>:Lazy<cr>")
