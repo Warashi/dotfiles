@@ -27,7 +27,7 @@ with pkgs; [
   vivid
   yq-go
 
-  python310Packages.pipx
+  python311Packages.pipx
 
   # null-ls から利用
   alejandra
