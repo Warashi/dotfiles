@@ -15,9 +15,11 @@ with pkgs; [
   go_1_20
   htop
   hyperfine
+  jdk17
   jq
   neovim
   neovim-remote
+  python311
   ripgrep
   sheldon
   skim

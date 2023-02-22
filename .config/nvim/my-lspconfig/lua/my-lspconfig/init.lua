@@ -95,6 +95,15 @@ function M.mason()
         capabilities = M.capabilities,
       })
     end,
+    jdtls = function()
+      require("lspconfig")["jdtls"].setup({
+        on_attach = M.on_attach,
+        capabilities = M.capabilities,
+        root_dir = function(filename, _)
+          return vim.fs.dirname(vim.fs.find(".git", { path = filename, upward = true, type = "directory" })[1])
+        end,
+      })
+    end,
   })
 end
 
