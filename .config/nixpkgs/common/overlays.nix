@@ -5,7 +5,7 @@
     else pkgs.glibcLocales;
 in [
   (import (builtins.fetchTarball {
-    url = "https://github.com/nix-community/neovim-nightly-overlay/archive/72ff8b1ca0331a8735c1eeaefb95c12dfe21d30a.tar.gz";
+    url = "https://github.com/nix-community/neovim-nightly-overlay/archive/dbb1acd49b900866f7e2d6d84fc66b414e90bcbf.tar.gz";
   }))
   (_: prev: {
     mosh =
