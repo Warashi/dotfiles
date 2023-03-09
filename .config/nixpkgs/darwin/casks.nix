@@ -14,7 +14,6 @@
   "raindropio"
   "raycast"
   "slack"
-  "zoom"
 
   "homebrew/cask-fonts/font-biz-udgothic"
   "homebrew/cask-fonts/font-biz-udmincho"
