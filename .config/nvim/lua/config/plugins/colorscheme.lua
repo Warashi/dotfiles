@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  vim.opt.background = "light"
+  vim.opt.background = "dark"
   require("catppuccin").setup({
     integrations = {
       aerial = true,
@@ -26,7 +26,7 @@ function M.config()
       },
     },
   })
-  vim.cmd([[colorscheme catppuccin-latte]])
+  vim.cmd([[colorscheme catppuccin-mocha]])
 end
 
 return M
