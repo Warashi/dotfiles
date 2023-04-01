@@ -38,12 +38,12 @@
     };
 
     shellAliases = {
+      ":q" = "exit";
       e = "nvredit";
       ee = "nvr --remote-tab-silent";
       eui = "tmux move-window -t 0 && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui";
-      ls = "exa --icons";
       fd = "fd -a";
-      ":q" = "exit";
+      ls = "exa --icons";
     };
 
     completionInit = ''
