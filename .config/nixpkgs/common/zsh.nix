@@ -101,6 +101,11 @@
         test -S $HOME/.ssh/ssh_auth_sock && export SSH_AUTH_SOCK=$HOME/.ssh/ssh_auth_sock
         test -f "$HOME/.config/ripgrep/config" && export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
+        # wezterm の socket を tmux のセッションを越えてもちゃんと使えるようにしたい
+        if [ "$XDG_RUNTIME_DIR/wezterm.sock" != "$WEZTERM_UNIX_SOCKET" ] && [ -S "$WEZTERM_UNIX_SOCKET" ]; then
+          ln -sf $WEZTERM_UNIX_SOCKET $XDG_RUNTIME_DIR/wezterm.sock && export WEZTERM_UNIX_SOCKET=$XDG_RUNTIME_DIR/wezterm.sock
+        fi
+
         zmodload zsh/zpty # used by Shougo/ddc-source-zsh
       ''
       + import ./zsh-tmux-popup.nix;
