@@ -1,7 +1,6 @@
 {
   programs,
   pkgs,
-  lib,
   ...
 }: {
   programs.zsh = {
@@ -44,6 +43,7 @@
       eui = "tmux move-window -t 0 && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui";
       fd = "fd -a";
       ls = "exa --icons";
+      workbench = "wezterm cli spawn -- ssh workbench";
     };
 
     completionInit = ''
