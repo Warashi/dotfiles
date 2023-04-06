@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "OpenFile",
   callback = function() vim.b.warashi_remote = true end,
 })
-vim.api.nvim_create_autocmd("TabClosed", {
+vim.api.nvim_create_autocmd("WinClosed", {
   group = augroup,
   nested = true,
   pattern = "*",
