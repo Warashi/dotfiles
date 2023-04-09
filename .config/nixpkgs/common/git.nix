@@ -7,6 +7,7 @@
     aliases = {
       sw = "switch";
       sc = "switch -c";
+      sch = ''! git fetch origin HEAD && git switch -c "$1" FETCH_HEAD; :'';
       identity = ''! git config user.name "$(git config user.$1.name)"; git config user.email "$(git config user.$1.email)"; git config user.signingkey "$(git config user.$1.signingkey)"; :'';
       delete-merged = "!git branch --merged | cut -c3- | xargs git branch -d";
       fo = ''! git fetch origin "$1:$1"'';
