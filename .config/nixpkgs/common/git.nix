@@ -10,7 +10,7 @@
       sch = ''! git fetch origin HEAD && git switch -c "$1" FETCH_HEAD; :'';
       identity = ''! git config user.name "$(git config user.$1.name)"; git config user.email "$(git config user.$1.email)"; git config user.signingkey "$(git config user.$1.signingkey)"; :'';
       delete-merged = "!git branch --merged | cut -c3- | xargs git branch -d";
-      fo = ''! git fetch origin "$1:$1; :"'';
+      fo = ''! git fetch origin "$1:$1"; :'';
       psw = ''! git switch -d HEAD && (git fetch origin "$1:$1" && git switch - && git switch $1) || git switch -; :'';
       copr = ''! gh pr list | sk | awk '{ print $1 }' | xargs gh pr checkout'';
     };
