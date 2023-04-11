@@ -2,6 +2,7 @@
   "1password"
   "alt-tab"
   "caffeine"
+  "cryptomator"
   "discord"
   "docker"
   "dropbox"
