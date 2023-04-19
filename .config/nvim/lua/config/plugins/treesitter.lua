@@ -13,7 +13,7 @@ function M.config()
         if byte_size > 1024 * 1024 then return true end
 
         if not pcall(function() vim.treesitter.get_parser(0, lang):parse() end) then return true end
-        if not pcall(function() vim.treesitter.get_query(lang, "highlights") end) then return true end
+        if not pcall(function() vim.treesitter.query.get(lang, "highlights") end) then return true end
 
         return false
       end,
