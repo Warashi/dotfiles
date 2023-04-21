@@ -22,7 +22,7 @@ dein.setup({
 if dein.load_state(dein_base) > 0 then
   dein.begin(dein_base)
 
-  dein.load_toml(config_base .. "dein.toml")
+  dein.load_toml(config_base .. "dein.toml", { lazy = true })
 
   dein.end_()
 
