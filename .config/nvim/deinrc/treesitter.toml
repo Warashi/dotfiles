@@ -22,8 +22,32 @@ lua_source = '''
 '''
 
 [[plugins]]
-repo = 'romgrk/nvim-treesitter-context'
+repo = 'nvim-treesitter/nvim-treesitter-context'
 on_source = 'nvim-treesitter'
 lua_source = '''
-  require("nvim-treesitter-context").setup()
+  require("treesitter-context").setup()
+'''
+
+[[plugins]]
+repo = 'thinca/vim-partedit'
+on_cmd = 'Partedit'
+hook_add = '''
+  let g:partedit#prefix_pattern = '\s*'
+  let g:partedit#auto_prefix = 0
+'''
+
+[[plugins]]
+repo = 'monaqa/nvim-treesitter-clipping'
+depends = ['nvim-treesitter', 'vim-partedit']
+on_lua = 'nvim-treesitter-clipping'
+lua_add = '''
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "toml", "markdown" },
+    callback = function()
+      vim.keymap.set("n", "<C-p>", function()
+        require("nvim-treesitter-clipping.internal").clip()
+        vim.keymap.set("n", "Q", "<Cmd>w<CR><Cmd>ParteditEnd<CR>", { buffer = true })
+      end, { buffer = true })
+    end,
+  })
 '''
