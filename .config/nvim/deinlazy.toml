@@ -1,0 +1,20 @@
+[[plugins]]
+repo = 'nvim-tree/nvim-web-devicons'
+on_lua = 'nvim-web-devicons'
+lua_post_source = '''
+  require('nvim-web-devicons').setup({ default = true })
+'''
+
+[[plugins]]
+repo = 'windwp/nvim-autopairs'
+on_event = 'InsertEnter'
+lua_post_source = '''
+  require("nvim-autopairs").setup()
+'''
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+on_event = ['BufRead', 'BufNewFile']
+lua_post_source = '''
+  require("gitsigns").setup({})
+'''
