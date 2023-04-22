@@ -1,4 +1,4 @@
-local config_base = vim.fn.stdpath("config") .. "/"
+local config_base = vim.fn.stdpath("config") .. "/deinrc/"
 local dein_base = vim.fn.stdpath("cache") .. "/dein"
 local dein_src = dein_base .. "/repos/github.com/Shougo/dein.vim"
 if not vim.loop.fs_stat(dein_src) then
