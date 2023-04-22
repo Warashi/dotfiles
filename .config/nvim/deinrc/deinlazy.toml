@@ -77,3 +77,16 @@ lua_post_source = '''
     end,
   })
 '''
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_event = 'InsertEnter'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
+on_source = 'vim-vsnip'
+
+[[plugins]]
+repo = 'rafamadriz/friendly-snippets'
+on_source = 'vim-vsnip'
