@@ -42,4 +42,4 @@ hook_source = '''
         \ viewStyle: "virtual"
         \ }
   call signature_help#enable()
-''''
+'''
