@@ -37,9 +37,6 @@ hook_source = '''
 repo = 'matsui54/denops-signature_help'
 depends = ['denops.vim']
 hook_source = '''
-  let g:signature_help_config = {
-        \ contentsStyle: "remainingLabels",
-        \ viewStyle: "virtual"
-        \ }
+  let g:signature_help_config = #{ contentsStyle: "remainingLabels", viewStyle: "virtual" }
   call signature_help#enable()
 '''
