@@ -20,3 +20,10 @@ lua_soruce = '''
     },
   })
 '''
+
+[[plugins]]
+repo = 'romgrk/nvim-treesitter-context'
+on_source = 'nvim-treesitter'
+lua_source = '''
+  require("nvim-treesitter-context").setup()
+'''
