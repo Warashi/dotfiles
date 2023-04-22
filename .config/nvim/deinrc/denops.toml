@@ -29,6 +29,6 @@ lua_add = '''
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
 depends = ['denops.vim']
-lua_post_source = '''
-  vim.fn["popup_preview#enable"]()
+hook_source = '''
+  call popup_preview#enable()
 '''
