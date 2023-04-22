@@ -4,7 +4,7 @@ repo = 'Shougo/pum.vim'
 [[plugins]]
 repo = 'Shougo/ddc.vim'
 depends = ['denops.vim', 'pum.vim']
-on_event = 'InsertEnter'
+on_event = ['InsertEnter', 'CmdlineEnter']
 lua_source = '''
   local patch_global = vim.fn["ddc#custom#patch_global"]
 
