@@ -2,7 +2,7 @@
 repo = 'nvim-treesitter/nvim-treesitter'
 on_event = ['BufRead', 'BufNewFile']
 hook_post_update = 'TSUpdate'
-lua_soruce = '''
+lua_source = '''
   require("nvim-treesitter.configs").setup({
     sync_install = false,
     highlight = {
