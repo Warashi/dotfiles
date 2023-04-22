@@ -18,12 +18,11 @@
 
     sessionVariables = {
       DENO_NO_UPDATE_CHECK = "1";
-      EDITOR = "nvredit";
+      EDITOR = "nvim";
       KEYTIMEOUT = "1";
       LANG = "en_US.UTF-8";
       MANPAGER = "nvim +Man!";
       NIXPKGS_ALLOW_UNFREE = "1";
-      NVIM = "$XDG_RUNTIME_DIR/nvim.socket";
       XDG_CONFIG_HOME = "$HOME/.config";
       LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-mocha)";
 
@@ -38,9 +37,7 @@
 
     shellAliases = {
       ":q" = "exit";
-      e = "nvredit";
-      ee = "nvr --remote-tab-silent";
-      eui = "tmux move-window -t 0 && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui";
+      e = "nvim";
       fd = "fd -a";
       ls = "exa --icons";
       workbench = "wezterm cli spawn -- ssh workbench";
@@ -66,7 +63,6 @@
       ''
         [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
         (( ''${+NVIM_LOG_FILE} )) || (( ''${+TMUX} )) || exec direnv exec / tmux new-session -A
-        [[ "$TMUX_PANE" == "%0" ]] && tmux new-window && nvim --server $XDG_RUNTIME_DIR/nvim.socket --remote-ui
       ''
       + import ./p10k.nix;
 

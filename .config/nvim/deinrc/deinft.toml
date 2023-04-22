@@ -1,0 +1,11 @@
+[ftplugin]
+toml = '''
+  setl foldenable
+  setl foldmethod=expr
+  setl foldexpr=<SID>fold_expr(v:lnum)
+
+  function! s:fold_expr(lnum) abort
+    let line = getline(a:lnum)
+    return line ==# '' || line[0:1] ==# '  '
+  endfunction
+'''

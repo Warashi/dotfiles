@@ -1,23 +1,11 @@
-local M = {
-  "Shougo/ddc.vim",
-  dependencies = {
-    "Shougo/pum.vim",
-    "vim-denops/denops.vim",
+[[plugins]]
+repo = 'Shougo/pum.vim'
 
-    --- plugins ---
-    "Shougo/ddc-around",
-    "Shougo/ddc-cmdline",
-    "Shougo/ddc-cmdline-history",
-    "Shougo/ddc-nvim-lsp",
-    "Shougo/ddc-source-zsh",
-    "Shougo/ddc-ui-pum",
-    "LumaKernel/ddc-file",
-    "tani/ddc-fuzzy",
-    "matsui54/ddc-buffer",
-  },
-}
-
-function M.config()
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+depends = ['denops.vim', 'pum.vim']
+on_event = ['InsertEnter', 'CmdlineEnter']
+lua_source = '''
   local patch_global = vim.fn["ddc#custom#patch_global"]
 
   local function complete_or_select(rel)
@@ -122,6 +110,40 @@ function M.config()
 
   -- enable
   vim.fn["ddc#enable"]()
-end
+'''
 
-return M
+[[plugins]]
+repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline-history'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-zsh'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-file'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'matsui54/ddc-buffer'
+on_source = 'ddc.vim'

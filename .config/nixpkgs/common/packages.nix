@@ -29,9 +29,10 @@ with pkgs; [
 
   python311Packages.pipx
 
-  # null-ls から利用
+  # neovim から利用
   alejandra
   deadnix
+  lua-language-server
   nodePackages.cspell
   selene
   shellcheck

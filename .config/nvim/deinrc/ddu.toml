@@ -1,43 +1,12 @@
-local M = {
-  "Shougo/ddu.vim",
-  dependencies = {
-    "vim-denops/denops.vim",
-
-    --- ui ---
-    "Shougo/ddu-ui-ff",
-    "matsui54/ddu-vim-ui-select",
-
-    --- source ---
-    "4513ECHO/ddu-source-emoji",
-    "4513ECHO/ddu-source-ghq",
-    "4513ECHO/ddu-source-source",
-    "Shougo/ddu-source-line",
-    "Shougo/ddu-source-register",
-    "matsui54/ddu-source-command_history",
-    "shun/ddu-source-buffer",
-
-    --- kind ---
-    "4513ECHO/ddu-kind-url",
-    "Shougo/ddu-kind-file",
-    "Shougo/ddu-kind-word",
-
-    ---- ddu-kind-url deps
-    "tyru/open-browser.vim",
-
-    --- matcher ---
-    "Milly/ddu-filter-kensaku",
-
-    ---- ddu-filter-kensaku deps
-    "lambdalisue/kensaku.vim",
-  },
-}
-
-function M.init()
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+on_event = 'VimEnter'
+depends = ['denops.vim']
+lua_add = '''
   local start = vim.fn["ddu#start"]
   vim.keymap.set("n", "<leader>d", function() start({ sources = { { name = "source" } } }) end)
-end
-
-function M.config()
+'''
+lua_source = '''
   local patch_global = vim.fn["ddu#custom#patch_global"]
 
   -- ui
@@ -83,10 +52,61 @@ function M.config()
     pattern = "ddu-ff-filter",
     callback = function()
       local opts = { buffer = true }
-      vim.keymap.set("i", "<CR>", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
-      vim.keymap.set("n", "<CR>", "<Cmd><Cmd>call ddu#ui#ff#close()<CR>", opts)
+      vim.keymap.set("i", "<CR>", "<Esc><Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>", opts)
+      vim.keymap.set("n", "<CR>", "<Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>", opts)
     end,
   })
-end
+'''
 
-return M
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-vim-ui-select'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = '4513ECHO/ddu-source-emoji'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = '4513ECHO/ddu-source-source'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-line'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-register'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-command_history'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'shun/ddu-source-buffer'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = '4513ECHO/ddu-kind-url'
+depends = ['open-browser.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-word'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Milly/ddu-filter-kensaku'
+depends = ['kensaku.vim']
+on_source = 'ddu.vim'

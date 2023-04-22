@@ -1,8 +1,31 @@
-local M = {
-  "gen740/SmoothCursor.nvim",
-}
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
 
-function M.config()
+[[plugins]]
+repo = 'nvim-tree/nvim-web-devicons'
+on_lua = 'nvim-web-devicons'
+lua_post_source = '''
+  require('nvim-web-devicons').setup({ default = true })
+'''
+
+[[plugins]]
+repo = 'windwp/nvim-autopairs'
+on_event = 'InsertEnter'
+lua_post_source = '''
+  require("nvim-autopairs").setup()
+'''
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+on_event = ['BufRead', 'BufNewFile']
+lua_post_source = '''
+  require("gitsigns").setup({})
+'''
+
+[[plugins]]
+repo = 'gen740/SmoothCursor.nvim'
+on_event = ['BufRead', 'BufNewFile']
+lua_post_source = '''
   require("smoothcursor").setup({
     disable_float_win = true,
     priority = 100,
@@ -45,7 +68,7 @@ function M.config()
         vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#bf616a" })
         vim.api.nvim_set_hl(0, "SmoothCursorBody", { fg = "#bf616a" })
         vim.fn.sign_define("smoothcursor", { text = "" })
-      elseif current_mode == "" then
+      elseif current_mode == "" then
         vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#bf616a" })
         vim.api.nvim_set_hl(0, "SmoothCursorBody", { fg = "#bf616a" })
         vim.fn.sign_define("smoothcursor", { text = "" })
@@ -56,6 +79,49 @@ function M.config()
       end
     end,
   })
-end
+'''
 
-return M
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_event = 'InsertEnter'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
+on_source = 'vim-vsnip'
+
+[[plugins]]
+repo = 'rafamadriz/friendly-snippets'
+on_source = 'vim-vsnip'
+
+[[plugins]]
+repo = 'monaqa/modesearch.nvim'
+depends = ['kensaku.vim']
+on_lua = 'modesearch'
+lua_add = '''
+  vim.keymap.set("n", "/", function() return require("modesearch").keymap.prompt.show("rawstr") end, { expr = true })
+  vim.keymap.set(
+    "c",
+    "<C-x>",
+    function() return require("modesearch").keymap.mode.cycle({ "rawstr", "migemo", "regexp" }) end,
+    { expr = true }
+  )
+'''
+lua_source = '''
+  require("modesearch").setup({
+    modes = {
+      rawstr = {
+        prompt = "[rawstr]/",
+        converter = function(query) return [[\V]] .. vim.fn.escape(query, [[/\]]) end,
+      },
+      regexp = {
+        prompt = "[regexp]/",
+        converter = function(query) return [[\v]] .. vim.fn.escape(query, [[/]]) end,
+      },
+      migemo = {
+        prompt = "[migemo]/",
+        converter = function(query) return [[\v]] .. vim.fn["kensaku#query"](query) end,
+      },
+    },
+  })
+'''
