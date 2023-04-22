@@ -28,6 +28,7 @@ dein.setup({
 
   dein.load_toml(config_base .. "denops.toml")
   dein.load_toml(config_base .. "treesitter.toml", { lazy = true })
+  dein.load_toml(config_base .. "lsp.toml", { lazy = true })
   dein.load_toml(config_base .. "ddc.toml", { lazy = true })
   dein.load_toml(config_base .. "ddu.toml", { lazy = true })
 
