@@ -1,6 +1,7 @@
 /.dtlignore
 /.git
 /.gitignore
+/.luarc.json
 /.neoconf.json
 /Makefile
 /selene.toml
