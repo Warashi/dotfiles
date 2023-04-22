@@ -19,17 +19,20 @@ dein.setup({
   lazy_rplugins = true,
 })
 
-if dein.load_state(dein_base) > 0 then
+-- if dein.load_state(dein_base) > 0 then
   dein.begin(dein_base)
 
   dein.load_toml(config_base .. "dein.toml")
-  dein.load_toml(config_base .. "denops.toml")
   dein.load_toml(config_base .. "deinlazy.toml", { lazy = true })
+  dein.load_toml(config_base .. "deinft.toml")
+
+  dein.load_toml(config_base .. "denops.toml")
+  dein.load_toml(config_base .. "treesitter.toml", { lazy = true })
 
   dein.end_()
 
   dein.save_state()
-end
+-- end
 dein.call_hook("source")
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
