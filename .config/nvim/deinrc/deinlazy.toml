@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
 on_lua = 'nvim-web-devicons'
 lua_post_source = '''

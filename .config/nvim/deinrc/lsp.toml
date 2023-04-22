@@ -50,9 +50,11 @@ lua_source = '''
 
 [[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
+depends = ['plenary.nvim']
 on_source = ['nvim-lspconfig']
 lua_source = '''
-  require("null-ls").setup({
+  local null_ls = require("null-ls")
+  null_ls.setup({
     sources = {
       --- nix ---
       null_ls.builtins.diagnostics.deadnix,
