@@ -7,7 +7,6 @@
 in {
   imports = [
     ../common/config.nix
-    ./systemd.nix
   ];
 
   home.username = local.user;
