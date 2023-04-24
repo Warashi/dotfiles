@@ -3,6 +3,7 @@ with pkgs; [
   _1password
   awscli2
   bat
+  bc # https://github.com/NixOS/nixpkgs/issues/225579
   delta
   deno
   exa
