@@ -50,15 +50,6 @@ in {
     };
 
     launchd.agents = {
-      neovim = {
-        enable = true;
-        config = {
-          Label = "dev.warashi.neovim";
-          ProgramArguments = ["${pkgs.zsh}/bin/zsh" "-c" "exec ${pkgs.neovim}/bin/nvim --headless --listen $XDG_RUNTIME_DIR/nvim.socket"];
-          RunAtLoad = true;
-          KeepAlive = true;
-        };
-      };
       muscat = {
         enable = true;
         config = {
