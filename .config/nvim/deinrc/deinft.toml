@@ -9,3 +9,6 @@ toml = '''
     return line ==# '' || line[0:1] ==# '  '
   endfunction
 '''
+tf = '''
+  set filetype=terraform
+'''
