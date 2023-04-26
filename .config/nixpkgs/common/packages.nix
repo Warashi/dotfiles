@@ -20,6 +20,7 @@ with pkgs; [
   jq
   neovim
   neovim-remote
+  nodejs
   python311
   ripgrep
   sheldon

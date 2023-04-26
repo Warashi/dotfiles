@@ -34,9 +34,14 @@ lua_source = '''
   vim.keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end)
 
   -- sources
-  patch_global("sources", { "nvim-lsp", "buffer", "around", "file", "vsnip", "zsh" })
+  patch_global("sources", { "copilot", "nvim-lsp", "buffer", "around", "file", "vsnip", "zsh" })
   patch_global("sourceOptions", {
     around = { mark = "A" },
+    copilot = {
+      matchers = {},
+      mark = 'copilot',
+      minAutoCompleteLength = 0,
+    },
     ["nvim-lsp"] = { mark = "L" },
     file = {
       mark = "F",
@@ -147,3 +152,15 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'matsui54/ddc-buffer'
 on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'github/copilot.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-copilot'
+depends = ['copilot.vim']
+on_source = 'ddc.vim'
+hook_source = '''
+  let g:copilot_enabled = v:false
+  let g:copilot_no_maps = v:true
+'''
