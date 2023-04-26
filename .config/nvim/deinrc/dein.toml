@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
 name = 'catppuccin'
 repo = 'catppuccin/nvim'
 lua_source = '''
