@@ -31,11 +31,14 @@ with pkgs; [
 
   python311Packages.pipx
 
-  # neovim から利用
-  alejandra
-  deadnix
+  # lanuage server
   gopls
   lua-language-server
+  terraform-ls
+
+  # null-ls から利用
+  alejandra
+  deadnix
   nodePackages.cspell
   selene
   shellcheck
