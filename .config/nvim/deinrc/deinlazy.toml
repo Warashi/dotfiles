@@ -4,28 +4,28 @@ repo = 'nvim-lua/plenary.nvim'
 [[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
 on_lua = 'nvim-web-devicons'
-lua_post_source = '''
+lua_source = '''
   require('nvim-web-devicons').setup({ default = true })
 '''
 
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
 on_event = 'InsertEnter'
-lua_post_source = '''
+lua_source = '''
   require("nvim-autopairs").setup()
 '''
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 on_event = ['BufRead', 'BufNewFile']
-lua_post_source = '''
+lua_source = '''
   require("gitsigns").setup({})
 '''
 
 [[plugins]]
 repo = 'gen740/SmoothCursor.nvim'
 on_event = ['BufRead', 'BufNewFile']
-lua_post_source = '''
+lua_source = '''
   require("smoothcursor").setup({
     disable_float_win = true,
     priority = 100,
