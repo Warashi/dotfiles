@@ -34,6 +34,7 @@ with pkgs; [
   # neovim から利用
   alejandra
   deadnix
+  gopls
   lua-language-server
   nodePackages.cspell
   selene
