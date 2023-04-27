@@ -156,12 +156,12 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'github/copilot.vim'
 on_cmd = 'Copilot'
+hook_add = '''
+  let g:copilot_enabled = v:false
+  let g:copilot_no_maps = v:true
+'''
 
 [[plugins]]
 repo = 'Shougo/ddc-source-copilot'
 depends = ['copilot.vim']
 on_source = 'ddc.vim'
-hook_source = '''
-  let g:copilot_enabled = v:false
-  let g:copilot_no_maps = v:true
-'''
