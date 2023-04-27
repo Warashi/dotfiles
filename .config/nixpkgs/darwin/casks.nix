@@ -14,6 +14,7 @@
   "raindropio"
   "raycast"
   "slack"
+  "visual-studio-code"
   "wezterm"
 
   "homebrew/cask-fonts/font-biz-udgothic"
