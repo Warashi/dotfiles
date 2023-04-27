@@ -157,7 +157,6 @@ on_source = 'ddc.vim'
 repo = 'github/copilot.vim'
 on_cmd = 'Copilot'
 hook_add = '''
-  let g:copilot_enabled = v:false
   let g:copilot_no_maps = v:true
 '''
 
