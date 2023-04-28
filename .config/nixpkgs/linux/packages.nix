@@ -5,7 +5,6 @@ in
     gcc
     sta
     unzip
-    vscode
     zip
 
     warashiPkgs.muscat
