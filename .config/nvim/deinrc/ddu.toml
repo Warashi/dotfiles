@@ -5,6 +5,7 @@ depends = ['denops.vim']
 lua_add = '''
   local start = vim.fn["ddu#start"]
   vim.keymap.set("n", "<leader>d", function() start({ sources = { { name = "source" } } }) end)
+  vim.keymap.set("i", "<C-x><C-l>", function() start({ sources = { { name = "copilot", options = { defaultAction = "append" } } } }) end)
 '''
 lua_source = '''
   local patch_global = vim.fn["ddu#custom#patch_global"]
@@ -57,6 +58,10 @@ lua_source = '''
     end,
   })
 '''
+
+[[plugins]]
+repo = 'Warashi/ddu-source-copilot'
+on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-ui-ff'
