@@ -60,7 +60,15 @@ lua_source = '''
 '''
 
 [[plugins]]
+repo = 'github/copilot.vim'
+on_cmd = 'Copilot'
+hook_add = '''
+  let g:copilot_no_maps = v:true
+'''
+
+[[plugins]]
 repo = 'Warashi/ddu-source-copilot'
+depends = ['copilot.vim']
 on_source = 'ddu.vim'
 
 [[plugins]]
