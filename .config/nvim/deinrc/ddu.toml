@@ -6,6 +6,7 @@ lua_add = '''
   local start = vim.fn["ddu#start"]
   vim.keymap.set("n", "<leader>d", function() start({ sources = { { name = "source" } } }) end)
   vim.keymap.set("i", "<C-x><C-l>", function() start({ sources = { { name = "copilot", options = { defaultAction = "append" } } } }) end)
+  vim.keymap.set("i", "<C-x><C-e>", function() start({ sources = { { name = "emoji", options = { defaultAction = "insert" } } } }) end)
 '''
 lua_source = '''
   local patch_global = vim.fn["ddu#custom#patch_global"]
