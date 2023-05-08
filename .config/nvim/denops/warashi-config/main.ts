@@ -1,10 +1,4 @@
-import {
-  batch,
-  Denops,
-  globals,
-  mapping,
-  options,
-} from "./deps.ts";
+import { batch, Denops, globals, mapping, option } from "./deps.ts";
 
 export async function main(denops: Denops): Promise<void> {
   denops.dispatcher = {
@@ -26,17 +20,17 @@ export async function main(denops: Denops): Promise<void> {
 
 async function builtins(denops: Denops): Promise<void> {
   await batch(denops, async (denops: Denops) => {
-    await options.set(denops, "title", true);
-    await options.set(denops, "timeoutlen", 1000);
-    await options.set(denops, "ttimeoutlen", 0);
-    await options.set(denops, "termguicolors", true);
-    await options.set(denops, "number", true);
-    await options.set(denops, "expandtab", true);
-    await options.set(denops, "tabstop", 4);
-    await options.set(denops, "shiftwidth", 4);
-    await options.set(denops, "clipboard", "unnamedplus");
-    await options.set(denops, "showmode", false);
-    await options.set(denops, "laststatus", 3);
+    await option.title.set(denops, true);
+    await option.timeoutlen.set(denops, 1000);
+    await option.ttimeoutlen.set(denops, 0);
+    await option.termguicolors.set(denops, true);
+    await option.number.set(denops, true);
+    await option.expandtab.set(denops, true);
+    await option.tabstop.set(denops, 2);
+    await option.shiftwidth.set(denops, 2);
+    await option.clipboard.set(denops, "unnamedplus");
+    await option.showmode.set(denops, false);
+    await option.laststatus.set(denops, 3);
 
     // await globalOptions.set(denops, "mapleader", ",");
     // await globalOptions.set(denops, "maplocalleader", ",");
