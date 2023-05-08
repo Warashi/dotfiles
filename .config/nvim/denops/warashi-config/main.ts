@@ -1,4 +1,12 @@
-import { batch, Denops, globals, mapping, option } from "./deps.ts";
+import {
+  batch,
+  Denops,
+  ensureNumber,
+  globals,
+  mapping,
+  option,
+  stdpath,
+} from "./deps.ts";
 
 export async function main(denops: Denops): Promise<void> {
   denops.dispatcher = {
@@ -44,4 +52,40 @@ async function builtins(denops: Denops): Promise<void> {
       silent: true,
     });
   });
+}
+
+async function dein(denops: Denops): Promise<void> {
+  const config_base = stdpath(denops, "config") + "/deinrc/";
+  const dein_base = stdpath(denops, "cache") + "/dein";
+  const dein_src = dein_base + "/repos/github.com/Shougo/dein.vim";
+  const stat = await Deno.stat(dein_src);
+  if (!stat.isDirectory) {
+    await Deno.run({
+      cmd: [
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/Shougo/dein.vim",
+        dein_src,
+      ],
+    }).status();
+  }
+
+  option.runtimepath.set(
+    denops,
+    (await option.runtimepath.get(denops)) + "," + dein_src,
+  );
+
+  globals.set(denops, "dein#types#git#enable_partial_clone", true);
+
+  if (ensureNumber(await denops.call("dein#load_state", dein_base)) > 0) {
+    batch(denops, async (denops: Denops) => {
+      await denops.call("dein#begin", dein_base);
+      await denops.call("dein#load_toml", config_base + "dein.toml");
+      await denops.call("dein#load_toml", config_base + "deinlazy.toml", {
+        lazy: true,
+      });
+      await denops.call("dein#load_toml", config_base + "deinft.toml");
+    });
+  }
 }
