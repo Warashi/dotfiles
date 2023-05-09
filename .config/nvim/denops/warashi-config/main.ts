@@ -1,4 +1,5 @@
 import {
+  autocmd,
   batch,
   Denops,
   ensureNumber,
@@ -86,6 +87,32 @@ async function dein(denops: Denops): Promise<void> {
         lazy: true,
       });
       await denops.call("dein#load_toml", config_base + "deinft.toml");
+
+      await denops.call("dein#load_toml", config_base + "denops.toml");
+      await denops.call("dein#load_toml", config_base + "treesitter.toml", {
+        lazy: true,
+      });
+      await denops.call("dein#load_toml", config_base + "lsp.toml", {
+        lazy: true,
+      });
+      await denops.call("dein#load_toml", config_base + "ddc.toml", {
+        lazy: true,
+      });
+      await denops.call("dein#load_toml", config_base + "ddu.toml", {
+        lazy: true,
+      });
+
+      await denops.call("dein#end");
+      await denops.call("dein#save_state");
     });
   }
+
+  await denops.call("dein#call_hook", "source");
+  await autocmd.define(
+    denops,
+    "VimEnter",
+    "*",
+    "call dein#call_hook('post_source')",
+    { nested: true },
+  );
 }
