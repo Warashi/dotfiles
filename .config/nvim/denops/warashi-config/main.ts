@@ -3,6 +3,7 @@ import {
   batch,
   Denops,
   ensureNumber,
+  fs,
   globals,
   mapping,
   option,
@@ -59,8 +60,7 @@ async function dein(denops: Denops): Promise<void> {
   const config_base = await stdpath(denops, "config") + "/deinrc/";
   const dein_base = await stdpath(denops, "cache") + "/dein";
   const dein_src = dein_base + "/repos/github.com/Shougo/dein.vim";
-  const stat = await Deno.stat(dein_src);
-  if (!stat.isDirectory) {
+  if (!await fs.exists(dein_src)) {
     await Deno.run({
       cmd: [
         "git",
