@@ -108,11 +108,4 @@ async function dein(denops: Denops): Promise<void> {
   }
 
   await denops.call("dein#call_hook", "source");
-  await autocmd.define(
-    denops,
-    "VimEnter",
-    "*",
-    "call dein#call_hook('post_source')",
-    { nested: true },
-  );
 }
