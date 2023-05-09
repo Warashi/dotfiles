@@ -99,6 +99,7 @@ lua_source = '''
 
 [[plugins]]
 repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+on_source = 'nvim-lspconfig'
 lua_source = '''
   vim.diagnostic.config({
     virtual_text = false,
