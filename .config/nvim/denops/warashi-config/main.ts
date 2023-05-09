@@ -107,6 +107,6 @@ async function dein(denops: Denops): Promise<void> {
     });
   }
 
-  await denops.call("dein#source");
   await denops.call("dein#call_hook", "source");
+  await denops.call("dein#source");
 }
