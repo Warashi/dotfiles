@@ -39,7 +39,11 @@ lua_source = '''
   lspconfig.gopls.setup({})
   lspconfig.lua_ls.setup({})
   lspconfig.terraformls.setup({})
-  lspconfig.denols.setup({})
+  lspconfig.denols.setup({
+    init_options = {
+      lint = true,
+    },
+  })
 '''
 
 [[plugins]]
