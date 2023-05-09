@@ -42,8 +42,8 @@ async function builtins(denops: Denops): Promise<void> {
     await option.showmode.set(denops, false);
     await option.laststatus.set(denops, 3);
 
-    // await globalOptions.set(denops, "mapleader", ",");
-    // await globalOptions.set(denops, "maplocalleader", ",");
+    await globals.set(denops, "mapleader", ",");
+    await globals.set(denops, "maplocalleader", ",");
 
     await mapping.map(denops, "<leader><leader>", "<cmd>source $MYVIMRC<cr>", {
       mode: "n",
@@ -107,5 +107,6 @@ async function dein(denops: Denops): Promise<void> {
     });
   }
 
+  await denops.call("dein#source");
   await denops.call("dein#call_hook", "source");
 }
