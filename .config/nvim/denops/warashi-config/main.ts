@@ -18,9 +18,9 @@ export async function main(denops: Denops): Promise<void> {
       await globals.set(denops, "config_loaded", 1);
 
       await builtins(denops);
+      await dein(denops);
 
       console.log("configured!");
-      await Promise.resolve();
     },
   };
 
@@ -56,8 +56,8 @@ async function builtins(denops: Denops): Promise<void> {
 }
 
 async function dein(denops: Denops): Promise<void> {
-  const config_base = stdpath(denops, "config") + "/deinrc/";
-  const dein_base = stdpath(denops, "cache") + "/dein";
+  const config_base = await stdpath(denops, "config") + "/deinrc/";
+  const dein_base = await stdpath(denops, "cache") + "/dein";
   const dein_src = dein_base + "/repos/github.com/Shougo/dein.vim";
   const stat = await Deno.stat(dein_src);
   if (!stat.isDirectory) {
