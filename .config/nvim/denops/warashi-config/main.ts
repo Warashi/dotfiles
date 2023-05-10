@@ -10,21 +10,14 @@ import {
 } from "./deps.ts";
 
 export async function main(denops: Denops): Promise<void> {
-  denops.dispatcher = {
-    async configure(): Promise<void> {
-      if (await globals.get(denops, "config_loaded") === 1) {
-        return;
-      }
-      await globals.set(denops, "config_loaded", 1);
-
-      await builtins(denops);
-      await dein(denops);
-
-      console.log("configured!");
-    },
-  };
-
-  await Promise.resolve();
+  if (await globals.get(denops, "config_loaded") === 1) {
+    return;
+  }
+  await globals.set(denops, "config_loaded", 1);
+  await builtins(denops);
+  // await denopm(denops);
+  // await catppuccin(denops);
+  await dein(denops);
 }
 
 async function builtins(denops: Denops): Promise<void> {
