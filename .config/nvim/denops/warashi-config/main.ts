@@ -64,6 +64,36 @@ async function denopm(denops: Denops): Promise<void> {
   }
 }
 
+async function catppuccin(denops: Denops): Promise<void> {
+  const setup = `
+  require("catppuccin").setup({
+    integrations = {
+      aerial = true,
+      bufferline = true,
+      gitsigns = true,
+      illuminate = true,
+      lsp_trouble = true,
+      mason = true,
+      notify = true,
+      nvimtree = true,
+      sandwich = true,
+      semantic_tokens = true,
+      treesitter = true,
+      treesitter_context = true,
+
+      native_lsp = {
+        enabled = true,
+      },
+    },
+  })
+  `;
+
+  batch(denops, async (denops: Denops) => {
+    await denops.cmd(`lua ${setup}`);
+    await denops.cmd("colorscheme catppuccin-mocha");
+  });
+}
+
 async function dein(denops: Denops): Promise<void> {
   const config_base = await stdpath(denops, "config") + "/deinrc/";
   const dein_base = await stdpath(denops, "cache") + "/dein";
