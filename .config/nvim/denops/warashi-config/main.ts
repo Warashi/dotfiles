@@ -59,13 +59,26 @@ async function denopm(denops: Denops): Promise<void> {
     }
 
     await denops.dispatch("denopm", "add_rtp_github", base, p.org, p.repo);
+    await denops.dispatch(
+      "denopm",
+      "source_vimscript_github",
+      base,
+      p.org,
+      p.repo,
+    );
+    await denops.dispatch("denopm", "source_lua_github", base, p.org, p.repo);
+    await denops.dispatch(
+      "denopm",
+      "register_denops_github",
+      base,
+      p.org,
+      p.repo,
+    );
 
     if (p.lua_post != null) {
       await denops.cmd(`lua ${p.lua_post}`);
     }
   }
-  
-  await denops.cmd("runtime plugin/**/*.vim");
 }
 
 async function dein(denops: Denops): Promise<void> {

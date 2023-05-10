@@ -6,8 +6,8 @@ type Plugin = {
 };
 
 export const plugins: Plugin[] = [
-  { org: "vim-denops", repo: "denops.vim"},
-  { org: "lambdalisue", repo: "kensaku.vim"},
+  { org: "vim-denops", repo: "denops.vim" },
+  { org: "lambdalisue", repo: "kensaku.vim" },
   { org: "MunifTanjim", repo: "nui.nvim" },
   { org: "nvim-lua", repo: "plenary.nvim" },
   { 
