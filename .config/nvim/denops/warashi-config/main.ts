@@ -55,6 +55,22 @@ async function builtins(denops: Denops): Promise<void> {
   });
 }
 
+async function denopm(denops: Denops): Promise<void> {
+  const base = await stdpath(denops, "cache") + "/denopm";
+
+  const plugins = [
+    { org: "Shougo", repo: "ddc.vim" },
+    { org: "catppuccin", repo: "nvim" },
+    { org: "MunifTanjim", repo: "nui.nvim" },
+    { org: "rcarriga", repo: "nvim-notify" },
+  ];
+
+  for (const p of plugins) {
+    await denops.dispatch("denopm", "download_github", base, p.org, p.repo);
+    await denops.dispatch("denopm", "add_rtp_github", base, p.org, p.repo);
+  }
+}
+
 async function dein(denops: Denops): Promise<void> {
   const config_base = await stdpath(denops, "config") + "/deinrc/";
   const dein_base = await stdpath(denops, "cache") + "/dein";
