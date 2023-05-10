@@ -70,7 +70,6 @@ export function main(denops: Denops): Promise<void> {
       const target = `${base}/github.com/${org}/${repo}/denops/*/main.ts`;
       for await (const file of expandGlob(target)) {
         const name = await fnamemodify(denops, file.path, ":h:t");
-        console.log(name)
         if (await denops.call("denops#plugin#is_loaded", name)) {
           continue;
         }
