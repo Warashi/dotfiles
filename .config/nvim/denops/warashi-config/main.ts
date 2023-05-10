@@ -8,6 +8,7 @@ import {
   option,
   stdpath,
 } from "./deps.ts";
+import { plugins } from "./plugins.ts";
 
 export async function main(denops: Denops): Promise<void> {
   if (await globals.get(denops, "config_loaded") === 1) {
@@ -15,9 +16,8 @@ export async function main(denops: Denops): Promise<void> {
   }
   await globals.set(denops, "config_loaded", 1);
   await builtins(denops);
-  // await denopm(denops);
-  // await catppuccin(denops);
-  await dein(denops);
+  await denopm(denops);
+  // await dein(denops);
 }
 
 async function builtins(denops: Denops): Promise<void> {
@@ -51,47 +51,21 @@ async function builtins(denops: Denops): Promise<void> {
 async function denopm(denops: Denops): Promise<void> {
   const base = await stdpath(denops, "cache") + "/denopm";
 
-  const plugins = [
-    { org: "Shougo", repo: "ddc.vim" },
-    { org: "catppuccin", repo: "nvim" },
-    { org: "MunifTanjim", repo: "nui.nvim" },
-    { org: "rcarriga", repo: "nvim-notify" },
-  ];
-
   for (const p of plugins) {
     await denops.dispatch("denopm", "download_github", base, p.org, p.repo);
+
+    if (p.lua_pre != null) {
+      await denops.cmd(`lua ${p.lua_pre}`);
+    }
+
     await denops.dispatch("denopm", "add_rtp_github", base, p.org, p.repo);
+
+    if (p.lua_post != null) {
+      await denops.cmd(`lua ${p.lua_post}`);
+    }
   }
-}
-
-async function catppuccin(denops: Denops): Promise<void> {
-  const setup = `
-  require("catppuccin").setup({
-    integrations = {
-      aerial = true,
-      bufferline = true,
-      gitsigns = true,
-      illuminate = true,
-      lsp_trouble = true,
-      mason = true,
-      notify = true,
-      nvimtree = true,
-      sandwich = true,
-      semantic_tokens = true,
-      treesitter = true,
-      treesitter_context = true,
-
-      native_lsp = {
-        enabled = true,
-      },
-    },
-  })
-  `;
-
-  batch(denops, async (denops: Denops) => {
-    await denops.cmd(`lua ${setup}`);
-    await denops.cmd("colorscheme catppuccin-mocha");
-  });
+  
+  await denops.cmd("runtime plugin/**/*.vim");
 }
 
 async function dein(denops: Denops): Promise<void> {
