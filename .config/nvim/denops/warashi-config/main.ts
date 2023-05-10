@@ -61,15 +61,14 @@ async function dein(denops: Denops): Promise<void> {
   const dein_base = await stdpath(denops, "cache") + "/dein";
   const dein_src = dein_base + "/repos/github.com/Shougo/dein.vim";
   if (!await fs.exists(dein_src)) {
-    await Deno.run({
-      cmd: [
-        "git",
+    await new Deno.Command("git", {
+      args: [
         "clone",
         "--filter=blob:none",
-        "https://github.com/Shougo/dein.vim",
+        "https://github.com/SHougo/dein.vim",
         dein_src,
       ],
-    }).status();
+    }).spawn().status;
   }
 
   option.runtimepath.set(
