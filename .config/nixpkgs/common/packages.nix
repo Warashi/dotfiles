@@ -26,6 +26,7 @@ with pkgs; [
   sheldon
   skim
   tig
+  tmux-xpanes
   vivid
   yq-go
 
