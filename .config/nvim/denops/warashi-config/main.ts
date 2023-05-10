@@ -1,5 +1,4 @@
 import {
-  autocmd,
   batch,
   Denops,
   ensureNumber,
