@@ -26,7 +26,6 @@ export const git_plugins: GitPlugin[] = [
   },
 ];
 
-// TODO: lsp_lines.nvim
 export const github_plugins: GitHubPlugin[] = [
   { org: "vim-denops", repo: "denops.vim" },
   { org: "lambdalisue", repo: "kensaku.vim" },
