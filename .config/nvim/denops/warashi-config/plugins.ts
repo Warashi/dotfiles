@@ -5,6 +5,7 @@ type Plugin = {
   lua_post?: string;
 };
 
+// TODO: lsp_lines.nvim
 export const plugins: Plugin[] = [
   { org: "vim-denops", repo: "denops.vim" },
   { org: "lambdalisue", repo: "kensaku.vim" },
@@ -197,6 +198,14 @@ export const plugins: Plugin[] = [
     `,
   },
   {
+    org: "folke",
+    repo: "neoconf.nvim",
+  },
+  {
+    org: "folke",
+    repo: "neodev.nvim",
+  },
+  {
     org: "neovim",
     repo: "nvim-lspconfig",
     lua_pre: `
@@ -228,6 +237,10 @@ export const plugins: Plugin[] = [
       })
     `,
     lua_post: `
+      -- 依存関係と実行順の都合でここに記載する
+      require("neodev").setup({})
+      require("neoconf").setup({})
+
       local lspconfig = require("lspconfig")
       lspconfig.gopls.setup({})
       lspconfig.lua_ls.setup({})
@@ -243,6 +256,38 @@ export const plugins: Plugin[] = [
     org: "j-hui",
     repo: "fidget.nvim",
     lua_post: `require("fidget").setup({})`,
+  },
+  {
+    org: "jose-elias-alvarez",
+    repo: "null-ls.nvim",
+    lua_post: `
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          --- nix ---
+          null_ls.builtins.diagnostics.deadnix,
+          null_ls.builtins.diagnostics.statix,
+          null_ls.builtins.formatting.alejandra,
+
+          --- lua ---
+          null_ls.builtins.diagnostics.selene.with({
+            cwd = function() return require("null-ls.utils").root_pattern("selene.toml")(vim.api.nvim_buf_get_name(0)) end,
+          }),
+          null_ls.builtins.formatting.stylua.with({
+            cwd = function() return require("null-ls.utils").root_pattern("stylua.toml")(vim.api.nvim_buf_get_name(0)) end,
+          }),
+
+          --- shell ---
+          null_ls.builtins.diagnostics.shellcheck,
+          null_ls.builtins.diagnostics.zsh,
+          null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.formatting.shellharden,
+
+          --- other ---
+          null_ls.builtins.diagnostics.todo_comments,
+        },
+      })
+    `,
   },
   {
     org: "nvim-treesitter",
