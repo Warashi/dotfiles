@@ -182,7 +182,7 @@ export const plugins: Plugin[] = [
         modes = {
           rawstr = {
             prompt = "[rawstr]/",
-            converter = function(query) return [[\\V]] .. vim.fn.escape(query, [[/\]]) end,
+            converter = function(query) return [[\\V]] .. vim.fn.escape(query, [[/\\]]) end,
           },
           regexp = {
             prompt = "[regexp]/",
