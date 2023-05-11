@@ -1,32 +1,31 @@
-export type GitHubPlugin = {
-  org: string;
-  repo: string;
-  lua_pre?: string;
-  lua_post?: string;
-};
+import { z } from "https://deno.land/x/zod@v3.21.4/mod.ts";
 
-export type GitPlugin = {
-  url: string;
-  dst: string;
-  lua_pre?: string;
-  lua_post?: string;
-};
+const GitHubPlugin = z.object({
+  org: z.string(),
+  repo: z.string(),
+  lua_pre: z.string().optional(),
+  lua_post: z.string().optional(),
+});
 
-export const git_plugins: GitPlugin[] = [
-  {
-    url: "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    dst: "git.sr.ht/~whynothugo/lsp_lines.nvim",
-    lua_post: `
-      vim.diagnostic.config({
-        virtual_text = false,
-        virtual_lines = { only_current_line = true },
-      })
-      require("lsp_lines").setup()
-    `,
-  },
-];
+const GitPlugin = z.object({
+  url: z.string(),
+  dst: z.string(),
+  lua_pre: z.string().optional(),
+  lua_post: z.string().optional(),
+});
 
-export const github_plugins: GitHubPlugin[] = [
+export type GitHubPlugin = z.infer<typeof GitHubPlugin>;
+export type GitPlugin = z.infer<typeof GitPlugin>;
+export type Plugin = GitPlugin | GitHubPlugin;
+
+export function isGitPlugin(x: unknown): x is GitPlugin {
+  return GitPlugin.safeParse(x).success;
+}
+export function isGitHubPlugin(x: unknown): x is GitHubPlugin {
+  return GitHubPlugin.safeParse(x).success;
+}
+
+export const plugins: Plugin[] = [
   { org: "vim-denops", repo: "denops.vim" },
   { org: "lambdalisue", repo: "kensaku.vim" },
   { org: "MunifTanjim", repo: "nui.nvim" },
@@ -308,6 +307,17 @@ export const github_plugins: GitHubPlugin[] = [
           null_ls.builtins.diagnostics.todo_comments,
         },
       })
+    `,
+  },
+  {
+    url: "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    dst: "git.sr.ht/~whynothugo/lsp_lines.nvim",
+    lua_post: `
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = { only_current_line = true },
+      })
+      require("lsp_lines").setup()
     `,
   },
   {

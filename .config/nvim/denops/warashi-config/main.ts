@@ -10,10 +10,11 @@ import {
   stdpath,
 } from "./deps.ts";
 import {
-  git_plugins,
-  github_plugins,
   GitHubPlugin,
   GitPlugin,
+  isGitHubPlugin,
+  isGitPlugin,
+  plugins,
 } from "./plugins.ts";
 
 export async function main(denops: Denops): Promise<void> {
@@ -25,19 +26,22 @@ export async function main(denops: Denops): Promise<void> {
   await denopm(denops);
   // await dein(denops);
 
-  await denops.cmd("command DenopmUpdate call denops#notify('warashi-config', 'update_plugins', [])")
+  await denops.cmd(
+    "command DenopmUpdate call denops#notify('warashi-config', 'update_plugins', [])",
+  );
   await denops.cmd("LspStart");
 
   denops.dispatcher = {
     async update_plugins(): Promise<void> {
       const base = await stdpath(denops, "cache") + "/denopm";
 
-      for (const p of github_plugins) {
-        await denops.dispatch("denopm", "update_github", base, p.org, p.repo);
-      }
-
-      for (const p of git_plugins) {
-        await denops.dispatch("denopm", "update_git", base, p.dst);
+      for (const p of plugins) {
+        if (isGitPlugin(p)) {
+          await denops.dispatch("denopm", "update_git", base, p.dst);
+        }
+        if (isGitHubPlugin(p)) {
+          await denops.dispatch("denopm", "update_github", base, p.org, p.repo);
+        }
       }
 
       echo(denops, "updated!");
@@ -132,12 +136,13 @@ async function denopm_git(
 async function denopm(denops: Denops): Promise<void> {
   const base = await stdpath(denops, "cache") + "/denopm";
 
-  for (const p of github_plugins) {
-    await denopm_github(denops, base, p);
-  }
-
-  for (const p of git_plugins) {
-    await denopm_git(denops, base, p);
+  for (const p of plugins) {
+    if (isGitPlugin(p)) {
+      await denopm_git(denops, base, p);
+    }
+    if (isGitHubPlugin(p)) {
+      await denopm_github(denops, base, p);
+    }
   }
 }
 
