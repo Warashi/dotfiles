@@ -27,6 +27,34 @@ async function append_rtp(denops: Denops, path: string): Promise<void> {
   );
 }
 
+async function source_vimscript(denops: Denops, path: string): Promise<void> {
+  const target = `${path}/plugin/**/*.vim`;
+  for await (const file of expandGlob(target)) {
+    execute(denops, `source ${file.path}`);
+  }
+}
+
+async function source_lua(denops: Denops, path: string): Promise<void> {
+  const target = `${path}/plugin/**/*.lua`;
+  for await (const file of expandGlob(target)) {
+    execute(denops, `luafile ${file.path}`);
+  }
+}
+
+async function register_denops(denops: Denops, path: string): Promise<void> {
+  const target = `${path}/denops/*/main.ts`;
+  for await (const file of expandGlob(target)) {
+    const name = await fnamemodify(denops, file.path, ":h:t");
+    if (await denops.call("denops#plugin#is_loaded", name)) {
+      continue;
+    }
+    if (await denops.call("denops#server#status") === "running") {
+      await denops.call("denops#plugin#register", name, { mode: "skip" });
+    }
+    await denops.call("denops#plugin#wait", name);
+  }
+}
+
 export function main(denops: Denops): Promise<void> {
   denops.dispatcher = {
     async download_git(base, dst, url): Promise<boolean> {
@@ -59,40 +87,21 @@ export function main(denops: Denops): Promise<void> {
       assertString(base);
       assertString(org);
       assertString(repo);
-
-      const target = `${base}/github.com/${org}/${repo}/plugin/**/*.vim`;
-      for await (const file of expandGlob(target)) {
-        execute(denops, `source ${file.path}`);
-      }
+      await source_vimscript(denops, `${base}/github.com/${org}/${repo}`);
     },
 
     async source_lua_github(base, org, repo): Promise<void> {
       assertString(base);
       assertString(org);
       assertString(repo);
-
-      const target = `${base}/github.com/${org}/${repo}/plugin/**/*.lua`;
-      for await (const file of expandGlob(target)) {
-        execute(denops, `luafile ${file.path}`);
-      }
+      await source_lua(denops, `${base}/github.com/${org}/${repo}`);
     },
 
     async register_denops_github(base, org, repo): Promise<void> {
       assertString(base);
       assertString(org);
       assertString(repo);
-
-      const target = `${base}/github.com/${org}/${repo}/denops/*/main.ts`;
-      for await (const file of expandGlob(target)) {
-        const name = await fnamemodify(denops, file.path, ":h:t");
-        if (await denops.call("denops#plugin#is_loaded", name)) {
-          continue;
-        }
-        if (await denops.call("denops#server#status") === "running") {
-          await denops.call("denops#plugin#register", name, { mode: "skip" });
-        }
-        await denops.call("denops#plugin#wait", name);
-      }
+      await register_denops(denops, `${base}/github.com/${org}/${repo}`);
     },
   };
 
