@@ -20,6 +20,14 @@ async function download_git(dst: string, url: string): Promise<boolean> {
   return status.success;
 }
 
+async function update_git(dst: string): Promise<boolean> {
+  const cmd = new Deno.Command("git", {
+    args: ["-C", dst, "pull", "--rebase"],
+  });
+  const status = await cmd.spawn().status;
+  return status.success;
+}
+
 async function append_rtp(denops: Denops, path: string): Promise<void> {
   option.runtimepath.set(
     denops,
@@ -41,7 +49,10 @@ async function source_lua(denops: Denops, path: string): Promise<void> {
   }
 }
 
-async function source_vimscript_after(denops: Denops, path: string): Promise<void> {
+async function source_vimscript_after(
+  denops: Denops,
+  path: string,
+): Promise<void> {
   const target = `${path}/after/plugin/**/*.vim`;
   for await (const file of expandGlob(target)) {
     execute(denops, `source ${file.path}`);
@@ -87,6 +98,19 @@ export function main(denops: Denops): Promise<void> {
         `${base}/github.com/${org}/${repo}`,
         `https://github.com/${org}/${repo}`,
       );
+    },
+
+    async update_git(base, dst): Promise<boolean> {
+      assertString(base);
+      assertString(dst);
+      return await update_git(`${base}/${dst}`);
+    },
+
+    async update_github(base, org, repo): Promise<boolean> {
+      assertString(base);
+      assertString(org);
+      assertString(repo);
+      return await update_git(`${base}/github.com/${org}/${repo}`);
     },
 
     async add_rtp_git(base, dst): Promise<void> {

@@ -25,7 +25,25 @@ export async function main(denops: Denops): Promise<void> {
   await denopm(denops);
   // await dein(denops);
 
+  await denops.cmd("command DenopmUpdate call denops#notify('warashi-config', 'update_plugins', [])")
   await denops.cmd("LspStart");
+
+  denops.dispatcher = {
+    async update_plugins(): Promise<void> {
+      const base = await stdpath(denops, "cache") + "/denopm";
+
+      for (const p of github_plugins) {
+        await denops.dispatch("denopm", "update_github", base, p.org, p.repo);
+      }
+
+      for (const p of git_plugins) {
+        await denops.dispatch("denopm", "update_git", base, p.dst);
+      }
+
+      echo(denops, "updated!");
+    },
+  };
+
   echo(denops, "configured!");
 }
 
