@@ -1,12 +1,21 @@
-type Plugin = {
+export type GitHubPlugin = {
   org: string;
   repo: string;
   lua_pre?: string;
   lua_post?: string;
 };
 
+export type GitPlugin = {
+  url: string;
+  dst: string;
+  lua_pre?: string;
+  lua_post?: string;
+};
+
+export const git_plugins: GitPlugin[] = [];
+
 // TODO: lsp_lines.nvim
-export const plugins: Plugin[] = [
+export const github_plugins: GitHubPlugin[] = [
   { org: "vim-denops", repo: "denops.vim" },
   { org: "lambdalisue", repo: "kensaku.vim" },
   { org: "MunifTanjim", repo: "nui.nvim" },

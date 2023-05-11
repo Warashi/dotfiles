@@ -9,7 +9,12 @@ import {
   option,
   stdpath,
 } from "./deps.ts";
-import { plugins } from "./plugins.ts";
+import {
+  git_plugins,
+  github_plugins,
+  GitHubPlugin,
+  GitPlugin,
+} from "./plugins.ts";
 
 export async function main(denops: Denops): Promise<void> {
   if (await globals.get(denops, "config_loaded") === 1) {
@@ -52,36 +57,69 @@ async function builtins(denops: Denops): Promise<void> {
   });
 }
 
+async function denopm_github(
+  denops: Denops,
+  base: string,
+  p: GitHubPlugin,
+): Promise<void> {
+  await denops.dispatch("denopm", "download_github", base, p.org, p.repo);
+
+  if (p.lua_pre != null) {
+    await denops.cmd(`lua ${p.lua_pre}`);
+  }
+
+  await denops.dispatch("denopm", "add_rtp_github", base, p.org, p.repo);
+  await denops.dispatch(
+    "denopm",
+    "source_vimscript_github",
+    base,
+    p.org,
+    p.repo,
+  );
+  await denops.dispatch("denopm", "source_lua_github", base, p.org, p.repo);
+  await denops.dispatch(
+    "denopm",
+    "register_denops_github",
+    base,
+    p.org,
+    p.repo,
+  );
+
+  if (p.lua_post != null) {
+    await denops.cmd(`lua ${p.lua_post}`);
+  }
+}
+
+async function denopm_git(
+  denops: Denops,
+  base: string,
+  p: GitPlugin,
+): Promise<void> {
+  await denops.dispatch("denopm", "download_git", base, p.dst, p.url);
+
+  if (p.lua_pre != null) {
+    await denops.cmd(`lua ${p.lua_pre}`);
+  }
+
+  await denops.dispatch("denopm", "add_rtp_git", base, p.dst, p.url);
+  await denops.dispatch("denopm", "source_vimscript_git", base, p.dst, p.url);
+  await denops.dispatch("denopm", "source_lua_git", base, p.dst, p.url);
+  await denops.dispatch("denopm", "register_denops_git", base, p.dst, p.url);
+
+  if (p.lua_post != null) {
+    await denops.cmd(`lua ${p.lua_post}`);
+  }
+}
+
 async function denopm(denops: Denops): Promise<void> {
   const base = await stdpath(denops, "cache") + "/denopm";
 
-  for (const p of plugins) {
-    await denops.dispatch("denopm", "download_github", base, p.org, p.repo);
+  for (const p of github_plugins) {
+    await denopm_github(denops, base, p);
+  }
 
-    if (p.lua_pre != null) {
-      await denops.cmd(`lua ${p.lua_pre}`);
-    }
-
-    await denops.dispatch("denopm", "add_rtp_github", base, p.org, p.repo);
-    await denops.dispatch(
-      "denopm",
-      "source_vimscript_github",
-      base,
-      p.org,
-      p.repo,
-    );
-    await denops.dispatch("denopm", "source_lua_github", base, p.org, p.repo);
-    await denops.dispatch(
-      "denopm",
-      "register_denops_github",
-      base,
-      p.org,
-      p.repo,
-    );
-
-    if (p.lua_post != null) {
-      await denops.cmd(`lua ${p.lua_post}`);
-    }
+  for (const p of git_plugins) {
+    await denopm_git(denops, base, p);
   }
 }
 
