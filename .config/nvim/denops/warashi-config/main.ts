@@ -1,6 +1,7 @@
 import {
   batch,
   Denops,
+  echo,
   ensureNumber,
   fs,
   globals,
@@ -18,6 +19,7 @@ export async function main(denops: Denops): Promise<void> {
   await builtins(denops);
   await denopm(denops);
   // await dein(denops);
+  echo(denops, "configured!")
 }
 
 async function builtins(denops: Denops): Promise<void> {
