@@ -41,6 +41,20 @@ async function source_lua(denops: Denops, path: string): Promise<void> {
   }
 }
 
+async function source_vimscript_after(denops: Denops, path: string): Promise<void> {
+  const target = `${path}/after/plugin/**/*.vim`;
+  for await (const file of expandGlob(target)) {
+    execute(denops, `source ${file.path}`);
+  }
+}
+
+async function source_lua_after(denops: Denops, path: string): Promise<void> {
+  const target = `${path}/after/plugin/**/*.lua`;
+  for await (const file of expandGlob(target)) {
+    execute(denops, `luafile ${file.path}`);
+  }
+}
+
 async function register_denops(denops: Denops, path: string): Promise<void> {
   const target = `${path}/denops/*/main.ts`;
   for await (const file of expandGlob(target)) {
@@ -88,6 +102,7 @@ export function main(denops: Denops): Promise<void> {
       assertString(org);
       assertString(repo);
       await source_vimscript(denops, `${base}/github.com/${org}/${repo}`);
+      await source_vimscript_after(denops, `${base}/github.com/${org}/${repo}`);
     },
 
     async source_lua_github(base, org, repo): Promise<void> {
@@ -95,6 +110,7 @@ export function main(denops: Denops): Promise<void> {
       assertString(org);
       assertString(repo);
       await source_lua(denops, `${base}/github.com/${org}/${repo}`);
+      await source_lua_after(denops, `${base}/github.com/${org}/${repo}`);
     },
 
     async register_denops_github(base, org, repo): Promise<void> {
