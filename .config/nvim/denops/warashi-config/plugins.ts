@@ -12,7 +12,19 @@ export type GitPlugin = {
   lua_post?: string;
 };
 
-export const git_plugins: GitPlugin[] = [];
+export const git_plugins: GitPlugin[] = [
+  {
+    url: "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    dst: "git.sr.ht/~whynothugo/lsp_lines.nvim",
+    lua_post: `
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = { only_current_line = true },
+      })
+      require("lsp_lines").setup()
+    `,
+  },
+];
 
 // TODO: lsp_lines.nvim
 export const github_plugins: GitHubPlugin[] = [

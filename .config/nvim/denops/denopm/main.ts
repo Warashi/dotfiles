@@ -89,12 +89,26 @@ export function main(denops: Denops): Promise<void> {
       );
     },
 
+    async add_rtp_git(base, dst): Promise<void> {
+      assertString(base);
+      assertString(dst);
+
+      await append_rtp(denops, `${base}/${dst}`);
+    },
+
     async add_rtp_github(base, org, repo): Promise<void> {
       assertString(base);
       assertString(org);
       assertString(repo);
 
       await append_rtp(denops, `${base}/github.com/${org}/${repo}`);
+    },
+
+    async source_vimscript_git(base, dst): Promise<void> {
+      assertString(base);
+      assertString(dst);
+      await source_vimscript(denops, `${base}/${dst}`);
+      await source_vimscript_after(denops, `${base}/${dst}`);
     },
 
     async source_vimscript_github(base, org, repo): Promise<void> {
@@ -105,12 +119,25 @@ export function main(denops: Denops): Promise<void> {
       await source_vimscript_after(denops, `${base}/github.com/${org}/${repo}`);
     },
 
+    async source_lua_git(base, dst): Promise<void> {
+      assertString(base);
+      assertString(dst);
+      await source_lua(denops, `${base}/${dst}`);
+      await source_lua_after(denops, `${base}/${dst}`);
+    },
+
     async source_lua_github(base, org, repo): Promise<void> {
       assertString(base);
       assertString(org);
       assertString(repo);
       await source_lua(denops, `${base}/github.com/${org}/${repo}`);
       await source_lua_after(denops, `${base}/github.com/${org}/${repo}`);
+    },
+
+    async register_denops_git(base, dst): Promise<void> {
+      assertString(base);
+      assertString(dst);
+      await register_denops(denops, `${base}/${dst}`);
     },
 
     async register_denops_github(base, org, repo): Promise<void> {
