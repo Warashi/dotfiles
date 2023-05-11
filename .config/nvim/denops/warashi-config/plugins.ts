@@ -32,15 +32,15 @@ export const plugins: Plugin[] = [
   {
     org: "matsui54",
     repo: "denops-popup-preview.vim",
-    // lua: `vim.fn["popup_preview#enable"]()`,
+    lua_post: `vim.fn["popup_preview#enable"]()`,
   },
   {
     org: "matsui54",
     repo: "denops-signature_help",
-    // ua: `
-    //  vim.g.signature_help_config = { contentsStyle = "remainingLabels", viewStyle = "virtual" }
-    //  vim.fn["signature_help#enable"]()
-    // ,
+    lua_post: `
+      vim.g.signature_help_config = { contentsStyle = "remainingLabels", viewStyle = "virtual" }
+      vim.fn["signature_help#enable"]()
+    `
   },
   {
     org: "nvim-tree",
