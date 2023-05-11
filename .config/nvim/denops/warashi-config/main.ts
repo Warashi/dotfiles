@@ -19,6 +19,8 @@ export async function main(denops: Denops): Promise<void> {
   await builtins(denops);
   await denopm(denops);
   // await dein(denops);
+
+  await denops.cmd("LspStart");
   echo(denops, "configured!");
 }
 
