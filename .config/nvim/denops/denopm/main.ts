@@ -8,24 +8,43 @@ import {
 } from "./deps.ts";
 import { expandGlob } from "https://deno.land/std@0.186.0/fs/expand_glob.ts";
 
+async function download_git(dst: string, url: string): Promise<boolean> {
+  if (await fs.exists(dst)) {
+    return true;
+  }
+
+  const cmd = new Deno.Command("git", {
+    args: ["clone", "--filter=blob:none", url, dst],
+  });
+  const status = await cmd.spawn().status;
+  return status.success;
+}
+
+async function append_rtp(denops: Denops, path: string): Promise<void> {
+  option.runtimepath.set(
+    denops,
+    (await option.runtimepath.get(denops)) + "," + path,
+  );
+}
+
 export function main(denops: Denops): Promise<void> {
   denops.dispatcher = {
+    async download_git(base, dst, url): Promise<boolean> {
+      assertString(base);
+      assertString(dst);
+      assertString(url);
+      return await download_git(`${base}/${dst}`, url);
+    },
+
     async download_github(base, org, repo): Promise<boolean> {
       assertString(base);
       assertString(org);
       assertString(repo);
 
-      const dst = `${base}/github.com/${org}/${repo}`;
-      if (await fs.exists(dst)) {
-        return true;
-      }
-
-      const url = `https://github.com/${org}/${repo}`;
-      const cmd = new Deno.Command("git", {
-        args: ["clone", "--filter=blob:none", url, dst],
-      });
-      const status = await cmd.spawn().status;
-      return status.success;
+      return await download_git(
+        `${base}/github.com/${org}/${repo}`,
+        `https://github.com/${org}/${repo}`,
+      );
     },
 
     async add_rtp_github(base, org, repo): Promise<void> {
@@ -33,11 +52,7 @@ export function main(denops: Denops): Promise<void> {
       assertString(org);
       assertString(repo);
 
-      option.runtimepath.set(
-        denops,
-        (await option.runtimepath.get(denops)) + "," +
-          `${base}/github.com/${org}/${repo}`,
-      );
+      await append_rtp(denops, `${base}/github.com/${org}/${repo}`);
     },
 
     async source_vimscript_github(base, org, repo): Promise<void> {
