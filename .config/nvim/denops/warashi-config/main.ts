@@ -2,8 +2,6 @@ import {
   batch,
   Denops,
   echo,
-  ensureNumber,
-  fs,
   globals,
   mapping,
   option,
@@ -24,7 +22,6 @@ export async function main(denops: Denops): Promise<void> {
   await globals.set(denops, "config_loaded", 1);
   await builtins(denops);
   await denopm(denops);
-  // await dein(denops);
 
   await denops.cmd(
     "command DenopmUpdate call denops#notify('warashi-config', 'update_plugins', [])",
@@ -144,58 +141,4 @@ async function denopm(denops: Denops): Promise<void> {
       await denopm_github(denops, base, p);
     }
   }
-}
-
-async function dein(denops: Denops): Promise<void> {
-  const config_base = await stdpath(denops, "config") + "/deinrc/";
-  const dein_base = await stdpath(denops, "cache") + "/dein";
-  const dein_src = dein_base + "/repos/github.com/Shougo/dein.vim";
-  if (!await fs.exists(dein_src)) {
-    await new Deno.Command("git", {
-      args: [
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/SHougo/dein.vim",
-        dein_src,
-      ],
-    }).spawn().status;
-  }
-
-  option.runtimepath.set(
-    denops,
-    (await option.runtimepath.get(denops)) + "," + dein_src,
-  );
-
-  globals.set(denops, "dein#types#git#enable_partial_clone", true);
-
-  if (ensureNumber(await denops.call("dein#load_state", dein_base)) > 0) {
-    batch(denops, async (denops: Denops) => {
-      await denops.call("dein#begin", dein_base);
-      await denops.call("dein#load_toml", config_base + "dein.toml");
-      await denops.call("dein#load_toml", config_base + "deinlazy.toml", {
-        lazy: true,
-      });
-      await denops.call("dein#load_toml", config_base + "deinft.toml");
-
-      await denops.call("dein#load_toml", config_base + "denops.toml");
-      await denops.call("dein#load_toml", config_base + "treesitter.toml", {
-        lazy: true,
-      });
-      await denops.call("dein#load_toml", config_base + "lsp.toml", {
-        lazy: true,
-      });
-      await denops.call("dein#load_toml", config_base + "ddc.toml", {
-        lazy: true,
-      });
-      await denops.call("dein#load_toml", config_base + "ddu.toml", {
-        lazy: true,
-      });
-
-      await denops.call("dein#end");
-      await denops.call("dein#save_state");
-    });
-  }
-
-  await denops.call("dein#call_hook", "source");
-  await denops.call("dein#source");
 }
