@@ -8,6 +8,7 @@ with pkgs; [
   deno
   exa
   fd
+  gauche
   gh
   ghq
   git
