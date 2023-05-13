@@ -49,7 +49,7 @@ export const ddc: Plugin[] = [
         file = {
           mark = "F",
           isVolatile = true,
-          forceCompletionPattern = [[\S/\S*]],
+          forceCompletionPattern = [[\\S/\\S*]],
         },
         buffer = { mark = "B" },
         cmdline = { mark = "CMD" },
