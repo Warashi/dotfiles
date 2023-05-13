@@ -65,8 +65,8 @@ in {
   };
 
   # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin.nix
-  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin.nix";
+  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/home-manager/darwin.nix
+  environment.darwinConfig = "$HOME/.config/home-manager/darwin.nix";
   environment.shells = [pkgs.zsh];
 
   # Auto upgrade nix package and the daemon service.
