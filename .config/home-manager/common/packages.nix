@@ -29,6 +29,7 @@ with pkgs; [
   tmux-xpanes
   vivid
   yq-go
+  zig
 
   python311Packages.pipx
 
@@ -36,6 +37,7 @@ with pkgs; [
   gopls
   lua-language-server
   terraform-ls
+  zls
 
   # null-ls から利用
   alejandra

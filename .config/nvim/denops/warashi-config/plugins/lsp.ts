@@ -49,6 +49,7 @@ export const lsp: Plugin[] = [
       lspconfig.gopls.setup({})
       lspconfig.lua_ls.setup({})
       lspconfig.terraformls.setup({})
+      lspconfig.zls.setup({})
       lspconfig.denols.setup({
         init_options = {
           lint = true,
