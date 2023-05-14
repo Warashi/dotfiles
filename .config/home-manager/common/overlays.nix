@@ -32,17 +32,17 @@ in [
       prev.sheldon.overrideAttrs
       (old: rec {
         inherit (old) pname;
-        version = "0.7.1";
+        version = "0.7.2";
 
         src = prev.fetchCrate {
           inherit pname version;
-          sha256 = "sha256-E2p4hGKqFvLn8EgX+0AkBzQTGAhARlPjo1mE/xv2U0o";
+          sha256 = "sha256-Yghv5aNDLtrZtnSxuLjPCwAKyyXLMyd9iNNIR9N+jlo=";
         };
 
         cargoDeps = old.cargoDeps.overrideAttrs (prev.lib.const {
           inherit src;
           name = "${old.pname}-${version}-vendor.tar.gz";
-          outputHash = "sha256-4PP38eNdKLQddTkPhCbVnddsUlIDCTj9ZgPH+WJfBEk";
+          outputHash = "sha256-kb3mkEgK3Yo4o37qXdZqXd4KGhTwCYbgOBGNjLYO05E=";
         });
 
         doCheck = false;
