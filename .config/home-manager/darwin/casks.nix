@@ -8,6 +8,7 @@
   "iterm2"
   "jetbrains-toolbox"
   "karabiner-elements"
+  "logseq"
   "microsoft-edge"
   "mimestream"
   "notion"
