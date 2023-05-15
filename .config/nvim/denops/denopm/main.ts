@@ -6,7 +6,7 @@ import {
   fs,
   option,
 } from "./deps.ts";
-import { expandGlob } from "https://deno.land/std@0.186.0/fs/expand_glob.ts";
+import { expandGlob } from "https://deno.land/std@0.187.0/fs/expand_glob.ts";
 
 async function download_git(dst: string, url: string): Promise<boolean> {
   if (await fs.exists(dst)) {
