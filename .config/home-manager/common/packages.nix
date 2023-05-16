@@ -31,6 +31,7 @@ with pkgs; [
   vivid
   yq-go
   zig
+  zstd
 
   python311Packages.pipx
 
