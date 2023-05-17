@@ -5,6 +5,7 @@ import {
   fnamemodify,
   fs,
   option,
+  vim,
 } from "./deps.ts";
 import { expandGlob } from "https://deno.land/std@0.187.0/fs/expand_glob.ts";
 
@@ -80,6 +81,17 @@ async function register_denops(denops: Denops, path: string): Promise<void> {
   }
 }
 
+async function load(denops: Denops, path: string): Promise<void> {
+  await append_rtp(denops, path);
+  if (await vim.get(denops, "vim_did_enter")) {
+    await source_vimscript(denops, path);
+    await source_lua(denops, path);
+    await source_vimscript_after(denops, path);
+    await source_lua_after(denops, path);
+    await register_denops(denops, path);
+  }
+}
+
 export function main(denops: Denops): Promise<void> {
   denops.dispatcher = {
     async download_git(base, dst, url): Promise<boolean> {
@@ -140,7 +152,10 @@ export function main(denops: Denops): Promise<void> {
       assertString(org);
       assertString(repo);
       await source_vimscript(denops, `${base}/repos/github.com/${org}/${repo}`);
-      await source_vimscript_after(denops, `${base}/repos/github.com/${org}/${repo}`);
+      await source_vimscript_after(
+        denops,
+        `${base}/repos/github.com/${org}/${repo}`,
+      );
     },
 
     async source_lua_git(base, dst): Promise<void> {
