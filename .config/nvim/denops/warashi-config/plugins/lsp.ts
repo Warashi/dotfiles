@@ -51,9 +51,23 @@ export const lsp: Plugin[] = [
       lspconfig.terraformls.setup({})
       lspconfig.zls.setup({})
       lspconfig.denols.setup({
+        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
         init_options = {
           lint = true,
+          unstable = true,
+          suggest = {
+            imports = {
+              hosts = {
+                ["https://deno.land"] = true,
+                ["https://cdn.nest.land"] = true,
+                ["https://crux.land"] = true,
+              },
+            },
+          },
         },
+      })
+      lspconfig.tsserver.setup({
+        root_dir = lspconfig.util.root_pattern("package.json"),
       })
     `,
   },

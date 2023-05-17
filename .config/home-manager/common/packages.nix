@@ -38,6 +38,7 @@ with pkgs; [
   # lanuage server
   gopls
   lua-language-server
+  nodePackages_latest.typescript-language-server
   terraform-ls
   zls
 
