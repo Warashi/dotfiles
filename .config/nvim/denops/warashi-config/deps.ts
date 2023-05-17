@@ -9,3 +9,4 @@ export { echo } from "https://deno.land/x/denops_std@v4.3.3/helper/mod.ts";
 export * from "https://deno.land/x/denops_std@v4.3.3/mod.ts";
 export * from "https://deno.land/x/denops_std@v4.3.3/variable/mod.ts";
 export * from "https://deno.land/x/unknownutil@v2.1.1/mod.ts";
+export { Semaphore } from "https://deno.land/x/async@v2.0.2/mod.ts";

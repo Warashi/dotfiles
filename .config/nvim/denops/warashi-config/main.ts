@@ -5,6 +5,7 @@ import {
   globals,
   mapping,
   option,
+  Semaphore,
   stdpath,
 } from "./deps.ts";
 import { convert, GitPlugin, plugins } from "./plugins.ts";
@@ -26,10 +27,14 @@ export async function main(denops: Denops): Promise<void> {
     async update_plugins(): Promise<void> {
       const base = await stdpath(denops, "cache") + "/denopm";
 
-      for (const p of plugins) {
-        const dst = convert(p).dst;
-        await denops.dispatch("denopm", "update_git", base, dst);
-      }
+      const sem = new Semaphore(4);
+      const job = (dst: string) => {
+        return sem.lock(async () => {
+          await denops.dispatch("denopm", "update_git", base, dst);
+        });
+      };
+
+      await Promise.all(plugins.map((p) => convert(p).dst).map(job));
 
       echo(denops, "updated!");
     },
