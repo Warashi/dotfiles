@@ -14,6 +14,7 @@ with pkgs; [
   git
   git-lfs
   glow
+  gnumake
   go_1_20
   htop
   hyperfine
