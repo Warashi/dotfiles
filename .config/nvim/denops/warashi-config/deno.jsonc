@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "upgrade": "deno run --no-lock -A https://deno.land/x/udd/main.ts $(find . -name '*.ts')"
+  }
+}
