@@ -83,9 +83,7 @@ async function register_denops(denops: Denops, path: string): Promise<void> {
 
 async function load(denops: Denops, base: string, path: string): Promise<void> {
   await append_rtp(denops, `${base}/repos/${path}`);
-  if ((await vim.get(denops, "vim_did_enter")) > 0) {
-    console.log("loading", path)
-    console.log(await option.runtimepath.get(denops))
+  if ((await vim.get(denops, "vim_did_enter")) !== 0) {
     await source_vimscript(denops, `${base}/repos/${path}`);
     await source_lua(denops, `${base}/repos/${path}`);
     await source_vimscript_after(denops, `${base}/repos/${path}`);
@@ -109,89 +107,10 @@ export function main(denops: Denops): Promise<void> {
       return await download_git(`${base}/repos/${dst}`, url);
     },
 
-    async download_github(base, org, repo): Promise<boolean> {
-      assertString(base);
-      assertString(org);
-      assertString(repo);
-
-      return await download_git(
-        `${base}/repos/github.com/${org}/${repo}`,
-        `https://github.com/${org}/${repo}`,
-      );
-    },
-
     async update_git(base, dst): Promise<boolean> {
       assertString(base);
       assertString(dst);
       return await update_git(`${base}/repos/${dst}`);
-    },
-
-    async update_github(base, org, repo): Promise<boolean> {
-      assertString(base);
-      assertString(org);
-      assertString(repo);
-      return await update_git(`${base}/repos/github.com/${org}/${repo}`);
-    },
-
-    async add_rtp_git(base, dst): Promise<void> {
-      assertString(base);
-      assertString(dst);
-
-      await append_rtp(denops, `${base}/repos/${dst}`);
-    },
-
-    async add_rtp_github(base, org, repo): Promise<void> {
-      assertString(base);
-      assertString(org);
-      assertString(repo);
-
-      await append_rtp(denops, `${base}/repos/github.com/${org}/${repo}`);
-    },
-
-    async source_vimscript_git(base, dst): Promise<void> {
-      assertString(base);
-      assertString(dst);
-      await source_vimscript(denops, `${base}/repos/${dst}`);
-      await source_vimscript_after(denops, `${base}/repos/${dst}`);
-    },
-
-    async source_vimscript_github(base, org, repo): Promise<void> {
-      assertString(base);
-      assertString(org);
-      assertString(repo);
-      await source_vimscript(denops, `${base}/repos/github.com/${org}/${repo}`);
-      await source_vimscript_after(
-        denops,
-        `${base}/repos/github.com/${org}/${repo}`,
-      );
-    },
-
-    async source_lua_git(base, dst): Promise<void> {
-      assertString(base);
-      assertString(dst);
-      await source_lua(denops, `${base}/repos/${dst}`);
-      await source_lua_after(denops, `${base}/repos/${dst}`);
-    },
-
-    async source_lua_github(base, org, repo): Promise<void> {
-      assertString(base);
-      assertString(org);
-      assertString(repo);
-      await source_lua(denops, `${base}/repos/github.com/${org}/${repo}`);
-      await source_lua_after(denops, `${base}/repos/github.com/${org}/${repo}`);
-    },
-
-    async register_denops_git(base, dst): Promise<void> {
-      assertString(base);
-      assertString(dst);
-      await register_denops(denops, `${base}/repos/${dst}`);
-    },
-
-    async register_denops_github(base, org, repo): Promise<void> {
-      assertString(base);
-      assertString(org);
-      assertString(repo);
-      await register_denops(denops, `${base}/repos/github.com/${org}/${repo}`);
     },
   };
 
