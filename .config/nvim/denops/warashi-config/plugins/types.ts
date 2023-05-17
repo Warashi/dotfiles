@@ -18,9 +18,25 @@ export type GitHubPlugin = z.infer<typeof GitHubPlugin>;
 export type GitPlugin = z.infer<typeof GitPlugin>;
 export type Plugin = GitPlugin | GitHubPlugin;
 
-export function isGitPlugin(x: unknown): x is GitPlugin {
+function isGitPlugin(x: unknown): x is GitPlugin {
   return GitPlugin.safeParse(x).success;
 }
-export function isGitHubPlugin(x: unknown): x is GitHubPlugin {
+
+function isGitHubPlugin(x: unknown): x is GitHubPlugin {
   return GitHubPlugin.safeParse(x).success;
+}
+
+export function convert(x: Plugin): GitPlugin {
+  if (isGitPlugin(x)) {
+    return x;
+  }
+  if (isGitHubPlugin(x)) {
+    return {
+      url: `https://github.com/${x.org}/${x.repo}`,
+      dst: `github.com/${x.org}/${x.repo}`,
+      lua_pre: x.lua_pre,
+      lua_post: x.lua_post,
+    };
+  }
+  throw new Error("unreachable");
 }

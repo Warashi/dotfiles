@@ -81,19 +81,27 @@ async function register_denops(denops: Denops, path: string): Promise<void> {
   }
 }
 
-async function load(denops: Denops, path: string): Promise<void> {
-  await append_rtp(denops, path);
-  if (await vim.get(denops, "vim_did_enter")) {
-    await source_vimscript(denops, path);
-    await source_lua(denops, path);
-    await source_vimscript_after(denops, path);
-    await source_lua_after(denops, path);
-    await register_denops(denops, path);
+async function load(denops: Denops, base: string, path: string): Promise<void> {
+  await append_rtp(denops, `${base}/repos/${path}`);
+  if ((await vim.get(denops, "vim_did_enter")) > 0) {
+    console.log("loading", path)
+    console.log(await option.runtimepath.get(denops))
+    await source_vimscript(denops, `${base}/repos/${path}`);
+    await source_lua(denops, `${base}/repos/${path}`);
+    await source_vimscript_after(denops, `${base}/repos/${path}`);
+    await source_lua_after(denops, `${base}/repos/${path}`);
+    await register_denops(denops, `${base}/repos/${path}`);
   }
 }
 
 export function main(denops: Denops): Promise<void> {
   denops.dispatcher = {
+    async load(base, path): Promise<void> {
+      assertString(base);
+      assertString(path);
+      await load(denops, base, path);
+    },
+
     async download_git(base, dst, url): Promise<boolean> {
       assertString(base);
       assertString(dst);
