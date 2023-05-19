@@ -46,7 +46,13 @@ export const lsp: Plugin[] = [
       require("neoconf").setup({})
 
       local lspconfig = require("lspconfig")
-      lspconfig.gopls.setup({})
+      lspconfig.gopls.setup({
+        settings = {
+          gopls = {
+            buildFlags = { "-tags=wireinject" },
+          },
+        },
+      })
       lspconfig.lua_ls.setup({})
       lspconfig.terraformls.setup({})
       lspconfig.zls.setup({})
