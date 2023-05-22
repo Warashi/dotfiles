@@ -8,7 +8,6 @@ with pkgs; [
   deno
   exa
   fd
-  gauche
   gh
   ghq
   git
@@ -31,7 +30,6 @@ with pkgs; [
   tmux-xpanes
   vivid
   yq-go
-  zig
   zstd
 
   python311Packages.pipx
@@ -41,7 +39,6 @@ with pkgs; [
   lua-language-server
   nodePackages_latest.typescript-language-server
   terraform-ls
-  zls
 
   # null-ls から利用
   alejandra
