@@ -26,8 +26,8 @@ github = "yuki-yano/zeno.zsh"
 [plugins.denovo]
 github = "Warashi/denovo.zsh"
 
-[plugins.denovo-selector-fzf]
-github = "Warashi/denovo-selector-fzf"
+[plugins.denovo-fzf]
+github = "Warashi/denovo-fzf"
 
 [plugins.zsh-terminal-title]
 github = "AnimiVulpis/zsh-terminal-title"

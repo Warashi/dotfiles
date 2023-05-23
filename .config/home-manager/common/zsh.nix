@@ -35,8 +35,8 @@
       ZENO_GIT_TREE = "exa --tree";
 
       # denovo.zsh config
-      DENOVO_SELECTOR_FZF_USE_TMUX ="1";
-      DENOVO_SELECTOR_FZF_TMUX_OPTIONS ="-p 80%";
+      DENOVO_FZF_USE_TMUX ="1";
+      DENOVO_FZF_TMUX_OPTIONS ="-p 80%";
     };
 
     shellAliases = {
