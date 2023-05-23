@@ -86,6 +86,10 @@ async function denopm_git(
 ): Promise<void> {
   await denops.dispatch("denopm", "download_git", base, p.dst, p.url);
 
+  if (p.hook_pre != null) {
+    p.hook_pre();
+  }
+
   if (p.lua_pre != null) {
     await denops.cmd(`lua ${p.lua_pre}`);
   }
@@ -94,5 +98,9 @@ async function denopm_git(
 
   if (p.lua_post != null) {
     await denops.cmd(`lua ${p.lua_post}`);
+  }
+
+  if (p.hook_post != null) {
+    p.hook_post();
   }
 }

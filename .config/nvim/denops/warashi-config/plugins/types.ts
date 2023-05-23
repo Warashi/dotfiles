@@ -5,6 +5,8 @@ const GitHubPlugin = z.object({
   repo: z.string(),
   lua_pre: z.string().optional(),
   lua_post: z.string().optional(),
+  hook_pre: z.function().returns(z.void()).optional(),
+  hook_post: z.function().returns(z.void()).optional(),
 });
 
 const GitPlugin = z.object({
@@ -12,6 +14,8 @@ const GitPlugin = z.object({
   dst: z.string(),
   lua_pre: z.string().optional(),
   lua_post: z.string().optional(),
+  hook_pre: z.function().returns(z.void()).optional(),
+  hook_post: z.function().returns(z.void()).optional(),
 });
 
 export type GitHubPlugin = z.infer<typeof GitHubPlugin>;
