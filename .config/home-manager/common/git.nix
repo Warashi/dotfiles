@@ -38,6 +38,11 @@
           helper = "!gh auth git-credential";
         };
       };
+      ghq.root = [
+        "~/ghq/"
+        "~/.cache/nvim/denopm/repos/"
+        "~/.local/share/sheldon/repos/"
+      ];
     };
   };
 }
