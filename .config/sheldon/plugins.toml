@@ -23,6 +23,12 @@ github = "romkatv/powerlevel10k"
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 
+[plugins.denovo]
+github = "Warashi/denovo.zsh"
+
+[plugins.denovo-selector-fzf]
+github = "Warashi/denovo-selector-fzf"
+
 [plugins.zsh-terminal-title]
 github = "AnimiVulpis/zsh-terminal-title"
 apply = ["defer"]
