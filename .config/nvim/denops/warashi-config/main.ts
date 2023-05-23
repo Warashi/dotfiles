@@ -40,6 +40,7 @@ export async function main(denops: Denops): Promise<void> {
     },
   };
 
+  await denops.cmd(`lua require("editorconfig").config(0)`);
   echo(denops, "configured!");
 }
 
