@@ -15,6 +15,7 @@
   "raindropio"
   "raycast"
   "slack"
+  "timing"
   "wezterm"
 
   "homebrew/cask-fonts/font-biz-udgothic"
