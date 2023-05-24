@@ -50,7 +50,7 @@
       source = builtins.fetchurl "https://github.com/tokuhirom/skk-jisyo-jawiki/raw/master/SKK-JISYO.jawiki";
       target = ".config/skk/SKK-JISYO.jawiki";
     };
-    bat-catppuccin-mocha = {
+    bat-catppuccin-latte = {
       source =
         pkgs.fetchFromGitHub {
           owner = "catppuccin";
@@ -58,8 +58,8 @@
           rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
           sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
         }
-        + /Catppuccin-mocha.tmTheme;
-      target = ".config/bat/themes/Catppuccin-mocha.tmTheme";
+        + /Catppuccin-latte.tmTheme;
+      target = ".config/bat/themes/Catppuccin-latte.tmTheme";
     };
   };
 }

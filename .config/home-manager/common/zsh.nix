@@ -24,7 +24,7 @@
       MANPAGER = "nvim +Man!";
       NIXPKGS_ALLOW_UNFREE = "1";
       XDG_CONFIG_HOME = "$HOME/.config";
-      LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-mocha)";
+      LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-latte)";
 
       # zeno config
       ZENO_HOME = "$HOME/.config/zeno";
@@ -88,7 +88,7 @@
           rev = "06d519c20798f0ebe275fc3a8101841faaeee8ea";
           sha256 = "sha256-Q7KmwUd9fblprL55W0Sf4g7lRcemnhjh4/v+TacJSfo=";
         }
-        + /themes/catppuccin_mocha-zsh-syntax-highlighting.zsh))
+        + /themes/catppuccin_latte-zsh-syntax-highlighting.zsh))
       + import ./zprof.nix;
 
     envExtra =
