@@ -42,6 +42,7 @@ with pkgs; [
 
   # null-ls から利用
   alejandra
+  beautysh
   deadnix
   nodePackages.cspell
   selene

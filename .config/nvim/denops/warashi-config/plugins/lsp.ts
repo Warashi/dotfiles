@@ -106,8 +106,9 @@ export const lsp: Plugin[] = [
           --- shell ---
           null_ls.builtins.diagnostics.shellcheck,
           null_ls.builtins.diagnostics.zsh,
-          null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.formatting.beautysh,
           null_ls.builtins.formatting.shellharden,
+          null_ls.builtins.formatting.shfmt,
 
           --- other ---
           null_ls.builtins.diagnostics.todo_comments,
