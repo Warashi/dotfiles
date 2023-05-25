@@ -1,0 +1,3 @@
+[plugins.denovo-fzf]
+fzf-tmux = true
+fzf-options = "-p 80%"
