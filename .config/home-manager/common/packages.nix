@@ -25,7 +25,6 @@ with pkgs; [
   python311
   ripgrep
   sheldon
-  skim
   tig
   tmux-xpanes
   vivid
