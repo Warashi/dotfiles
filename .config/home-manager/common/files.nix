@@ -61,5 +61,9 @@
         + /Catppuccin-latte.tmTheme;
       target = ".config/bat/themes/Catppuccin-latte.tmTheme";
     };
+    glamour-catppuccin-latte = {
+      source = builtins.fetchurl "https://github.com/catppuccin/glamour/releases/download/v1.0.0/latte.json";
+      target = ".config/glamour/catppuccin-latte.json";
+    };
   };
 }
