@@ -39,9 +39,9 @@
         };
       };
       ghq.root = [
-        "~/ghq/"
-        "~/.cache/nvim/denopm/repos/"
         "~/.local/share/sheldon/repos/"
+        "~/.cache/nvim/denopm/repos/"
+        "~/ghq/"
       ];
     };
   };
