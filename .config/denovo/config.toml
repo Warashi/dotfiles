@@ -2,3 +2,19 @@
 fzf-tmux = true
 fzf-options = "-p 80%"
 ghq-cd-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {}/README.md"
+
+[plugins.denovo-abbrev]
+[[plugins.denovo-abbrev.snippets]]
+name = "git"
+keyword = "g"
+snippet = "git"
+
+[[plugins.denovo-abbrev.snippets]]
+name = "ls -l"
+keyword = "ll"
+snippet = "ls -l"
+
+[[plugins.denovo-abbrev.snippets]]
+name = "ls -al"
+keyword = "la"
+snippet = "ls -al"
