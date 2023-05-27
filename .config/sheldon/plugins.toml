@@ -32,6 +32,9 @@ github = "Warashi/denovo-fzf"
 [plugins.denovo-abbrev]
 github = "Warashi/denovo-abbrev"
 
+[plugins.denovo-benchmark]
+github = "Warashi/denovo-benchmark"
+
 [plugins.zsh-terminal-title]
 github = "AnimiVulpis/zsh-terminal-title"
 apply = ["defer"]
