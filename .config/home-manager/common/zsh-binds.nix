@@ -5,4 +5,5 @@
   bindkey "^x" denovo-fzf-ghq-cd
   bindkey ' '  denovo-abbrev-expand
   bindkey '^m' denovo-abbrev-expand-and-accept-line
+  bindkey '^i' denovo-complete
 ''

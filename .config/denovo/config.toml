@@ -1,6 +1,6 @@
 [plugins.denovo-fzf]
 fzf-tmux = true
-fzf-options = "-p 80%"
+fzf-options = "-1 -p 80%"
 ghq-cd-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {}/README.md"
 
 [plugins.denovo-abbrev]

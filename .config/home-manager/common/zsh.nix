@@ -33,10 +33,6 @@
       ZENO_ENABLE_SOCK = "1";
       ZENO_GIT_CAT = "bat --color=always";
       ZENO_GIT_TREE = "exa --tree";
-
-      # denovo.zsh config
-      DENOVO_FZF_USE_TMUX ="1";
-      DENOVO_FZF_TMUX_OPTIONS ="-p 80%";
     };
 
     shellAliases = {
