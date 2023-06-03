@@ -19,9 +19,12 @@ with pkgs; [
   hyperfine
   jdk17
   jq
+  kubectl
+  kubectx
   neovim
   neovim-remote
   nodejs
+  okteto
   python311
   ripgrep
   sheldon
