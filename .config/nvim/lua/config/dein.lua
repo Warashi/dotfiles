@@ -21,7 +21,7 @@ dein.setup({
 
 vim.env.DEIN_CONFIG_BASE = config_base
 
--- if dein.load_state(dein_base) > 0 then
+if dein.load_state(dein_base) > 0 then
   dein.begin(dein_base)
 
   dein.load_toml(config_base .. "libs.toml")
@@ -39,6 +39,6 @@ vim.env.DEIN_CONFIG_BASE = config_base
   dein.end_()
 
   dein.save_state()
--- end
+end
 
 dein.call_hook("source")
