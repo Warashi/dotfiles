@@ -2,9 +2,7 @@
   programs,
   pkgs,
   ...
-}: let
-  warashiPkgs = import <warashi> {};
-in {
+}: {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -19,7 +17,7 @@ in {
       tmux-thumbs
 
       {
-        plugin = warashiPkgs.tmux-catppuccin;
+        plugin = catppuccin;
         extraConfig = ''
           set -g @catppuccin_flavour 'latte'
           set -g @catppuccin_window_tabs_enabled on
