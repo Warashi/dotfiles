@@ -76,6 +76,7 @@ export const lsp: Plugin[] = [
         root_dir = lspconfig.util.root_pattern("package.json"),
         single_file_support = false,
       })
+      lspconfig.rust_analyzer.setup({})
     `,
   },
   {
