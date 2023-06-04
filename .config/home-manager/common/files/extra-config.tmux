@@ -35,6 +35,8 @@ bind v split-window -v -c "#{pane_current_path}"
 # H, V で pane 再配置
 bind H select-layout main-vertical
 bind V select-layout main-horizontal
+set-option -g main-pane-height "50%"
+set-option -g main-pane-width "50%"
 
 # C-o, M-o で分割した画面をRotate
 bind -r C-o rotate-window -D
