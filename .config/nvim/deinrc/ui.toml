@@ -6,3 +6,7 @@ hooks_file = '$DEIN_CONFIG_BASE/hooks/catppuccin.lua'
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/nvim-notify.lua'
+
+[[plugins]]
+repo = 'gen740/SmoothCursor.nvim'
+hooks_file = '$DEIN_CONFIG_BASE/hooks/smooth-cursor.lua'
