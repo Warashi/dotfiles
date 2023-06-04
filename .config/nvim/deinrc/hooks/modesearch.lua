@@ -8,15 +8,15 @@ require("modesearch").setup({
   modes = {
     rawstr = {
       prompt = "[rawstr]/",
-      converter = function(query) return [[\\V]] .. vim.fn.escape(query, [[/\\]]) end,
+      converter = function(query) return [[\V]] .. vim.fn.escape(query, [[/\]]) end,
     },
     regexp = {
       prompt = "[regexp]/",
-      converter = function(query) return [[\\v]] .. vim.fn.escape(query, [[/]]) end,
+      converter = function(query) return [[\v]] .. vim.fn.escape(query, [[/]]) end,
     },
     migemo = {
       prompt = "[migemo]/",
-      converter = function(query) return [[\\v]] .. vim.fn["kensaku#query"](query) end,
+      converter = function(query) return [[\v]] .. vim.fn["kensaku#query"](query) end,
     },
   },
 })
