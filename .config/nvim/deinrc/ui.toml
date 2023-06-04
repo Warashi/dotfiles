@@ -5,8 +5,22 @@ hooks_file = '$DEIN_CONFIG_BASE/hooks/catppuccin.lua'
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
+depends = ['catppuccin']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/nvim-notify.lua'
 
 [[plugins]]
 repo = 'gen740/SmoothCursor.nvim'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/smooth-cursor.lua'
+
+[[plugins]]
+repo ='windwp/nvim-autopairs'
+lua_source = 'require("nvim-autopairs").setup()'
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+depends = ['catppuccin']
+lua_source = 'require("gitsigns").setup()'
+
+[[plugins]]
+repo = 'monaqa/modesearch.nvim'
+hooks_file = '$DEIN_CONFIG_BASE/hooks/modesearch.lua'
