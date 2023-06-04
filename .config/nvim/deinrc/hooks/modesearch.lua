@@ -1,6 +1,11 @@
 -- lua_add {{{
 vim.keymap.set("n", "/", function() return require("modesearch").keymap.prompt.show("rawstr") end, { expr = true })
-vim.keymap.set( "c", "<C-x>", function() return require("modesearch").keymap.mode.cycle({ "rawstr", "migemo", "regexp" }) end, { expr = true })
+vim.keymap.set(
+  "c",
+  "<C-x>",
+  function() return require("modesearch").keymap.mode.cycle({ "rawstr", "migemo", "regexp" }) end,
+  { expr = true }
+)
 -- }}}
 
 -- lua_source {{{
