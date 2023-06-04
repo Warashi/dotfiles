@@ -1,0 +1,13 @@
+[[plugins]]
+repo = 'folke/neoconf.nvim'
+on_source = ['nvim-lspconfig']
+lua_source = 'require("neoconf").setup({})'
+
+[[plugins]]
+repo = 'folke/neodev.nvim'
+on_source = ['nvim-lspconfig']
+lua_source = 'require("neodev").setup({})'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+hooks_file = '$DEIN_CONFIG_BASE/hooks/lspconfig.lua'
