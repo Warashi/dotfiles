@@ -1,0 +1,4 @@
+[[plugins]]
+name = 'catppuccin'
+repo = 'catppuccin/nvim'
+hooks_file = '$DEIN_CONFIG_BASE/catppuccin.lua'
