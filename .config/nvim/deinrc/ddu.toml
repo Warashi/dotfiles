@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
-on_event = ['InsertEnter']
+on_event = ['VimEnter']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/ddu.lua'
 
 [[plugins]]
