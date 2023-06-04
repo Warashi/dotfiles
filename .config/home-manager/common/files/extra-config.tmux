@@ -33,7 +33,7 @@ bind h split-window -h -c "#{pane_current_path}"
 bind v split-window -v -c "#{pane_current_path}"
 
 # H, V で pane 再配置
-bind H select-layout main-vertical
+bind H run-shell "tmux-mvr"
 bind V select-layout main-horizontal
 set-option -g main-pane-height "50%"
 set-option -g main-pane-width "50%"
