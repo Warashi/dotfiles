@@ -38,6 +38,9 @@ bind V select-layout main-horizontal
 set-option -g main-pane-height "50%"
 set-option -g main-pane-width "50%"
 
+# Enter キーで main-vertical-right
+bind C-m run-shell "tmux-mvr"
+
 # C-o, M-o で分割した画面をRotate
 bind -r C-o rotate-window -D
 bind -r M-o rotate-window -U
