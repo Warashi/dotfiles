@@ -24,3 +24,18 @@ lua_source = 'require("gitsigns").setup()'
 [[plugins]]
 repo = 'monaqa/modesearch.nvim'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/modesearch.lua'
+
+[[plugins]]
+repo = 'vim-skk/skkeleton'
+hooks_file = '$DEIN_CONFIG_BASE/hooks/skkeleton.lua'
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+hook_source = 'call popup_preview#enable()'
+
+[[plugins]]
+repo = 'matsui54/denops-signature_help'
+hook_source = '''
+  g:signature_help_config = #{contentsStyle: "remainingLabels", viewStyle: "virtual" }
+  call signature_help#enable()
+'''
