@@ -39,3 +39,7 @@ hook_source = '''
   g:signature_help_config = #{contentsStyle: "remainingLabels", viewStyle: "virtual" }
   call signature_help#enable()
 '''
+
+[[plugins]]
+repo = 'github/copilot.vim'
+hook_add = 'g:copilot_no_maps = v:true'
