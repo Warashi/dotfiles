@@ -24,6 +24,8 @@ vim.env.DEIN_CONFIG_BASE = config_base
 if dein.load_state(dein_base) > 0 then
   dein.begin(dein_base)
 
+  dein.load_toml(config_base .. "someone.toml")
+
   dein.load_toml(config_base .. "libs.toml")
   dein.load_toml(config_base .. "ui.toml")
   dein.load_toml(config_base .. "ft.toml")

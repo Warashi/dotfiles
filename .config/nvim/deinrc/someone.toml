@@ -1,0 +1,3 @@
+[[plugins]]
+repo = 'Shougo/shougo-s-github'
+if = 0
