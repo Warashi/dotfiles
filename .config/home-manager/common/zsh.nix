@@ -1,8 +1,10 @@
 {
-  programs,
   pkgs,
+  programs,
   ...
-}: {
+}: let
+  warashiPkgs = import <warashi> {};
+in {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -25,6 +27,7 @@
       NIXPKGS_ALLOW_UNFREE = "1";
       XDG_CONFIG_HOME = "$HOME/.config";
       LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-latte)";
+      MOCWORD_DATA = "${warashiPkgs.mocword-data}/mocword.sqlite";
 
       # zeno config
       ZENO_HOME = "$HOME/.config/zeno";

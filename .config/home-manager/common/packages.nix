@@ -38,6 +38,8 @@ in
     zstd
 
     warashiPkgs.tmux-mvr
+    warashiPkgs.mocword
+    warashiPkgs.mocword-data
 
     python311Packages.pipx
 
