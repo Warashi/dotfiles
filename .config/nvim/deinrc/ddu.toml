@@ -1,0 +1,57 @@
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+on_event = ['VimEnter']
+hooks_file = '$DEIN_CONFIG_BASE/hooks/ddu.lua'
+
+[[plugins]]
+repo = 'Warashi/ddu-source-copilot'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'matsui54/ddu-vim-ui-select'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = '4513ECHO/ddu-source-emoji'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = '4513ECHO/ddu-source-source'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-source-line'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-source-register'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'matsui54/ddu-source-command_history'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'shun/ddu-source-buffer'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = '4513ECHO/ddu-kind-url'
+depends = ['open-browser.vim']
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-word'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Milly/ddu-filter-kensaku'
+on_source = ['ddu.vim']
