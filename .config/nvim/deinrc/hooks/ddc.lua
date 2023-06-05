@@ -1,5 +1,5 @@
 -- lua_source {{{
-local patch_global = vim.fn["ddc#custom#patch_global"]
+vim.fn["ddc#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "hooks/ddc.ts")
 
 local function complete_or_select(rel)
   if vim.fn["pum#visible"]() then
@@ -10,7 +10,6 @@ local function complete_or_select(rel)
 end
 
 -- pum
-patch_global("ui", "pum")
 vim.keymap.set(
   "i",
   "<C-n>",
@@ -25,30 +24,6 @@ vim.keymap.set(
 )
 vim.keymap.set("i", "<C-y>", function() vim.fn["pum#map#confirm"]() end)
 vim.keymap.set("i", "<C-e>", function() vim.fn["pum#map#cancel"]() end)
-
--- sources
-patch_global("sources", { "nvim-lsp", "buffer", "around", "file", "vsnip", "zsh" })
-patch_global("sourceOptions", {
-  around = { mark = "A" },
-  ["nvim-lsp"] = { mark = "L" },
-  file = {
-    mark = "F",
-    isVolatile = true,
-    forceCompletionPattern = [[\\S/\\S*]],
-  },
-  buffer = { mark = "B" },
-  cmdline = { mark = "CMD" },
-  ["cmdline-history"] = { mark = "CMD" },
-  zsh = { mark = "Z" },
-  ["_"] = {
-    matchers = { "matcher_fuzzy" },
-    sorters = { "sorter_fuzzy" },
-    converters = { "converter_fuzzy" },
-  },
-})
-patch_global("sourceParams", {
-  around = { maxSize = 500 },
-})
 
 -- cmdline
 local function commandline_post(maps)
@@ -95,8 +70,6 @@ vim.keymap.set("n", ":", function()
   commandline_pre()
   return ":"
 end, { expr = true, remap = true })
-patch_global("autoCompleteEvents", { "InsertEnter", "TextChangedI", "TextChangedP", "CmdlineEnter", "CmdlineChanged" })
-patch_global("cmdlineSources", { "cmdline", "cmdline-history", "file", "around" })
 
 -- enable
 vim.fn["ddc#enable"]()
