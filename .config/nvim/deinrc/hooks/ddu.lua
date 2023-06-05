@@ -1,46 +1,12 @@
 -- lua_add {{{
 local start = vim.fn["ddu#start"]
-vim.keymap.set("n", "<leader>d", function() start({ sources = { { name = "source" } } }) end)
-vim.keymap.set(
-  "i",
-  "<C-x><C-l>",
-  function() start({ sources = { { name = "copilot", options = { defaultAction = "append" } } } }) end
-)
-vim.keymap.set(
-  "i",
-  "<C-x><C-e>",
-  function() start({ sources = { { name = "emoji", options = { defaultAction = "append" } } } }) end
-)
+vim.keymap.set("n", "<leader>d", function() start({ name = "source" }) end)
+vim.keymap.set("i", "<C-x><C-l>", function() start({ name = "copilot" }) end)
+vim.keymap.set("i", "<C-x><C-e>", function() start({ name = "emoji" }) end)
 -- }}}
 
 -- lua_source {{{
-local patch_global = vim.fn["ddu#custom#patch_global"]
-
--- ui
-patch_global("ui", "ff")
-patch_global("uiParams", {
-  ff = {
-    split = "floating",
-    floatingBorder = "single",
-  },
-})
-
--- sources
-patch_global("sources", {})
-patch_global("sourceOptions", {
-  ["_"] = { matchers = { "matcher_kensaku" } },
-})
-patch_global("sourceParams", {})
-
---- kinds
-patch_global("kindOptions", {
-  command_history = { defaultAction = "edit" },
-  file = { defaultAction = "open" },
-  source = { defaultAction = "execute" },
-  ui_select = { defaultAction = "select" },
-  url = { defaultAction = "browse" },
-  word = { defaultAction = "append" },
-})
+vim.fn["ddu#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "hooks/ddu.ts")
 
 -- key-bindings
 vim.api.nvim_create_autocmd("FileType", {
