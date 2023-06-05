@@ -36,6 +36,7 @@ lspconfig.gopls.setup({
     },
   },
 })
+lspconfig.taplo.setup({})
 lspconfig.lua_ls.setup({})
 lspconfig.terraformls.setup({})
 lspconfig.zls.setup({})

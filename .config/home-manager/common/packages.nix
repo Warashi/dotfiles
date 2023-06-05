@@ -30,6 +30,7 @@ in
     python311
     ripgrep
     sheldon
+    taplo
     tig
     tmux-xpanes
     vivid
