@@ -31,7 +31,6 @@ if dein.load_state(dein_base) > 0 then
   dein.load_toml(config_base .. "ddc.toml", { lazy = true })
   dein.load_toml(config_base .. "ddu.toml", { lazy = true })
 
-  dein.load_toml(config_base .. "lazy.toml", { lazy = true })
   dein.load_toml(config_base .. "lsp.toml", { lazy = true })
   dein.load_toml(config_base .. "snippets.toml", { lazy = true })
   dein.load_toml(config_base .. "treesitter.toml", { lazy = true })
