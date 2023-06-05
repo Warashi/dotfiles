@@ -12,7 +12,7 @@ export class Config extends BaseConfig {
   }): Promise<void> {
     args.contextBuilder.patchGlobal({
       ui: "pum",
-      sources: ["nvim-lsp", "buffer", "around", "file", "vsnip", "zsh"],
+      sources: ["nvim-lsp", "mocword", "buffer", "around", "file", "vsnip", "zsh"],
       autoCompleteEvents: [
         "InsertEnter",
         "TextChangedI",
@@ -76,6 +76,11 @@ export class Config extends BaseConfig {
           mark: "zsh",
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
+        },
+        mocword: {
+          mark: "mocword",
+          minAutoCompleteLength: 4,
+          isVolatile: true,
         },
       },
     });
