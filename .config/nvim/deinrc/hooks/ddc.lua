@@ -1,6 +1,7 @@
 -- lua_source {{{
 vim.fn["ddc#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "hooks/ddc.ts")
 
+-- pum
 local function complete_or_select(rel)
   if vim.fn["pum#visible"]() then
     vim.fn["pum#map#select_relative"](rel)
@@ -8,8 +9,7 @@ local function complete_or_select(rel)
     return vim.fn["ddc#map#manual_complete"]()
   end
 end
-
--- pum
+vim.fn["pum#set_option"]("border", "single")
 vim.keymap.set(
   "i",
   "<C-n>",
