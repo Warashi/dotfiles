@@ -40,7 +40,7 @@
       };
       ghq.root = [
         "~/.local/share/sheldon/repos/"
-        "~/.cache/nvim/denopm/repos/"
+        "~/.cache/nvim/dein/repos/"
         "~/ghq/"
       ];
     };
