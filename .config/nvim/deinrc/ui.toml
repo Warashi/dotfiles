@@ -13,7 +13,7 @@ repo = 'gen740/SmoothCursor.nvim'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/smooth-cursor.lua'
 
 [[plugins]]
-repo ='windwp/nvim-autopairs'
+repo = 'windwp/nvim-autopairs'
 lua_source = 'require("nvim-autopairs").setup()'
 
 [[plugins]]
