@@ -12,7 +12,7 @@ export class Config extends BaseConfig {
   }): Promise<void> {
     args.contextBuilder.patchGlobal({
       ui: "pum",
-      sources: ["nvim-lsp", "mocword", "buffer", "around", "file", "vsnip", "zsh"],
+      sources: ["copilot", "nvim-lsp", "mocword", "buffer", "around", "file", "vsnip", "zsh"],
       autoCompleteEvents: [
         "InsertEnter",
         "TextChangedI",
@@ -47,6 +47,14 @@ export class Config extends BaseConfig {
         cmdline: {
           mark: "cmdline",
           forceCompletionPattern: "\\S/\\S*|\\.\\w*",
+        },
+        copilot: {
+          mark: "copilot",
+          matchers: [],
+          sorters: [],
+          converters: [],
+          minAutoCompleteLength: 0,
+          isVolatile: false,
         },
         input: {
           mark: "input",
