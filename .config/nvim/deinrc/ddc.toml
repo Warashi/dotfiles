@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
 on_event = ['InsertEnter']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/ddc.lua'
+hooks_file = ['$DEIN_CONFIG_BASE/hooks/ddc.lua', "$DEIN_CONFIG_BASE/hooks/ddc.vim"]
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
