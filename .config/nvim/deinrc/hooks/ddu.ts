@@ -19,6 +19,20 @@ export class Config extends BaseConfig {
     args.contextBuilder.patchLocal("emoji", {
       sources: [{ name: "emoji" }],
     });
+    args.contextBuilder.patchLocal("filer", {
+      ui: "filer",
+      sources: [{ name: "file", params: {} }],
+      sourceOptions: {
+        _: {
+          columns: ["filename"],
+        },
+      },
+      kindOptions: {
+        file: {
+          defaultAction: "open",
+        },
+      },
+    });
     args.contextBuilder.patchGlobal({
       ui: "ff",
       uiParams: {
