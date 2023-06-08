@@ -135,16 +135,16 @@ in [
   (_: prev: {
     tmux-mvr = prev.rustPlatform.buildRustPackage rec {
       pname = "tmux-mvr";
-      version = "0.0.2";
+      version = "0.0.3";
 
       src = prev.fetchFromGitHub {
         owner = "Warashi";
         repo = pname;
         rev = "v${version}";
-        sha256 = "sha256-ANBIDgHvaaFQ7sJ/cRuRIRydAJtnTMiOdFR4LUlF8oM=";
+        sha256 = "sha256-3y12Obb/hBF74KbipclpX3EKCIrVvWKqy7fxJE4VGzc=";
       };
 
-      cargoHash = "sha256-vrNPgWY6D0Ck/Jv+5O2JaeAR0nX1ywbBAKr85ZHxajk=";
+      cargoHash = "sha256-xqk4YC6mcDef1Z7Xt9U62B/FprxBRN+WXF1zhICquxo=";
       doCheck = false;
 
       meta = with prev.lib; {
