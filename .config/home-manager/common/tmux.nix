@@ -15,7 +15,6 @@
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs
-      pkgs.tmux-1password
 
       {
         plugin = catppuccin;
