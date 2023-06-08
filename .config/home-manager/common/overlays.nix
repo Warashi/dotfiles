@@ -154,4 +154,23 @@ in [
       };
     };
   })
+  (_: prev: {
+    tmux-1password = prev.tmuxPlugins.mkTmuxPlugin rec {
+      pluginName = "tmux-1password";
+      version = "0.0.1";
+      rtpFilePath = "plugin.tmux";
+      src = prev.fetchFromGitHub {
+        owner = "yardnsm";
+        repo = pluginName;
+        rev = "bb1bbd2acfe1b4d5dcf917f6ddf3b0f634a13362";
+        sha256 = "sha256-k+4mHE7oEjp85aPv0oOcjgecfvM/s0rG8x332bvn+4Y=";
+      };
+
+      meta = with prev.lib; {
+        homepage = "https://github.com/yardnsm/tmux-1password";
+        description = "🔑 Access your 1Password login items within tmux!";
+        license = licenses.mit;
+      };
+    };
+  })
 ]
