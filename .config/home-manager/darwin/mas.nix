@@ -5,6 +5,7 @@
   Dictionary = 1380563956;
   Fantastical = 975937182;
   GoodLinks = 1474335294;
+  Ivory = 6444602274;
   LINE = 539883307;
   Parcel = 639968404;
   Paste = 967805235;
