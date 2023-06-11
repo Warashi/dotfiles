@@ -29,3 +29,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<CR>", "<Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>", opts)
   end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("LspAttach_ddu", {}),
+  callback = function(ev)
+    local start = vim.fn["ddu#start"]
+    local opts = { buffer = ev.buf }
+    vim.keymap.set("n", "gd", function() start({ name = "lsp-definition" }) end, opts)
+    vim.keymap.set("n", "gr", function() start({ name = "lsp-references" }) end, opts)
+  end,
+})

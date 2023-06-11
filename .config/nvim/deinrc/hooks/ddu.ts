@@ -19,6 +19,24 @@ export class Config extends BaseConfig {
     args.contextBuilder.patchLocal("emoji", {
       sources: [{ name: "emoji" }],
     });
+    args.contextBuilder.patchLocal("lsp-definition", {
+      sync: true,
+      sources: [{ name: "lsp_definition" }],
+      uiParams: {
+        ff: {
+          immediateAction: "open",
+        },
+      },
+    });
+    args.contextBuilder.patchLocal("lsp-references", {
+      sync: true,
+      sources: [{ name: "lsp_references" }],
+      uiParams: {
+        ff: {
+          immediateAction: "open",
+        },
+      },
+    });
     args.contextBuilder.patchGlobal({
       ui: "ff",
       uiParams: {
@@ -61,6 +79,12 @@ export class Config extends BaseConfig {
           matchers: [
             "matcher_kensaku",
           ],
+        },
+        lsp_definition: {
+           defaultAction: "open",
+        },
+        lsp_references: {
+           defaultAction: "open",
         },
       },
 
