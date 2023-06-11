@@ -1,4 +1,4 @@
--- hook_add {{{
+-- lua_source {{{
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("LspAttach_inlayhints", {}),
   callback = function(args)
