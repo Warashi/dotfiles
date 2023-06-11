@@ -89,12 +89,6 @@ export class Config extends BaseConfig {
             "matcher_kensaku",
           ],
         },
-        lsp_definition: {
-          defaultAction: "open",
-        },
-        lsp_references: {
-          defaultAction: "open",
-        },
       },
 
       kindOptions: {
@@ -104,6 +98,7 @@ export class Config extends BaseConfig {
         ui_select: { defaultAction: "select" },
         url: { defaultAction: "browse" },
         word: { defaultAction: "append" },
+        lsp: { defaultAction: "open" },
       },
     });
   }
