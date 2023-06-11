@@ -33,3 +33,8 @@ lua_source = '''
   })
   require("lsp_lines").setup()
 '''
+
+[[plugins]]
+repo = 'lvimuser/lsp-inlayhints.nvim'
+on_source = ['nvim-lspconfig']
+hooks_file = '$DEIN_CONFIG_BASE/hooks/lsp-inlayhints.lua'

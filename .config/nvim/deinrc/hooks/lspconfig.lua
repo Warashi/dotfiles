@@ -33,6 +33,15 @@ lspconfig.gopls.setup({
   settings = {
     gopls = {
       buildFlags = { "-tags=wireinject" },
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
     },
   },
 })
