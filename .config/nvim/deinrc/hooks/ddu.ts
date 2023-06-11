@@ -37,6 +37,15 @@ export class Config extends BaseConfig {
         },
       },
     });
+    args.contextBuilder.patchLocal("lsp-diagnostic", {
+      sync: true,
+      sources: [{
+        name: "lsp_diagnostic",
+        params: {
+          buffer: 0,
+        },
+      }],
+    });
     args.contextBuilder.patchGlobal({
       ui: "ff",
       uiParams: {
@@ -81,10 +90,10 @@ export class Config extends BaseConfig {
           ],
         },
         lsp_definition: {
-           defaultAction: "open",
+          defaultAction: "open",
         },
         lsp_references: {
-           defaultAction: "open",
+          defaultAction: "open",
         },
       },
 
