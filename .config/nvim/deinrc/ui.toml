@@ -49,6 +49,12 @@ repo = 'lambdalisue/fern.vim'
 
 [[plugins]]
 repo = 'lambdalisue/fern-hijack.vim'
+hook_add = '''
+  let g:loaded_netrw = 1
+  let g:loaded_netrwPlugin = 1
+  let g:loaded_netrwSettings = 1
+  let g:loaded_netrwFileHandlers = 1
+'''
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
