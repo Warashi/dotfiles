@@ -41,9 +41,11 @@ with pkgs; [
   python311Packages.pipx
 
   # lanuage server
+  buf-language-server
   gopls
   lua-language-server
   nodePackages_latest.typescript-language-server
+  nodePackages_latest.yaml-language-server
   terraform-ls
 
   # null-ls から利用

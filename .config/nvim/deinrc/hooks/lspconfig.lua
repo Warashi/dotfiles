@@ -25,26 +25,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- lua_source {{{
 local lspconfig = require("lspconfig")
-lspconfig.gopls.setup({
-  settings = {
-    gopls = {
-      buildFlags = { "-tags=wireinject" },
-      hints = {
-        assignVariableTypes = true,
-        compositeLiteralFields = true,
-        compositeLiteralTypes = true,
-        constantValues = true,
-        functionTypeParameters = true,
-        parameterNames = true,
-        rangeVariableTypes = true,
-      },
-    },
-  },
-})
-lspconfig.taplo.setup({})
+
+lspconfig.bufls.setup({})
 lspconfig.lua_ls.setup({})
+lspconfig.rust_analyzer.setup({})
+lspconfig.taplo.setup({})
 lspconfig.terraformls.setup({})
+lspconfig.yamlls.setup({})
 lspconfig.zls.setup({})
+
 lspconfig.denols.setup({
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
   init_options = {
@@ -61,9 +50,26 @@ lspconfig.denols.setup({
     },
   },
 })
+
 lspconfig.tsserver.setup({
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false,
 })
-lspconfig.rust_analyzer.setup({})
+
+lspconfig.gopls.setup({
+  settings = {
+    gopls = {
+      buildFlags = { "-tags=wireinject" },
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+    },
+  },
+})
 -- }}}
