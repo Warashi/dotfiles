@@ -38,6 +38,9 @@ github = "Warashi/denovo-benchmark"
 [plugins.denovo-complete]
 github = "Warashi/denovo-complete"
 
+[plugins.denovo-rootmake]
+github = "Warashi/denovo-rootmake"
+
 [plugins.zsh-terminal-title]
 github = "AnimiVulpis/zsh-terminal-title"
 apply = ["defer"]
