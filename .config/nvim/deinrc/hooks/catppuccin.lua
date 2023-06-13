@@ -7,6 +7,7 @@ require("catppuccin").setup({
   integrations = {
     aerial = true,
     bufferline = true,
+    fidget = true,
     gitsigns = true,
     illuminate = true,
     lsp_trouble = true,
