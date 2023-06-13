@@ -77,3 +77,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'rebelot/heirline.nvim'
+hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
+depends = ['nvim-navic']
