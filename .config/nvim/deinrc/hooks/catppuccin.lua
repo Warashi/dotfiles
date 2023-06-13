@@ -1,6 +1,9 @@
 -- lua_source {{{
 require("catppuccin").setup({
   transparent_background = true,
+  dim_inactive = {
+    enabled = true,
+  },
   integrations = {
     aerial = true,
     bufferline = true,
