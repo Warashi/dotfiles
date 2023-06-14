@@ -2,10 +2,10 @@ return {
   condition = require("heirline.conditions").has_diagnostics,
 
   static = {
-    error_icon = "❗",
-    warn_icon = "⚠️",
-    info_icon = "ℹ️",
-    hint_icon = "💡",
+    error_icon = "E ",
+    warn_icon = "W ",
+    info_icon = "I ",
+    hint_icon = "H ",
   },
 
   init = function(self)
