@@ -5,5 +5,7 @@ return {
   align,
   require("config.heirline.lsp"),
   space,
+  require("config.heirline.diagnostics"),
+  space,
   require("config.heirline.ruler"),
 }
