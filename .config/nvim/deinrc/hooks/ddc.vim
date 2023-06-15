@@ -1,8 +1,8 @@
- " hook_add {{{
-nnoremap :       <Cmd>call CommandlinePre(':')<CR>:
-nnoremap ?       <Cmd>call CommandlinePre('/')<CR>?
-xnoremap :       <Cmd>call CommandlinePre(':')<CR>:
-nnoremap +       <Cmd>call CommandlinePre('dda')<CR>:Dda<Space>
+" hook_add {{{
+nnoremap : <Cmd>call CommandlinePre(':')<CR>:
+xnoremap : <Cmd>call CommandlinePre(':')<CR>:
+
+autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
 function! CommandlinePre(mode) abort
   " Overwrite sources
@@ -10,9 +10,6 @@ function! CommandlinePre(mode) abort
 
   if a:mode ==# ':'
     call ddc#custom#patch_buffer('keywordPattern', '[0-9a-zA-Z_:#-]*')
-  elseif a:mode ==# 'dda'
-    " For AI completion
-    call ddc#custom#patch_buffer('cmdlineSources', ['around', 'mocword'])
   endif
 
   autocmd MyAutoCmd User DDCCmdlineLeave ++once call CommandlinePost()
