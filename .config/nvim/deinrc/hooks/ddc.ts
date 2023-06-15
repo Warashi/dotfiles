@@ -85,6 +85,10 @@ export class Config extends BaseConfig {
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
         },
+        vsnip: {
+          mark: "vsnip",
+          dup: "keep",
+        },
         mocword: {
           mark: "mocword",
           minAutoCompleteLength: 4,
