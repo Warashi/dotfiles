@@ -13,3 +13,15 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+local signs = {
+  Error = "\u{ea87} ",
+  Warn = "\u{ea6c} ",
+  Hint = "\u{ea74} ",
+  Info = "\u{f400} ",
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
