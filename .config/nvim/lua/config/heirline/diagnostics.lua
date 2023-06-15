@@ -26,14 +26,26 @@ return {
     hl = { fg = "diag_error" },
   },
   {
+    condition = function(self) return self.errors > 0 and (self.warnings > 0 or self.info > 0 or self.hints > 0) end,
+    provider = " ",
+  },
+  {
     condition = function(self) return self.warnings > 0 end,
     provider = function(self) return self.warn_icon .. self.warnings end,
     hl = { fg = "diag_warn" },
   },
   {
+    condition = function(self) return self.warnings > 0 and (self.info > 0 or self.hints > 0) end,
+    provider = " ",
+  },
+  {
     condition = function(self) return self.info > 0 end,
     provider = function(self) return self.info_icon .. self.info end,
     hl = { fg = "diag_info" },
+  },
+  {
+    condition = function(self) return self.info > 0 and self.hints > 0 end,
+    provider = " ",
   },
   {
     condition = function(self) return self.hints > 0 end,
