@@ -12,7 +12,7 @@ export class Config extends BaseConfig {
   }): Promise<void> {
     args.contextBuilder.patchGlobal({
       ui: "pum",
-      sources: ["copilot", "nvim-lsp", "mocword", "buffer", "around", "file", "vsnip", "zsh"],
+      sources: ["copilot", "nvim-lsp", "buffer", "around", "file", "vsnip", "zsh", "mocword"],
       autoCompleteEvents: [
         "InsertEnter",
         "TextChangedI",
