@@ -26,16 +26,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- lua_source {{{
 local lspconfig = require("lspconfig")
 
-lspconfig.bufls.setup({})
-lspconfig.lua_ls.setup({})
-lspconfig.rust_analyzer.setup({})
-lspconfig.taplo.setup({})
-lspconfig.terraformls.setup({})
-lspconfig.yamlls.setup({})
-lspconfig.zls.setup({})
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local opts = {capabilities = capabilities}
+
+for _, server in ipairs({
+  "bufls",
+  "lua_ls",
+  "rust_analyzer",
+  "taplo",
+  "terraformls",
+  "yamlls",
+  "zls",
+}) do
+  lspconfig[server].setup(opts)
+end
 
 lspconfig.denols.setup({
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+  capabilities = capabilities,
   init_options = {
     lint = true,
     unstable = true,
@@ -53,10 +63,12 @@ lspconfig.denols.setup({
 
 lspconfig.tsserver.setup({
   root_dir = lspconfig.util.root_pattern("package.json"),
+  capabilities = capabilities,
   single_file_support = false,
 })
 
 lspconfig.gopls.setup({
+  capabilities = capabilities,
   settings = {
     gopls = {
       buildFlags = { "-tags=wireinject" },
