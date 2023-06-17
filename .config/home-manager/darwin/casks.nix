@@ -1,6 +1,7 @@
 [
   "1password"
   "alt-tab"
+  "amethyst"
   "cryptomator"
   "deepl"
   "discord"
