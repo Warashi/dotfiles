@@ -1,8 +1,10 @@
 -- lua_source {{{
 local function skkeleton_init()
   vim.fn["skkeleton#config"]({
-    useSkkServer = true,
-    globalDictionaries = { "/dev/null" },
+    globalDictionaries = { 
+      "~/.config/skk/SKK-JISYO.L",
+      "~/.config/skk/SKK-JISYO.jawiki",
+    },
   })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
   vim.fn["skkeleton#register_kanatable"]("rom", {
