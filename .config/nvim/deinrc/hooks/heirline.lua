@@ -34,6 +34,12 @@ require("heirline").setup({
   winbar = require("config.heirline.winbar"),
   opts = {
     colors = setup_colors,
+    disable_winbar_cb = function(args)
+      return conditions.buffer_matches({
+        buftype = { "nofile", "prompt", "help", "quickfix" },
+        filetype = { "^git.*", "fugitive", "Trouble", "dashboard", "ddu-ff" },
+      }, args.buf)
+    end,
   },
 })
 -- }}}
