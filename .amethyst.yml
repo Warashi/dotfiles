@@ -51,9 +51,9 @@ cycle-layout:
   key: space
 
 # Move to the previous layout in the list.
-# cycle-layout-backward:
-#   mod: mod2
-#   key: space
+cycle-layout-backward:
+  mod: <NONE>
+  key: <NONE>
 
 # Shrink the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
 shrink-main:
@@ -66,31 +66,31 @@ expand-main:
   key: <NONE>
 
 # Increase the number of windows in the main pane. Note that not all layouts respond to this command.
-# increase-main:
-#   mod: mod1
-#   key: ','
+increase-main:
+  mod: <NONE>
+  key: <NONE>
 
 # Decrease the number of windows in the main pane. Note that not all layouts respond to this command.
-# decrease-main:
-#   mod: mod1
-#   key: '.'
+decrease-main:
+  mod: <NONE>
+  key: <NONE>
 
 # General purpose command for custom layouts. Functionality is layout-dependent.
-# command1:
-#   mod: <NONE>
-#   key: <NONE>
+command1:
+  mod: <NONE>
+  key: <NONE>
 # General purpose command for custom layouts. Functionality is layout-dependent.
-# command2:
-#   mod: <NONE>
-#   key: <NONE>
+command2:
+  mod: <NONE>
+  key: <NONE>
 # General purpose command for custom layouts. Functionality is layout-dependent.
-# command3:
-#   mod: <NONE>
-#   key: <NONE>
+command3:
+  mod: <NONE>
+  key: <NONE>
 # General purpose command for custom layouts. Functionality is layout-dependent.
-# command4:
-#   mod: <NONE>
-#   key: <NONE>
+command4:
+  mod: <NONE>
+  key: <NONE>
 
 # Focus the next window in the list going counter-clockwise.
 focus-ccw:
@@ -145,62 +145,62 @@ swap-main:
 # Move focus to the n-th screen in the list; e.g., focus-screen-3 will move mouse focus to the 3rd screen. Note that the main window in the given screen will be focused.
 #focus-screen-n:
 # focus-screen-<screen-number>:
-#   mod: mod1
-#   key: y
+#   mod: <NONE>
+#   key: <NONE>
 # Move the currently focused window to the n-th screen; e.g., throw-screen-3 will move the window to the 3rd screen.
 # throw-screen-n:
 # throw-screen-<screen-number>:
-#   mod: mod1
-#   key: u
+#   mod: <NONE>
+#   key: <NONE>
 # Move the currently focused window to the n-th space; e.g., throw-space-3 will move the window to the 3rd space.
 # throw-space-<screen-number>:
-#   mod: mod1
-#   key: i
+#   mod: <NONE>
+#   key: <NONE>
 
 # Select tall layout
-# select-tall-layout:
-#   mod: mod1
-#   key: a
+select-tall-layout:
+  mod: <NONE>
+  key: <NONE>
 
 # Select wide layout
-# select-wide-layout:
-#   mod: mod1
-#   key: s
+select-wide-layout:
+  mod: <NONE>
+  key: <NONE>
 
 # Select fullscreen layout
-# select-fullscreen-layout:
-#   mod: mod1
-#   key: f
+select-fullscreen-layout:
+  mod: <NONE>
+  key: <NONE>
 
 # Select column layout
-# select-column-layout:
-#   mod: mod1
-#   key: f
+select-column-layout:
+  mod: <NONE>
+  key: <NONE>
 
 # Move the currently focused window to the space to the left.
-# throw-space-left:
-#   mod: mod2
-#   key: left
+throw-space-left:
+  mod: <NONE>
+  key: <NONE>
 
 # Move currently the focused window to the space to the right.
-# throw-space-right:
-#   mod: mod2
-#   key: right
+throw-space-right:
+  mod: <NONE>
+  key: <NONE>
 
 # Toggle the floating state of the currently focused window; i.e., if it was floating make it tiled and if it was tiled make it floating.
-# toggle-float:
-#   mod: mod1
-#   key: t
+toggle-float:
+  mod: <NONE>
+  key: <NONE>
 
 # Display the layout HUD with the current layout on each screen.
-# display-current-layout:
-#   mod: mod1
-#   key: i
+display-current-layout:
+  mod: <NONE>
+  key: <NONE>
 
 # Turn on or off tiling entirely.
-# toggle-tiling:
-#   mod: mod1
-#   key: t
+toggle-tiling:
+  mod: <NONE>
+  key: <NONE>
 
 # Rerun the current layout's algorithm.
 reevaluate-windows:
@@ -208,9 +208,9 @@ reevaluate-windows:
   key: z
 
 # Turn on or off focus-follows-mouse.
-# toggle-focus-follows-mouse:
-#   mod: mod2
-#   key: x
+toggle-focus-follows-mouse:
+  mod: <NONE>
+  key: <NONE>
 
 # Automatically quit and reopen Amethyst.
 relaunch-amethyst:
