@@ -59,13 +59,16 @@ export class Config extends BaseConfig {
           filterSplitDirection: "floating",
           previewFloating: true,
           previewFloatingBorder: "single",
-          previewSplit: "no",
+          previewSplit: "vertical",
           highlights: {
             floating: "Normal",
             floatingBorder: "Special",
           },
           updateTime: 0,
           winWidth: 100,
+          autoAction: {
+            name: "preview",
+          },
         },
         filer: {
           split: "no",
