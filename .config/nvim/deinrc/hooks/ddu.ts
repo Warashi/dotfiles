@@ -46,6 +46,10 @@ export class Config extends BaseConfig {
         },
       }],
     });
+    args.contextBuilder.patchLocal("lsp-codeAction", {
+      sync: true,
+      sources: [{ name: "lsp_codeAction" }],
+    });
     args.contextBuilder.patchGlobal({
       ui: "ff",
       uiParams: {

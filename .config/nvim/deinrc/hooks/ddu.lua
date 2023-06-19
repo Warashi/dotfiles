@@ -38,5 +38,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gd", function() start({ name = "lsp-definition" }) end, opts)
     vim.keymap.set("n", "gr", function() start({ name = "lsp-references" }) end, opts)
     vim.keymap.set("n", "<space>q", function() start({ name = "lsp-diagnostic" }) end, opts)
+    vim.keymap.set({ "n", "v" }, "<space>ca", function() start({ name = "lsp-codeAction" }) end, opts)
   end,
 })
