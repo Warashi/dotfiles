@@ -57,13 +57,13 @@ cycle-layout:
 
 # Shrink the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
 shrink-main:
-  mod: mod1
-  key: l
+  mod: <NONE>
+  key: <NONE>
 
 # Expand the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
 expand-main:
-  mod: mod1
-  key: h
+  mod: <NONE>
+  key: <NONE>
 
 # Increase the number of windows in the main pane. Note that not all layouts respond to this command.
 # increase-main:
@@ -110,12 +110,12 @@ focus-main:
 # Focus the next screen in the list going counter-clockwise.
 focus-screen-ccw:
   mod: mod1
-  key: p
+  key: h
 
 # Focus the next screen in the list going clockwise.
 focus-screen-cw:
   mod: mod1
-  key: n
+  key: l
 
 # Move the currently focused window onto the next screen in the list going counter-clockwise.
 swap-screen-ccw:
