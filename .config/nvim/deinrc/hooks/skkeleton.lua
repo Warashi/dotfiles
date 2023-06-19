@@ -1,7 +1,7 @@
 -- lua_source {{{
 local function skkeleton_init()
   vim.fn["skkeleton#config"]({
-    globalDictionaries = { 
+    globalDictionaries = {
       "~/.config/skk/SKK-JISYO.L",
       "~/.config/skk/SKK-JISYO.jawiki",
     },
