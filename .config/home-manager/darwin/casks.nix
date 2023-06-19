@@ -19,6 +19,7 @@
   "raindropio"
   "raycast"
   "slack"
+  "timemator"
   "wezterm"
 
   "homebrew/cask-fonts/font-biz-udgothic"
