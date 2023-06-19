@@ -1,5 +1,6 @@
 -- lua_source {{{
 local null_ls = require("null-ls")
+local cspell = require("cspell")
 null_ls.setup({
   sources = {
     --- nix ---
@@ -21,6 +22,14 @@ null_ls.setup({
     null_ls.builtins.formatting.beautysh,
     null_ls.builtins.formatting.shellharden,
     null_ls.builtins.formatting.shfmt,
+
+    --- cspell ---
+    cspell.diagnostics.with({
+      condition = function(utils) return utils.root_has_file({ "cspell.yaml" }) end,
+    }),
+    cspell.code_actions.with({
+      condition = function(utils) return utils.root_has_file({ "cspell.yaml" }) end,
+    }),
 
     --- other ---
     null_ls.builtins.diagnostics.todo_comments,

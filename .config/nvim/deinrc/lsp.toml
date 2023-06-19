@@ -43,3 +43,7 @@ hooks_file = '$DEIN_CONFIG_BASE/hooks/lsp-inlayhints.lua'
 repo = 'SmiteshP/nvim-navic'
 on_source = ['nvim-lspconfig']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/lsp-navic.lua'
+
+[[plugins]]
+repo = 'davidmh/cspell.nvim'
+on_source = ['null-ls.nvim']
