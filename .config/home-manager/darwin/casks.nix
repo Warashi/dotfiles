@@ -11,6 +11,7 @@
   "iterm2"
   "jetbrains-toolbox"
   "karabiner-elements"
+  "logi-options-plus"
   "logseq"
   "microsoft-edge"
   "mimestream"
