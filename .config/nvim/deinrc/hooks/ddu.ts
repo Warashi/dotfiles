@@ -106,6 +106,7 @@ export class Config extends BaseConfig {
         url: { defaultAction: "browse" },
         word: { defaultAction: "append" },
         lsp: { defaultAction: "open" },
+        lsp_codeAction: { defaultAction: "apply" },
       },
     });
   }
