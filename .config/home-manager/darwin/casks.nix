@@ -2,6 +2,7 @@
   "1password"
   "alt-tab"
   "amethyst"
+  "arc"
   "cryptomator"
   "deepl"
   "discord"
