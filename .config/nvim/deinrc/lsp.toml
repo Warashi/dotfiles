@@ -35,11 +35,6 @@ lua_source = '''
 '''
 
 [[plugins]]
-repo = 'lvimuser/lsp-inlayhints.nvim'
-on_source = ['nvim-lspconfig']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/lsp-inlayhints.lua'
-
-[[plugins]]
 repo = 'SmiteshP/nvim-navic'
 on_source = ['nvim-lspconfig']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/lsp-navic.lua'
