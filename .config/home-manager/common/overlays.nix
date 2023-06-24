@@ -32,31 +32,6 @@ in [
       });
   })
   (_: prev: {
-    vivid =
-      prev.vivid.overrideAttrs
-      (old: rec {
-        inherit (old) pname;
-        version = "0.9.0-pre";
-
-        src = prev.fetchFromGitHub {
-          owner = "sharkdp";
-          repo = pname;
-          rev = "4d7fb24d5481cb104292b97a993fc4448d854bc1";
-          sha256 = "sha256-rfEkeNrC5LHmUnTGv3tpIzpF+aSDCNmsnNsBQ/GC3Q4=";
-        };
-
-        cargoDeps = old.cargoDeps.overrideAttrs (prev.lib.const {
-          inherit src;
-          name = "${old.pname}-${version}-vendor.tar.gz";
-          outputHash = "sha256-DvUX7Eox6W8n9aHZNWMl3DTqHw6xcvyqH78QExCKM3Y=";
-        });
-
-        # doCheck = false;
-
-        # meta.platforms = prev.lib.platforms.unix;
-      });
-  })
-  (_: prev: {
     mocword = prev.rustPlatform.buildRustPackage rec {
       pname = "mocword";
       version = "0.2.0";
