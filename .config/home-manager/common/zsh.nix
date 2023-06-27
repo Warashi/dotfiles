@@ -41,7 +41,7 @@
       e = "nvim";
       fd = "fd -a";
       ls = "exa --icons";
-      workbench = "wezterm cli spawn -- ssh workbench";
+      tmux = "exec direnv exec / tmux"; # 自動でtmuxを起動はしないので、起動する時にdirenvの影響を受けないようにこれを定義する。
     };
 
     completionInit = ''
@@ -63,7 +63,6 @@
     initExtraFirst =
       ''
         [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
-        (( ''${+NVIM_LOG_FILE} )) || (( ''${+TMUX} )) || exec direnv exec / tmux new-session -A
       ''
       + import ./p10k.nix;
 
