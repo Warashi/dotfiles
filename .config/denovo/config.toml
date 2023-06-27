@@ -18,3 +18,8 @@ snippet = "ls -l"
 name = "ls -al"
 keyword = "la"
 snippet = "ls -al"
+
+[[plugins.denovo-abbrev.snippets]]
+name = "tmux new-session -AD"
+keyword = "tn"
+snippet = "tmux new-session -AD"
