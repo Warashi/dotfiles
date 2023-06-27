@@ -1,8 +1,8 @@
 import {
   BaseConfig,
   ContextBuilder,
-} from "https://deno.land/x/ddc_vim@v3.5.0/types.ts";
-import { Denops } from "https://deno.land/x/ddc_vim@v3.5.0/deps.ts";
+} from "https://deno.land/x/ddc_vim@v3.7.2/types.ts";
+import { Denops } from "https://deno.land/x/ddc_vim@v3.7.2/deps.ts";
 
 export class Config extends BaseConfig {
   // deno-lint-ignore require-await
