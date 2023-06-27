@@ -16,9 +16,6 @@ export class Config extends BaseConfig {
     args.contextBuilder.patchLocal("copilot", {
       sources: [{ name: "copilot" }],
     });
-    args.contextBuilder.patchLocal("emoji", {
-      sources: [{ name: "emoji" }],
-    });
     args.contextBuilder.patchLocal("lsp-definition", {
       sync: true,
       sources: [{ name: "lsp_definition" }],
