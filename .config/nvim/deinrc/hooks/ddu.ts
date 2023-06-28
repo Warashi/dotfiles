@@ -104,6 +104,7 @@ export class Config extends BaseConfig {
         word: { defaultAction: "append" },
         lsp: { defaultAction: "open" },
         lsp_codeAction: { defaultAction: "apply" },
+        help: { defaultAction: "tabopen" },
       },
     });
   }
