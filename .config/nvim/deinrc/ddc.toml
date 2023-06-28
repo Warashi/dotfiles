@@ -24,10 +24,6 @@ repo = 'Shougo/ddc-zsh'
 on_source = ['ddc.vim']
 
 [[plugins]]
-repo = 'Shougo/ddc-source-copilot'
-on_source = ['ddc.vim']
-
-[[plugins]]
 repo = 'Shougo/ddc-source-mocword'
 on_source = ['ddc.vim']
 

@@ -13,7 +13,6 @@ export class Config extends BaseConfig {
     args.contextBuilder.patchGlobal({
       ui: "pum",
       sources: [
-        "copilot",
         "nvim-lsp",
         "buffer",
         "around",
@@ -56,14 +55,6 @@ export class Config extends BaseConfig {
         cmdline: {
           mark: "cmdline",
           forceCompletionPattern: "\\S/\\S*|\\.\\w*",
-        },
-        copilot: {
-          mark: "copilot",
-          matchers: [],
-          sorters: [],
-          converters: [],
-          minAutoCompleteLength: 0,
-          isVolatile: false,
         },
         input: {
           mark: "input",
