@@ -1,17 +1,21 @@
 -- lua_add {{{
-local start = vim.fn["ddu#start"]
-vim.keymap.set("n", "<leader>d", function() start({ name = "source" }) end)
-vim.keymap.set("i", "<C-x><C-l>", function() start({ name = "copilot" }) end)
-vim.keymap.set(
-  "i",
-  "<C-x><C-e>",
-  function()
-    start({
-      sources = { { name = "emoji", options = { defaultAction = "append" } } },
-      uiParams = { ff = { replaceCol = vim.fn.col(".") } },
-    })
-  end
-)
+local function set_keymaps()
+  local start = vim.fn["ddu#start"]
+  vim.keymap.set("n", "<leader>d", function() start({ name = "source" }) end)
+  vim.keymap.set("i", "<C-x><C-l>", function() start({ name = "copilot" }) end)
+  vim.keymap.set(
+    "i",
+    "<C-x><C-e>",
+    function()
+      start({
+        sources = { { name = "emoji", options = { defaultAction = "append" } } },
+        uiParams = { ff = { replaceCol = vim.fn.col(".") } },
+      })
+    end
+  )
+end
+
+set_keymaps()
 -- }}}
 
 -- lua_source {{{
