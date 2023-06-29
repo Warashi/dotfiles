@@ -2,6 +2,7 @@
 name = 'catppuccin'
 repo = 'catppuccin/nvim'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/catppuccin.lua'
+hook_post_update = 'CatppuccinCompile'
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
