@@ -7,8 +7,3 @@ if = 0
 name = 'kuuote-dotvim'
 repo = 'kuuote/dotvim'
 if = 0
-
-[[plugins]]
-name = 'kyoh86-dotfiles'
-repo = 'kyoh86/dotfiles'
-if = 0
