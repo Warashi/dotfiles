@@ -2,7 +2,8 @@ import {
   BaseConfig,
   ContextBuilder,
 } from "https://deno.land/x/ddu_vim@v3.2.7/types.ts";
-import { Denops } from "https://deno.land/x/ddu_vim@v3.2.7/deps.ts";
+import type { Denops } from "https://deno.land/x/ddu_vim@v3.2.7/deps.ts";
+import type { Params as FfParams } from "https://deno.land/x/ddu_ui_ff@v1.0.2/ff.ts";
 
 export class Config extends BaseConfig {
   // deno-lint-ignore require-await
@@ -22,7 +23,7 @@ export class Config extends BaseConfig {
       uiParams: {
         ff: {
           immediateAction: "open",
-        },
+        } as Partial<FfParams>,
       },
     });
     args.contextBuilder.patchLocal("lsp-references", {
@@ -31,7 +32,7 @@ export class Config extends BaseConfig {
       uiParams: {
         ff: {
           immediateAction: "open",
-        },
+        } as Partial<FfParams>,
       },
     });
     args.contextBuilder.patchLocal("lsp-diagnostic", {
@@ -66,13 +67,7 @@ export class Config extends BaseConfig {
           autoAction: {
             name: "preview",
           },
-        },
-        filer: {
-          split: "no",
-          sort: "filename",
-          sortTreesFirst: true,
-          toggle: true,
-        },
+        } as Partial<FfParams>,
       },
 
       sources: [],
