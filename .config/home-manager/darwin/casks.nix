@@ -32,4 +32,6 @@
   "homebrew/cask-fonts/font-rounded-mplus"
   "homebrew/cask-fonts/font-udev-gothic"
   "homebrew/cask-fonts/font-udev-gothic-nf"
+  "homebrew/cask-fonts/font-plemol-jp"
+  "homebrew/cask-fonts/font-plemol-jp-nf"
 ]
