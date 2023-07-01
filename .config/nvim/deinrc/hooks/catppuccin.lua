@@ -5,23 +5,16 @@ require("catppuccin").setup({
     enabled = true,
   },
   integrations = {
-    aerial = true,
-    bufferline = true,
+    fern = true,
     fidget = true,
     gitsigns = true,
-    illuminate = true,
-    lsp_trouble = true,
-    mason = true,
+    native_lsp = { enabled = true },
+    navic = { enabled = true },
     notify = true,
-    nvimtree = true,
-    sandwich = true,
     semantic_tokens = true,
-    treesitter = true,
     treesitter_context = true,
-
-    native_lsp = {
-      enabled = true,
-    },
+    treesitter = true,
+    sandwich = true,
   },
 })
 vim.cmd([[colorscheme catppuccin-latte]])
