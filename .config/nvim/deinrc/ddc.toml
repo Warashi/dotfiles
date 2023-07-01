@@ -30,6 +30,7 @@ on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'
+depends = ['pum.vim']
 on_source = ['ddc.vim']
 
 [[plugins]]
