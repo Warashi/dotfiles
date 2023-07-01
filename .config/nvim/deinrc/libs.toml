@@ -18,6 +18,7 @@ repo = 'Shougo/pum.vim'
 
 [[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
+on_lua = ['nvim-web-devicons']
 lua_source = 'require("nvim-web-devicons").setup({ default = true })'
 
 [[plugins]]
