@@ -91,3 +91,7 @@ on_source = ['fern.vim']
 repo = 'rebelot/heirline.nvim'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
 depends = ['nvim-navic', 'catppuccin']
+
+[[plugins]]
+repo = 'dstein64/vim-startuptime'
+on_cmd = ['StartupTime']
