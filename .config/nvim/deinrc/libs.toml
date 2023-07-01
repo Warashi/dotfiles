@@ -21,10 +21,5 @@ repo = 'Shougo/pum.vim'
 on_func = ['pum']
 
 [[plugins]]
-repo = 'nvim-tree/nvim-web-devicons'
-on_lua = ['nvim-web-devicons']
-lua_source = 'require("nvim-web-devicons").setup({ default = true })'
-
-[[plugins]]
 repo = 'tyru/open-browser.vim'
 on_func = ['openbrowser']

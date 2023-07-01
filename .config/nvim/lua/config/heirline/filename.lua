@@ -10,11 +10,10 @@ local FileNameBlock = {
 local FileIcon = {
   init = function(self)
     local filename = self.filename
-    local extension = vim.fn.fnamemodify(filename, ":e")
-    self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+    self.icon = vim.fn["nerdfont#find"](filename)
   end,
   provider = function(self) return self.icon and (self.icon .. " ") end,
-  hl = function(self) return { fg = self.icon_color } end,
+  hl = { fg = utils.get_highlight("Directory").fg },
 }
 
 local FileName = {
