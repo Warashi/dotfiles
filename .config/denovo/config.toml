@@ -1,25 +1,25 @@
-[plugins.denovo-fzf]
+[plugins.fzf]
 fzf-tmux = true
 fzf-options = "-1 -p 80%"
 ghq-cd-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {}/README.md"
 
-[plugins.denovo-abbrev]
-[[plugins.denovo-abbrev.snippets]]
+[plugins.abbrev]
+[[plugins.abbrev.snippets]]
 name = "git"
 keyword = "g"
 snippet = "git"
 
-[[plugins.denovo-abbrev.snippets]]
+[[plugins.abbrev.snippets]]
 name = "ls -l"
 keyword = "ll"
 snippet = "ls -l"
 
-[[plugins.denovo-abbrev.snippets]]
+[[plugins.abbrev.snippets]]
 name = "ls -al"
 keyword = "la"
 snippet = "ls -al"
 
-[[plugins.denovo-abbrev.snippets]]
+[[plugins.abbrev.snippets]]
 name = "tmux new-session -AD"
 keyword = "tn"
 snippet = "tmux new-session -AD"
