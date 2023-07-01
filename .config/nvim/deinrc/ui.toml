@@ -26,6 +26,7 @@ lua_source = 'require("gitsigns").setup()'
 
 [[plugins]]
 repo = 'monaqa/modesearch.nvim'
+on_lua = ['modesearch']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/modesearch.lua'
 
 [[plugins]]
