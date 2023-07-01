@@ -128,8 +128,10 @@ in {
       show-recents = false;
 
       # hot corner actions
-      wvous-bl-corner = 2; # mission control
-      wvous-br-corner = 3; # application windows
+      wvous-tl-corner = 1; # disabled
+      wvous-tr-corner = 12; # Notification Center
+      wvous-bl-corner = 4; # Desktop
+      wvous-br-corner = 14; # Quick Note
     };
 
     finder = {
