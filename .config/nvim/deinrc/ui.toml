@@ -6,6 +6,7 @@ hook_post_update = 'CatppuccinCompile'
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
+on_lua = ['notify']
 depends = ['catppuccin']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/nvim-notify.lua'
 
