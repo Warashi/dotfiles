@@ -12,6 +12,7 @@ hooks_file = '$DEIN_CONFIG_BASE/hooks/nvim-notify.lua'
 
 [[plugins]]
 repo = 'gen740/SmoothCursor.nvim'
+on_event = ['BufNewFile', 'BufRead']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/smooth-cursor.lua'
 
 [[plugins]]
