@@ -16,6 +16,7 @@ hooks_file = '$DEIN_CONFIG_BASE/hooks/smooth-cursor.lua'
 
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
+on_event = ['InsertEnter']
 lua_source = 'require("nvim-autopairs").setup()'
 
 [[plugins]]
@@ -47,9 +48,11 @@ repo = 'github/copilot.vim'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+on_cmd = ['Fern']
 
 [[plugins]]
 repo = 'lambdalisue/fern-hijack.vim'
+depends = ['fern.vim']
 hook_add = '''
   let g:loaded_netrw = 1
   let g:loaded_netrwPlugin = 1
@@ -59,9 +62,11 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
+on_source = ['fern.vim']
 
 [[plugins]]
 repo = 'lambdalisue/glyph-palette.vim'
+on_source = ['fern.vim']
 hook_source = '''
   augroup my-glyph-palette
     autocmd! *
@@ -72,12 +77,14 @@ hook_source = '''
 
 [[plugins]]
 repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+on_source = ['fern.vim']
 hook_add = '''
   let g:fern#renderer = "nerdfont"
 '''
 
 [[plugins]]
 repo = 'lambdalisue/fern-git-status.vim'
+on_source = ['fern.vim']
 
 [[plugins]]
 repo = 'rebelot/heirline.nvim'
