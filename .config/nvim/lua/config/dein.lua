@@ -26,9 +26,11 @@ if dein.load_state(dein_base) > 0 then
 
   dein.load_toml(config_base .. "someone.toml")
 
+  dein.load_toml(config_base .. "ft.toml")
   dein.load_toml(config_base .. "libs.toml")
   dein.load_toml(config_base .. "ui.toml")
-  dein.load_toml(config_base .. "ft.toml")
+  dein.load_toml(config_base .. "ui-lazy.toml", { lazy = true })
+  dein.load_toml(config_base .. "libs-lazy.toml", { lazy = true })
 
   dein.load_toml(config_base .. "ddc.toml", { lazy = true })
   dein.load_toml(config_base .. "ddu.toml", { lazy = true })

@@ -3,23 +3,3 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'lambdalisue/kensaku.vim'
-depends = ['denops.vim']
-
-[[plugins]]
-repo = 'MunifTanjim/nui.nvim'
-on_lua = ['nui']
-
-[[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-on_lua = ['plenary']
-
-[[plugins]]
-repo = 'Shougo/pum.vim'
-on_func = ['pum']
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_func = ['openbrowser']
