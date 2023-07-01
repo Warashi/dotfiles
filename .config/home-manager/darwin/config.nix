@@ -123,7 +123,7 @@ in {
       minimize-to-application = true;
       mouse-over-hilite-stack = true;
       mru-spaces = false;
-      orientation = "left";
+      orientation = "bottom";
       show-process-indicators = true;
       show-recents = false;
 
