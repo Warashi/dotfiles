@@ -44,3 +44,8 @@ on_source = ['ddc.vim']
 [[plugins]]
 repo = 'matsui54/ddc-buffer'
 on_source = ['ddc.vim']
+
+[[plugins]]
+repo = 'uga-rosa/ddc-source-vsnip'
+depends = ['vim-vsnip']
+on_source = ['ddc.vim']

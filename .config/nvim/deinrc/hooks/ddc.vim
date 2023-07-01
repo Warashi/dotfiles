@@ -2,8 +2,6 @@
 nnoremap : <Cmd>call CommandlinePre(':')<CR>:
 xnoremap : <Cmd>call CommandlinePre(':')<CR>:
 
-autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
-
 function! CommandlinePre(mode) abort
   " Overwrite sources
   let b:prev_buffer_config = ddc#custom#get_buffer()
