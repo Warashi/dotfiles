@@ -12,6 +12,7 @@ lua_source = 'require("gitsigns").setup()'
 
 [[plugins]]
 repo = 'gen740/SmoothCursor.nvim'
+on_if = '!exists("g:neovide")'
 on_event = ['BufNewFile', 'BufRead']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/smooth-cursor.lua'
 
@@ -63,5 +64,6 @@ on_cmd = ['StartupTime']
 
 [[plugins]]
 repo = 'yutkat/confirm-quit.nvim'
+on_if = '!exists("g:neovide")'
 on_event = ['CmdlineEnter']
-lua_source = 'if vim.g.neovide then require("confirm-quit").setup() end'
+lua_source = 'require("confirm-quit").setup()'
