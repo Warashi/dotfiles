@@ -64,6 +64,6 @@ on_cmd = ['StartupTime']
 
 [[plugins]]
 repo = 'yutkat/confirm-quit.nvim'
-on_if = '!exists("g:neovide")'
+on_if = 'exists("g:neovide")'
 on_event = ['CmdlineEnter']
 lua_source = 'require("confirm-quit").setup()'
