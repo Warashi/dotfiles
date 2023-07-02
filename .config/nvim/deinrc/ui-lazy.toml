@@ -28,6 +28,9 @@ hooks_file = '$DEIN_CONFIG_BASE/hooks/modesearch.lua'
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 on_cmd = ['Fern']
+hook_add = '''
+  let g:fern#default_hidden = 1
+'''
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
