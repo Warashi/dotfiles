@@ -60,3 +60,8 @@ on_source = ['fern.vim']
 [[plugins]]
 repo = 'dstein64/vim-startuptime'
 on_cmd = ['StartupTime']
+
+[[plugins]]
+repo = 'yutkat/confirm-quit.nvim'
+on_event = ['CmdlineEnter']
+lua_source = 'if vim.g.neovide then require("confirm-quit").setup() end'
