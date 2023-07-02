@@ -1,6 +1,7 @@
 -- lua_source {{{
 require("catppuccin").setup({
   transparent_background = false,
+  term_colors = true,
   dim_inactive = {
     enabled = true,
   },
