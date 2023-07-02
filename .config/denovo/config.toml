@@ -23,3 +23,13 @@ snippet = "ls -al"
 name = "tmux new-session -AD"
 keyword = "tn"
 snippet = "tmux new-session -AD"
+
+[[plugins.abbrev.snippets]]
+name = "kubectl"
+keyword = "k"
+snippet = "kubectl"
+
+[[plugins.abbrev.snippets]]
+name = "kubectx"
+keyword = "kx"
+snippet = "kubectx"
