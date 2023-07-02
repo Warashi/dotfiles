@@ -38,3 +38,6 @@ depends = ['nvim-navic', 'catppuccin']
 
 [[plugins]]
 repo = 'lambdalisue/guise.vim'
+
+[[plugins]]
+repo = 'lambdalisue/gin.vim'
