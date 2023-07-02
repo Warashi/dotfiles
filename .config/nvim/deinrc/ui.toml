@@ -35,3 +35,6 @@ hook_add = '''
 repo = 'rebelot/heirline.nvim'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
 depends = ['nvim-navic', 'catppuccin']
+
+[[plugins]]
+repo = 'lambdalisue/guise.vim'
