@@ -61,6 +61,10 @@ in {
       };
     };
 
+    programs.zsh.shellAliases = {
+      neovide = "open -a Neovide --args --server $HOME/.local/run/nvim.socket";
+    };
+
     home.stateVersion = "22.05";
   };
 
