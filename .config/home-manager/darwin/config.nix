@@ -68,8 +68,8 @@ in {
     {
       name = "workbench";
       user = "${local.user}";
-      extraArguments = "-N forward-workbench";
-      monitoringPort = 20000;
+      extraArguments = "forward-workbench";
+      monitoringPort = 0;
     }
   ];
 
