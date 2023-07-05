@@ -13,7 +13,6 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "<leader>t", "<Cmd>terminal<CR>")
 vim.keymap.set("n", "<leader><leader>", "<Cmd>source $MYVIMRC<CR>")
 
 local signs = {
