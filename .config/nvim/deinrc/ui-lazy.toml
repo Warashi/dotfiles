@@ -63,14 +63,18 @@ repo = 'dstein64/vim-startuptime'
 on_cmd = ['StartupTime']
 
 [[plugins]]
+repo = 'famiu/bufdelete.nvim'
+
+[[plugins]]
 repo = 'yutkat/confirm-quit.nvim'
+depends = ['bufdelete.nvim'] # プラグインとしては依存していないが設定で使うので
 on_if = 'exists("g:neovide")'
 on_event = ['CmdlineEnter']
 lua_source = 'require("confirm-quit").setup({overwrite_q_command = false})'
 hook_source = '''
-  cnoreabbrev <expr> q (getcmdtype() == ":" && getcmdline() ==# "q") ? "bd \| ConfirmQuit" : "q"
-  cnoreabbrev <expr> q! (getcmdtype() == ":" && getcmdline() ==# "q!") ? "bd \| ConfirmQuit!" : "q!"
-  cnoreabbrev <expr> wq (getcmdtype() == ":" && getcmdline() ==# "wq") ? "w \| bd \| ConfirmQuit" : "q"
+  cnoreabbrev <expr> q (getcmdtype() == ":" && getcmdline() ==# "q") ? "Bdelete \| ConfirmQuit" : "q"
+  cnoreabbrev <expr> q! (getcmdtype() == ":" && getcmdline() ==# "q!") ? "Bdelete! \| ConfirmQuit!" : "q!"
+  cnoreabbrev <expr> wq (getcmdtype() == ":" && getcmdline() ==# "wq") ? "w \| Bdelete \| ConfirmQuit" : "q"
 '''
 
 [[plugins]]
