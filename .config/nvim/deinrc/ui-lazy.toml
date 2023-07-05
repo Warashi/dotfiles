@@ -66,7 +66,12 @@ on_cmd = ['StartupTime']
 repo = 'yutkat/confirm-quit.nvim'
 on_if = 'exists("g:neovide")'
 on_event = ['CmdlineEnter']
-lua_source = 'require("confirm-quit").setup()'
+lua_source = 'require("confirm-quit").setup({overwrite_q_command = false})'
+hook_source = '''
+  cnoreabbrev <expr> q (getcmdtype() == ":" && getcmdline() ==# "q") ? "bd \| ConfirmQuit" : "q"
+  cnoreabbrev <expr> q! (getcmdtype() == ":" && getcmdline() ==# "q!") ? "bd \| ConfirmQuit!" : "q!"
+  cnoreabbrev <expr> wq (getcmdtype() == ":" && getcmdline() ==# "wq") ? "w \| bd \| ConfirmQuit" : "q"
+'''
 
 [[plugins]]
 repo = 'Shougo/deol.nvim'
