@@ -41,3 +41,6 @@ repo = 'lambdalisue/guise.vim'
 
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
+hook_add = '''
+  nnoremap <silent> <leader>g <Cmd>tab new +GinStatus<CR>
+'''
