@@ -9,23 +9,19 @@ local function start(opts)
   local col = math.floor(vim.o.columns * 0.1)
   local halfWidth = math.floor(vim.o.columns * 0.5)
   local previewCol = halfWidth - 1
-  local default = {
-    uiParams = {
-      ff = {
-        winWidth = width,
-        winHeight = height,
-        winRow = row,
-        winCol = col,
-        previewWidth = previewWidth,
-        previewHeight = previewHeight,
-        previewRow = previewRow,
-        previewCol = previewCol,
-      },
-    },
+  local ffParams = {
+    winWidth = width,
+    winHeight = height,
+    winRow = row,
+    winCol = col,
+    previewWidth = previewWidth,
+    previewHeight = previewHeight,
+    previewRow = previewRow,
+    previewCol = previewCol,
   }
 
-  local config = vim.tbl_deep_extend("keep", default, opts)
-  vim.fn["ddu#start"](config)
+  vim.fn["ddu#custom#patch_global"]({ uiParams = { ff = ffParams } })
+  vim.fn["ddu#start"](opts)
 end
 
 local function set_keymaps()
