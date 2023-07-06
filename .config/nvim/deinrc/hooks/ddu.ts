@@ -64,6 +64,7 @@ export class Config extends BaseConfig {
           },
           updateTime: 0,
           winWidth: 100,
+          startAutoAction: true,
           autoAction: {
             name: "preview",
           },
