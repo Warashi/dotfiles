@@ -14,6 +14,10 @@ vim.g.maplocalleader = ","
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader><leader>", "<Cmd>source $MYVIMRC<CR>")
+vim.keymap.set("n", "[t", "<Cmd>tabprevious<CR>")
+vim.keymap.set("n", "]t", "<Cmd>tabnext<CR>")
+vim.keymap.set("n", "[T", "<Cmd>tabfirst<CR>")
+vim.keymap.set("n", "]T", "<Cmd>tablast<CR>")
 
 local signs = {
   Error = "\u{ea87} ",
