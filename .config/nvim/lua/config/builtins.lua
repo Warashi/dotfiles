@@ -8,6 +8,7 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.clipboard = "unnamedplus"
 vim.o.showmode = false
+vim.o.cmdheight = 0
 vim.o.laststatus = 3
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
