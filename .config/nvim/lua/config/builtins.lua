@@ -6,6 +6,7 @@ vim.o.number = true
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
+vim.o.clipboard = "unnamedplus"
 vim.o.showmode = false
 vim.o.laststatus = 3
 vim.g.mapleader = ","
@@ -17,8 +18,6 @@ vim.keymap.set("n", "[t", "<Cmd>tabprevious<CR>")
 vim.keymap.set("n", "]t", "<Cmd>tabnext<CR>")
 vim.keymap.set("n", "[T", "<Cmd>tabfirst<CR>")
 vim.keymap.set("n", "]T", "<Cmd>tablast<CR>")
-vim.keymap.set({ "n" }, "<leader>sc", function() vim.fn.setreg("+", vim.fn.getreg('"')) end)
-vim.keymap.set({ "n", "x" }, "<leader>sp", function() vim.fn.setreg('"', vim.fn.getreg("+")) end)
 
 local signs = {
   Error = "\u{ea87} ",
