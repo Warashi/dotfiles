@@ -19,7 +19,24 @@ export class Config extends BaseConfig {
     });
     args.contextBuilder.patchLocal("lsp-definition", {
       sync: true,
-      sources: [{ name: "lsp_definition" }],
+      sources: [
+        {
+          name: "lsp_definition",
+          params: { method: "textDocument/definition" },
+        },
+        {
+          name: "lsp_definition",
+          params: { method: "textDocument/typeDefinition" },
+        },
+        {
+          name: "lsp_definition",
+          params: { method: "textDocument/declaration" },
+        },
+        {
+          name: "lsp_definition",
+          params: { method: "textDocument/implementation" },
+        },
+      ],
       uiParams: {
         ff: {
           immediateAction: "open",
