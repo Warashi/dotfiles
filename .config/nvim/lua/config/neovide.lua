@@ -1,2 +1,1 @@
-vim.opt.guifont = 'UDEV Gothic 35NFLG:h18'
-
+vim.opt.guifont = "UDEV Gothic 35NFLG:h18"

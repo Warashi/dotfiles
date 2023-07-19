@@ -6,8 +6,6 @@ require("config.dein")
 vim.api.nvim_create_autocmd("UIEnter", {
   group = "MyAutoCmd",
   callback = function()
-    if vim.g.neovide then
-      require("config.neovide")
-    end
+    if vim.g.neovide then require("config.neovide") end
   end,
 })
