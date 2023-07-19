@@ -23,3 +23,12 @@ function! CommandlinePost() abort
 endfunction
 " }}}
 
+" hook_source {{{
+call ddc#custom#patch_global('sourceParams', #{
+      \   nvim-lsp: #{
+      \     snippetEngine: denops#callback#register({
+      \           body -> vsnip#anonymous(body)
+      \     }),
+      \   }
+      \ })
+" }}}
