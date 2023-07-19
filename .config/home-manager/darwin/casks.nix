@@ -16,7 +16,6 @@
   "logseq"
   "microsoft-edge"
   "mimestream"
-  "neovide"
   "notion"
   "raindropio"
   "raycast"
