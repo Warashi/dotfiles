@@ -1,30 +1,7 @@
 -- lua_add {{{
-local function start(opts)
-  local width = math.floor(vim.o.columns * 0.8)
-  local previewWidth = math.floor(width * 0.5) - 1
-  local height = math.floor(vim.o.lines * 0.8)
-  local previewHeight = height - 2
-  local row = math.floor((vim.o.lines - height) / 2)
-  local previewRow = row + 1
-  local col = math.floor(vim.o.columns * 0.1)
-  local halfWidth = math.floor(vim.o.columns * 0.5)
-  local previewCol = halfWidth - 1
-  local ffParams = {
-    winWidth = width,
-    winHeight = height,
-    winRow = row,
-    winCol = col,
-    previewWidth = previewWidth,
-    previewHeight = previewHeight,
-    previewRow = previewRow,
-    previewCol = previewCol,
-  }
-
-  vim.fn["ddu#custom#patch_global"]({ uiParams = { ff = ffParams } })
-  vim.fn["ddu#start"](opts)
-end
-
 local function set_keymaps()
+  local start = vim.fn["ddu#start"]
+
   vim.keymap.set("n", "<leader>d", function() start({ name = "source" }) end)
   vim.keymap.set("i", "<C-x><C-l>", function() start({ name = "copilot" }) end)
   vim.keymap.set(
@@ -76,3 +53,4 @@ set_keymaps()
 
 -- lua_source {{{
 vim.fn["ddu#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "hooks/ddu.ts")
+-- }}}

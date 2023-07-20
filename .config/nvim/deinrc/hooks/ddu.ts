@@ -5,6 +5,17 @@ import {
 import type { Denops } from "https://deno.land/x/ddu_vim@v3.4.3/deps.ts";
 import type { Params as FfParams } from "https://deno.land/x/ddu_ui_ff@v1.1.0/ff.ts";
 
+const ffWindowSizeParams = {
+  winWidth: "&columns * 4 / 5",
+  winHeight: "&lines * 4 / 5",
+  winRow: "&lines / 10",
+  winCol: "&columns / 10",
+  previewWidth: "&columns * 2 / 5 - 1",
+  previewHeight: "&lines * 4 / 5 - 2",
+  previewRow: "&lines / 10 + 1",
+  previewCol: "&columns / 2 - 1",
+} as Partial<FfParams>;
+
 export class Config extends BaseConfig {
   // deno-lint-ignore require-await
   override async config(args: {
@@ -69,6 +80,7 @@ export class Config extends BaseConfig {
       ui: "ff",
       uiParams: {
         ff: {
+          ...ffWindowSizeParams,
           split: "floating",
           floatingBorder: "single",
           filterSplitDirection: "floating",
@@ -79,8 +91,6 @@ export class Config extends BaseConfig {
             floating: "Normal",
             floatingBorder: "Special",
           },
-          updateTime: 0,
-          winWidth: 100,
           startAutoAction: true,
           autoAction: {
             name: "preview",
