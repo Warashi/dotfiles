@@ -7,7 +7,7 @@
     enable = true;
     dotDir = ".config/zsh";
     enableAutosuggestions = false;
-    enableSyntaxHighlighting = false;
+    syntaxHighlighting.enable = false;
     enableVteIntegration = false;
     defaultKeymap = "emacs";
 
