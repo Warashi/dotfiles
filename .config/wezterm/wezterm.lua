@@ -40,7 +40,9 @@ config.keys = {
   },
 }
 
-config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = false
+config.tab_max_width = 128
+config.hide_tab_bar_if_only_one_tab = false
 config.color_scheme = "Catppuccin Latte"
 config.line_height = 1.2
 config.font_size = 18.0
