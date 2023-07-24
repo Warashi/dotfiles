@@ -65,5 +65,17 @@
       source = builtins.fetchurl "https://github.com/catppuccin/glamour/releases/download/v1.0.0/latte.json";
       target = ".config/glamour/catppuccin-latte.json";
     };
+    catppuccin-zsh-fast-syntax-highligiting = {
+      source =
+        pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "zsh-fsh";
+          rev = "7cdab58bddafe0565f84f6eaf2d7dd109bd6fc18";
+          sha256 = "sha256-31lh+LpXGe7BMZBhRWvvbOTkwjOM77FPNaGy6d26hIA=";
+        }
+        + /themes;
+      target = ".config/fsh";
+      recursive = true;
+    };
   };
 }

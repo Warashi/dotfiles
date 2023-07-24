@@ -78,13 +78,6 @@
       + import ./sheldon.nix
       + import ./zsh-binds.nix
       + import ./zeno-bind.nix
-      + (builtins.readFile (pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "zsh-syntax-highlighting";
-          rev = "06d519c20798f0ebe275fc3a8101841faaeee8ea";
-          sha256 = "sha256-Q7KmwUd9fblprL55W0Sf4g7lRcemnhjh4/v+TacJSfo=";
-        }
-        + /themes/catppuccin_latte-zsh-syntax-highlighting.zsh))
       + import ./zprof.nix;
 
     envExtra =
