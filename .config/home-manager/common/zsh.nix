@@ -90,7 +90,6 @@
         fi
 
         zmodload zsh/zpty # used by Shougo/ddc-source-zsh
-      ''
-      + import ./zsh-tmux-popup.nix;
+      '';
   };
 }
