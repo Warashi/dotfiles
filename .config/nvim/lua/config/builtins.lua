@@ -10,6 +10,7 @@ vim.o.clipboard = "unnamedplus"
 vim.o.showmode = false
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
+vim.o.showtabline = 2
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
