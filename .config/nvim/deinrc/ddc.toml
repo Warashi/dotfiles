@@ -17,7 +17,7 @@ repo = 'Shougo/ddc-cmdline-history'
 on_source = ['ddc.vim']
 
 [[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
+repo = 'Shougo/ddc-source-nvim-lsp'
 on_source = ['ddc.vim']
 
 [[plugins]]
