@@ -60,15 +60,9 @@
       _compinit
     '';
 
-    initExtraFirst =
-      ''
-        [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
-      ''
-      + import ./p10k.nix;
-
-    localVariables = {
-      POWERLEVEL9K_TERM_SHELL_INTEGRATION = true;
-    };
+    initExtraFirst = ''
+      [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
+    '';
 
     initExtra =
       ''

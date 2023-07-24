@@ -80,4 +80,8 @@
     enableZshIntegration = true;
     options = ["--cmd j"];
   };
+
+  programs.starship = {
+    enable = true;
+  };
 }

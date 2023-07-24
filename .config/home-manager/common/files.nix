@@ -18,10 +18,6 @@
       source = ./. + "/files/rgfind";
       executable = true;
     };
-    p10k = {
-      target = ".config/zsh/.p10k.zsh";
-      source = ./. + "/files/p10k-config.zsh";
-    };
     rg = {
       target = ".config/ripgrep/config";
       text = ''
