@@ -8,6 +8,9 @@ bind C-g send-prefix
 # window numberが飛び飛びにならないようにする
 set-option -g renumber-windows on
 
+# status line を上部に配置する
+set-option -g status-position top
+
 # マウスを有効化
 set-option -g mouse on
 
