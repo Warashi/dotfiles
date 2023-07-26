@@ -22,12 +22,6 @@ export class Config extends BaseConfig {
     denops: Denops;
     contextBuilder: ContextBuilder;
   }): Promise<void> {
-    args.contextBuilder.patchLocal("source", {
-      sources: [{ name: "source" }],
-    });
-    args.contextBuilder.patchLocal("copilot", {
-      sources: [{ name: "copilot" }],
-    });
     args.contextBuilder.patchLocal("lsp-definition", {
       sync: true,
       sources: [

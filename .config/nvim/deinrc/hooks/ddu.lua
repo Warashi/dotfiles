@@ -2,8 +2,10 @@
 local function set_keymaps()
   local start = vim.fn["ddu#start"]
 
-  vim.keymap.set("n", "<leader>d", function() start({ name = "source" }) end)
-  vim.keymap.set("i", "<C-x><C-l>", function() start({ name = "copilot" }) end)
+  vim.keymap.set("n", "<leader>ds", function() start({ sources = { { name = "source" } } }) end)
+  vim.keymap.set("n", "<leader>dh", function() start({ sources = { { name = "help" } } }) end)
+  vim.keymap.set("n", "<leader>dw", function() start({ sources = { { name = "window" } } }) end)
+  vim.keymap.set("i", "<C-x><C-l>", function() start({ sync = true, sources = { { name = "copilot" } } }) end)
   vim.keymap.set(
     "i",
     "<C-x><C-e>",
