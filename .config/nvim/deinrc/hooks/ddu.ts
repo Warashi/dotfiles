@@ -128,6 +128,7 @@ export class Config extends BaseConfig {
         lsp: { defaultAction: "open" },
         lsp_codeAction: { defaultAction: "apply" },
         help: { defaultAction: "tabopen" },
+        window: { defaultAction: "open" },
       },
     });
   }
