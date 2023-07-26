@@ -1,9 +1,4 @@
 [[plugins]]
-repo = 'lambdalisue/kensaku.vim'
-depends = ['denops.vim']
-on_func = ['kensaku']
-
-[[plugins]]
 repo = 'MunifTanjim/nui.nvim'
 on_lua = ['nui']
 
