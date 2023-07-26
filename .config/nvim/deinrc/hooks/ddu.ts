@@ -106,9 +106,7 @@ export class Config extends BaseConfig {
           defaultAction: "append",
         },
         line: {
-          matchers: [
-            "matcher_kensaku",
-          ],
+          matchers: ["matcher_kensaku"],
         },
       },
 
