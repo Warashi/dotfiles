@@ -18,7 +18,7 @@ export class Config extends BaseConfig {
         "around",
         "file",
         "vsnip",
-        "zsh",
+        "shell-native",
         "mocword",
       ],
       autoCompleteEvents: [
@@ -80,7 +80,7 @@ export class Config extends BaseConfig {
           mark: "history",
           sorters: [],
         },
-        zsh: {
+        "shell-native": {
           mark: "zsh",
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
@@ -93,6 +93,11 @@ export class Config extends BaseConfig {
           mark: "mocword",
           minAutoCompleteLength: 4,
           isVolatile: true,
+        },
+      },
+      sourceParams: {
+        "shell-native": {
+          shell: "zsh",
         },
       },
     });
