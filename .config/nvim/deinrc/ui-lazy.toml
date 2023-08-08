@@ -70,3 +70,12 @@ hook_add = '''
   let g:deol#prompt_pattern = '❯ '
   let g:deol#floating_border = 'single'
 '''
+
+[[plugins]]
+repo = 'yuki-yano/fuzzy-motion.vim'
+on_cmd = ['FuzzyMotion']
+depends = ['kensaku.vim']
+hook_add = '''
+  nnoremap <leader>f <Cmd>FuzzyMotion<CR>
+  let g:fuzzy_motion_matchers = ['fzf', 'kensaku']
+'''
