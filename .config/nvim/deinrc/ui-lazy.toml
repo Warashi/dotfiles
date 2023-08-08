@@ -22,6 +22,7 @@ lua_source = 'require("nvim-autopairs").setup()'
 
 [[plugins]]
 repo = 'monaqa/modesearch.nvim'
+depends = ['kensaku.vim']
 on_lua = ['modesearch']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/modesearch.lua'
 
