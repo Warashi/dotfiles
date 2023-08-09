@@ -25,11 +25,4 @@ endfunction
 
 " hook_source {{{
 cnoremap <C-f> <Cmd>call pum#close()<CR><C-f>
-call ddc#custom#patch_global('sourceParams', #{
-      \   nvim-lsp: #{
-      \     snippetEngine: denops#callback#register({
-      \           body -> vsnip#anonymous(body)
-      \     }),
-      \   }
-      \ })
 " }}}

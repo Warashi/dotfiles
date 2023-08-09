@@ -105,6 +105,8 @@ export class Config extends BaseConfig {
           enableResolveItem: true,
           enableAdditionalTextEdit: true,
           confirmBehavior: "replace",
+          snippetEngine: (body: string) =>
+            args.denops.call("vsnip#anonymous", body),
         },
       },
       filterParams: {
