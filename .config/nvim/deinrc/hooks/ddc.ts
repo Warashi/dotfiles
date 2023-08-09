@@ -67,8 +67,9 @@ export class Config extends BaseConfig {
         },
         "nvim-lsp": {
           mark: "lsp",
-          forceCompletionPattern: "\\.\\w*|::\\w*|->\\w*",
-          dup: "force",
+          dup: "keep",
+          keywordPattern: "\\k+",
+          sorters: ["sorter_lsp-kind"],
         },
         file: {
           mark: "F",
@@ -98,6 +99,11 @@ export class Config extends BaseConfig {
       sourceParams: {
         "shell-native": {
           shell: "zsh",
+        },
+        "nvim-lsp": {
+          enableResolveItem: true,
+          enableAdditionalTextEdit: true,
+          confirmBehavior: "replace",
         },
       },
     });
