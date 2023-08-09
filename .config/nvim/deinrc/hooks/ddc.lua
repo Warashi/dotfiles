@@ -12,21 +12,13 @@ local function complete_or_select(rel)
     return vim.fn["ddc#map#manual_complete"]()
   end
 end
-vim.keymap.set(
-  { "i", "c" },
-  "<C-n>",
-  function() return complete_or_select(1) end,
-  { silent = true, expr = true, replace_keycodes = false }
-)
-vim.keymap.set(
-  { "i", "c" },
-  "<C-p>",
-  function() return complete_or_select(-1) end,
-  { silent = true, expr = true, replace_keycodes = false }
-)
-vim.keymap.set({ "i", "c" }, "<C-y>", function() vim.fn["pum#map#confirm"]() end)
-vim.keymap.set({ "i", "c" }, "<C-o>", function() vim.fn["pum#map#confirm_word"]() end)
-vim.keymap.set({ "i", "c" }, "<C-e>", function() vim.fn["pum#map#cancel"]() end)
+
+local opts = { silent = true, expr = true, replace_keycodes = false }
+vim.keymap.set({ "i", "c" }, "<C-n>", function() return complete_or_select(1) end, opts)
+vim.keymap.set({ "i", "c" }, "<C-p>", function() return complete_or_select(-1) end, opts)
+vim.keymap.set({ "i", "c" }, "<C-y>", vim.fn["pum#map#confirm"])
+vim.keymap.set({ "i", "c" }, "<C-o>", vim.fn["pum#map#confirm_word"])
+vim.keymap.set({ "i", "c" }, "<C-e>", vim.fn["pum#map#cancel"])
 
 -- enable
 vim.fn["ddc#enable"]()
