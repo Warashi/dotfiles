@@ -56,5 +56,4 @@ on_source = ['ddc.vim']
 [[plugins]]
 repo = 'uga-rosa/ddc-nvim-lsp-setup'
 depends = ['ddc-source-nvim-lsp']
-on_source = ['ddc.vim', 'nvim-lspconfig']
-lua_source = 'require("ddc_nvim_lsp_setup").setup()'
+on_source = ['ddc.vim']

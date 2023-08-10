@@ -23,6 +23,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- }}}
 
 -- lua_source {{{
+require("ddc_nvim_lsp_setup").setup({})
 local lspconfig = require("lspconfig")
 
 for _, server in ipairs({

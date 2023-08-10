@@ -11,6 +11,7 @@ lua_source = 'require("neodev").setup({})'
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ['BufRead', 'BufNewFile']
+depends = ['ddc-nvim-lsp-setup']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/lspconfig.lua'
 
 [[plugins]]
