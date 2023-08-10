@@ -70,6 +70,12 @@ export class Config extends BaseConfig {
       sync: true,
       sources: [{ name: "lsp_codeAction" }],
     });
+    args.contextBuilder.patchLocal("git-ls-files", {
+      sources: [{
+        name: "file_external",
+        params: { "cmd": ["git", "ls-files"] },
+      }],
+    });
     args.contextBuilder.patchGlobal({
       ui: "ff",
       uiParams: {

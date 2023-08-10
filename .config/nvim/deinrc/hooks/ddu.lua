@@ -5,6 +5,7 @@ local function set_keymaps()
   vim.keymap.set("n", "<leader>ds", function() start({ sources = { { name = "source" } } }) end)
   vim.keymap.set("n", "<leader>dh", function() start({ sources = { { name = "help" } } }) end)
   vim.keymap.set("n", "<leader>dw", function() start({ sources = { { name = "window" } } }) end)
+  vim.keymap.set("n", "<leader>df", function() start({ name = "git-ls-files" }) end)
   vim.keymap.set("i", "<C-x><C-l>", function() start({ sync = true, sources = { { name = "copilot" } } }) end)
   vim.keymap.set(
     "i",
