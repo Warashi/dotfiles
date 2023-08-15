@@ -51,4 +51,9 @@ config.font = wezterm.font_with_fallback({
   { family = "UDEV Gothic NFLG", assume_emoji_presentation = true },
 })
 
+config.mux_env_remove = {
+  "SSH_CLIENT",
+  "SSH_CONNECTION",
+}
+
 return config
