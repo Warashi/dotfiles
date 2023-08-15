@@ -56,4 +56,11 @@ config.mux_env_remove = {
   "SSH_CONNECTION",
 }
 
+config.unix_domains = {
+  {
+    name = "workbench",
+    proxy_command = { "ssh", "-T", "-A", "workbench", "wezterm", "cli", "proxy" },
+  },
+}
+
 return config
