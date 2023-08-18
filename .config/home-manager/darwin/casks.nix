@@ -5,6 +5,7 @@
   "arc"
   "cryptomator"
   "deepl"
+  "devpod"
   "discord"
   "docker"
   "dropbox"
