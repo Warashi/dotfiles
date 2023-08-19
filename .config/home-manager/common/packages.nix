@@ -41,7 +41,6 @@ with pkgs; [
 
   # lanuage server
   buf-language-server
-  gopls
   lua-language-server
   nodePackages_latest.typescript-language-server
   nodePackages_latest.yaml-language-server
