@@ -23,6 +23,14 @@
   "slack"
   "timemator"
 
+  {
+    name = "homebrew/cask-versions/wezterm-nightly";
+    greedy = true;
+    args = {
+      no_quarantine = true;
+    };
+  }
+
   "homebrew/cask-fonts/font-biz-udgothic"
   "homebrew/cask-fonts/font-biz-udmincho"
   "homebrew/cask-fonts/font-biz-udpgothic"

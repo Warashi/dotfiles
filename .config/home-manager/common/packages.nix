@@ -35,7 +35,6 @@ with pkgs; [
   tmux-mvr
   tmux-xpanes
   vivid
-  wezterm
   yq-go
   zstd
 
