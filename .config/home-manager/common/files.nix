@@ -18,13 +18,6 @@
       source = ./. + "/files/rgfind";
       executable = true;
     };
-    rg = {
-      target = ".config/ripgrep/config";
-      text = ''
-        --hidden
-        --glob=!.git/
-      '';
-    };
     oj-template = {
       target = ".config/online-judge-tools/template/main.go";
       text = ''

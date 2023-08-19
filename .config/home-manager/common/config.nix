@@ -100,4 +100,12 @@
           }
           + /palettes/latte.toml));
   };
+
+  programs.ripgrep = {
+    enable = true;
+    arguments = [
+      "--hidden"
+      "--glob=!.git/"
+    ];
+  };
 }
