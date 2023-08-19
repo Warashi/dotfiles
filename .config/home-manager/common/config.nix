@@ -86,6 +86,9 @@
     settings =
       {
         palette = "catppuccin_latte";
+        battery = {
+          disabled = true;
+        };
       }
       // builtins.fromTOML (builtins.readFile
         (pkgs.fetchFromGitHub
