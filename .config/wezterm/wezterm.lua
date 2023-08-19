@@ -47,20 +47,10 @@ config.color_scheme = "Catppuccin Latte"
 config.line_height = 1.2
 config.font_size = 18.0
 config.font = wezterm.font_with_fallback({
-  { family = "UDEV Gothic NFLG" },
-  { family = "UDEV Gothic NFLG", assume_emoji_presentation = true },
+  "PlemolJP Console NF",
+  "UDEV Gothic NFLG",
+  "Apple Color Emoji",
+  "Noto Color Emoji",
 })
-
-config.mux_env_remove = {
-  "SSH_CLIENT",
-  "SSH_CONNECTION",
-}
-
-config.unix_domains = {
-  {
-    name = "workbench",
-    proxy_command = { "ssh", "-T", "-A", "workbench", "wezterm", "cli", "proxy" },
-  },
-}
 
 return config
