@@ -66,7 +66,7 @@ on_cmd = ['StartupTime']
 repo = 'Shougo/deol.nvim'
 on_cmd = ['Deol']
 hook_add = '''
-  nnoremap <leader>t <Cmd>execute 'Deol' '-edit' '-toggle' '-cwd='.('%'->expand()->fnamemodify(':h'))<CR>
+  nnoremap <leader>t <Cmd>execute 'Deol' '-toggle' '-cwd='.('%'->expand()->fnamemodify(':h'))<CR>
   let g:deol#prompt_pattern = '❯ '
   let g:deol#floating_border = 'single'
 '''
