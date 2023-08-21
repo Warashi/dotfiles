@@ -44,3 +44,10 @@ repo = 'lambdalisue/gin.vim'
 hook_add = '''
   nnoremap <silent> <leader>g <Cmd>tabnew +GinStatus<CR>
 '''
+
+[[plugins]]
+repo = 'APZelos/blamer.nvim'
+hook_add = '''
+  let g:blamer_enabled = 1
+  nnoremap <silent> <leader>b <Cmd>BlamerToggle<CR>
+'''
