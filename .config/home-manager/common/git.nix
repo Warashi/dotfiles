@@ -1,4 +1,8 @@
-{programs, ...}: {
+{
+  programs,
+  pkgs,
+  ...
+}: {
   programs.git = {
     enable = true;
     includes = [
@@ -35,6 +39,13 @@
         "~/.cache/nvim/dein/repos/"
         "~/ghq/"
       ];
+      delta = {
+        syntax-theme = "Catppuccin-latte";
+        light = true;
+        side-by-side = true;
+        line-numbers = true;
+      };
+      diff.colorMoved = "default";
     };
   };
   programs.gh = {
@@ -49,5 +60,10 @@
   };
   programs.gh-dash = {
     enable = true;
+    settings = {
+      pager = {
+        diff = "${pkgs.delta}/bin/delta";
+      };
+    };
   };
 }
