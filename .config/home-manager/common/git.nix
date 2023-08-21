@@ -44,6 +44,7 @@
         light = true;
         side-by-side = true;
         line-numbers = true;
+        tabs = 2;
       };
       diff.colorMoved = "default";
     };
