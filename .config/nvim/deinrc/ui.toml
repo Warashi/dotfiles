@@ -51,3 +51,6 @@ hook_add = '''
   let g:blamer_enabled = 1
   nnoremap <silent> <leader>b <Cmd>BlamerToggle<CR>
 '''
+
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
