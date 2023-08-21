@@ -30,19 +30,24 @@
       pull.ff = "only";
       init.defaultBranch = "main";
       fetch.prune = true;
-      credential = {
-        "https://github.com" = {
-          helper = "!gh auth git-credential";
-        };
-        "https://gist.github.com" = {
-          helper = "!gh auth git-credential";
-        };
-      };
       ghq.root = [
         "~/.local/share/sheldon/repos/"
         "~/.cache/nvim/dein/repos/"
         "~/ghq/"
       ];
     };
+  };
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper = {
+      enable = true;
+      hosts = [
+        "https://github.com"
+        "https://gist.github.com"
+      ];
+    };
+  };
+  programs.gh-dash = {
+    enable = true;
   };
 }
