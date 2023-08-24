@@ -13,7 +13,7 @@ with pkgs; [
   git-lfs
   glow
   gnumake
-  go
+  go_1_21
   htop
   hyperfine
   jdk17
