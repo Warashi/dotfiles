@@ -83,14 +83,14 @@ in [
   (_: prev: {
     muscat = prev.buildGo121Module rec {
       pname = "muscat";
-      version = "2.0.3";
-      vendorSha256 = "sha256-kcZNxiFocg2kar6P1rlHTKvYo0TXQSRSR5olVwY8W7w=";
+      version = "2.1.0";
+      vendorSha256 = "sha256-F6VLn0t//8qvhG+KHBmnUywHIy67rSm07ncVH5HD4/4=";
 
       src = prev.fetchFromGitHub {
         owner = "Warashi";
         repo = pname;
         rev = "v${version}";
-        sha256 = "sha256-vXwjNxhPyhOpjYmSv+eHQX5eh7Kx6j7MK9r+142JAOE=";
+        sha256 = "sha256-hTrzJH1DzNDgnR+ztBfCAtHNpYWFVYv32XjO0NSGURg=";
       };
 
       postInstall = ''
