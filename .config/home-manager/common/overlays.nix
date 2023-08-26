@@ -81,16 +81,16 @@ in [
     };
   })
   (_: prev: {
-    muscat = prev.buildGo120Module rec {
+    muscat = prev.buildGo121Module rec {
       pname = "muscat";
-      version = "1.5.0";
-      vendorSha256 = "0ICp5NHpKWHLUlk7Y/CqoP5x7LDJ9ExhPGdqdGrPBxA=";
+      version = "2.0.3";
+      vendorSha256 = "sha256-kcZNxiFocg2kar6P1rlHTKvYo0TXQSRSR5olVwY8W7w=";
 
       src = prev.fetchFromGitHub {
         owner = "Warashi";
         repo = pname;
         rev = "v${version}";
-        sha256 = "sha256-bgoC4eM3ZE9chbMnmzwvAJE45FQyCDnS7nUgtr1SlvQ=";
+        sha256 = "sha256-vXwjNxhPyhOpjYmSv+eHQX5eh7Kx6j7MK9r+142JAOE=";
       };
 
       postInstall = ''
