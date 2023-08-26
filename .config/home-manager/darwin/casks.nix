@@ -22,6 +22,7 @@
   "raycast"
   "slack"
   "timemator"
+  "vlc"
 
   {
     name = "homebrew/cask-versions/wezterm-nightly";
