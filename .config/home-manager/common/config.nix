@@ -8,6 +8,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./alacritty.nix
     ./files.nix
     ./git.nix
     ./tmux.nix

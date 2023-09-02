@@ -24,7 +24,6 @@ in {
   users.users.${local.user} = {
     name = "${local.user}";
     home = "/Users/${local.user}";
-    shell = pkgs.zsh;
   };
 
   home-manager.users.${local.user} = {pkgs, ...}: {
@@ -70,7 +69,6 @@ in {
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/home-manager/darwin.nix
   environment.darwinConfig = "$HOME/.config/home-manager/darwin.nix";
-  environment.shells = [pkgs.zsh];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
