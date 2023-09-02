@@ -4,33 +4,16 @@
   "amethyst"
   "arc"
   "cryptomator"
-  "deepl"
-  "devpod"
-  "discord"
   "docker"
   "dropbox"
-  "grammarly"
-  "iterm2"
   "jetbrains-toolbox"
   "karabiner-elements"
   "logi-options-plus"
   "logseq"
   "microsoft-edge"
   "mimestream"
-  "notion"
-  "raindropio"
-  "raycast"
-  "slack"
   "timemator"
   "vlc"
-
-  {
-    name = "homebrew/cask-versions/wezterm-nightly";
-    greedy = true;
-    args = {
-      no_quarantine = true;
-    };
-  }
 
   "homebrew/cask-fonts/font-biz-udgothic"
   "homebrew/cask-fonts/font-biz-udmincho"

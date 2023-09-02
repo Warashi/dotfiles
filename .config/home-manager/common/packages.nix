@@ -1,10 +1,12 @@
 {pkgs, ...}:
 with pkgs; [
   _1password
+  alacritty
   awscli2
   bat
   delta
   deno
+  discord
   exa
   fd
   gh
@@ -29,11 +31,13 @@ with pkgs; [
   python311
   ripgrep
   sheldon
+  slack
   taplo
   tig
   tmux-mvr
   tmux-xpanes
   vivid
+  wezterm
   yq-go
   zstd
 
