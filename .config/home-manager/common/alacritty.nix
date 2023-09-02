@@ -26,6 +26,10 @@
       window = {
         opacity = 1.0;
         options_as_alt = "Both";
+        padding = {
+          x = 10;
+          y = 10;
+        };
       };
       scrolling = {
         history = 0;
@@ -33,11 +37,11 @@
       font = {
         size = 18.0;
         offset = {
-          x = 0;
+          x = 2;
           y = 4;
         };
         glyph_offset = {
-          x = 0;
+          x = 1;
           y = 2;
         };
         normal = {
