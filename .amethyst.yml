@@ -95,12 +95,12 @@ command4:
 # Focus the next window in the list going counter-clockwise.
 focus-ccw:
   mod: mod1
-  key: k
+  key: j
 
 # Focus the next window in the list going clockwise.
 focus-cw:
   mod: mod1
-  key: j
+  key: k
 
 # Focus the main window in the list.
 focus-main:
@@ -130,12 +130,12 @@ swap-screen-cw:
 # Swap the position of the currently focused window with the next window in the list going counter-clockwise.
 swap-ccw:
   mod: mod2
-  key: k
+  key: j
 
 # Swap the position of the currently focused window with the next window in the list going clockwise.
 swap-cw:
   mod: mod2
-  key: j
+  key: k
 
 # Swap the position of the currently focused window with the main window in the list.
 swap-main:
