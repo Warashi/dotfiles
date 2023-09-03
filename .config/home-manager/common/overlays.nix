@@ -129,4 +129,26 @@ in [
       };
     };
   })
+  (_: prev: {
+    tmuxPlugins =
+      prev.tmuxPlugins
+      // {
+        tmux-1password = prev.tmuxPlugins.mkTmuxPlugin {
+          pluginName = "1password";
+          rtpFilePath = "plugin.tmux";
+          version = "0.0.1";
+          src = prev.fetchFromGitHub {
+            owner = "Warashi";
+            repo = "tmux-1password";
+            rev = "4693d242dc2a81ae74a2773b3a9eaf5c5bf04f46";
+            hash = "sha256-yN0+eT6UtfIBDnfHuQy3ZmKSE9D2hFQsTdqLINgOn0I=";
+          };
+          meta = with prev.lib; {
+            description = "1password integration for tmux";
+            homepage = "https://github.com/Warashi/tmux-1password";
+            license = licenses.mit;
+          };
+        };
+      };
+  })
 ]
