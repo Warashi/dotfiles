@@ -4,11 +4,6 @@ on_source = ['nvim-lspconfig']
 lua_source = 'require("neoconf").setup({})'
 
 [[plugins]]
-repo = 'folke/neodev.nvim'
-on_source = ['nvim-lspconfig']
-lua_source = 'require("neodev").setup({})'
-
-[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ['BufRead', 'BufNewFile']
 depends = ['ddc-nvim-lsp-setup']
