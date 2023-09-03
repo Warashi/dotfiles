@@ -4,10 +4,50 @@
     then pkgs.darwin.locale
     else pkgs.glibcLocales;
 in [
-  # neovim nightly を使うときはここを適切に変更する
-  # (import (builtins.fetchTarball {
-  #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/b7ae7ef7cc841eebb365840a90341a5555ed93f5.tar.gz";
-  # }))
+  # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
+  (_: prev: {
+    liblpeg = prev.stdenv.mkDerivation {
+      pname = "liblpeg";
+      inherit (prev.luajitPackages.lpeg) version meta src;
+      buildInputs = [prev.luajit];
+      buildPhase =
+        if prev.stdenv.isDarwin
+        then ''
+          sed -i makefile -e "s/CC = gcc/CC = clang/"
+          sed -i makefile -e "s/-bundle/-dynamiclib/"
+          make macosx
+        ''
+        else ''
+          make linux
+        '';
+      installPhase =
+        if prev.stdenv.isDarwin
+        then ''
+          mkdir -p $out/lib
+          mv lpeg.so $out/lib/lpeg.dylib
+        ''
+        else ''
+          mkdir -p $out/lib
+          mv lpeg.so $out/lib/lpeg.so
+        '';
+      nativeBuildInputs =
+        if prev.stdenv.isDarwin
+        then [prev.fixDarwinDylibNames]
+        else [];
+    };
+  })
+  (import (builtins.fetchTarball {
+    url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+  }))
+  (_: prev: {
+    neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
+      nativeBuildInputs =
+        old.nativeBuildInputs
+        ++ [
+          prev.liblpeg
+        ];
+    });
+  })
   (_: prev: {
     sheldon =
       prev.sheldon.overrideAttrs
