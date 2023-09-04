@@ -4,6 +4,7 @@ in
   with pkgs;
     [
       _1password
+      alacritty
       awscli2
       bat
       delta
@@ -64,8 +65,6 @@ in
     ]
     ++ (
       if local.hasGUI
-      then [
-        alacritty
-      ]
+      then []
       else []
     )
