@@ -4,6 +4,7 @@
   "amethyst"
   "arc"
   "cryptomator"
+  "discord"
   "docker"
   "dropbox"
   "jetbrains-toolbox"
@@ -12,6 +13,7 @@
   "logseq"
   "microsoft-edge"
   "mimestream"
+  "slack"
   "timemator"
   "vlc"
 

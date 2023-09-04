@@ -66,8 +66,6 @@ in
       if local.hasGUI
       then [
         alacritty
-        discord
-        slack
       ]
       else []
     )
