@@ -15,7 +15,13 @@
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs
-      tmux-1password
+
+      {
+        plugin = tmux-1password;
+        extraConfig = ''
+          set -g @1password-vault 'terminal'
+        '';
+      }
 
       {
         plugin = catppuccin;
