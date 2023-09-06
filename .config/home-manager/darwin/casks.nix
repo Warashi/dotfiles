@@ -13,6 +13,7 @@
   "logseq"
   "microsoft-edge"
   "mimestream"
+  "raycast"
   "slack"
   "timemator"
   "vlc"
