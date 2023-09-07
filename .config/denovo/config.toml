@@ -20,9 +20,9 @@ keyword = "la"
 snippet = "ls -al"
 
 [[plugins.abbrev.snippets]]
-name = "tmux new-session -AD -s main"
+name = "tmux new-session"
 keyword = "tn"
-snippet = "tmux new-session -AD -s main"
+snippet = "tmux new-session -AD -s $(hostname)"
 
 [[plugins.abbrev.snippets]]
 name = "kubectl"
