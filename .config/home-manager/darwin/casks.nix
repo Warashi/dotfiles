@@ -7,6 +7,7 @@
   "discord"
   "docker"
   "dropbox"
+  "iterm2"
   "jetbrains-toolbox"
   "karabiner-elements"
   "logi-options-plus"
