@@ -33,3 +33,8 @@ snippet = "kubectl"
 name = "kubectx"
 keyword = "kx"
 snippet = "kubectx"
+
+[[plugins.abbrev.snippets]]
+name = "exit"
+keyword = ":q"
+snippet = "exit"

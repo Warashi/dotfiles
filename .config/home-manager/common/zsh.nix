@@ -37,7 +37,6 @@
     };
 
     shellAliases = {
-      ":q" = "exit";
       e = ''''${(@s/ /)EDITOR}'';
       fd = "fd -a";
       ls = "exa --icons";
