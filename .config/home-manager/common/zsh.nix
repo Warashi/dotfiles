@@ -33,13 +33,13 @@
       ZENO_FZF_TMUX_OPTIONS = "-p 80%";
       ZENO_ENABLE_SOCK = "1";
       ZENO_GIT_CAT = "bat --color=always";
-      ZENO_GIT_TREE = "exa --tree";
+      ZENO_GIT_TREE = "eza --tree";
     };
 
     shellAliases = {
       e = ''''${(@s/ /)EDITOR}'';
       fd = "fd -a";
-      ls = "exa --icons";
+      ls = "eza --icons";
       tmux = "direnv exec / tmux"; # 自動でtmuxを起動はしないので、起動する時にdirenvの影響を受けないようにこれを定義する。
     };
 

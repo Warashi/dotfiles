@@ -9,7 +9,7 @@ in
       bat
       delta
       deno
-      exa
+      eza
       fd
       gh
       ghq
