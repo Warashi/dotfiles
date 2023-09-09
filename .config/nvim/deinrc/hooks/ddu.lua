@@ -18,7 +18,10 @@ local function set_keymaps()
     end
   )
 
+  local group = vim.api.nvim_create_augroup("my-custom-ddu-augroup", {})
+
   vim.api.nvim_create_autocmd("FileType", {
+    group = group,
     pattern = "ddu-ff",
     callback = function()
       local action = vim.fn["ddu#ui#ff#do_action"]
@@ -31,6 +34,7 @@ local function set_keymaps()
   })
 
   vim.api.nvim_create_autocmd("FileType", {
+    group = group,
     pattern = "ddu-ff-filter",
     callback = function()
       local opts = { buffer = true }
@@ -39,8 +43,21 @@ local function set_keymaps()
     end,
   })
 
+  vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    pattern = "ddu-filer",
+    callback = function()
+      local action = vim.fn["ddu#ui#filer#do_action"]
+      local opts = { buffer = true }
+      vim.keymap.set("n", "<CR>", function() action("itemAction") end, opts)
+      vim.keymap.set("n", "<Space>", function() action("toggleSelectItem") end, opts)
+      vim.keymap.set("n", "o", function() action("expandItem", { mode = "toggle" }) end, opts)
+      vim.keymap.set("n", "q", function() action("quit") end, opts)
+    end,
+  })
+
   vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("LspAttach_ddu", {}),
+    group = group,
     callback = function(ev)
       local opts = { buffer = ev.buf }
       vim.keymap.set("n", "gd", function() start({ name = "lsp-definition" }) end, opts)

@@ -4,8 +4,10 @@ import {
 } from "https://deno.land/x/ddu_vim@v3.4.3/types.ts";
 import type { Denops } from "https://deno.land/x/ddu_vim@v3.4.3/deps.ts";
 import type { Params as FfParams } from "https://deno.land/x/ddu_ui_ff@v1.1.0/ff.ts";
+import type { Params as FilerParams } from "https://deno.land/x/ddu_ui_filer@v1.1.0/filer.ts";
 
-const ffWindowSizeParams = {
+const windowParams = {
+  // window size and position
   winWidth: "&columns * 4 / 5",
   winHeight: "&lines * 4 / 5",
   winRow: "&lines / 10",
@@ -14,7 +16,18 @@ const ffWindowSizeParams = {
   previewHeight: "&lines * 4 / 5 - 2",
   previewRow: "&lines / 10 + 1",
   previewCol: "&columns / 2 - 1",
-} as Partial<FfParams>;
+
+  // window decorations
+  split: "floating",
+  floatingBorder: "single",
+  previewFloating: true,
+  previewFloatingBorder: "single",
+  previewSplit: "vertical",
+  highlights: {
+    floating: "Normal",
+    floatingBorder: "Special",
+  },
+} as const satisfies Partial<FfParams> satisfies Partial<FilerParams>;
 
 export class Config extends BaseConfig {
   // deno-lint-ignore require-await
@@ -76,21 +89,31 @@ export class Config extends BaseConfig {
         params: { "cmd": ["git", "ls-files"] },
       }],
     });
+    args.contextBuilder.patchLocal("filer", {
+      ui: "filer",
+      uiParams: {
+        filer: {
+          ...windowParams,
+        },
+      },
+      sources: [{ name: "file", params: {} }],
+      sourceOptions: {
+        _: {
+          columns: ["filename"],
+        },
+      },
+      kindOptions: {
+        file: {
+          defaultAction: "open",
+        },
+      },
+    });
     args.contextBuilder.patchGlobal({
       ui: "ff",
       uiParams: {
         ff: {
-          ...ffWindowSizeParams,
-          split: "floating",
-          floatingBorder: "single",
+          ...windowParams,
           filterSplitDirection: "floating",
-          previewFloating: true,
-          previewFloatingBorder: "single",
-          previewSplit: "vertical",
-          highlights: {
-            floating: "Normal",
-            floatingBorder: "Special",
-          },
           startAutoAction: true,
           autoAction: {
             name: "preview",

@@ -23,15 +23,6 @@ hook_source = '''
 repo = 'github/copilot.vim'
 
 [[plugins]]
-repo = 'lambdalisue/fern-hijack.vim'
-hook_add = '''
-  let g:loaded_netrw = 1
-  let g:loaded_netrwPlugin = 1
-  let g:loaded_netrwSettings = 1
-  let g:loaded_netrwFileHandlers = 1
-'''
-
-[[plugins]]
 repo = 'rebelot/heirline.nvim'
 hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
 depends = ['nvim-navic', 'catppuccin']
@@ -47,3 +38,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'

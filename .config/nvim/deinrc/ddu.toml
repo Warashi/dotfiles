@@ -2,7 +2,10 @@
 repo = 'Shougo/ddu.vim'
 on_func = ['ddu#start']
 depends = ['denops.vim']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/ddu.lua'
+hooks_file = [
+  '$DEIN_CONFIG_BASE/hooks/ddu.vim',
+  '$DEIN_CONFIG_BASE/hooks/ddu.lua',
+]
 
 [[plugins]]
 repo = 'Warashi/ddu-source-copilot'
@@ -80,4 +83,20 @@ on_source = ['ddu.vim']
 
 [[plugins]]
 repo = 'matsui54/ddu-source-file_external'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-column-filename'
+on_source = ['ddu.vim']
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-filer'
 on_source = ['ddu.vim']

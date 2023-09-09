@@ -27,38 +27,6 @@ on_lua = ['modesearch']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/modesearch.lua'
 
 [[plugins]]
-repo = 'lambdalisue/fern.vim'
-on_cmd = ['Fern']
-hook_add = '''
-  let g:fern#default_hidden = 1
-'''
-
-[[plugins]]
-repo = 'lambdalisue/nerdfont.vim'
-on_source = ['fern.vim']
-
-[[plugins]]
-repo = 'lambdalisue/glyph-palette.vim'
-on_source = ['fern.vim']
-hook_source = '''
-  augroup my-glyph-palette
-    autocmd! *
-    autocmd FileType fern call glyph_palette#apply()
-  augroup END
-'''
-
-[[plugins]]
-repo = 'lambdalisue/fern-renderer-nerdfont.vim'
-on_source = ['fern.vim']
-hook_add = '''
-  let g:fern#renderer = "nerdfont"
-'''
-
-[[plugins]]
-repo = 'lambdalisue/fern-git-status.vim'
-on_source = ['fern.vim']
-
-[[plugins]]
 repo = 'dstein64/vim-startuptime'
 on_cmd = ['StartupTime']
 
