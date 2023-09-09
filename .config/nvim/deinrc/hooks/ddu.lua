@@ -6,6 +6,7 @@ local function set_keymaps()
   vim.keymap.set("n", "<leader>dh", function() start({ sources = { { name = "help" } } }) end)
   vim.keymap.set("n", "<leader>dw", function() start({ sources = { { name = "window" } } }) end)
   vim.keymap.set("n", "<leader>df", function() start({ name = "git-ls-files" }) end)
+  vim.keymap.set("n", "<leader>dq", function() start({ name = "ghq" }) end)
   vim.keymap.set("i", "<C-x><C-l>", function() start({ sync = true, sources = { { name = "copilot" } } }) end)
   vim.keymap.set(
     "i",
@@ -72,5 +73,9 @@ set_keymaps()
 -- }}}
 
 -- lua_source {{{
+vim.fn["ddu#custom#action"]("kind", "file", "ddu-ui-filer", function()
+  vim.fn["ddu#start"]({ name = "filer" })
+  return 0
+end)
 vim.fn["ddu#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "hooks/ddu.ts")
 -- }}}

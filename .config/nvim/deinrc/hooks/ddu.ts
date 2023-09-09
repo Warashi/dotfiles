@@ -89,6 +89,19 @@ export class Config extends BaseConfig {
         params: { "cmd": ["git", "ls-files"] },
       }],
     });
+    args.contextBuilder.patchLocal("ghq", {
+      sources: [{ name: "ghq" }],
+      kindOptions: {
+        file: {
+          defaultAction: "ddu-ui-filer",
+        },
+      },
+      uiParams: {
+        ff: {
+          startAutoAction: false,
+        }
+      }
+    });
     args.contextBuilder.patchLocal("filer", {
       ui: "filer",
       uiParams: {

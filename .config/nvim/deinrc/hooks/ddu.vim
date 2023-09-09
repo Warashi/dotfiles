@@ -16,6 +16,6 @@ endfunction
 
 augroup ddu_hijack
   autocmd!
-  autocmd VimEnter,BufAdd * call s:ddu_hijack()
+  autocmd VimEnter * call s:ddu_hijack()
 augroup END
 " }}}
