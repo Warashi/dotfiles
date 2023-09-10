@@ -1,22 +1,10 @@
 # layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
 layouts:
-  # - tall
-  - tall-right
+  - middle-wide
   - fullscreen
+  # - tall-right
   # - wide
   # - two-pane
-  # - middle-wide
-  # - 3column-left
-  # - 3column-middle
-  # - 3column-right
-  # - 4column-left
-  # - 4column-right
-  # - column
-  # - row
-  # - floating
-  # - widescreen-tall
-  # - widescreen-tall-right
-  # - bsp
 
 # First mod (default option + shift).
 mod1:
@@ -95,12 +83,12 @@ command4:
 # Focus the next window in the list going counter-clockwise.
 focus-ccw:
   mod: mod1
-  key: j
+  key: k
 
 # Focus the next window in the list going clockwise.
 focus-cw:
   mod: mod1
-  key: k
+  key: j
 
 # Focus the main window in the list.
 focus-main:
@@ -130,12 +118,12 @@ swap-screen-cw:
 # Swap the position of the currently focused window with the next window in the list going counter-clockwise.
 swap-ccw:
   mod: mod2
-  key: j
+  key: k
 
 # Swap the position of the currently focused window with the next window in the list going clockwise.
 swap-cw:
   mod: mod2
-  key: k
+  key: j
 
 # Swap the position of the currently focused window with the main window in the list.
 swap-main:
