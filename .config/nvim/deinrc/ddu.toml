@@ -90,10 +90,6 @@ repo = 'Shougo/ddu-source-file'
 on_source = ['ddu.vim']
 
 [[plugins]]
-repo = 'Shougo/ddu-kind-file'
-on_source = ['ddu.vim']
-
-[[plugins]]
 repo = 'Shougo/ddu-column-filename'
 on_source = ['ddu.vim']
 
