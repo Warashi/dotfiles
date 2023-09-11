@@ -2,9 +2,8 @@
 layouts:
   - middle-wide
   - fullscreen
-  # - tall-right
-  # - wide
-  # - two-pane
+  - wide
+  - two-pane
 
 # First mod (default option + shift).
 mod1:
