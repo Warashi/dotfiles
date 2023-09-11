@@ -73,9 +73,5 @@ set_keymaps()
 -- }}}
 
 -- lua_source {{{
-vim.fn["ddu#custom#action"]("kind", "file", "ddu-ui-filer", function()
-  vim.fn["ddu#start"]({ name = "filer" })
-  return 0
-end)
 vim.fn["ddu#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "hooks/ddu.ts")
 -- }}}

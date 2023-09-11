@@ -93,7 +93,7 @@ export class Config extends BaseConfig {
       sources: [{ name: "ghq" }],
       kindOptions: {
         file: {
-          defaultAction: "ddu-ui-filer",
+          defaultAction: "cd",
         },
       },
       uiParams: {
