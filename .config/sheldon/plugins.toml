@@ -19,9 +19,11 @@ github = "romkatv/zsh-defer"
 
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
+apply = ["defer"]
 
 [plugins.denovo]
 github = "Warashi/denovo.zsh"
+apply = ["defer"]
 
 [plugins.denovo-fzf]
 github = "Warashi/denovo-fzf"
