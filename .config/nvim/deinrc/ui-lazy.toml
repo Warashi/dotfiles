@@ -1,4 +1,10 @@
 [[plugins]]
+name = 'catppuccin'
+repo = 'catppuccin/nvim'
+hooks_file = '$DEIN_CONFIG_BASE/hooks/catppuccin.lua'
+hook_post_update = 'CatppuccinCompile'
+
+[[plugins]]
 repo = 'rcarriga/nvim-notify'
 on_lua = ['notify']
 depends = ['catppuccin']
@@ -47,3 +53,22 @@ hook_add = '''
   nnoremap <leader>f <Cmd>FuzzyMotion<CR>
   let g:fuzzy_motion_matchers = ['fzf', 'kensaku']
 '''
+
+[[plugins]]
+repo = 'vim-skk/skkeleton'
+on_map = { ict = '<Plug>(skkeleton-enable)' }
+hooks_file = '$DEIN_CONFIG_BASE/hooks/skkeleton.lua'
+
+[[plugins]]
+repo = 'matsui54/denops-signature_help'
+on_event = ['InsertEnter']
+hook_source = '''
+  let g:signature_help_config = #{contentsStyle: "remainingLabels", viewStyle: "virtual" }
+  call signature_help#enable()
+'''
+
+[[plugins]]
+repo = 'rebelot/heirline.nvim'
+on_event = ['VimEnter']
+hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
+depends = ['nvim-navic', 'catppuccin']

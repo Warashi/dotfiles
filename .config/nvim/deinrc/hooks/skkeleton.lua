@@ -1,4 +1,4 @@
--- lua_source {{{
+-- lua_add {{{
 local function skkeleton_init()
   vim.fn["skkeleton#config"]({
     globalDictionaries = {

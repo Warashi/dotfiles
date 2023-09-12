@@ -57,3 +57,8 @@ on_source = ['ddc.vim']
 repo = 'uga-rosa/ddc-nvim-lsp-setup'
 depends = ['ddc-source-nvim-lsp']
 on_source = ['ddc.vim']
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+hook_source = 'call popup_preview#enable()'
+on_source = ['ddc.vim']

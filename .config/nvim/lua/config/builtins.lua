@@ -33,3 +33,23 @@ for sign, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. sign
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+vim.g.loaded_2html_plugin = true
+vim.g.loaded_logiPat = true
+vim.g.loaded_getscriptPlugin = true
+vim.g.loaded_gzip = true
+vim.g.loaded_gtags = true
+vim.g.loaded_gtags_cscope = true
+vim.g.loaded_man = true
+vim.g.loaded_matchit = true
+vim.g.loaded_matchparen = true
+vim.g.loaded_netrwFileHandlers = true
+vim.g.loaded_netrwPlugin = true
+vim.g.loaded_netrwSettings = true
+vim.g.loaded_rrhelper = true
+vim.g.loaded_shada_plugin = true
+vim.g.loaded_spellfile_plugin = true
+vim.g.loaded_tarPlugin = true
+vim.g.loaded_tutor_mode_plugin = true
+vim.g.loaded_vimballPlugin = true
+vim.g.loaded_zipPlugin = true
