@@ -38,7 +38,7 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = false;
     stdlib = ''
       layout_poetry() {
           PYPROJECT_TOML="''${PYPROJECT_TOML:-pyproject.toml}"
@@ -78,12 +78,13 @@
 
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = false;
     options = ["--cmd j"];
   };
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = false;
     settings =
       {
         palette = "catppuccin_latte";

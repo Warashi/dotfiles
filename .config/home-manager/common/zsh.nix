@@ -66,22 +66,27 @@
     initExtra =
       ''
         setopt ignore_eof
-        test -f "$HOME/.sdkman/bin/sdkman-init.sh" && . "$HOME/.sdkman/bin/sdkman-init.sh"
+        test -f "$HOME/.sdkman/bin/sdkman-init.sh" && source "$HOME/.sdkman/bin/sdkman-init.sh"
       ''
       + import ./sheldon.nix
       + import ./zsh-binds.nix
       + import ./zeno-bind.nix
+      + import ./zsh-zoxide.nix {inherit pkgs;}
+      + import ./zsh-starship.nix {inherit pkgs;}
+      + import ./zsh-direnv.nix {inherit pkgs;}
       + import ./zprof.nix;
 
     envExtra =
       ''
         # zshの起動profileを取る時はここを有効にする
         # zmodload zsh/zprof && zprof
-        test -f $HOME/.cargo/env && . $HOME/.cargo/env
+      ''
+      + import ./zsh-ensure-zcompiled.nix
+      + ''
+        test -f $HOME/.cargo/env && source $HOME/.cargo/env
         test -d /opt/homebrew/bin && export PATH=/opt/homebrew/bin:$PATH
         test -S $XDG_RUNTIME_DIR/docker.sock && export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
         test -S $HOME/.ssh/ssh_auth_sock && export SSH_AUTH_SOCK=$HOME/.ssh/ssh_auth_sock
-        test -f "$HOME/.config/ripgrep/config" && export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
         # wezterm の socket を tmux のセッションを越えてもちゃんと使えるようにしたい
         if [ "$XDG_RUNTIME_DIR/wezterm.sock" != "$WEZTERM_UNIX_SOCKET" ] && [ -S "$WEZTERM_UNIX_SOCKET" ]; then
