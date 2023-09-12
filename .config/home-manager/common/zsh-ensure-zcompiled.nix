@@ -1,6 +1,6 @@
 ''
   function source {
-    # ensure_zcompiled $1
+    ensure_zcompiled $1
     builtin source $1
   }
   function ensure_zcompiled {
