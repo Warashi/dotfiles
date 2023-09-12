@@ -17,6 +17,13 @@ shell = "zsh"
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
+[plugins.powerlevel10k]
+github = 'romkatv/powerlevel10k'
+use = ['{{ name }}.zsh-theme']
+hooks.post = '''
+  source $ZDOTDIR/p10k.zsh
+'''
+
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 apply = ["defer"]

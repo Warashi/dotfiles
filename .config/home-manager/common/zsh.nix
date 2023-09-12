@@ -56,7 +56,7 @@
           compinit -C
         fi
       }
-      _compinit
+      # _compinit
     '';
 
     initExtraFirst = ''
@@ -72,14 +72,13 @@
       + import ./zsh-binds.nix
       + import ./zeno-bind.nix
       + import ./zsh-zoxide.nix {inherit pkgs;}
-      + import ./zsh-starship.nix {inherit pkgs;}
       + import ./zsh-direnv.nix {inherit pkgs;}
       + import ./zprof.nix;
 
     envExtra =
       ''
         # zshの起動profileを取る時はここを有効にする
-        # zmodload zsh/zprof && zprof
+        # zmodload zsh/zprof
       ''
       + import ./zsh-ensure-zcompiled.nix
       + ''
