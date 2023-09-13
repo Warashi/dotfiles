@@ -40,7 +40,6 @@ vim.g.loaded_getscriptPlugin = true
 vim.g.loaded_gzip = true
 vim.g.loaded_gtags = true
 vim.g.loaded_gtags_cscope = true
-vim.g.loaded_man = true
 vim.g.loaded_matchit = true
 vim.g.loaded_matchparen = true
 vim.g.loaded_netrwFileHandlers = true
