@@ -72,3 +72,10 @@ repo = 'rebelot/heirline.nvim'
 on_event = ['VimEnter']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
 depends = ['nvim-navic', 'catppuccin']
+
+[[plugins]]
+repo = 'nvim-zh/colorful-winsep.nvim'
+on_event = ['WinNew']
+lua_source = '''
+  require('colorful-winsep').setup()
+'''
