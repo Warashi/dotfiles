@@ -1,5 +1,6 @@
 [
   "1password"
+  "alfred"
   "alt-tab"
   "amethyst"
   "arc"
