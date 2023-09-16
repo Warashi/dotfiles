@@ -1,4 +1,5 @@
 {
+  inputs,
   home,
   pkgs,
   ...
@@ -32,36 +33,15 @@
       '';
     };
     largedict = {
-      source =
-        pkgs.fetchFromGitHub {
-          owner = "skk-dev";
-          repo = "dict";
-          rev = "1909dda026e6038975359a5eaeafcf50c9ce7fa3";
-          sha256 = "sha256-e7B1+ji/8ssM92RSTmlu8c7V5kbk93CxtUDzs26gE8s=";
-        }
-        + "/SKK-JISYO.L";
+      source = inputs.skk-jisyo-L + "/SKK-JISYO.L";
       target = ".config/skk/SKK-JISYO.L";
     };
     wikidict = {
-      source =
-        pkgs.fetchFromGitHub {
-          owner = "tokuhirom";
-          repo = "jawiki-kana-kanji-dict";
-          rev = "43af3f7cc2dc1ad7bac58dcf44dd4ab22436135b";
-          sha256 = "sha256-H+cEDsWjvbS9QaWSfhSbdZQx6yIv7HMRIgLZ/0qCdME=";
-        }
-        + "/SKK-JISYO.jawiki";
+      source = inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki";
       target = ".config/skk/SKK-JISYO.jawiki";
     };
     bat-catppuccin-latte = {
-      source =
-        pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "bat";
-          rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-          sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
-        }
-        + /Catppuccin-latte.tmTheme;
+      source = inputs.bat-catppuccin-latte + /Catppuccin-latte.tmTheme;
       target = ".config/bat/themes/Catppuccin-latte.tmTheme";
     };
     glamour-catppuccin-latte = {

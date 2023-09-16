@@ -13,6 +13,18 @@
       url = "github:catppuccin/alacritty";
       flake = false;
     };
+    skk-jisyo-L = {
+      url = "github:skk-dev/dict";
+      flake = false;
+    };
+    skk-jisyo-jawiki = {
+      url = "github:tokuhirom/jawiki-kana-kanji-dict";
+      flake = false;
+    };
+    bat-catppuccin-latte = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

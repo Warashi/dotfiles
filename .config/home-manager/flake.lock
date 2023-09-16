@@ -306,7 +306,24 @@
         "catppuccin-alacritty": "catppuccin-alacritty",
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "skk-jisyo-L": "skk-jisyo-L"
+      }
+    },
+    "skk-jisyo-L": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675779125,
+        "narHash": "sha256-e7B1+ji/8ssM92RSTmlu8c7V5kbk93CxtUDzs26gE8s=",
+        "owner": "skk-dev",
+        "repo": "dict",
+        "rev": "1909dda026e6038975359a5eaeafcf50c9ce7fa3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "skk-dev",
+        "repo": "dict",
+        "type": "github"
       }
     },
     "systems": {
