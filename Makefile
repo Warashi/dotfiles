@@ -10,3 +10,6 @@ link-import:
 .PHONY: format-stylua
 format-stylua:
 	fd --hidden '.lua$$' -x stylua
+.PHONY: darwin-rebuild
+darwin-rebuild:
+	nix run nix-darwin -- switch --flake './.config/nix-darwin#warashi'
