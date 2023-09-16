@@ -22,7 +22,6 @@
       KEYTIMEOUT = "1";
       LANG = "en_US.UTF-8";
       MANPAGER = "nvim +Man!";
-      NIXPKGS_ALLOW_UNFREE = "1";
       XDG_CONFIG_HOME = "$HOME/.config";
       LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-latte)";
       MOCWORD_DATA = "${pkgs.mocword-data}/mocword.sqlite";
