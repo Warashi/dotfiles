@@ -1,4 +1,7 @@
-{pkgs}: let
+{
+  pkgs,
+  inputs,
+}: let
   locale =
     if pkgs.stdenv.isDarwin
     then pkgs.darwin.locale
@@ -36,9 +39,7 @@ in [
         else [];
     };
   })
-  (import (builtins.fetchTarball {
-    url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-  }))
+  inputs.neovim-nightly-overlay.overlay
   (_: prev: {
     neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
       nativeBuildInputs =

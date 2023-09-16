@@ -32,11 +32,25 @@
       '';
     };
     largedict = {
-      source = builtins.fetchurl "https://github.com/skk-dev/dict/raw/master/SKK-JISYO.L";
+      source =
+        pkgs.fetchFromGitHub {
+          owner = "skk-dev";
+          repo = "dict";
+          rev = "1909dda026e6038975359a5eaeafcf50c9ce7fa3";
+          sha256 = "sha256-e7B1+ji/8ssM92RSTmlu8c7V5kbk93CxtUDzs26gE8s=";
+        }
+        + "/SKK-JISYO.L";
       target = ".config/skk/SKK-JISYO.L";
     };
     wikidict = {
-      source = builtins.fetchurl "https://github.com/tokuhirom/skk-jisyo-jawiki/raw/master/SKK-JISYO.jawiki";
+      source =
+        pkgs.fetchFromGitHub {
+          owner = "tokuhirom";
+          repo = "jawiki-kana-kanji-dict";
+          rev = "43af3f7cc2dc1ad7bac58dcf44dd4ab22436135b";
+          sha256 = "sha256-H+cEDsWjvbS9QaWSfhSbdZQx6yIv7HMRIgLZ/0qCdME=";
+        }
+        + "/SKK-JISYO.jawiki";
       target = ".config/skk/SKK-JISYO.jawiki";
     };
     bat-catppuccin-latte = {
@@ -51,7 +65,10 @@
       target = ".config/bat/themes/Catppuccin-latte.tmTheme";
     };
     glamour-catppuccin-latte = {
-      source = builtins.fetchurl "https://github.com/catppuccin/glamour/releases/download/v1.0.0/latte.json";
+      source = pkgs.fetchurl {
+        url = "https://github.com/catppuccin/glamour/releases/download/v1.0.0/latte.json";
+        sha256 = "sha256-V0LsRStF1vL+Tz8G6VaKiwiY/ZIsSkMc+f1WJAITYXU=";
+      };
       target = ".config/glamour/catppuccin-latte.json";
     };
     catppuccin-zsh-fast-syntax-highligiting = {

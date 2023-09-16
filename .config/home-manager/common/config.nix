@@ -2,6 +2,8 @@
   home,
   programs,
   pkgs,
+  inputs,
+  lib,
   ...
 }: {
   # Let Home Manager install and manage itself.
@@ -15,8 +17,11 @@
     ./zsh.nix
   ];
 
-  # home-manager と nix-darwin で同じoverlaysを使うための方策
-  nixpkgs.overlays = import ./overlays.nix {inherit pkgs;};
+  nixpkgs.overlays = import ./overlays.nix {inherit pkgs inputs;};
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "1password-cli"
+    ];
 
   home.sessionPath = [
     "$HOME/.local/bin"
