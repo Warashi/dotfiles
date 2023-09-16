@@ -31,6 +31,7 @@
       # the path to your home.nix.
       modules =
         [
+          ./common/overlays.nix
           ./common/config.nix
           ./common/alacritty.nix
           ./common/files.nix
