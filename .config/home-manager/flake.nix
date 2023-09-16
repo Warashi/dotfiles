@@ -25,6 +25,10 @@
       url = "github:catppuccin/bat";
       flake = false;
     };
+    catppuccin-zsh-fsh = {
+      url = "github:catppuccin/zsh-fsh?dir=themes";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

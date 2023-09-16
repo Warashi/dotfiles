@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bat-catppuccin-latte": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668065083,
+        "narHash": "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=",
+        "owner": "catppuccin",
+        "repo": "bat",
+        "rev": "ba4d16880d63e656acced2b7d4e034e4a93f74b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "bat",
+        "type": "github"
+      }
+    },
     "catppuccin-alacritty": {
       "flake": false,
       "locked": {
@@ -13,6 +29,24 @@
       "original": {
         "owner": "catppuccin",
         "repo": "alacritty",
+        "type": "github"
+      }
+    },
+    "catppuccin-zsh-fsh": {
+      "flake": false,
+      "locked": {
+        "dir": "themes",
+        "lastModified": 1689083399,
+        "narHash": "sha256-31lh+LpXGe7BMZBhRWvvbOTkwjOM77FPNaGy6d26hIA=",
+        "owner": "catppuccin",
+        "repo": "zsh-fsh",
+        "rev": "7cdab58bddafe0565f84f6eaf2d7dd109bd6fc18",
+        "type": "github"
+      },
+      "original": {
+        "dir": "themes",
+        "owner": "catppuccin",
+        "repo": "zsh-fsh",
         "type": "github"
       }
     },
@@ -303,11 +337,14 @@
     },
     "root": {
       "inputs": {
+        "bat-catppuccin-latte": "bat-catppuccin-latte",
         "catppuccin-alacritty": "catppuccin-alacritty",
+        "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_3",
-        "skk-jisyo-L": "skk-jisyo-L"
+        "skk-jisyo-L": "skk-jisyo-L",
+        "skk-jisyo-jawiki": "skk-jisyo-jawiki"
       }
     },
     "skk-jisyo-L": {
@@ -323,6 +360,22 @@
       "original": {
         "owner": "skk-dev",
         "repo": "dict",
+        "type": "github"
+      }
+    },
+    "skk-jisyo-jawiki": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1692626308,
+        "narHash": "sha256-H+cEDsWjvbS9QaWSfhSbdZQx6yIv7HMRIgLZ/0qCdME=",
+        "owner": "tokuhirom",
+        "repo": "jawiki-kana-kanji-dict",
+        "rev": "43af3f7cc2dc1ad7bac58dcf44dd4ab22436135b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tokuhirom",
+        "repo": "jawiki-kana-kanji-dict",
         "type": "github"
       }
     },
