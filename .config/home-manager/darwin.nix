@@ -1,3 +1,0 @@
-{...}: {
-  imports = [./darwin/config.nix];
-}

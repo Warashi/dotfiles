@@ -6,7 +6,6 @@
   local = import ../local.nix;
 in {
   imports = [
-    ../common/config.nix
     ./systemd.nix
   ];
 
