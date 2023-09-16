@@ -26,7 +26,14 @@
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
       modules =
-        [./common/config.nix]
+        [
+          ./common/config.nix
+          ./common/alacritty.nix
+          ./common/files.nix
+          ./common/git.nix
+          ./common/tmux.nix
+          ./common/zsh.nix
+        ]
         ++ (
           if local.isDarwin
           then [./darwin/config.nix]

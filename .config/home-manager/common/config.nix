@@ -6,14 +6,6 @@
   lib,
   ...
 }: {
-  imports = [
-    ./alacritty.nix
-    ./files.nix
-    ./git.nix
-    ./tmux.nix
-    ./zsh.nix
-  ];
-
   nixpkgs.overlays = import ./overlays.nix {inherit pkgs inputs;};
 
   nixpkgs.config.allowUnfreePredicate = pkg:
