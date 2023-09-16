@@ -25,7 +25,13 @@
 
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
-      modules = [./home.nix];
+      modules =
+        [./common/config.nix]
+        ++ (
+          if local.isDarwin
+          then [./darwin/config.nix]
+          else [./linux/config.nix]
+        );
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
