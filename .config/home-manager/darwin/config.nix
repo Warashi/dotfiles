@@ -5,24 +5,26 @@
 }: let
   local = import ../local.nix;
 in {
-  home.username = local.user;
-  home.homeDirectory = "/Users/${local.user}";
+  home = {
+    username = local.user;
+    homeDirectory = "/Users/${local.user}";
 
-  home.sessionVariables = {
-    XDG_RUNTIME_DIR = "/Users/${local.user}/.local/run";
-    SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
-  };
-
-  home.packages =
-    import ./packages.nix {inherit pkgs;}
-    ++ import ../common/packages.nix {inherit pkgs;};
-
-  home.file = {
-    AquaSKK = {
-      source = ./. + "/files/AquaSKK";
-      target = "Library/Application Support/AquaSKK";
-      recursive = true;
+    sessionVariables = {
+      XDG_RUNTIME_DIR = "/Users/${local.user}/.local/run";
+      SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
     };
+
+    packages = import ./packages.nix {inherit pkgs;};
+
+    file = {
+      AquaSKK = {
+        source = ./. + "/files/AquaSKK";
+        target = "Library/Application Support/AquaSKK";
+        recursive = true;
+      };
+    };
+
+    stateVersion = "22.05";
   };
 
   launchd.agents = {
@@ -36,6 +38,4 @@ in {
       };
     };
   };
-
-  home.stateVersion = "22.05";
 }

@@ -21,10 +21,13 @@
       "1password-cli"
     ];
 
-  home.sessionPath = [
-    "$HOME/.local/bin"
-    "$HOME/go/bin"
-  ];
+  home = {
+    sessionPath = [
+      "$HOME/.local/bin"
+      "$HOME/go/bin"
+    ];
+    packages = import ./packages.nix {inherit pkgs;};
+  };
 
   programs = {
     # Let Home Manager install and manage itself.
