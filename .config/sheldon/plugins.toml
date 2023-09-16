@@ -34,15 +34,25 @@ apply = ["defer"]
 
 [plugins.denovo-fzf]
 github = "Warashi/denovo-fzf"
+hooks.post = '''
+  bindkey "^x" denovo-fzf-ghq-cd
+'''
 
 [plugins.denovo-abbrev]
 github = "Warashi/denovo-abbrev"
+hooks.post = '''
+  bindkey ' '  denovo-abbrev-expand
+  bindkey '^m' denovo-abbrev-expand-and-accept-line
+'''
 
 [plugins.denovo-benchmark]
 github = "Warashi/denovo-benchmark"
 
 [plugins.denovo-complete]
 github = "Warashi/denovo-complete"
+hooks.post = '''
+  bindkey '^i' denovo-complete
+'''
 
 [plugins.denovo-rootmake]
 github = "Warashi/denovo-rootmake"
