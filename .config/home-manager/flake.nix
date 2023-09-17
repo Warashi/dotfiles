@@ -57,7 +57,9 @@
           ./common/files.nix
           ./common/git.nix
           ./common/tmux.nix
+
           ./common/zsh/config.nix
+          ./common/zsh/zcompile-rcs.nix
         ]
         ++ (
           if local.hasGUI
