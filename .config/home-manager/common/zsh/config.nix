@@ -64,7 +64,6 @@
     initExtra =
       ''
         setopt ignore_eof
-        test -f "$HOME/.sdkman/bin/sdkman-init.sh" && source "$HOME/.sdkman/bin/sdkman-init.sh"
       ''
       + import ./sheldon.nix
       + import ./binds.nix
@@ -80,7 +79,6 @@
       ''
       + import ./ensure-zcompiled.nix
       + ''
-        test -f $HOME/.cargo/env && source $HOME/.cargo/env
         test -d /opt/homebrew/bin && export PATH=/opt/homebrew/bin:$PATH
         test -S $XDG_RUNTIME_DIR/docker.sock && export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
         test -S $HOME/.ssh/ssh_auth_sock && export SSH_AUTH_SOCK=$HOME/.ssh/ssh_auth_sock
@@ -89,8 +87,6 @@
         if [ "$XDG_RUNTIME_DIR/wezterm.sock" != "$WEZTERM_UNIX_SOCKET" ] && [ -S "$WEZTERM_UNIX_SOCKET" ]; then
           ln -sf $WEZTERM_UNIX_SOCKET $XDG_RUNTIME_DIR/wezterm.sock && export WEZTERM_UNIX_SOCKET=$XDG_RUNTIME_DIR/wezterm.sock
         fi
-
-        zmodload zsh/zpty # used by Shougo/ddc-source-zsh
       '';
   };
 }
