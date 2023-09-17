@@ -38,7 +38,6 @@
     shellAliases = {
       e = ''''${(@s/ /)EDITOR}'';
       fd = "fd -a";
-      ls = "eza --icons";
       tmux = "direnv exec / tmux"; # 自動でtmuxを起動はしないので、起動する時にdirenvの影響を受けないようにこれを定義する。
     };
 

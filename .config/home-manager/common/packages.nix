@@ -9,7 +9,6 @@ in
       bat
       delta
       deno
-      eza
       fd
       gh
       ghq
