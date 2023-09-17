@@ -48,8 +48,11 @@
       modules =
         [
           ./common/overlays.nix
+
           ./common/config.nix
+
           ./common/alacritty.nix
+          ./common/direnv.nix
           ./common/files.nix
           ./common/git.nix
           ./common/tmux.nix
