@@ -7,6 +7,7 @@ in
       alacritty
       awscli2
       bat
+      carapace
       delta
       deno
       fd
