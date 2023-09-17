@@ -50,6 +50,7 @@
           ./common/overlays.nix
 
           ./common/config.nix
+          ./common/packages.nix
 
           ./common/alacritty.nix
           ./common/direnv.nix

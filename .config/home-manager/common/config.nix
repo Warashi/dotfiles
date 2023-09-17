@@ -1,7 +1,6 @@
 {
   home,
   programs,
-  pkgs,
   lib,
   ...
 }: {
@@ -15,7 +14,6 @@
       "$HOME/.local/bin"
       "$HOME/go/bin"
     ];
-    packages = import ./packages.nix {inherit pkgs;};
   };
 
   programs = {
@@ -57,7 +55,7 @@
         "--glob=!.git/"
       ];
     };
-    
+
     eza = {
       enable = true;
       enableAliases = true;
