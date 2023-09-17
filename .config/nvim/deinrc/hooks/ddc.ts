@@ -30,6 +30,7 @@ export class Config extends BaseConfig {
         "CmdlineChanged",
         "TextChangedT",
       ],
+      backspaceCompletion: true,
       cmdlineSources: {
         ":": ["cmdline", "cmdline-history", "around"],
         "@": ["input", "cmdline-history", "file", "around"],
