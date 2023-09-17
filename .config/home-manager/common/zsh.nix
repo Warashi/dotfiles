@@ -67,19 +67,19 @@
         setopt ignore_eof
         test -f "$HOME/.sdkman/bin/sdkman-init.sh" && source "$HOME/.sdkman/bin/sdkman-init.sh"
       ''
-      + import ./sheldon.nix
-      + import ./zsh-binds.nix
-      + import ./zeno-bind.nix
-      + import ./zsh-zoxide.nix {inherit pkgs;}
-      + import ./zsh-direnv.nix {inherit pkgs;}
-      + import ./zprof.nix;
+      + import ./zsh/sheldon.nix
+      + import ./zsh/binds.nix
+      + import ./zsh/zeno-bind.nix
+      + import ./zsh/zoxide.nix {inherit pkgs;}
+      + import ./zsh/direnv.nix {inherit pkgs;}
+      + import ./zsh/zprof.nix;
 
     envExtra =
       ''
         # zshの起動profileを取る時はここを有効にする
         # zmodload zsh/zprof
       ''
-      + import ./zsh-ensure-zcompiled.nix
+      + import ./zsh/ensure-zcompiled.nix
       + ''
         test -f $HOME/.cargo/env && source $HOME/.cargo/env
         test -d /opt/homebrew/bin && export PATH=/opt/homebrew/bin:$PATH
