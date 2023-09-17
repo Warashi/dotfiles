@@ -57,7 +57,29 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 on_map = { ict = '<Plug>(skkeleton-enable)' }
+on_source = ["ddc.vim"]
 hooks_file = '$DEIN_CONFIG_BASE/hooks/skkeleton.lua'
+hook_source = '''
+  call skkeleton#initialize()
+'''
+
+[[plugins]]
+repo = 'delphinus/skkeleton_indicator.nvim'
+on_source = ['skkeleton']
+lua_source = '''
+  require("skkeleton_indicator").setup({
+    row = 1,
+    col = -6,
+    border = "double",
+    fadeOutMs = 1000,
+    eijiHlName = "String",
+    hiraHlName = "String",
+    kataHlName = "String",
+    hankataHlName = "String",
+    zenkakuHlName = "String",
+    abbrevHlName = "String",
+  })
+'''
 
 [[plugins]]
 repo = 'matsui54/denops-signature_help'

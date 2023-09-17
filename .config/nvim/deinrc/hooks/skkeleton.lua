@@ -13,5 +13,4 @@ local function skkeleton_init()
 end
 vim.keymap.set({ "i", "c", "t" }, "<C-j>", "<Plug>(skkeleton-enable)", { silent = true })
 vim.api.nvim_create_autocmd("User", { pattern = "skkeleton-initialize-pre", callback = skkeleton_init })
-vim.api.nvim_create_autocmd("User", { pattern = "DenopsPluginPost:skkeleton", command = "call skkeleton#initialize()" })
 -- }}}
