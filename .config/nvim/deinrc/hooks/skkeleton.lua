@@ -5,11 +5,9 @@ local function skkeleton_init()
       "~/.config/skk/SKK-JISYO.L",
       "~/.config/skk/SKK-JISYO.jawiki",
     },
+    completionRankFile = "~/.config/skkeleton/rank.json",
   })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
-  vim.fn["skkeleton#register_kanatable"]("rom", {
-    ["~"] = { "～" },
-  })
 end
 vim.keymap.set({ "i", "c", "t" }, "<C-j>", "<Plug>(skkeleton-enable)", { silent = true })
 vim.api.nvim_create_autocmd("User", { pattern = "skkeleton-initialize-pre", callback = skkeleton_init })

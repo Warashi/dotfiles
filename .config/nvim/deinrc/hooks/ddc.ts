@@ -13,6 +13,7 @@ export class Config extends BaseConfig {
     args.contextBuilder.patchGlobal({
       ui: "pum",
       sources: [
+        "skkeleton",
         "nvim-lsp",
         "buffer",
         "around",
@@ -94,6 +95,12 @@ export class Config extends BaseConfig {
         mocword: {
           mark: "mocword",
           minAutoCompleteLength: 4,
+          isVolatile: true,
+        },
+        skkeleton: {
+          mark: "skkeleton",
+          matchers: ["skkeleton"],
+          sorters: [],
           isVolatile: true,
         },
       },
