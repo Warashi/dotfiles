@@ -53,7 +53,7 @@
           ./common/files.nix
           ./common/git.nix
           ./common/tmux.nix
-          ./common/zsh.nix
+          ./common/zsh/config.nix
         ]
         ++ (
           if local.isDarwin
