@@ -1,10 +1,9 @@
 {
-  config,
-  pkgs,
+  local,
+  home,
+  launchd,
   ...
-}: let
-  local = import ../local.nix;
-in {
+}: {
   home = {
     username = local.user;
     homeDirectory = "/Users/${local.user}";
@@ -13,8 +12,6 @@ in {
       XDG_RUNTIME_DIR = "/Users/${local.user}/.local/run";
       SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
     };
-
-    packages = import ./packages.nix {inherit pkgs;};
 
     file = {
       AquaSKK = {

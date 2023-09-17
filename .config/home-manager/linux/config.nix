@@ -1,18 +1,11 @@
 {
-  pkgs,
+  local,
   home,
   ...
-}: let
-  local = import ../local.nix;
-in {
-  imports = [
-    ./systemd.nix
-  ];
-
+}: {
   home = {
     username = local.user;
     homeDirectory = "/home/${local.user}";
-    packages = import ./packages.nix {inherit pkgs;};
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage

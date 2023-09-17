@@ -60,14 +60,26 @@
           ./common/zsh/config.nix
         ]
         ++ (
+          if local.hasGUI
+          then []
+          else []
+        )
+        ++ (
           if local.isDarwin
-          then [./darwin/config.nix]
-          else [./linux/config.nix]
+          then [
+            ./darwin/config.nix
+            ./darwin/packages.nix
+          ]
+          else [
+            ./linux/config.nix
+            ./linux/packages.nix
+            ./linux/systemd.nix
+          ]
         );
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
-      extraSpecialArgs = {inherit inputs;};
+      extraSpecialArgs = {inherit inputs local;};
     };
   };
 }
