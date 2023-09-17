@@ -4,7 +4,7 @@
   if [[ ! -e ''${zoxidesource}(#qN.mh-24) ]]; then
     echo "update $zoxidesource" >&2
     ${pkgs.zoxide}/bin/zoxide init zsh --cmd j > $zoxidesource
-    zcompile $zoxidesource
+    zcompile -R $zoxidesource
   fi
   zsh-defer source $zoxidesource
 ''

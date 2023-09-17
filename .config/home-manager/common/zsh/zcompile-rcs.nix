@@ -12,7 +12,7 @@
       cat <<'EOF' > ${file}
       ${config.home.file."${relToDotDir "${file}"}".text}
       EOF
-      ${pkgs.zsh}/bin/zsh -c "zcompile ${file}"
+      ${pkgs.zsh}/bin/zsh -c "zcompile -R ${file}"
       cp ${file}.zwc $out
     '';
 in {

@@ -7,7 +7,7 @@
     local compiled="$1.zwc"
     if [[ ! -r "$compiled" || "$1" -nt "$compiled" ]]; then
       echo "Compiling $1"
-      zcompile $1
+      zcompile -R $1
     fi
   }
 ''
