@@ -6,6 +6,8 @@ local function skkeleton_init()
       "~/.config/skk/SKK-JISYO.jawiki",
     },
     completionRankFile = "~/.config/skkeleton/rank.json",
+    keepState = true,
+    registerConvertResult = true,
   })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
 end
