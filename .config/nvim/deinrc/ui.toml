@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'github/copilot.vim'
-
-[[plugins]]
 repo = 'lambdalisue/guise.vim'
 
 [[plugins]]

@@ -100,3 +100,8 @@ on_event = ['WinNew']
 lua_source = '''
   require('colorful-winsep').setup()
 '''
+
+[[plugins]]
+repo = 'github/copilot.vim'
+on_cmd = ['Copilot']
+on_event = ['InsertEnter']
