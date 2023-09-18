@@ -35,6 +35,7 @@ let g:dein#types#git#enable_partial_clone = v:true
 let $DEIN_CONFIG_BASE = stdpath("config") .. "/deinrc"
 
 let g:dein#inline_vimrcs = [
+      \ '$DEIN_CONFIG_BASE/disable-builtins.rc.vim',
       \ '$DEIN_CONFIG_BASE/options.rc.vim',
       \ '$DEIN_CONFIG_BASE/mappings.rc.vim',
       \ '$DEIN_CONFIG_BASE/signs.rc.vim',
