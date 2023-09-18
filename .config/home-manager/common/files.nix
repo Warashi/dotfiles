@@ -42,7 +42,7 @@
     };
     yaskkserv2-dictionary = {
       source = pkgs.runCommand "yaskkserv2-dictionary" {} ''
-        ${pkgs.yaskkserv2}/bin/yaskkserv2_make_dictionary --utf8 --dictionary-filename=$out ${inputs.skk-jisyo-L + "/SKK-JISYO.L"} ${inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki"}
+        ${pkgs.yaskkserv2}/bin/yaskkserv2_make_dictionary --dictionary-filename=$out ${inputs.skk-jisyo-L + "/SKK-JISYO.L"} ${inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki"}
       '';
       target = ".config/skk/dictionary.yaskkserv2";
     };

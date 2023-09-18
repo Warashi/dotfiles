@@ -1,4 +1,9 @@
-{systemd, ...}: {
+{
+  config,
+  systemd,
+  pkgs,
+  ...
+}: {
   systemd.user.services = {
     # neovim = {
     #   Unit = {
@@ -11,5 +16,15 @@
     #     Restart = ''always'';
     #   };
     # };
+    yaskkserv2 = {
+      Unit = {
+        Description = "Yet Another SKK Server";
+        Documentation = "";
+      };
+      Service = {
+        ExecStart = ''${pkgs.yaskkserv2}/bin/yaskkserv2 --no-daemonize --listen-address=127.0.0.1 --google-japanese-input=disable ${config.home.homeDirectory}/.config/skk/dictionary.yaskkserv2'';
+        Restart = ''always'';
+      };
+    };
   };
 }
