@@ -27,6 +27,9 @@ hooks.post = '''
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 apply = ["defer"]
+hooks.post = '''
+  bindkey '^r' zeno-history-selection
+'''
 
 [plugins.denovo]
 github = "Warashi/denovo.zsh"
@@ -78,4 +81,4 @@ github = "Tarrasch/zsh-bd"
 apply = ["defer"]
 
 [templates]
-defer = """{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}"""
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"

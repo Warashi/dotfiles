@@ -67,7 +67,6 @@
       ''
       + import ./sheldon.nix
       + import ./binds.nix
-      + import ./zeno-bind.nix
       + import ./zoxide.nix {inherit pkgs;}
       + import ./direnv.nix {inherit pkgs;}
       + import ./zprof.nix;
