@@ -5,7 +5,8 @@
 }: {
   nixpkgs.overlays = [
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
-    (_: prev: {
+    inputs.neovim-nightly-overlay.overlay
+    (_: prev: let
       liblpeg = prev.stdenv.mkDerivation {
         pname = "liblpeg";
         inherit (prev.luajitPackages.lpeg) version meta src;
@@ -35,14 +36,12 @@
           then [prev.fixDarwinDylibNames]
           else [];
       };
-    })
-    inputs.neovim-nightly-overlay.overlay
-    (_: prev: {
+    in {
       neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
         nativeBuildInputs =
           old.nativeBuildInputs
           ++ [
-            prev.liblpeg
+            liblpeg
           ];
       });
     })
