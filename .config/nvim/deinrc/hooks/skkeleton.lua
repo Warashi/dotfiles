@@ -1,13 +1,11 @@
 -- lua_add {{{
 local function skkeleton_init()
   vim.fn["skkeleton#config"]({
-    globalDictionaries = {
-      "~/.config/skk/SKK-JISYO.L",
-      "~/.config/skk/SKK-JISYO.jawiki",
-    },
+    globalDictionaries = { "/dev/null" },
     completionRankFile = "~/.config/skkeleton/rank.json",
     keepState = true,
     registerConvertResult = true,
+    useSkkServer = true,
   })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
 end
