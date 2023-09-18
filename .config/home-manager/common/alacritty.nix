@@ -1,19 +1,13 @@
 {
   inputs,
   programs,
-  home,
   ...
 }: {
-  home.file.catppuccin-alacritty = {
-    source = inputs.catppuccin-alacritty;
-    target = ".config/alacritty/catppuccin";
-    recursive = true;
-  };
   programs.alacritty = {
     enable = true;
     settings = {
       import = [
-        "~/.config/alacritty/catppuccin/catppuccin-latte.yml"
+        "${inputs.catppuccin-alacritty + "/catppuccin-latte.yml"}"
       ];
       env = {
         TERM = "alacritty";
