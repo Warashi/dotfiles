@@ -4,7 +4,7 @@
   sheldon_toml="$SHELDON_CONFIG_DIR/plugins.toml"
   if [[ ! -r "$sheldon_cache" || "$sheldon_toml" -nt "$sheldon_cache" ]]; then
     sheldon source > $sheldon_cache
-    zcompile -R $sheledon_cache
+    zcompile -R $sheldon_cache
   fi
   source "$sheldon_cache"
   unset sheldon_cache sheldon_toml
