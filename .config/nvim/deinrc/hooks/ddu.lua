@@ -73,5 +73,5 @@ set_keymaps()
 -- }}}
 
 -- lua_source {{{
-vim.fn["ddu#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "hooks/ddu.ts")
+vim.fn["ddu#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "/hooks/ddu.ts")
 -- }}}

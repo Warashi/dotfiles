@@ -22,17 +22,6 @@ vim.keymap.set("n", "]t", "<Cmd>tabnext<CR>")
 vim.keymap.set("n", "[T", "<Cmd>tabfirst<CR>")
 vim.keymap.set("n", "]T", "<Cmd>tablast<CR>")
 
-local signs = {
-  Error = "\u{ea87} ",
-  Warn = "\u{ea6c} ",
-  Hint = "\u{ea74} ",
-  Info = "\u{f400} ",
-}
-
-for sign, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. sign
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
 
 vim.g.loaded_2html_plugin = true
 vim.g.loaded_logiPat = true

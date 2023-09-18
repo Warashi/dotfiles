@@ -1,6 +1,7 @@
 -- lua_add {{{
 vim.api.nvim_create_autocmd("ColorSchemePre", {
-  pattern = "catppuccin-latte",
+  pattern = "catppuccin",
+  once = true,
   callback = function()
     require("catppuccin").setup({
       transparent_background = false,
