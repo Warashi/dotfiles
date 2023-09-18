@@ -15,3 +15,6 @@ set showtabline=2
 let g:mapleader=","
 let g:maplocalleader=","
 set background=light
+
+set history=200
+set shada='100,<20,s10,h,r/tmp/,rterm:
