@@ -5,6 +5,5 @@
     unzip
     zip
     muscat
-    yaskkserv2
   ];
 }

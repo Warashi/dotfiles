@@ -193,9 +193,17 @@
       yaskkserv2 = prev.rustPlatform.buildRustPackage rec {
         pname = "yaskkserv2";
         version = "0.1.7";
-        buildInputs = [
-          prev.openssl
-        ];
+        buildInputs =
+          [
+            prev.openssl
+          ]
+          ++ (
+            if prev.stdenv.isDarwin
+            then [
+              prev.darwin.apple_sdk.frameworks.Security
+            ]
+            else []
+          );
         nativeBuildInputs = [
           prev.pkg-config
         ];

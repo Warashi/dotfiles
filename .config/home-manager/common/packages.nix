@@ -36,6 +36,7 @@
     tmux-xpanes
     vivid
     wezterm
+    yaskkserv2
     yq-go
     zstd
 
