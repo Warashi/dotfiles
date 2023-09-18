@@ -56,7 +56,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
-on_map = { ict = '<Plug>(skkeleton-enable)' }
+on_source = ['ddc.vim']
+on_event = ['InsertEnter', 'CmdlineEnter', 'TermOpen']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/skkeleton.lua'
 hook_source = '''
   call skkeleton#initialize()
