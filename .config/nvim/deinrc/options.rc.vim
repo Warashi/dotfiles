@@ -1,8 +1,3 @@
-if has('vim_starting') && argv()->empty()
-  " Disable auto syntax loading
-  syntax off
-endif
-
 set title
 set timeoutlen=1000
 set ttimeoutlen=0

@@ -1,3 +1,6 @@
+" tree-sitter を使うので、syntax を off にする
+syntax off
+
 " Disable default plugins.
 let g:loaded_2html_plugin      = v:true
 let g:loaded_logiPat           = v:true
