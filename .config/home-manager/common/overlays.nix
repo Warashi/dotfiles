@@ -189,5 +189,35 @@
           };
         };
     })
+    (_: prev: {
+      yaskkserv2 = prev.rustPlatform.buildRustPackage rec {
+        pname = "yaskkserv2";
+        version = "0.1.7";
+        buildInputs = [
+          prev.openssl
+        ];
+        nativeBuildInputs = [
+          prev.pkg-config
+        ];
+
+        src = prev.fetchFromGitHub {
+          owner = "wachikun";
+          repo = pname;
+          rev = "${version}";
+          sha256 = "sha256-bF8OHP6nvGhxXNvvnVCuOVFarK/n7WhGRktRN4X5ZjE=";
+        };
+
+        cargoLock = {
+          lockFile = src + "/Cargo.lock";
+        };
+        doCheck = false;
+
+        meta = with prev.lib; {
+          description = "Yet Another SKK server";
+          homepage = "https://github.com/wachikun/yaskkserv2";
+          license = licenses.mit;
+        };
+      };
+    })
   ];
 }
