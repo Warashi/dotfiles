@@ -227,17 +227,16 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "neovim-nightly-overlay",
           "nixpkgs"
         ]
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1694815276,
-        "narHash": "sha256-9q0AqoOJUZ6pqayUFuyjpD3DhbnqUIF93jixLSlnYxw=",
+        "lastModified": 1695010592,
+        "narHash": "sha256-TbYvLxmx2O6d/oVCG+yHpSg1ZJZRsq4PRVZFV0AOhrg=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "be10d65bfafe056025ffffa2c1131712b9a493a5",
+        "rev": "9cadbf1d36b63f53f0de48c8c5ff6c752ff05d70",
         "type": "github"
       },
       "original": {
@@ -252,7 +251,9 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "hercules-ci-effects": "hercules-ci-effects",
-        "neovim-flake": "neovim-flake",
+        "neovim-flake": [
+          "neovim-flake"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -327,6 +328,7 @@
         "catppuccin-alacritty": "catppuccin-alacritty",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "home-manager": "home-manager",
+        "neovim-flake": "neovim-flake",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
         "skk-jisyo-L": "skk-jisyo-L",
