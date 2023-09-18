@@ -106,3 +106,11 @@ lua_source = '''
 repo = 'github/copilot.vim'
 on_cmd = ['Copilot']
 on_event = ['InsertEnter']
+
+[[plugins]]
+repo = 'lambdalisue/gin.vim'
+on_cmd = ['GinStatus']
+on_ft = ['gitcommit']
+hook_add = '''
+  nnoremap <silent> <leader>g <Cmd>tabnew +GinStatus<CR>
+'''
