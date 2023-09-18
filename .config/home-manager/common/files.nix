@@ -32,20 +32,6 @@
         }
       '';
     };
-    largedict = {
-      source = inputs.skk-jisyo-L + "/SKK-JISYO.L";
-      target = ".config/skk/SKK-JISYO.L";
-    };
-    wikidict = {
-      source = inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki";
-      target = ".config/skk/SKK-JISYO.jawiki";
-    };
-    yaskkserv2-dictionary = {
-      source = pkgs.runCommand "yaskkserv2-dictionary" {} ''
-        ${pkgs.yaskkserv2}/bin/yaskkserv2_make_dictionary --dictionary-filename=$out ${inputs.skk-jisyo-L + "/SKK-JISYO.L"} ${inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki"}
-      '';
-      target = ".config/skk/dictionary.yaskkserv2";
-    };
     bat-catppuccin-latte = {
       source = inputs.bat-catppuccin-latte + /Catppuccin-latte.tmTheme;
       target = ".config/bat/themes/Catppuccin-latte.tmTheme";
