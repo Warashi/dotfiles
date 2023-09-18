@@ -19,6 +19,15 @@
     };
   };
 
+  nix = {
+    gc = {
+      automatic = true;
+    };
+    settings = {
+      auto-optimise-store = true;
+    };
+  };
+
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
 
