@@ -13,3 +13,7 @@ on_func = ['pum']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_func = ['openbrowser']
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+on_func = ['nerdfont']

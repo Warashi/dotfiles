@@ -1,8 +1,3 @@
 [[plugins]]
 repo = 'lambdalisue/guise.vim'
-
-[[plugins]]
-repo = 'rhysd/conflict-marker.vim'
-
-[[plugins]]
-repo = 'lambdalisue/nerdfont.vim'
+on_event = ['BufRead', 'BufNewFile']

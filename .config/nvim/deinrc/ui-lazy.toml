@@ -114,3 +114,7 @@ on_ft = ['gitcommit']
 hook_add = '''
   nnoremap <silent> <leader>g <Cmd>tabnew +GinStatus<CR>
 '''
+
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
+on_event = ['BufRead', 'StdinRaedPre']
