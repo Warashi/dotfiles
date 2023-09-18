@@ -1,5 +1,6 @@
 " 探索パスを減らすことでちょっとだけ高速化するかも
 set rtp=$XDG_CONFIG_HOME/nvim,$VIMRUNTIME
+set packpath=
 language message C
 
 augroup MyAutoCmd
