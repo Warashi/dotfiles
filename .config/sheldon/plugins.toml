@@ -19,9 +19,10 @@ github = "romkatv/zsh-defer"
 
 [plugins.powerlevel10k]
 github = 'romkatv/powerlevel10k'
-use = ['{{ name }}.zsh-theme']
-hooks.post = '''
-  source $ZDOTDIR/p10k.zsh
+apply = ["defer"]
+hooks.pre = '''
+  setopt PROMPT_SUBST
+  zsh-defer source $ZDOTDIR/p10k.zsh
 '''
 
 [plugins.zeno]
