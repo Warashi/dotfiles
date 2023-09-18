@@ -90,7 +90,8 @@ hook_source = '''
 
 [[plugins]]
 repo = 'rebelot/heirline.nvim'
-on_event = ['VimEnter']
+on_lua = ['heirline']
+on_event = ['BufNewFile', 'BufRead']
 hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
 depends = ['nvim-navic', 'catppuccin']
 

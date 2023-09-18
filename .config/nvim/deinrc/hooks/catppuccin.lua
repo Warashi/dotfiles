@@ -18,5 +18,4 @@ require("catppuccin").setup({
     sandwich = true,
   },
 })
-vim.cmd([[colorscheme catppuccin-latte]])
 -- }}}
