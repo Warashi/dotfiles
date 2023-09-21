@@ -13,3 +13,7 @@ format-stylua:
 .PHONY: darwin-rebuild
 darwin-rebuild:
 	nix run nix-darwin -- switch --flake './.config/nix-darwin#warashi'
+.PHONY: nix-flake-update
+nix-flake-update:
+	cd .config/home-manager && nix flake update
+	cd .config/nix-darwin && nix flake update
