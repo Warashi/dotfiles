@@ -7,6 +7,7 @@
     carapace
     delta
     deno
+    devbox
     fd
     gh
     ghq
