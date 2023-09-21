@@ -22,4 +22,4 @@ nix-flake-update:
 	cd .config/nix-darwin && nix flake update
 .PHONY: setup-dotlink
 setup-dotlink:
-	nix-shell -p go_1_21 --pure --run '$(MAKE) link-apply'
+	nix --extra-experimental-features 'nix-command flakes' shell 'nixpkgs/nixos-unstable#go_1_21' 'nixpkgs#gnumake' --command $(MAKE) link-apply
