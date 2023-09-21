@@ -12,7 +12,10 @@ format-stylua:
 	fd --hidden '.lua$$' -x stylua
 .PHONY: darwin-rebuild
 darwin-rebuild:
-	nix run nix-darwin -- switch --flake './.config/nix-darwin#warashi'
+	nix run nix-darwin -- switch --flake '$(CURDIR)/.config/nix-darwin#warashi'
+.PHONY: home-manager
+home-manager:
+	nix run home-manager/master -- switch
 .PHONY: nix-flake-update
 nix-flake-update:
 	cd .config/home-manager && nix flake update
