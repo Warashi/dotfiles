@@ -22,7 +22,7 @@
 
     bash = {
       enable = true;
-      initExtra = "exec zsh --login";
+      initExtra = "unset which; exec -l zsh --login";
     };
 
     bat = {
