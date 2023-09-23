@@ -15,7 +15,7 @@
     casks = import ./casks.nix;
     masApps = import ./mas.nix;
     onActivation = {
-      cleanup = "zap";
+      cleanup = "uninstall";
     };
   };
 
