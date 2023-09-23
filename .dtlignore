@@ -1,5 +1,6 @@
 /.dtlignore
-/.git
+/nix/
+/.git/
 /.gitignore
 /.luarc.json
 /.neoconf.json
