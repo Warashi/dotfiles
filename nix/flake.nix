@@ -61,11 +61,8 @@
       };
     };
     homeConfigurations = {
-      warashi = home-manager.lib.homeManagerConfiguration rec {
+      warashi = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        local = {
-          user = "sawada";
-        };
 
         modules = [
           ./home-manager/common.nix
@@ -73,14 +70,14 @@
         ];
 
         extraSpecialArgs = {
-          inherit inputs local;
+          inherit inputs;
+          local = {
+            user = "sawada";
+          };
         };
       };
       workbench = home-manager.lib.homeManagerConfiguration rec {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        local = {
-          user = "ubuntu";
-        };
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
 
         modules = [
           ./home-manager/common.nix
@@ -88,7 +85,12 @@
           ./home-manager/linux-nongui.nix
         ];
 
-        extraSpecialArgs = {inherit inputs local;};
+        extraSpecialArgs = {
+          inherit inputs;
+          local = {
+            user = "ubuntu";
+          };
+        };
       };
     };
   };
