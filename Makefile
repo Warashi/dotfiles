@@ -13,9 +13,13 @@ format-stylua:
 .PHONY: darwin-rebuild
 darwin-rebuild:
 	nix run nix-darwin -- switch --flake '$(CURDIR)/nix#warashi'
-.PHONY: home-manager
+.PHONY: home-manager/utm
+home-manager/utm:
+	nix run home-manager/master -- switch --flake '$(CURDIR)/nix#utm'
+.PHONY: home-manager/warashi
 home-manager/warashi:
 	nix run home-manager/master -- switch --flake '$(CURDIR)/nix#warashi'
+.PHONY: home-manager/workbench
 home-manager/workbench:
 	nix run home-manager/master -- switch --flake '$(CURDIR)/nix#workbench'
 .PHONY: nix-flake-update

@@ -61,6 +61,22 @@
       };
     };
     homeConfigurations = {
+      utm = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+
+        modules = [
+          ./home-manager/common.nix
+          ./home-manager/linux-common.nix
+          ./home-manager/linux-gui.nix
+        ];
+
+        extraSpecialArgs = {
+          inherit inputs;
+          local = {
+            user = "warashi";
+          };
+        };
+      };
       warashi = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
 
