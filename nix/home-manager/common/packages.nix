@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     _1password
     alacritty
+    aria
     awscli2
     bat
     carapace
