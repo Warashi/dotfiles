@@ -3,9 +3,9 @@
     pname = "plemoljp-console-nf";
     version = "1.6.0";
 
-    src = fetchzip {
+    src = pkgs.fetchzip {
       url = "https://github.com/yuru7/PlemolJP/releases/download/v${version}/PlemolJP_NF_v${version}.zip";
-      hash = "0z7w0hmx38azs8p34kvhipg3w024aq9pw4b1wrw59acydg5gz1q1";
+      hash = "sha256-AYf/ymueqVR45mERfhNWRAA+3o1wTzIu0l+h0SsE/Hw=";
     };
 
     installPhase = ''
