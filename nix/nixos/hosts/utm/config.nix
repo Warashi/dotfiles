@@ -11,4 +11,7 @@ _: {
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
 }
