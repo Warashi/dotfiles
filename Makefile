@@ -23,4 +23,4 @@ nix-flake-update:
 	cd nix && nix flake update
 .PHONY: setup-dotlink
 setup-dotlink:
-	nix --extra-experimental-features 'nix-command flakes' shell 'nixpkgs/nixos-unstable#go_1_21' 'nixpkgs#gnumake' --command $(MAKE) link-apply
+	nix --extra-experimental-features 'nix-command flakes' shell 'nixpkgs/nixos-unstable#go_1_21' 'nixpkgs#gnumake' --command $(MAKE) link-import link-apply
