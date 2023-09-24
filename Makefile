@@ -10,6 +10,9 @@ link-import:
 .PHONY: format-stylua
 format-stylua:
 	fd --hidden '.lua$$' -x stylua
+.PHONY: nixos-rebuild/utm
+nixos-rebuild/utm:
+	nixos-rebuild switch --flake '$(CURDIR)/nix#utm'
 .PHONY: darwin-rebuild
 darwin-rebuild:
 	nix run nix-darwin -- switch --flake '$(CURDIR)/nix#warashi'

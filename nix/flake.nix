@@ -51,6 +51,15 @@
     home-manager,
     ...
   }: {
+    nixosConfigurations = {
+      utm = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ./nixos/config.nix
+          ./nixos/hosts/utm/config.nix
+        ];
+      };
+    };
     darwinConfigurations = {
       warashi = nix-darwin.lib.darwinSystem {
         modules = [
