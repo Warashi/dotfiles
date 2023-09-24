@@ -22,11 +22,6 @@
         neovim-flake.follows = "neovim-flake";
       };
     };
-    hyprland.url = "github:hyprwm/Hyprland";
-    catppuccin-rio = {
-      url = "github:Brianalmeida/rio-theme";
-      flake = false;
-    };
     catppuccin-alacritty = {
       url = "github:catppuccin/alacritty";
       flake = false;
@@ -54,7 +49,6 @@
     nixpkgs,
     nix-darwin,
     home-manager,
-    hyprland,
     ...
   }: {
     nixosConfigurations = {
@@ -80,7 +74,6 @@
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
 
         modules = [
-          hyprland.homeManagerModules.default
           ./home-manager/common.nix
           ./home-manager/linux-common.nix
           ./home-manager/linux-gui.nix

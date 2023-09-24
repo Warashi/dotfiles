@@ -32,12 +32,10 @@
     displayManager = {
       gdm = {
         enable = true;
-        wayland = true;
       };
     };
   };
 
-  programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable CUPS to print documents.
