@@ -18,6 +18,7 @@
   "raycast"
   "slack"
   "timemator"
+  "utm"
   "vlc"
 
   "homebrew/cask-fonts/font-biz-udgothic"
