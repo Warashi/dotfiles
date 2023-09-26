@@ -34,6 +34,11 @@
         enable = true;
       };
     };
+    desktopManager = {
+      gnome = {
+        enable = true;
+      };
+    };
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
