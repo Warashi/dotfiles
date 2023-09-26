@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_latest;
 
   # we cannot use this with networking.wireless, so this is host config.
   networking.networkmanager.enable = true;
