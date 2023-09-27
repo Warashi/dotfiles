@@ -15,6 +15,7 @@
   "logseq"
   "microsoft-edge"
   "mimestream"
+  "parallels"
   "raycast"
   "slack"
   "timemator"
