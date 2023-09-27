@@ -130,13 +130,6 @@
           sha256 = "sha256-hTrzJH1DzNDgnR+ztBfCAtHNpYWFVYv32XjO0NSGURg=";
         };
 
-        postInstall = ''
-          cd $out/bin
-          for link in lemonade pbcopy pbpaste xdg-open; do
-            ln -s muscat $link
-          done
-        '';
-
         meta = with prev.lib; {
           description = "remote code development utils";
           homepage = "https://github.com/Warashi/muscat";
