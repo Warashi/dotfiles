@@ -3,7 +3,6 @@ local function skkeleton_init()
   vim.fn["skkeleton#config"]({
     globalDictionaries = { "/dev/null" },
     completionRankFile = "~/.config/skkeleton/rank.json",
-    keepState = true,
     registerConvertResult = true,
     useSkkServer = true,
   })
