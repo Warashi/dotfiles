@@ -39,7 +39,7 @@
       flake = false;
     };
     catppuccin-zsh-fsh = {
-      url = "github:catppuccin/zsh-fsh?dir=themes";
+      url = "github:catppuccin/zsh-fsh";
       flake = false;
     };
   };

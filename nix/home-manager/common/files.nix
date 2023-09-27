@@ -38,7 +38,7 @@
       recursive = true;
     };
     catppuccin-zsh-fast-syntax-highligiting = {
-      source = inputs.catppuccin-zsh-fsh;
+      source = inputs.catppuccin-zsh-fsh + /themes;
       target = ".config/fsh";
       recursive = true;
     };

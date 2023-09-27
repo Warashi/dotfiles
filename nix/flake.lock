@@ -35,7 +35,6 @@
     "catppuccin-zsh-fsh": {
       "flake": false,
       "locked": {
-        "dir": "themes",
         "lastModified": 1689083399,
         "narHash": "sha256-31lh+LpXGe7BMZBhRWvvbOTkwjOM77FPNaGy6d26hIA=",
         "owner": "catppuccin",
@@ -44,7 +43,6 @@
         "type": "github"
       },
       "original": {
-        "dir": "themes",
         "owner": "catppuccin",
         "repo": "zsh-fsh",
         "type": "github"
