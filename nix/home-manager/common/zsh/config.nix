@@ -23,7 +23,7 @@
       LANG = "en_US.UTF-8";
       MANPAGER = "nvim +Man!";
       XDG_CONFIG_HOME = "$HOME/.config";
-      LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-latte)";
+      LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-frappe)";
       MOCWORD_DATA = "${pkgs.mocword-data}/mocword.sqlite";
 
       # zeno config

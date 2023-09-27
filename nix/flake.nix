@@ -22,10 +22,6 @@
         neovim-flake.follows = "neovim-flake";
       };
     };
-    catppuccin-alacritty = {
-      url = "github:catppuccin/alacritty";
-      flake = false;
-    };
     skk-jisyo-L = {
       url = "github:skk-dev/dict";
       flake = false;
@@ -34,7 +30,11 @@
       url = "github:tokuhirom/jawiki-kana-kanji-dict";
       flake = false;
     };
-    bat-catppuccin-latte = {
+    catppuccin-alacritty = {
+      url = "github:catppuccin/alacritty";
+      flake = false;
+    };
+    catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
     };

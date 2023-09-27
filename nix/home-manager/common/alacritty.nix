@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       import = [
-        "${inputs.catppuccin-alacritty + "/catppuccin-latte.yml"}"
+        "${inputs.catppuccin-alacritty + "/catppuccin-frappe.yml"}"
       ];
       env = {
         TERM = "alacritty";
