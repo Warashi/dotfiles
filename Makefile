@@ -10,15 +10,15 @@ link-import:
 .PHONY: format-stylua
 format-stylua:
 	fd --hidden '.lua$$' -x stylua
-.PHONY: nixos-rebuild/utm
-nixos-rebuild/utm:
-	nixos-rebuild switch --flake '$(CURDIR)/nix#utm'
+.PHONY: nixos-rebuild/parallels
+nixos-rebuild/parallels:
+	nixos-rebuild switch --flake '$(CURDIR)/nix#parallels'
 .PHONY: darwin-rebuild
 darwin-rebuild:
 	nix run nix-darwin -- switch --flake '$(CURDIR)/nix#warashi'
-.PHONY: home-manager/utm
-home-manager/utm:
-	nix run home-manager/master -- switch --flake '$(CURDIR)/nix#utm'
+.PHONY: home-manager/parallels
+home-manager/parallels:
+	nix run home-manager/master -- switch --flake '$(CURDIR)/nix#parallels'
 .PHONY: home-manager/warashi
 home-manager/warashi:
 	nix run home-manager/master -- switch --flake '$(CURDIR)/nix#warashi'

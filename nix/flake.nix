@@ -52,11 +52,11 @@
     ...
   }: {
     nixosConfigurations = {
-      utm = nixpkgs.lib.nixosSystem {
+      parallels = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
           ./nixos/config.nix
-          ./nixos/hosts/utm/config.nix
+          ./nixos/hosts/parallels/config.nix
         ];
       };
     };
@@ -70,7 +70,7 @@
       };
     };
     homeConfigurations = {
-      utm = home-manager.lib.homeManagerConfiguration {
+      parallels = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
 
         modules = [
