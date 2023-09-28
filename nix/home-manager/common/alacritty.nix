@@ -1,8 +1,4 @@
-{
-  inputs,
-  programs,
-  ...
-}: {
+{inputs, ...}: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -10,7 +6,7 @@
         "${inputs.catppuccin-alacritty + "/catppuccin-frappe.yml"}"
       ];
       env = {
-        TERM = "alacritty";
+        TERM = "xterm-256color";
       };
       window = {
         opacity = 1.0;

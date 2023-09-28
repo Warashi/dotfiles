@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     _1password
-    alacritty
     aria
     awscli2
     bat
@@ -19,17 +18,14 @@
     go_1_21
     htop
     hyperfine
-    jdk17
     jq
     kubectl
     kubectx
+    lazygit
     mocword
     mocword-data
     neovim
     neovim-remote
-    nodejs
-    okteto
-    python311
     ripgrep
     sheldon
     taplo
@@ -37,16 +33,14 @@
     tmux-mvr
     tmux-xpanes
     vivid
-    wezterm
     yaskkserv2
     yq-go
     zstd
 
-    python311Packages.pipx
-
     # lanuage server
     buf-language-server
     lua-language-server
+    nixd
     nodePackages_latest.typescript-language-server
     nodePackages_latest.yaml-language-server
     terraform-ls

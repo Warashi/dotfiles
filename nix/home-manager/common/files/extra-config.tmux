@@ -20,7 +20,7 @@ set-option -g set-titles-string '#T'
 
 # TrueColor 表示
 set-option -g default-terminal "tmux-256color"
-set-option -ga terminal-overrides ",xterm-256color:Tc,alacritty:RGB"
+set-option -ga terminal-overrides ",xterm-256color:RGB"
 
 # C-w で window 一覧を開く
 bind C-w choose-tree -Zw
