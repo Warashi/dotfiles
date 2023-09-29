@@ -10,6 +10,7 @@ _: {
     ./common/files.nix
     ./common/git.nix
     ./common/tmux.nix
+    ./common/lazygit.nix
 
     ./common/zsh/config.nix
     ./common/zsh/zcompile-rcs.nix
