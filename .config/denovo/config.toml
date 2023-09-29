@@ -38,3 +38,8 @@ snippet = "kubectx"
 name = "exit"
 keyword = ":q"
 snippet = "exit"
+
+[[plugins.abbrev.snippets]]
+name = "lazygit"
+keyword = "lg"
+snippet = "lazygit"
