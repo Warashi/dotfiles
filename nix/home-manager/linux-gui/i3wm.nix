@@ -15,6 +15,7 @@ _: {
           gaps = {
             smartBorders = "on";
             smartGaps = true;
+            inner = 10;
           };
           window = {
             titlebar = false;
@@ -22,9 +23,9 @@ _: {
           keybindings = {
             "Control+Shift+Mod1+Return" = "exec alacritty";
              "Control+Shift+Mod1+p" = "exec 1password";
-             "Control+Shift+Mod1+r" = "exec restart";
-             "Control+Shift+Mod1+e" = "exec reload";
-             "Control+Shift+Mod1+w" = "exec exit";
+             "Control+Shift+Mod1+r" = "restart";
+             "Control+Shift+Mod1+e" = "reload";
+             "Control+Shift+Mod1+w" = "exit";
           };
         };
       };
