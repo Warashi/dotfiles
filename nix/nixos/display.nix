@@ -8,8 +8,8 @@ _: {
         enable = true;
       };
     };
-    desktopManager = {
-      gnome = {
+    windowManager = {
+      i3 = {
         enable = true;
       };
     };
