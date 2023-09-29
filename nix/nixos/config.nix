@@ -6,6 +6,7 @@ _: {
     ./display.nix
     ./sound.nix
     ./user.nix
+    ./xremap.nix
   ];
 
   # Enable CUPS to print documents.

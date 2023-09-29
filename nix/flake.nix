@@ -22,6 +22,13 @@
         neovim-flake.follows = "neovim-flake";
       };
     };
+    xremap-flake = {
+      url = "github:xremap/nix-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     skk-jisyo-L = {
       url = "github:skk-dev/dict";
       flake = false;
@@ -49,6 +56,7 @@
     nixpkgs,
     nix-darwin,
     home-manager,
+    xremap-flake,
     ...
   }: {
     nixosConfigurations = {
@@ -74,6 +82,7 @@
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
 
         modules = [
+          xremap-flake.homeManagerModules.default
           ./home-manager/common.nix
           ./home-manager/linux-common.nix
           ./home-manager/linux-gui.nix
