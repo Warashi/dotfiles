@@ -40,7 +40,7 @@
     # lanuage server
     buf-language-server
     lua-language-server
-    nixd
+    nil # nix language server
     nodePackages_latest.typescript-language-server
     nodePackages_latest.yaml-language-server
     terraform-ls
