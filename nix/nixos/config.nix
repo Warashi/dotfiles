@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./1password.nix
     ./display.nix
     ./locale.nix
     ./nixconfig.nix
