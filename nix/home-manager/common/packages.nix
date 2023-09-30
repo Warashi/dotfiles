@@ -9,9 +9,7 @@
     deno
     devbox
     fd
-    gh
     ghq
-    git
     git-lfs
     glow
     gnumake
