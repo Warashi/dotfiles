@@ -23,10 +23,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
   M.fromList $
     [ ((mod4Mask, xK_space), spawn "rofi -show drun"),
       ((modm, xK_space), sendMessage NextLayout),
-      ((modm, xK_Return), windows W.focusMaster),
+      ((modm, xK_m), windows W.focusMaster),
       ((modm, xK_j), windows W.focusDown),
       ((modm, xK_k), windows W.focusUp),
-      ((modm .|. mod4Mask, xK_Return), windows W.swapMaster),
+      ((modm, xK_Return), windows W.swapMaster),
       ((modm .|. mod4Mask, xK_j), windows W.swapDown),
       ((modm .|. mod4Mask, xK_k), windows W.swapUp),
       ((modm, xK_q), io exitSuccess)
