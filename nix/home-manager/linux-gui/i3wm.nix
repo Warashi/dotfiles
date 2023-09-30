@@ -1,4 +1,7 @@
-_: {
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    dmenu
+  ];
   xsession = {
     enable = true;
     windowManager = {
@@ -21,8 +24,7 @@ _: {
             titlebar = false;
           };
           keybindings = {
-            "Control+Shift+Mod1+Return" = "exec alacritty";
-            "Control+Shift+Mod1+p" = "exec 1password";
+            "Mod1+space" = "exec --no-startup-id i3-dmenu-desktop";
             "Control+Shift+Mod1+r" = "restart";
             "Control+Shift+Mod1+e" = "reload";
             "Control+Shift+Mod1+w" = "exit";
