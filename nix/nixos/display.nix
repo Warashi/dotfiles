@@ -1,5 +1,4 @@
 _: {
-  console.enable = false;
   services.xserver = {
     enable = true;
     libinput.enable = true;
@@ -7,11 +6,13 @@ _: {
       gdm = {
         enable = true;
       };
-    };
-    windowManager = {
-      i3 = {
-        enable = true;
-      };
+      session = [
+        {
+          manage = "window";
+          name = "dummy";
+          start = "";
+        }
+      ];
     };
   };
 }
