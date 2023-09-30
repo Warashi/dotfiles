@@ -1,12 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     dmenu
+    rofi
   ];
   xsession = {
     enable = true;
     windowManager = {
       i3 = {
-        enable = true;
+        enable = false;
         config = {
           modifier = "Mod5";
           terminal = "alacritty";
