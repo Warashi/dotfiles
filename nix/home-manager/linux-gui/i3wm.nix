@@ -24,7 +24,7 @@
             titlebar = false;
           };
           keybindings = {
-            "Mod1+space" = "exec --no-startup-id i3-dmenu-desktop";
+            "Mod4+space" = "exec --no-startup-id i3-dmenu-desktop";
             "Control+Shift+Mod1+r" = "restart";
             "Control+Shift+Mod1+e" = "reload";
             "Control+Shift+Mod1+w" = "exit";
