@@ -27,7 +27,6 @@
         gpgsign = true;
         verbose = true;
       };
-      credential.helper = "cache";
       gpg.format = "ssh";
       pull.ff = "only";
       init.defaultBranch = "main";
