@@ -9,6 +9,7 @@
   "discord"
   "docker"
   "dropbox"
+  "firefox"
   "iterm2"
   "jetbrains-toolbox"
   "karabiner-elements"
