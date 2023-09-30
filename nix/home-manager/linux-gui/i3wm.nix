@@ -22,10 +22,10 @@ _: {
           };
           keybindings = {
             "Control+Shift+Mod1+Return" = "exec alacritty";
-             "Control+Shift+Mod1+p" = "exec 1password";
-             "Control+Shift+Mod1+r" = "restart";
-             "Control+Shift+Mod1+e" = "reload";
-             "Control+Shift+Mod1+w" = "exit";
+            "Control+Shift+Mod1+p" = "exec 1password";
+            "Control+Shift+Mod1+r" = "restart";
+            "Control+Shift+Mod1+e" = "reload";
+            "Control+Shift+Mod1+w" = "exit";
           };
         };
       };
