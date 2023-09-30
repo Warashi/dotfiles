@@ -1,10 +1,11 @@
 _: {
   imports = [
-    ./nixconfig.nix
-    ./locale.nix
-    ./tailscale.nix
     ./display.nix
+    ./locale.nix
+    ./nixconfig.nix
+    ./security.nix
     ./sound.nix
+    ./tailscale.nix
     ./user.nix
     ./xremap.nix
   ];
