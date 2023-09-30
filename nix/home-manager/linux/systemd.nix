@@ -29,7 +29,7 @@ in {
         Restart = ''always'';
       };
       Install = {
-        WantedBy = ["multi-user.target"];
+        WantedBy = ["default.target"];
       };
     };
   };
