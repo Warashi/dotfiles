@@ -1,6 +1,5 @@
 {
   inputs,
-  systemd,
   pkgs,
   ...
 }: let
@@ -28,6 +27,9 @@ in {
       Service = {
         ExecStart = ''${pkgs.yaskkserv2}/bin/yaskkserv2 --no-daemonize --listen-address=127.0.0.1 --google-japanese-input=disable ${yaskkserv2-dictionary}'';
         Restart = ''always'';
+      };
+      Install = {
+        WantedBy = ["multi-user.target"];
       };
     };
   };
