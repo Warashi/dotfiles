@@ -34,6 +34,7 @@ local util = require("lspconfig.util")
 
 for _, server in ipairs({
   "bufls",
+  "hls",
   "nil_ls",
   "rust_analyzer",
   "taplo",
