@@ -1,10 +1,7 @@
-{
-  programs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.git = {
     enable = true;
+    package = pkgs.git.override {osxkeychainSupport = false;};
     includes = [
       {path = "~/.config/git/local";}
     ];
