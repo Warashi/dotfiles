@@ -166,13 +166,13 @@ select-column-layout:
 
 # Move the currently focused window to the space to the left.
 throw-space-left:
-  mod: <NONE>
-  key: <NONE>
+  mod: mod2
+  key: left
 
 # Move currently the focused window to the space to the right.
 throw-space-right:
-  mod: <NONE>
-  key: <NONE>
+  mod: mod2
+  key: right
 
 # Toggle the floating state of the currently focused window; i.e., if it was floating make it tiled and if it was tiled make it floating.
 toggle-float:
@@ -266,7 +266,7 @@ use-canary-build: false
 new-windows-to-main: false
 
 # true to automatically move to a space when throwing a window to it (default true).
-follow-space-thrown-windows: true
+follow-space-thrown-windows: false
 
 # The integer percentage of the screen dimension to increment and decrement main pane ratios by (default 5).
 window-resize-step: 5
