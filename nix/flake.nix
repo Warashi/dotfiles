@@ -67,7 +67,7 @@
     xremap-flake,
     ...
   }: rec {
-    inherit inputs;
+    flakeInputs = inputs;
 
     nixos = {
       modules = [
