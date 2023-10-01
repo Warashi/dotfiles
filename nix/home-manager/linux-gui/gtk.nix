@@ -4,7 +4,7 @@
     font = {
       package = pkgs.plemoljp;
       name = "PlemolJP Console NF";
-      size = 18;
+      size = 16;
     };
     theme = {
       package = pkgs.catppuccin-gtk;
