@@ -66,74 +66,112 @@
     home-manager,
     xremap-flake,
     ...
-  }: {
-    nixosConfigurations = {
-      parallels = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        modules = [
-          ./nixos/config.nix
-          ./nixos/hosts/parallels/config.nix
-        ];
-      };
+  }: rec {
+    nixos = {
+      modules = [
+        ./nixos/config.nix
+      ];
     };
-    darwinConfigurations = {
-      warashi = nix-darwin.lib.darwinSystem {
-        modules = [
-          ./nix-darwin/host.nix
-          ./nix-darwin/config.nix
-        ];
-        specialArgs = {inherit self;};
-      };
+    darwin = {
+      modules = [
+        ./nix-darwin/host.nix
+        ./nix-darwin/config.nix
+      ];
+      specialArgs = {inherit self;};
     };
-    homeConfigurations = {
-      parallels = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-
-        modules = [
-          xremap-flake.homeManagerModules.default
-          ./home-manager/common.nix
-          ./home-manager/linux-common.nix
-          ./home-manager/linux-gui.nix
-        ];
-
-        extraSpecialArgs = {
-          inherit inputs;
-          local = {
-            user = "warashi";
-          };
-        };
-      };
-      warashi = home-manager.lib.homeManagerConfiguration {
+    homeManagerBase = {
+      modules = [
+        ./home-manager/common.nix
+      ];
+    };
+    homeManagerDarwin =
+      homeManagerBase
+      // {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-
-        modules = [
-          ./home-manager/common.nix
-          ./home-manager/darwin.nix
-        ];
-
-        extraSpecialArgs = {
-          inherit inputs;
-          local = {
-            user = "sawada";
-          };
-        };
+        modules =
+          homeManagerBase.modules
+          ++ [
+            ./home-manager/darwin.nix
+          ];
       };
-      workbench = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-
-        modules = [
-          ./home-manager/common.nix
-          ./home-manager/linux-common.nix
-          ./home-manager/linux-nongui.nix
-        ];
-
-        extraSpecialArgs = {
-          inherit inputs;
-          local = {
-            user = "ubuntu";
-          };
-        };
+    homeManagerLinuxBase =
+      homeManagerBase
+      // {
+        modules =
+          homeManagerBase.modules
+          ++ [
+            ./home-manager/linux-common.nix
+          ];
       };
+    homeManagerLinuxNonGUI =
+      homeManagerLinuxBase
+      // {
+        modules =
+          homeManagerLinuxBase.modules
+          ++ [
+            ./home-manager/linux-nongui.nix
+          ];
+      };
+    homeManagerLinuxGUI =
+      homeManagerLinuxBase
+      // {
+        modules =
+          homeManagerLinuxBase.modules
+          ++ [
+            xremap-flake.homeManagerModules.default
+            ./home-manager/linux-gui.nix
+          ];
+      };
+
+    nixosConfigurations = {
+      parallels = nixpkgs.lib.nixosSystem (nixos
+        // {
+          system = "aarch64-linux";
+          modules =
+            nixos.modules
+            ++ [
+              ./nixos/hosts/parallels/config.nix
+            ];
+        });
+    };
+
+    darwinConfigurations = {
+      warashi = nix-darwin.lib.darwinSysttem darwin;
+    };
+
+    homeConfigurations = {
+      parallels = home-manager.lib.homeManagerConfiguration (homeManagerLinuxGUI
+        // {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          extraSpecialArgs = {
+            inherit inputs;
+            local = {
+              user = "warashi";
+            };
+          };
+        });
+
+      warashi = home-manager.lib.homeManagerConfiguration (homeManagerDarwin
+        // {
+          extraSpecialArgs = {
+            inherit inputs;
+            local = {
+              user = "sawada";
+            };
+          };
+        });
+
+      workbench = home-manager.lib.homeManagerConfiguration (homeManagerLinuxNonGUI
+        // {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+
+          extraSpecialArgs = {
+            inherit inputs;
+            local = {
+              user = "ubuntu";
+            };
+          };
+        });
     };
   };
 }
