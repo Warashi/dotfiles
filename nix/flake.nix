@@ -67,6 +67,8 @@
     xremap-flake,
     ...
   }: rec {
+    inherit inputs;
+
     nixos = {
       modules = [
         ./nixos/config.nix
