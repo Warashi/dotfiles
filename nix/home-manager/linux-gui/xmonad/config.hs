@@ -2,6 +2,7 @@ import Data.Map qualified as M
 import Data.Monoid
 import System.Exit
 import XMonad
+import XMonad.Hooks.DynamicLog
 import XMonad.Layout.ThreeColumns
 import XMonad.StackSet qualified as W
 
@@ -60,19 +61,20 @@ myStartupHook = return ()
 
 main =
   xmonad
-    def
-      { terminal = myTerminal,
-        focusFollowsMouse = myFocusFollowsMouse,
-        borderWidth = myBorderWidth,
-        modMask = myModMask,
-        workspaces = myWorkSpaces,
-        normalBorderColor = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
-        keys = myKeys,
-        mouseBindings = myMouseBindings,
-        layoutHook = myLayout,
-        manageHook = myManageHook,
-        handleEventHook = myEventHook,
-        logHook = myLogHook,
-        startupHook = myStartupHook
-      }
+    =<< xmobar
+      def
+        { terminal = myTerminal,
+          focusFollowsMouse = myFocusFollowsMouse,
+          borderWidth = myBorderWidth,
+          modMask = myModMask,
+          workspaces = myWorkSpaces,
+          normalBorderColor = myNormalBorderColor,
+          focusedBorderColor = myFocusedBorderColor,
+          keys = myKeys,
+          mouseBindings = myMouseBindings,
+          layoutHook = myLayout,
+          manageHook = myManageHook,
+          handleEventHook = myEventHook,
+          logHook = myLogHook,
+          startupHook = myStartupHook
+        }
