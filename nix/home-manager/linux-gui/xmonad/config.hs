@@ -1,6 +1,7 @@
 import Data.Map qualified as M
 import System.Exit
 import XMonad
+import XMonad.Actions.CycleWS qualified as WS
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.StatusBar
@@ -29,9 +30,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((modm, xK_m), windows W.focusMaster),
       ((modm, xK_j), windows W.focusDown),
       ((modm, xK_k), windows W.focusUp),
+      ((modm, xK_h), WS.prevScreen),
+      ((modm, xK_l), WS.nextScreen),
+      ((modm, xK_Left), WS.prevWS),
+      ((modm, xK_Right), WS.nextWS),
       ((modm, xK_Return), windows W.swapMaster),
       ((modm .|. mod4Mask, xK_j), windows W.swapDown),
       ((modm .|. mod4Mask, xK_k), windows W.swapUp),
+      ((modm .|. mod4Mask, xK_h), WS.shiftPrevScreen),
+      ((modm .|. mod4Mask, xK_l), WS.shiftNextScreen),
+      ((modm .|. mod4Mask, xK_Left), WS.shiftToPrev),
+      ((modm .|. mod4Mask, xK_Right), WS.shiftToNext),
       ((modm, xK_q), io exitSuccess)
     ]
       ++ [ ((m .|. modm, k), windows $ f i)
