@@ -136,7 +136,7 @@
     };
 
     darwinConfigurations = {
-      warashi = nix-darwin.lib.darwinSysttem darwin;
+      warashi = nix-darwin.lib.darwinSystem darwin;
     };
 
     homeConfigurations = {
