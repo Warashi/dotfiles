@@ -1,8 +1,4 @@
-{
-  inputs,
-  nixpkgs,
-  ...
-}: {
+{inputs, ...}: {
   nixpkgs.overlays = [
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     inputs.neovim-nightly-overlay.overlay
@@ -88,7 +84,7 @@
       };
     })
     (_: prev: {
-      mocword-data = prev.stdenv.mkDerivation rec {
+      mocword-data = prev.stdenv.mkDerivation {
         pname = "mocword-data";
         version = "0.0.1";
 
@@ -112,7 +108,7 @@
           cp mocword.sqlite $out/
         '';
 
-        meta = with prev.lib; {
+        meta = {
           homepage = "https://github.com/high-moctane/mocword-data";
         };
       };
@@ -217,6 +213,25 @@
           homepage = "https://github.com/wachikun/yaskkserv2";
           license = licenses.mit;
         };
+      };
+    })
+    (_: prev: {
+      plemoljp = prev.stdenvNoCC.mkDerivation rec {
+        pname = "plemoljp-console-nf";
+        version = "1.6.0";
+
+        src = prev.fetchzip {
+          url = "https://github.com/yuru7/PlemolJP/releases/download/v${version}/PlemolJP_NF_v${version}.zip";
+          hash = "sha256-AYf/ymueqVR45mERfhNWRAA+3o1wTzIu0l+h0SsE/Hw=";
+        };
+
+        installPhase = ''
+          runHook preInstall
+
+          install -Dm644 PlemolJPConsole_NF/*.ttf -t $out/share/fonts/truetype
+
+          runHook postInstall
+        '';
       };
     })
   ];

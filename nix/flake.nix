@@ -49,6 +49,10 @@
       url = "github:catppuccin/zsh-fsh";
       flake = false;
     };
+    catppuccin-rofi = {
+      url = "github:catppuccin/rofi";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

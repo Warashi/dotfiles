@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "catppuccin-rofi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672491652,
+        "narHash": "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=",
+        "owner": "catppuccin",
+        "repo": "rofi",
+        "rev": "5350da41a11814f950c3354f090b90d4674a95ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "rofi",
+        "type": "github"
+      }
+    },
     "catppuccin-zsh-fsh": {
       "flake": false,
       "locked": {
@@ -513,6 +529,7 @@
       "inputs": {
         "catppuccin-alacritty": "catppuccin-alacritty",
         "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
