@@ -68,13 +68,32 @@ _: {
         {
           name = "macOS enulation";
           remap = {
+            Super-0 = "Ctrl_R-0";
+            Super-1 = "Ctrl_R-1";
+            Super-2 = "Ctrl_R-2";
+            Super-3 = "Ctrl_R-3";
+            Super-4 = "Ctrl_R-4";
+            Super-5 = "Ctrl_R-5";
+            Super-6 = "Ctrl_R-6";
+            Super-7 = "Ctrl_R-7";
+            Super-8 = "Ctrl_R-8";
+            Super-9 = "Ctrl_R-9";
             Super-a = "Ctrl_R-a";
+            Super-c = "Ctrl_R-c";
+            Super-d = "Ctrl_R-d";
             Super-f = "Ctrl_R-f";
             Super-h = "Ctrl_R-h";
+            Super-k = "Ctrl_R-k";
             Super-l = "Ctrl_R-l";
+            Super-o = "Ctrl_R-o";
             Super-q = "Ctrl_R-q";
+            Super-r = "Ctrl_R-r";
             Super-t = "Ctrl_R-t";
+            Super-v = "Ctrl_R-v";
             Super-w = "Ctrl_R-w";
+            Super-x = "Ctrl_R-x";
+            Super-z = "Ctrl_R-z";
+
             Super-LeftBrace = "Ctrl_R-LeftBrace";
             Super-RightBrace = "Ctrl_R-RightBrace";
           };
