@@ -1,8 +1,10 @@
 import Data.Map qualified as M
-import Data.Monoid
 import System.Exit
 import XMonad
-import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 import XMonad.Layout.ThreeColumns
 import XMonad.StackSet qualified as W
 
@@ -59,9 +61,25 @@ myLogHook = return ()
 
 myStartupHook = return ()
 
+myPolybarConfig = statusBarProp "polybar example" (pure polybarPPdef)
+
+polybarPPdef =
+  def
+    { ppCurrent = polybarFgColor "#FF9F1C" . wrap "[" "]",
+      ppTitle = const ""
+    }
+
+polybarFgColor :: String -> String -> String
+polybarFgColor fore_color = wrap ("%{F" <> fore_color <> "} ") " %{F-}"
+
+polybarBgColor :: String -> String -> String
+polybarBgColor back_color = wrap ("%{B" <> back_color <> "} ") " %{B-}"
+
 main =
-  xmonad
-    =<< xmobar
+  xmonad $
+    withEasySB
+      myPolybarConfig
+      defToggleStrutsKey
       def
         { terminal = myTerminal,
           focusFollowsMouse = myFocusFollowsMouse,

@@ -1,10 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    haskellPackages.xmobar
-
     (haskellPackages.ghcWithPackages (hpkgs:
       with hpkgs; [
-        xmobar
         xmonad
         xmonad-contrib
       ]))
@@ -19,10 +16,10 @@
       };
     };
   };
-
-  xdg.configFile.xmobar = {
-    source = ./xmobar.hs;
-    target = "xmobar/xmobar.hs";
-    onChange = "rm -f ~/.config/xmobar/xmobar ~/.config/xmobar/xmobar.o ~/.config/xmobar/xmobar.hi"; # xmobar.hs のタイムスタンプがepoch timeになるので、手動で消す
+  services.polybar = {
+    enable = true;
+    script = "";
+    settings = {
+    };
   };
 }
