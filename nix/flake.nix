@@ -118,7 +118,7 @@
           };
         };
       };
-      workbench = home-manager.lib.homeManagerConfiguration rec {
+      workbench = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
 
         modules = [
