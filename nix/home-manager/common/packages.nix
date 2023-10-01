@@ -24,7 +24,6 @@
     neovim
     neovim-remote
     nodejs
-    psmisc
     ripgrep
     sheldon
     taplo
