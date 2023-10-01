@@ -2,9 +2,8 @@
   gtk = {
     enable = true;
     font = {
-      package = pkgs.plemoljp;
-      name = "PlemolJP Console NF";
-      size = 16;
+      package = pkgs.ibm-plex;
+      name = "IBM Plex Sans JP";
     };
     theme = {
       package = pkgs.catppuccin-gtk;
