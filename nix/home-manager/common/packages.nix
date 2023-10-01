@@ -4,7 +4,6 @@
     aria
     awscli2
     bat
-    carapace
     delta
     deno
     devbox
@@ -24,6 +23,8 @@
     mocword-data
     neovim
     neovim-remote
+    nodejs
+    psmisc
     ripgrep
     sheldon
     taplo

@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "catppuccin-polybar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664945864,
+        "narHash": "sha256-bUbSgMg/sa2faeEUZo80GNmhOX3wn2jLzfA9neF8ERA=",
+        "owner": "catppuccin",
+        "repo": "polybar",
+        "rev": "9ee66f83335404186ce979bac32fcf3cd047396a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "polybar",
+        "type": "github"
+      }
+    },
     "catppuccin-rofi": {
       "flake": false,
       "locked": {
@@ -529,6 +545,7 @@
       "inputs": {
         "catppuccin-alacritty": "catppuccin-alacritty",
         "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-polybar": "catppuccin-polybar",
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "home-manager": "home-manager",

@@ -53,6 +53,10 @@
       url = "github:catppuccin/rofi";
       flake = false;
     };
+    catppuccin-polybar = {
+      url = "github:catppuccin/polybar";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

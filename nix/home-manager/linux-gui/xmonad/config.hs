@@ -61,7 +61,7 @@ myLogHook = return ()
 
 myStartupHook = return ()
 
-myPolybarConfig = statusBarProp "polybar example" (pure polybarPPdef)
+myPolybarConfig = statusBarProp "polybar warashi" (pure polybarPPdef)
 
 polybarPPdef =
   def
@@ -77,22 +77,22 @@ polybarBgColor back_color = wrap ("%{B" <> back_color <> "} ") " %{B-}"
 
 main =
   xmonad $
-    withEasySB
-      myPolybarConfig
-      defToggleStrutsKey
-      def
-        { terminal = myTerminal,
-          focusFollowsMouse = myFocusFollowsMouse,
-          borderWidth = myBorderWidth,
-          modMask = myModMask,
-          workspaces = myWorkSpaces,
-          normalBorderColor = myNormalBorderColor,
-          focusedBorderColor = myFocusedBorderColor,
-          keys = myKeys,
-          mouseBindings = myMouseBindings,
-          layoutHook = myLayout,
-          manageHook = myManageHook,
-          handleEventHook = myEventHook,
-          logHook = myLogHook,
-          startupHook = myStartupHook
-        }
+    withSB myPolybarConfig $
+      ewmh $
+        docks $
+          def
+            { terminal = myTerminal,
+              focusFollowsMouse = myFocusFollowsMouse,
+              borderWidth = myBorderWidth,
+              modMask = myModMask,
+              workspaces = myWorkSpaces,
+              normalBorderColor = myNormalBorderColor,
+              focusedBorderColor = myFocusedBorderColor,
+              keys = myKeys,
+              mouseBindings = myMouseBindings,
+              layoutHook = avoidStruts myLayout,
+              manageHook = myManageHook,
+              handleEventHook = myEventHook,
+              logHook = myLogHook,
+              startupHook = myStartupHook
+            }
