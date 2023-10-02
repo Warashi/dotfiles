@@ -33,7 +33,7 @@
       xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        config = ./config.hs;
+        config = ./xmonad.hs;
       };
     };
   };

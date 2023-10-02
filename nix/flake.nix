@@ -87,7 +87,7 @@
     };
     homeManagerBase = {
       modules = [
-        ./home-manager/common.nix
+        ./home-manager/common/default.nix
       ];
     };
     homeManagerDarwin =
@@ -106,7 +106,7 @@
         modules =
           homeManagerBase.modules
           ++ [
-            ./home-manager/linux-common.nix
+            ./home-manager/linux/default.nix
           ];
       };
     homeManagerLinuxNonGUI =
@@ -115,7 +115,7 @@
         modules =
           homeManagerLinuxBase.modules
           ++ [
-            ./home-manager/linux-nongui.nix
+            ./home-manager/linux-nongui/default.nix
           ];
       };
     homeManagerLinuxGUI =
@@ -125,7 +125,7 @@
           homeManagerLinuxBase.modules
           ++ [
             xremap-flake.homeManagerModules.default
-            ./home-manager/linux-gui.nix
+            ./home-manager/linux-gui/default.nix
           ];
       };
 
