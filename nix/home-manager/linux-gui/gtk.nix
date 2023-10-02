@@ -4,7 +4,13 @@
       [icon theme]
       Inherits=Catppuccin-Frappe-Blue-Cursors
     '';
-    target = ".icons.default/index.theme";
+    target = ".icons/default/index.theme";
+  };
+  xresources = {
+    properties = {
+      "Xcursor.theme" = "Catppuccin-Frappe-Blue-Cursors";
+      "Xcursor.size" = 24;
+    };
   };
   gtk = {
     enable = true;
