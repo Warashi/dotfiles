@@ -57,6 +57,10 @@
       url = "github:catppuccin/polybar";
       flake = false;
     };
+    catppuccin-dunst = {
+      url = "github:catppuccin/dunst";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

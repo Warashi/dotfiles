@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "catppuccin-dunst": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664239314,
+        "narHash": "sha256-1LeSKuZcuWr9z6mKnyt1ojFOnIiTupwspGrOw/ts8Yk=",
+        "owner": "catppuccin",
+        "repo": "dunst",
+        "rev": "a72991e56338289a9fce941b5df9f0509d2cba09",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "dunst",
+        "type": "github"
+      }
+    },
     "catppuccin-polybar": {
       "flake": false,
       "locked": {
@@ -545,6 +561,7 @@
       "inputs": {
         "catppuccin-alacritty": "catppuccin-alacritty",
         "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-dunst": "catppuccin-dunst",
         "catppuccin-polybar": "catppuccin-polybar",
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",

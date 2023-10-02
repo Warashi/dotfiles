@@ -14,6 +14,7 @@
     enable = true;
     initExtra = ''
       ${pkgs.feh}/bin/feh --bg-scale ~/Pictures/IMG_0045.png
+      ${pkgs.dex}/bin/dex -a
     '';
     windowManager = {
       xmonad = {
@@ -24,6 +25,10 @@
     };
   };
   services = {
+    dunst = {
+      enable = true;
+      configFile = inputs.catppuccin-dunst + "/src/frappe.conf";
+    };
     picom = {
       enable = true;
       activeOpacity = 0.9;
