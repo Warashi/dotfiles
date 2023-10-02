@@ -4,7 +4,6 @@ _: {
     ./desktop/default.nix
     ./fonts.nix
     ./gtk.nix
-    ./i3wm.nix
     ./packages.nix
     ./pam_u2f/default.nix
     ./rofi.nix
