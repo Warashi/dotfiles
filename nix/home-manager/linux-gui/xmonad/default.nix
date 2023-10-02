@@ -71,7 +71,7 @@
 
           modules-left = "xworkspaces";
           modules-center = "xwindow";
-          modules-right = "filesystem xkeyboard memory cpu wlan eth date";
+          modules-right = "filesystem xkeyboard cpu memory swap wlan eth date";
 
           cursor-click = "pointer";
           cursor-scroll = "ns-resize";
@@ -133,6 +133,16 @@
           label-indicator-background = ''''${colors.blue}'';
         };
 
+        "module/cpu" = {
+          type = "internal/cpu";
+          interval = 2;
+
+          format-prefix = "CPU ";
+          format-prefix-foreground = ''''${colors.text}'';
+
+          label = "%percentage:2%%";
+        };
+
         "module/memory" = {
           type = "internal/memory";
           interval = 2;
@@ -143,14 +153,14 @@
           label = "%percentage_used:2%%";
         };
 
-        "module/cpu" = {
-          type = "internal/cpu";
+        "module/swap" = {
+          type = "internal/memory";
           interval = 2;
 
-          format-prefix = "CPU ";
+          format-prefix = "SWAP ";
           format-prefix-foreground = ''''${colors.text}'';
 
-          label = "%percentage:2%%";
+          label = "%percentage_swap_used:2%%";
         };
 
         "network-base" = {
