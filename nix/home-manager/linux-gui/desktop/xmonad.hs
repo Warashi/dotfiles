@@ -8,6 +8,7 @@ import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Layout.ThreeColumns
 import XMonad.StackSet qualified as W
+import XMonad.Util.Cursor
 
 myTerminal = "alacritty"
 
@@ -68,7 +69,7 @@ myEventHook = mempty
 
 myLogHook = return ()
 
-myStartupHook = return ()
+myStartupHook = setDefaultCursor xC_left_ptr
 
 myPolybarConfig = statusBarProp "polybar warashi" (pure polybarPPdef)
 
