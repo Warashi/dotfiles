@@ -10,7 +10,9 @@ _: {
     ./sound.nix
     ./tailscale.nix
     ./user.nix
+    ./xdg.nix
     ./xremap.nix
+    ./zramswap.nix
   ];
 
   # Enable CUPS to print documents.

@@ -9,7 +9,7 @@ _: {
       session = [
         {
           manage = "window";
-          name = "dummy";
+          name = "xmonad";
           start = "";
         }
       ];
