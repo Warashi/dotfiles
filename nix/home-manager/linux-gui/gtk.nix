@@ -1,4 +1,11 @@
 {pkgs, ...}: {
+  home.file.catppuccin-cursor-theme = {
+    text = ''
+      [icon theme]
+      Inherits=Catppuccin-Frappe-Blue-Cursors
+    '';
+    target = ".icons.default/index.theme";
+  };
   gtk = {
     enable = true;
     font = {
