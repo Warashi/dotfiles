@@ -67,6 +67,7 @@ _: {
         }
         {
           name = "macOS enulation";
+          exact_match = true;
           remap = {
             Super-0 = "Ctrl_R-0";
             Super-1 = "Ctrl_R-1";
