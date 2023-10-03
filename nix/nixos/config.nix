@@ -3,6 +3,7 @@ _: {
     ./1password.nix
     ./display.nix
     ./docker.nix
+    ./fonts.nix
     ./keyring.nix
     ./locale.nix
     ./nixconfig.nix
