@@ -4,11 +4,13 @@ import XMonad
 import XMonad.Actions.CycleWS qualified as WS
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Layout.ThreeColumns
 import XMonad.StackSet qualified as W
 import XMonad.Util.Cursor
+import XMonad.Util.Run
 
 myTerminal = "alacritty"
 
@@ -28,6 +30,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
   M.fromList $
     [ ((mod4Mask, xK_space), spawn "rofi -show drun"),
       ((modm, xK_space), sendMessage NextLayout),
+      ((modm, xK_i), proc $ inTerm >-> setXClass "input_method_neovim" >-> execute "nvim"),
       ((modm, xK_m), windows W.focusMaster),
       ((modm, xK_j), windows W.focusDown),
       ((modm, xK_k), windows W.focusUp),
@@ -61,6 +64,7 @@ myManageHook =
   composeAll
     [ className =? "MPlayer" --> doFloat,
       className =? "Gimp" --> doFloat,
+      className =? "input_method_neovim" --> doSideFloat SE,
       resource =? "desktop_window" --> doIgnore,
       resource =? "kdesktop" --> doIgnore
     ]
