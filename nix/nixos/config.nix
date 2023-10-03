@@ -2,6 +2,7 @@ _: {
   imports = [
     ./1password.nix
     ./display.nix
+    ./docker.nix
     ./keyring.nix
     ./locale.nix
     ./nixconfig.nix
