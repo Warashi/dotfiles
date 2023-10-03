@@ -97,7 +97,7 @@
         modules =
           homeManagerBase.modules
           ++ [
-            ./home-manager/darwin.nix
+            ./home-manager/darwin/default.nix
           ];
       };
     homeManagerLinuxBase =
