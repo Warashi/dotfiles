@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Layout.IndependentScreens
 import XMonad.Layout.ThreeColumns
 import XMonad.StackSet qualified as W
 import XMonad.Util.Cursor
@@ -41,10 +42,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((modm, xK_Return), windows W.swapMaster),
       ((modm .|. mod4Mask, xK_j), windows W.swapDown),
       ((modm .|. mod4Mask, xK_k), windows W.swapUp),
-      ((modm .|. mod4Mask, xK_h), WS.shiftPrevScreen),
-      ((modm .|. mod4Mask, xK_l), WS.shiftNextScreen),
-      ((modm .|. mod4Mask, xK_Left), WS.shiftToPrev),
-      ((modm .|. mod4Mask, xK_Right), WS.shiftToNext),
+      ((modm .|. mod4Mask, xK_h), WS.shiftPrevScreen >> WS.prevScreen),
+      ((modm .|. mod4Mask, xK_l), WS.shiftNextScreen >> WS.nextScreen),
+      ((modm .|. mod4Mask, xK_Left), WS.shiftToPrev >> WS.prevWS),
+      ((modm .|. mod4Mask, xK_Right), WS.shiftToNext >> WS.nextWS),
       ((modm, xK_q), io exitSuccess)
     ]
       ++ [ ((m .|. modm, k), windows $ f i)
@@ -89,7 +90,8 @@ polybarFgColor fore_color = wrap ("%{F" <> fore_color <> "} ") " %{F-}"
 polybarBgColor :: String -> String -> String
 polybarBgColor back_color = wrap ("%{B" <> back_color <> "} ") " %{B-}"
 
-main =
+main = do
+  nScreens <- countScreens
   xmonad $
     withSB myPolybarConfig $
       ewmh $
@@ -99,7 +101,7 @@ main =
               focusFollowsMouse = myFocusFollowsMouse,
               borderWidth = myBorderWidth,
               modMask = myModMask,
-              workspaces = myWorkSpaces,
+              workspaces = withScreens nScreens myWorkSpaces,
               normalBorderColor = myNormalBorderColor,
               focusedBorderColor = myFocusedBorderColor,
               keys = myKeys,
