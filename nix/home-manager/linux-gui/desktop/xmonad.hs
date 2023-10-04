@@ -12,6 +12,7 @@ import XMonad.Layout.ThreeColumns
 import XMonad.StackSet qualified as W
 import XMonad.Util.Cursor
 import XMonad.Util.Run
+import System.Taffybar.Support.PagerHints (pagerHints)
 
 myTerminal = "alacritty"
 
@@ -96,6 +97,7 @@ main = do
     withSB myPolybarConfig $
       ewmh $
         docks $
+        pagerHints $
           def
             { terminal = myTerminal,
               focusFollowsMouse = myFocusFollowsMouse,

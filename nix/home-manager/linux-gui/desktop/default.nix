@@ -4,24 +4,29 @@
   ...
 }: {
   home.packages = with pkgs; [
-    (haskellPackages.ghcWithPackages (hpkgs:
+    (ghc.withPackages (hpkgs:
       with hpkgs; [
+        taffybar
+
         xmonad
         xmonad-contrib
+        xmonad-extras
       ]))
   ];
-  xdg.configFile._1password-gui-autostart = {
-    text = ''
-      [Desktop Entry]
-      Name=1Password
-      Type=Application
-      Exec=1password --silent
-      StartupWMClass=1Password
-      Icon=1password
-      Comment=Password manager and secure wallet
-      Terminal=false
-    '';
-    target = "autostart/1password-gui.desktop";
+  xdg = {
+    configFile._1password-gui-autostart = {
+      text = ''
+        [Desktop Entry]
+        Name=1Password
+        Type=Application
+        Exec=1password --silent
+        StartupWMClass=1Password
+        Icon=1password
+        Comment=Password manager and secure wallet
+        Terminal=false
+      '';
+      target = "autostart/1password-gui.desktop";
+    };
   };
   xsession = {
     enable = true;
@@ -33,6 +38,7 @@
       xmonad = {
         enable = true;
         enableContribAndExtras = true;
+        extraPackages = hpkg: [hpkg.taffybar];
         config = ./xmonad.hs;
       };
     };
