@@ -266,7 +266,7 @@ use-canary-build: false
 new-windows-to-main: false
 
 # true to automatically move to a space when throwing a window to it (default true).
-follow-space-thrown-windows: false
+follow-space-thrown-windows: true
 
 # The integer percentage of the screen dimension to increment and decrement main pane ratios by (default 5).
 window-resize-step: 5
