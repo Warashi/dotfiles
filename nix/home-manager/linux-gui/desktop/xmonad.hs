@@ -2,6 +2,7 @@ import Data.Map qualified as M
 import System.Exit
 import XMonad
 import XMonad.Actions.CycleWS
+import XMonad.Actions.OnScreen (greedyViewOnScreen, onlyOnScreen)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -77,7 +78,15 @@ myEventHook = mempty
 
 myLogHook = return ()
 
-myStartupHook = setDefaultCursor xC_left_ptr
+myStartupWindowPlacement :: ScreenId -> WindowSet -> WindowSet
+myStartupWindowPlacement nScreens ws = do
+  foldr ((\a b -> a b) . (\x -> greedyViewOnScreen x (x `marshall` head myWorkSpaces))) ws [0 .. nScreens - 1]
+
+myStartupHook :: X ()
+myStartupHook = do
+  nScreens <- countScreens
+  windows (myStartupWindowPlacement nScreens)
+  setDefaultCursor xC_left_ptr
 
 main = do
   nScreens <- countScreens
