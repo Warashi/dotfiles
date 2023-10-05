@@ -1,5 +1,6 @@
 import Data.Map qualified as M
 import System.Exit
+import System.Taffybar.Support.PagerHints (pagerHints)
 import XMonad
 import XMonad.Actions.CycleWS qualified as WS
 import XMonad.Hooks.EwmhDesktops
@@ -12,7 +13,6 @@ import XMonad.Layout.ThreeColumns
 import XMonad.StackSet qualified as W
 import XMonad.Util.Cursor
 import XMonad.Util.Run
-import System.Taffybar.Support.PagerHints (pagerHints)
 
 myTerminal = "alacritty"
 
@@ -77,27 +77,12 @@ myLogHook = return ()
 
 myStartupHook = setDefaultCursor xC_left_ptr
 
-myPolybarConfig = statusBarProp "polybar warashi" (pure polybarPPdef)
-
-polybarPPdef =
-  def
-    { ppCurrent = polybarFgColor "#FF9F1C" . wrap "[" "]",
-      ppTitle = const ""
-    }
-
-polybarFgColor :: String -> String -> String
-polybarFgColor fore_color = wrap ("%{F" <> fore_color <> "} ") " %{F-}"
-
-polybarBgColor :: String -> String -> String
-polybarBgColor back_color = wrap ("%{B" <> back_color <> "} ") " %{B-}"
-
 main = do
   nScreens <- countScreens
   xmonad $
-    withSB myPolybarConfig $
-      ewmh $
-        docks $
-        pagerHints $
+    ewmh $
+      docks $
+        pagerHints
           def
             { terminal = myTerminal,
               focusFollowsMouse = myFocusFollowsMouse,
