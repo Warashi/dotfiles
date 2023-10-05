@@ -71,36 +71,39 @@ lspconfig["lua_ls"].setup({
 
 lspconfig["denols"].setup({
   root_dir = util.root_pattern("deno.json", "deno.jsonc"),
-  init_options = {
-    lint = true,
-    unstable = true,
-    suggest = {
-      imports = {
-        hosts = {
-          ["https://deno.land"] = true,
-          ["https://cdn.nest.land"] = true,
-          ["https://crux.land"] = true,
+  settings = {
+    deno = {
+      enable = true,
+      lint = true,
+      unstable = true,
+      suggest = {
+        imports = {
+          hosts = {
+            ["https://deno.land"] = true,
+            ["https://cdn.nest.land"] = true,
+            ["https://crux.land"] = true,
+          },
         },
       },
-    },
-    inlayHints = {
-      parameterNames = {
-        enabled = "all",
-      },
-      parameterTypes = {
-        enabled = true,
-      },
-      variableTypes = {
-        enabled = true,
-      },
-      propertyDeclarationTypes = {
-        enabled = true,
-      },
-      functionLikeReturnTypes = {
-        enabled = true,
-      },
-      enumMemberValues = {
-        enabled = true,
+      inlayHints = {
+        parameterNames = {
+          enabled = "all",
+        },
+        parameterTypes = {
+          enabled = true,
+        },
+        variableTypes = {
+          enabled = true,
+        },
+        propertyDeclarationTypes = {
+          enabled = true,
+        },
+        functionLikeReturnTypes = {
+          enabled = true,
+        },
+        enumMemberValues = {
+          enabled = true,
+        },
       },
     },
   },
