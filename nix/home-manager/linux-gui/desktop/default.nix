@@ -45,7 +45,6 @@
       xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        extraPackages = hpkg: [hpkg.taffybar];
         config = ./xmonad.hs;
       };
     };

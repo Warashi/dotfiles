@@ -1,16 +1,16 @@
 import Data.Map qualified as M
 import System.Exit
-import System.Taffybar.Support.PagerHints (pagerHints)
 import XMonad
-import XMonad.Actions.CycleWS qualified as WS
+import XMonad.Actions.CycleWS
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Hooks.TaffybarPagerHints
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.ThreeColumns
-import XMonad.StackSet qualified as W
+import XMonad.StackSet
 import XMonad.Util.Cursor
 import XMonad.Util.Run
 
@@ -29,30 +29,26 @@ myNormalBorderColor = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) =
-  M.fromList $
+  M.fromList
     [ ((mod4Mask, xK_space), spawn "rofi -show drun"),
       ((modm, xK_space), sendMessage NextLayout),
       ((modm, xK_i), proc $ inTerm >-> setXClass "input_method_neovim" >-> execute "nvim"),
-      ((modm, xK_m), windows W.focusMaster),
-      ((modm, xK_j), windows W.focusDown),
-      ((modm, xK_k), windows W.focusUp),
-      ((modm, xK_h), WS.prevScreen),
-      ((modm, xK_l), WS.nextScreen),
-      ((modm, xK_Left), WS.prevWS),
-      ((modm, xK_Right), WS.nextWS),
-      ((modm, xK_Return), windows W.swapMaster),
-      ((modm .|. mod4Mask, xK_j), windows W.swapDown),
-      ((modm .|. mod4Mask, xK_k), windows W.swapUp),
-      ((modm .|. mod4Mask, xK_h), WS.shiftPrevScreen >> WS.prevScreen),
-      ((modm .|. mod4Mask, xK_l), WS.shiftNextScreen >> WS.nextScreen),
-      ((modm .|. mod4Mask, xK_Left), WS.shiftToPrev >> WS.prevWS),
-      ((modm .|. mod4Mask, xK_Right), WS.shiftToNext >> WS.nextWS),
+      ((modm, xK_m), windows focusMaster),
+      ((modm, xK_j), windows focusDown),
+      ((modm, xK_k), windows focusUp),
+      ((modm, xK_h), prevScreen),
+      ((modm, xK_l), nextScreen),
+      ((modm, xK_Left), prevWS),
+      ((modm, xK_Right), nextWS),
+      ((modm, xK_Return), windows swapMaster),
+      ((modm .|. mod4Mask, xK_j), windows swapDown),
+      ((modm .|. mod4Mask, xK_k), windows swapUp),
+      ((modm .|. mod4Mask, xK_h), shiftPrevScreen >> prevScreen),
+      ((modm .|. mod4Mask, xK_l), shiftNextScreen >> nextScreen),
+      ((modm .|. mod4Mask, xK_Left), shiftToPrev >> prevWS),
+      ((modm .|. mod4Mask, xK_Right), shiftToNext >> nextWS),
       ((modm, xK_q), io exitSuccess)
     ]
-      ++ [ ((m .|. modm, k), windows $ f i)
-           | (i, k) <- zip (workspaces conf) [xK_1 .. xK_9],
-             (f, m) <- [(W.greedyView, 0), (W.shift, mod4Mask)]
-         ]
 
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.empty
 
@@ -88,7 +84,7 @@ main = do
               focusFollowsMouse = myFocusFollowsMouse,
               borderWidth = myBorderWidth,
               modMask = myModMask,
-              workspaces = withScreens nScreens myWorkSpaces,
+              XMonad.workspaces = withScreens nScreens myWorkSpaces,
               normalBorderColor = myNormalBorderColor,
               focusedBorderColor = myFocusedBorderColor,
               keys = myKeys,
