@@ -10,6 +10,7 @@ import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.TaffybarPagerHints
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.ThreeColumns
+import XMonad.Prelude (isNothing)
 import XMonad.StackSet
 import XMonad.Util.Cursor
 import XMonad.Util.Run
@@ -38,17 +39,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((modm, xK_k), windows focusUp),
       ((modm, xK_h), prevScreen),
       ((modm, xK_l), nextScreen),
-      ((modm, xK_Left), prevWS),
-      ((modm, xK_Right), nextWS),
+      ((modm, xK_Left), moveTo Prev wsOnCurrentScreen),
+      ((modm, xK_Right), moveTo Next wsOnCurrentScreen),
       ((modm, xK_Return), windows swapMaster),
       ((modm .|. mod4Mask, xK_j), windows swapDown),
       ((modm .|. mod4Mask, xK_k), windows swapUp),
       ((modm .|. mod4Mask, xK_h), shiftPrevScreen >> prevScreen),
       ((modm .|. mod4Mask, xK_l), shiftNextScreen >> nextScreen),
-      ((modm .|. mod4Mask, xK_Left), shiftToPrev >> prevWS),
-      ((modm .|. mod4Mask, xK_Right), shiftToNext >> nextWS),
+      ((modm .|. mod4Mask, xK_Left), shiftTo Prev wsOnCurrentScreen >> moveTo Prev wsOnCurrentScreen),
+      ((modm .|. mod4Mask, xK_Right), shiftTo Next wsOnCurrentScreen >> moveTo Next wsOnCurrentScreen),
       ((modm, xK_q), io exitSuccess)
     ]
+
+wsOnCurrentScreen :: WSType
+wsOnCurrentScreen = WSIs $ do
+  currentScreen <- gets (screen . current . windowset)
+  return $ (== currentScreen) . unmarshallS . tag
 
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.empty
 
