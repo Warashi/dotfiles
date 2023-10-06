@@ -9,8 +9,10 @@ function! s:ddu_hijack() abort
     return
   endif
 
-  if isdirectory('<amatch>'->expand())
-    call ddu#start({'name': 'filer'})
+  let dir = '<amatch>'->expand()
+  if isdirectory(dir)
+    " 最後の閉じ括弧のスペースを消すと hook_add の終わりと見なされてしまう
+    call ddu#start({'name': 'filer', 'sourceOptions': {'_': {'path': dir} } })
   endif
 endfunction
 
