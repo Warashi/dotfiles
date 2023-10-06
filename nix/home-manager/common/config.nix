@@ -1,18 +1,38 @@
-{
-  home,
-  programs,
-  ...
-}: {
+{pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
 
   home = {
-    sessionPath = [
-      "$HOME/.local/bin"
-      "$HOME/go/bin"
-    ];
+    sessionPath =
+      [
+        "$HOME/.local/bin"
+        "$HOME/go/bin"
+      ]
+      ++ (
+        if pkgs.stdenv.isDarwin
+        then ["/opt/homebrew/bin"]
+        else []
+      );
+
+    sessionVariables = {
+      DENO_NO_UPDATE_CHECK = "1";
+      EDITOR = "nvim";
+      KEYTIMEOUT = "1";
+      LANG = "en_US.UTF-8";
+      MANPAGER = "nvim +Man!";
+      LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-frappe)";
+      MOCWORD_DATA = "${pkgs.mocword-data}/mocword.sqlite";
+
+      # zeno config
+      ZENO_HOME = "$HOME/.config/zeno";
+      ZENO_ENABLE_FZF_TMUX = "1";
+      ZENO_FZF_TMUX_OPTIONS = "-p 80%";
+      ZENO_ENABLE_SOCK = "1";
+      ZENO_GIT_CAT = "bat --color=always";
+      ZENO_GIT_TREE = "eza --tree";
+    };
   };
 
   programs = {
