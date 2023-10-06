@@ -18,7 +18,7 @@ export class Config extends BaseConfig {
         "buffer",
         "around",
         "file",
-        "vsnip",
+        "denippet",
         "shell-native",
         "mocword",
       ],
@@ -88,6 +88,10 @@ export class Config extends BaseConfig {
           mark: "zsh",
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
+        },
+        denippet: {
+          mark: "denippet",
+          dup: "keep",
         },
         vsnip: {
           mark: "vsnip",
