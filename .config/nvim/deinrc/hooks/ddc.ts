@@ -93,10 +93,6 @@ export class Config extends BaseConfig {
           mark: "denippet",
           dup: "keep",
         },
-        vsnip: {
-          mark: "vsnip",
-          dup: "keep",
-        },
         mocword: {
           mark: "mocword",
           minAutoCompleteLength: 4,
