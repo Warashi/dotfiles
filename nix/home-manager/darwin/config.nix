@@ -34,11 +34,9 @@ in {
       config = {
         Label = "dev.warashi.denops-shared-server";
         ProgramArguments = [
-          "${pkgs.deno}/bin/deno"
-          "run"
-          "-A"
-          "--no-lock"
-          "${inputs.denops-vim}/denops/@denops-private/cli.ts"
+          "${pkgs.zsh}/bin/zsh"
+          "-c"
+          "source /etc/zshenv; source $HOME/.zshenv; ${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts;"
         ];
         RunAtLoad = true;
         KeepAlive = true;
