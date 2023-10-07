@@ -19,4 +19,5 @@ set background=dark
 set history=200
 set shada='100,<20,s10,h,r/tmp/,rterm:
 
-let g:denops_server_addr = '127.0.0.1:32123'
+" メモリリークっぽい挙動があるので一旦やめる
+" let g:denops_server_addr = '127.0.0.1:32123'

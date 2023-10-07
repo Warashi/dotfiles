@@ -8,30 +8,20 @@
   '';
 in {
   systemd.user.services = {
-    # neovim = {
+    # メモリリークっぽい挙動があるので一旦やめる
+    # denops-shared-server = {
     #   Unit = {
-    #     Description = "neovim text editor";
-    #     Documentation = "man:nvim(1)";
+    #     Description = "Denops shared server";
+    #     Documentation = "";
     #   };
     #   Service = {
-    #     ExecStart = ''${pkgs.zsh}/bin/zsh -c ". /etc/zshrc; exec ${pkgs.neovim}/bin/nvim --headless --listen ${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket"'';
-    #     ExecStop = ''${pkgs.neovim}/bin/nvim --server ${builtins.getEnv "XDG_RUNTIME_DIR"}/nvim.socket --remote-send "<C-\><C-N>:wqa<CR>"'';
+    #     ExecStart = ''${pkgs.zsh}/bin/zsh -c ". /etc/zshrc; ${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts"'';
     #     Restart = ''always'';
     #   };
+    #   Install = {
+    #     WantedBy = ["default.target"];
+    #   };
     # };
-    denops-shared-server = {
-      Unit = {
-        Description = "Denops shared server";
-        Documentation = "";
-      };
-      Service = {
-        ExecStart = ''${pkgs.zsh}/bin/zsh -c ". /etc/zshrc; ${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts"'';
-        Restart = ''always'';
-      };
-      Install = {
-        WantedBy = ["default.target"];
-      };
-    };
     yaskkserv2 = {
       Unit = {
         Description = "Yet Another SKK Server";

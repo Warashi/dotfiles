@@ -30,7 +30,8 @@ in {
 
   launchd.agents = {
     denops-shared-server = {
-      enable = true;
+      # メモリリークっぽい挙動があるので一旦やめる
+      enable = false;
       config = {
         Label = "dev.warashi.denops-shared-server";
         ProgramArguments = [
