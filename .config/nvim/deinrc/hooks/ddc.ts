@@ -1,8 +1,8 @@
 import {
   BaseConfig,
   ContextBuilder,
-} from "https://deno.land/x/ddc_vim@v3.9.0/types.ts";
-import { Denops } from "https://deno.land/x/ddc_vim@v3.9.0/deps.ts";
+} from "https://deno.land/x/ddc_vim@v4.0.5/types.ts";
+import { Denops } from "https://deno.land/x/ddc_vim@v4.0.5/deps.ts";
 
 export class Config extends BaseConfig {
   // deno-lint-ignore require-await
@@ -110,9 +110,10 @@ export class Config extends BaseConfig {
           shell: "zsh",
         },
         "nvim-lsp": {
-          enableResolveItem: true,
-          enableAdditionalTextEdit: true,
           confirmBehavior: "replace",
+          enableAdditionalTextEdit: true,
+          enableResolveItem: true,
+          lspEngine: "lspoints",
           snippetEngine: (body: string) =>
             args.denops.call("denippet#anonymous", body),
         },

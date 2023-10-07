@@ -24,6 +24,12 @@ repo = 'Shougo/ddc-source-nvim-lsp'
 on_source = ['ddc.vim']
 
 [[plugins]]
+repo = 'uga-rosa/ddc-nvim-lsp-setup'
+depends = ['ddc-source-nvim-lsp']
+on_source = ['ddc.vim']
+if = 0
+
+[[plugins]]
 repo = 'Shougo/ddc-source-shell-native'
 on_source = ['ddc.vim']
 
@@ -46,11 +52,6 @@ on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'matsui54/ddc-buffer'
-on_source = ['ddc.vim']
-
-[[plugins]]
-repo = 'uga-rosa/ddc-nvim-lsp-setup'
-depends = ['ddc-source-nvim-lsp']
 on_source = ['ddc.vim']
 
 [[plugins]]
