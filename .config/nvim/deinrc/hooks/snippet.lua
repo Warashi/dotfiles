@@ -19,5 +19,5 @@ local function initializeDenippet()
     loadSnippetDir(root, name, { name })
   end
 end
-initializeDenippet()
+-- initializeDenippet()
 -- }}}
