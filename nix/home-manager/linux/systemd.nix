@@ -25,7 +25,7 @@ in {
         Documentation = "";
       };
       Service = {
-        ExecStart = ''${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts'';
+        ExecStart = ''${pkgs.zsh}/bin/zsh -c ". /etc/zshrc; ${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts"'';
         Restart = ''always'';
       };
       Install = {
