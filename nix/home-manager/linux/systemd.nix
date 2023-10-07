@@ -19,6 +19,19 @@ in {
     #     Restart = ''always'';
     #   };
     # };
+    denops-shared-server = {
+      Unit = {
+        Description = "Denops shared server";
+        Documentation = "";
+      };
+      Service = {
+        ExecStart = ''${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts'';
+        Restart = ''always'';
+      };
+      Install = {
+        WantedBy = ["default.target"];
+      };
+    };
     yaskkserv2 = {
       Unit = {
         Description = "Yet Another SKK Server";

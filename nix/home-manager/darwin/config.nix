@@ -1,9 +1,7 @@
 {
   inputs,
   local,
-  home,
   pkgs,
-  launchd,
   ...
 }: let
   yaskkserv2-dictionary = pkgs.runCommand "yaskkserv2-dictionary" {} ''
@@ -31,6 +29,21 @@ in {
   };
 
   launchd.agents = {
+    denops-shared-server = {
+      enable = true;
+      config = {
+        Label = "dev.warashi.denops-shared-server";
+        ProgramArguments = [
+          "${pkgs.deno}/bin/deno"
+          "run"
+          "-A"
+          "--no-lock"
+          "${inputs.denops-vim}/denops/@denops-private/cli.ts"
+        ];
+        RunAtLoad = true;
+        KeepAlive = true;
+      };
+    };
     muscat = {
       enable = true;
       config = {

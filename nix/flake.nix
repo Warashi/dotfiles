@@ -29,6 +29,10 @@
         home-manager.follows = "home-manager";
       };
     };
+    denops-vim = {
+      url = "github:vim-denops/denops.vim";
+      flake = false;
+    };
     skk-jisyo-L = {
       url = "github:skk-dev/dict";
       flake = false;
