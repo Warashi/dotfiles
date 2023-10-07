@@ -1,6 +1,7 @@
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
 on_event = ['InsertEnter', 'CmdlineEnter']
+if = 0
 
 [[plugins]]
 repo = 'rafamadriz/friendly-snippets'
