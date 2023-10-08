@@ -7,6 +7,7 @@ _: {
     ./packages.nix
     ./pam_u2f/default.nix
     ./rofi.nix
+    ./systemd.nix
     ./xremap.nix
   ];
 }

@@ -140,6 +140,17 @@
             ]
             else [];
 
+        nativeBuildInputs = if (prev.stdenv.isLinux && useGolangDesign)
+        then [ prev.makeWrapper ]
+        else [];
+
+        postFixup = if (prev.stdenv.isLinux && useGolangDesign)
+        then ''
+          wrapProgram $out/bin/muscat \
+            --prefix LD_LIBRARY_PATH : ${prev.lib.makeLibraryPath [ prev.xorg.libX11 ]}
+        ''
+        else "";
+
         meta = with prev.lib; {
           description = "remote code development utils";
           homepage = "https://github.com/Warashi/muscat";
