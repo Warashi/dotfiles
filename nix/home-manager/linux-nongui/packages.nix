@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    (muscat.overrideAttrs
+    ((muscat {}).overrideAttrs
       (_: {
         postInstall = ''
           cd $out/bin
