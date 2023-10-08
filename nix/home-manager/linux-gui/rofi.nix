@@ -1,7 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
+{ inputs
+, pkgs
+, ...
 }: {
   xdg.dataFile.catppuccin-rofi = {
     source = inputs.catppuccin-rofi + "/basic/.local/share/rofi/themes";

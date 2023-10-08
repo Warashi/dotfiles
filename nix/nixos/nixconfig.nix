@@ -1,7 +1,7 @@
 _: {
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
     };
     # ガベージコレクションを自動実行
     gc = {

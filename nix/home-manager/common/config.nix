@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
@@ -12,8 +12,8 @@
       ]
       ++ (
         if pkgs.stdenv.isDarwin
-        then ["/opt/homebrew/bin"]
-        else []
+        then [ "/opt/homebrew/bin" ]
+        else [ ]
       );
 
     sessionVariables = {
@@ -66,7 +66,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = false;
-      options = ["--cmd j"];
+      options = [ "--cmd j" ];
     };
 
     ripgrep = {

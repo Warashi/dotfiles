@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     _1password
     aria
@@ -44,10 +44,11 @@
     nodePackages_latest.yaml-language-server
     terraform-ls
 
-    # null-ls から利用
+    # formatter, linter
     alejandra
     beautysh
     deadnix
+    nixpkgs-fmt
     nodePackages.cspell
     selene
     shellcheck

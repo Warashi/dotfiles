@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -44,8 +44,8 @@
       ''
       + import ./sheldon.nix
       + import ./binds.nix
-      + import ./zoxide.nix {inherit pkgs;}
-      + import ./direnv.nix {inherit pkgs;}
+      + import ./zoxide.nix { inherit pkgs; }
+      + import ./direnv.nix { inherit pkgs; }
       + import ./zprof.nix;
 
     envExtra =

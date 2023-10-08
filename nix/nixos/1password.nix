@@ -5,7 +5,7 @@ _: {
     };
     _1password-gui = {
       enable = true;
-      polkitPolicyOwners = ["warashi"];
+      polkitPolicyOwners = [ "warashi" ];
     };
   };
 }

@@ -1,8 +1,7 @@
-{
-  inputs,
-  home,
-  pkgs,
-  ...
+{ inputs
+, home
+, pkgs
+, ...
 }: {
   home.file = {
     nvredit = {

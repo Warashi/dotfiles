@@ -1,68 +1,70 @@
-{inputs, ...}: {
+{ inputs, ... }: {
   nixpkgs.overlays = [
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     inputs.neovim-nightly-overlay.overlay
-    (_: prev: let
-      liblpeg = prev.stdenv.mkDerivation {
-        pname = "liblpeg";
-        inherit (prev.luajitPackages.lpeg) version meta src;
-        buildInputs = [prev.luajit];
-        buildPhase =
-          if prev.stdenv.isDarwin
-          then ''
-            sed -i makefile -e "s/CC = gcc/CC = clang/"
-            sed -i makefile -e "s/-bundle/-dynamiclib/"
-            make macosx
-          ''
-          else ''
-            make linux
-          '';
-        installPhase =
-          if prev.stdenv.isDarwin
-          then ''
-            mkdir -p $out/lib
-            mv lpeg.so $out/lib/lpeg.dylib
-          ''
-          else ''
-            mkdir -p $out/lib
-            mv lpeg.so $out/lib/lpeg.so
-          '';
-        nativeBuildInputs =
-          if prev.stdenv.isDarwin
-          then [prev.fixDarwinDylibNames]
-          else [];
-      };
-    in {
-      neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
-        nativeBuildInputs =
-          old.nativeBuildInputs
-          ++ [
-            liblpeg
-          ];
-      });
-    })
+    (_: prev:
+      let
+        liblpeg = prev.stdenv.mkDerivation {
+          pname = "liblpeg";
+          inherit (prev.luajitPackages.lpeg) version meta src;
+          buildInputs = [ prev.luajit ];
+          buildPhase =
+            if prev.stdenv.isDarwin
+            then ''
+              sed -i makefile -e "s/CC = gcc/CC = clang/"
+              sed -i makefile -e "s/-bundle/-dynamiclib/"
+              make macosx
+            ''
+            else ''
+              make linux
+            '';
+          installPhase =
+            if prev.stdenv.isDarwin
+            then ''
+              mkdir -p $out/lib
+              mv lpeg.so $out/lib/lpeg.dylib
+            ''
+            else ''
+              mkdir -p $out/lib
+              mv lpeg.so $out/lib/lpeg.so
+            '';
+          nativeBuildInputs =
+            if prev.stdenv.isDarwin
+            then [ prev.fixDarwinDylibNames ]
+            else [ ];
+        };
+      in
+      {
+        neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
+          nativeBuildInputs =
+            old.nativeBuildInputs
+            ++ [
+              liblpeg
+            ];
+        });
+      })
     (_: prev: {
       sheldon =
         prev.sheldon.overrideAttrs
-        (old: rec {
-          inherit (old) pname;
-          version = "0.7.3";
+          (old: rec {
+            inherit (old) pname;
+            version = "0.7.3";
 
-          src = prev.fetchCrate {
-            inherit pname version;
-            sha256 = "sha256-uis3a16bGfycGzjmG6RjSCCgc1x+0LGuKKXX4Cs+NGc=";
-          };
+            src = prev.fetchCrate {
+              inherit pname version;
+              sha256 = "sha256-uis3a16bGfycGzjmG6RjSCCgc1x+0LGuKKXX4Cs+NGc=";
+            };
 
-          cargoDeps = old.cargoDeps.overrideAttrs (prev.lib.const {
-            inherit src;
-            name = "${old.pname}-${version}-vendor.tar.gz";
-            outputHash = "sha256-wVB+yL+h90f7NnASDaX5gxT5z45M8I1rxIJwY8uyB4k=";
+            cargoDeps = old.cargoDeps.overrideAttrs (prev.lib.const {
+              inherit src;
+              name = "${old.pname}-${version}-vendor.tar.gz";
+              outputHash = "sha256-wVB+yL+h90f7NnASDaX5gxT5z45M8I1rxIJwY8uyB4k=";
+            });
+
+            doCheck = false;
+
+            meta.platforms = prev.lib.platforms.unix;
           });
-
-          doCheck = false;
-
-          meta.platforms = prev.lib.platforms.unix;
-        });
     })
     (_: prev: {
       mocword = prev.rustPlatform.buildRustPackage rec {
@@ -88,15 +90,15 @@
         pname = "mocword-data";
         version = "0.0.1";
 
-        outputs = ["out"];
+        outputs = [ "out" ];
 
         src = prev.fetchurl {
           url = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz";
           sha256 = "sha256-5tyCED6A7ujn96D+D7Yc7vKKG5ZpF798P7tCk3wqEEA=";
         };
 
-        nativeBuildInputs = [prev.gzip];
-        buildInputs = [];
+        nativeBuildInputs = [ prev.gzip ];
+        buildInputs = [ ];
 
         unpackPhase = ''
           cp $src mocword.sqlite.gz
@@ -114,23 +116,23 @@
       };
     })
     (_: prev: {
-      muscat = {
-        useGolangDesign ? false
-      }: prev.buildGo121Module rec {
-        pname = "muscat";
-        version = "2.1.2";
-        vendorSha256 = "sha256-cugzXGa74tEk3fgspPcZSZ0viyXg23JL6fKqah1ndlQ=";
+      muscat =
+        { useGolangDesign ? false
+        }: prev.buildGo121Module rec {
+          pname = "muscat";
+          version = "2.1.2";
+          vendorSha256 = "sha256-cugzXGa74tEk3fgspPcZSZ0viyXg23JL6fKqah1ndlQ=";
 
-        src = prev.fetchFromGitHub {
-          owner = "Warashi";
-          repo = pname;
-          rev = "v${version}";
-          sha256 = "sha256-Er1dk7WrYddeW0S7XGw4qKBP0yz4CmEIwv7Omqi+WWM=";
-        };
+          src = prev.fetchFromGitHub {
+            owner = "Warashi";
+            repo = pname;
+            rev = "v${version}";
+            sha256 = "sha256-Er1dk7WrYddeW0S7XGw4qKBP0yz4CmEIwv7Omqi+WWM=";
+          };
 
-        tags = if useGolangDesign then ["golangdesign"] else [];
+          tags = if useGolangDesign then [ "golangdesign" ] else [ ];
 
-        buildInputs =
+          buildInputs =
             if prev.stdenv.isDarwin
             then [
               prev.darwin.apple_sdk.frameworks.Cocoa
@@ -138,25 +140,27 @@
             else if useGolangDesign then [
               prev.xorg.libX11
             ]
-            else [];
+            else [ ];
 
-        nativeBuildInputs = if (prev.stdenv.isLinux && useGolangDesign)
-        then [ prev.makeWrapper ]
-        else [];
+          nativeBuildInputs =
+            if (prev.stdenv.isLinux && useGolangDesign)
+            then [ prev.makeWrapper ]
+            else [ ];
 
-        postFixup = if (prev.stdenv.isLinux && useGolangDesign)
-        then ''
-          wrapProgram $out/bin/muscat \
-            --prefix LD_LIBRARY_PATH : ${prev.lib.makeLibraryPath [ prev.xorg.libX11 ]}
-        ''
-        else "";
+          postFixup =
+            if (prev.stdenv.isLinux && useGolangDesign)
+            then ''
+              wrapProgram $out/bin/muscat \
+                --prefix LD_LIBRARY_PATH : ${prev.lib.makeLibraryPath [ prev.xorg.libX11 ]}
+            ''
+            else "";
 
-        meta = with prev.lib; {
-          description = "remote code development utils";
-          homepage = "https://github.com/Warashi/muscat";
-          license = licenses.mit;
+          meta = with prev.lib; {
+            description = "remote code development utils";
+            homepage = "https://github.com/Warashi/muscat";
+            license = licenses.mit;
+          };
         };
-      };
     })
     (_: prev: {
       tmux-mvr = prev.rustPlatform.buildRustPackage rec {
@@ -215,7 +219,7 @@
             then [
               prev.darwin.apple_sdk.frameworks.Security
             ]
-            else []
+            else [ ]
           );
         nativeBuildInputs = [
           prev.pkg-config

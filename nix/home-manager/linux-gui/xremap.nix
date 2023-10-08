@@ -32,7 +32,7 @@ _: {
           name = "Tab to meh(Shift+Control+Alt) and Tab";
           remap = {
             Tab = {
-              held = ["Shift_R" "Ctrl_R" "Alt_R"];
+              held = [ "Shift_R" "Ctrl_R" "Alt_R" ];
               alone = "Tab";
             };
           };
@@ -57,12 +57,12 @@ _: {
             Ctrl_L-e = "end";
             Ctrl_L-f = "right";
             Ctrl_L-h = "backspace";
-            Ctrl_L-k = ["Shift_R-end" "delete"];
+            Ctrl_L-k = [ "Shift_R-end" "delete" ];
             Ctrl_L-n = "down";
             Ctrl_L-p = "up";
           };
           application = {
-            not = ["Alacritty"];
+            not = [ "Alacritty" ];
           };
         }
         {
