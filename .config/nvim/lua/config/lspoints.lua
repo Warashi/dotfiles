@@ -40,4 +40,10 @@ M.server.gopls = {
   }),
 }
 
+M.server.nills = {
+  attach = attach('nills', {
+    cmd = { 'nil' },
+  }),
+}
+
 return M

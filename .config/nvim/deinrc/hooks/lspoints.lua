@@ -43,4 +43,10 @@ vimx.create_autocmd('FileType', {
     require('config.lspoints').server.gopls.attach()
   end,
 })
+vimx.create_autocmd('FileType', {
+  pattern = { 'nix' },
+  callback = function()
+    require('config.lspoints').server.nills.attach()
+  end,
+})
 -- }}}
