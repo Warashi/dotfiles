@@ -48,21 +48,21 @@ endif
 
 call dein#begin(s:path, '<sfile>'->expand())
 
-call dein#load_toml('$DEIN_CONFIG_BASE/someone.toml', #{ lazy: 0 })
-call dein#load_toml('$DEIN_CONFIG_BASE/ft.toml', #{ lazy: 0 })
+call dein#load_toml('$DEIN_CONFIG_BASE/someone.toml', #{ lazy: v:false })
+call dein#load_toml('$DEIN_CONFIG_BASE/ft.toml', #{ lazy: v:false })
 
-call dein#load_toml('$DEIN_CONFIG_BASE/libs.toml', #{ lazy: 0 })
-call dein#load_toml('$DEIN_CONFIG_BASE/libs-lazy.toml', #{ lazy: 1 })
+call dein#load_toml('$DEIN_CONFIG_BASE/libs.toml', #{ lazy: v:false })
+call dein#load_toml('$DEIN_CONFIG_BASE/libs-lazy.toml', #{ lazy: v:true, denops_wait: v:false })
 
-call dein#load_toml('$DEIN_CONFIG_BASE/ui.toml', #{ lazy: 0 })
-call dein#load_toml('$DEIN_CONFIG_BASE/ui-lazy.toml', #{ lazy: 1 })
+call dein#load_toml('$DEIN_CONFIG_BASE/ui.toml', #{ lazy: v:false })
+call dein#load_toml('$DEIN_CONFIG_BASE/ui-lazy.toml', #{ lazy: v:true, denops_wait: v:false })
 
-call dein#load_toml('$DEIN_CONFIG_BASE/ddc.toml', #{ lazy: 1 })
-call dein#load_toml('$DEIN_CONFIG_BASE/ddu.toml', #{ lazy: 1 })
+call dein#load_toml('$DEIN_CONFIG_BASE/ddc.toml', #{ lazy: v:true, denops_wait: v:false })
+call dein#load_toml('$DEIN_CONFIG_BASE/ddu.toml', #{ lazy: v:true, denops_wait: v:false })
 
-call dein#load_toml('$DEIN_CONFIG_BASE/lsp.toml', #{ lazy: 1 })
-call dein#load_toml('$DEIN_CONFIG_BASE/snippets.toml', #{ lazy: 1 })
-call dein#load_toml('$DEIN_CONFIG_BASE/treesitter.toml', #{ lazy: 1 })
+call dein#load_toml('$DEIN_CONFIG_BASE/lsp.toml', #{ lazy: v:true, denops_wait: v:false })
+call dein#load_toml('$DEIN_CONFIG_BASE/snippets.toml', #{ lazy: v:true, denops_wait: v:false })
+call dein#load_toml('$DEIN_CONFIG_BASE/treesitter.toml', #{ lazy: v:true, denops_wait: v:false })
 
 call dein#end()
 call dein#save_state()
