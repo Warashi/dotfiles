@@ -114,7 +114,9 @@
       };
     })
     (_: prev: {
-      muscat = prev.buildGo121Module rec {
+      muscat = {
+        useGolangDesign ? false
+      }: prev.buildGo121Module rec {
         pname = "muscat";
         version = "2.1.0";
         vendorSha256 = "sha256-F6VLn0t//8qvhG+KHBmnUywHIy67rSm07ncVH5HD4/4=";
@@ -125,6 +127,15 @@
           rev = "v${version}";
           sha256 = "sha256-hTrzJH1DzNDgnR+ztBfCAtHNpYWFVYv32XjO0NSGURg=";
         };
+
+        tags = if useGolangDesign then ["golangdesign"] else [];
+
+        buildInputs =
+            if prev.stdenv.isDarwin
+            then [
+              prev.darwin.apple_sdk.frameworks.Cocoa
+            ]
+            else [];
 
         meta = with prev.lib; {
           description = "remote code development utils";

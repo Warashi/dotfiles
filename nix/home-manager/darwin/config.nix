@@ -7,6 +7,7 @@
   yaskkserv2-dictionary = pkgs.runCommand "yaskkserv2-dictionary" {} ''
     ${pkgs.yaskkserv2}/bin/yaskkserv2_make_dictionary --dictionary-filename=$out ${inputs.skk-jisyo-L + "/SKK-JISYO.L"} ${inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki"}
   '';
+  muscat = (pkgs.muscat {useGolangDesign = true;});
 in {
   home = {
     username = local.user;
@@ -47,7 +48,7 @@ in {
       enable = true;
       config = {
         Label = "dev.warashi.muscat";
-        ProgramArguments = ["/bin/sh" "-c" "$HOME/.local/bin/muscat server"];
+        ProgramArguments = ["${muscat}/bin/muscat" "server"];
         RunAtLoad = true;
         KeepAlive = true;
       };
