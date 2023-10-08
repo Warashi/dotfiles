@@ -2,7 +2,8 @@
   home.packages = with pkgs; [
     easyeffects
     firefox
-    muscat
     xsel
+
+    (muscat {useGolangDesign = true;})
   ];
 }

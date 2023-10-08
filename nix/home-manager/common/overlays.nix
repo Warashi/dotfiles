@@ -118,14 +118,14 @@
         useGolangDesign ? false
       }: prev.buildGo121Module rec {
         pname = "muscat";
-        version = "2.1.0";
-        vendorSha256 = "sha256-F6VLn0t//8qvhG+KHBmnUywHIy67rSm07ncVH5HD4/4=";
+        version = "2.1.2";
+        vendorSha256 = "sha256-cugzXGa74tEk3fgspPcZSZ0viyXg23JL6fKqah1ndlQ=";
 
         src = prev.fetchFromGitHub {
           owner = "Warashi";
           repo = pname;
           rev = "v${version}";
-          sha256 = "sha256-hTrzJH1DzNDgnR+ztBfCAtHNpYWFVYv32XjO0NSGURg=";
+          sha256 = "sha256-Er1dk7WrYddeW0S7XGw4qKBP0yz4CmEIwv7Omqi+WWM=";
         };
 
         tags = if useGolangDesign then ["golangdesign"] else [];
@@ -134,6 +134,9 @@
             if prev.stdenv.isDarwin
             then [
               prev.darwin.apple_sdk.frameworks.Cocoa
+            ]
+            else if useGolangDesign then [
+              prev.xorg.libX11
             ]
             else [];
 
