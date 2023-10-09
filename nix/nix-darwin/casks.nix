@@ -21,6 +21,7 @@
   "raycast"
   "slack"
   "timemator"
+  "vivaldi"
   "vlc"
 
   "homebrew/cask-fonts/font-biz-udgothic"
