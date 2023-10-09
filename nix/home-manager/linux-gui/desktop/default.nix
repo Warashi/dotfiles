@@ -37,7 +37,7 @@
   xsession = {
     enable = true;
     initExtra = ''
-      ${pkgs.feh}/bin/feh --bg-scale ~/Pictures/IMG_0045.png
+      ${pkgs.feh}/bin/feh --bg-fill ~/Pictures/IMG_0045.png
       ${pkgs.dex}/bin/dex -a
     '';
     windowManager = {
