@@ -3,45 +3,8 @@
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     inputs.neovim-nightly-overlay.overlay
     (_: prev:
-      let
-        liblpeg = prev.stdenv.mkDerivation {
-          pname = "liblpeg";
-          inherit (prev.luajitPackages.lpeg) version meta src;
-          buildInputs = [ prev.luajit ];
-          buildPhase =
-            if prev.stdenv.isDarwin
-            then ''
-              sed -i makefile -e "s/CC = gcc/CC = clang/"
-              sed -i makefile -e "s/-bundle/-dynamiclib/"
-              make macosx
-            ''
-            else ''
-              make linux
-            '';
-          installPhase =
-            if prev.stdenv.isDarwin
-            then ''
-              mkdir -p $out/lib
-              mv lpeg.so $out/lib/lpeg.dylib
-            ''
-            else ''
-              mkdir -p $out/lib
-              mv lpeg.so $out/lib/lpeg.so
-            '';
-          nativeBuildInputs =
-            if prev.stdenv.isDarwin
-            then [ prev.fixDarwinDylibNames ]
-            else [ ];
-        };
-      in
       {
-        neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
-          nativeBuildInputs =
-            old.nativeBuildInputs
-            ++ [
-              liblpeg
-            ];
-        });
+        neovim-unwrapped = prev.neovim-unwrapped.override { stdenv = prev.clangStdenv; };
       })
     (_: prev: {
       sheldon =
