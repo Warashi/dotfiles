@@ -41,6 +41,7 @@
     lua-language-server
     nil # nix language server
     nodePackages_latest.typescript-language-server
+    nodePackages_latest.vim-language-server
     nodePackages_latest.yaml-language-server
     terraform-ls
 

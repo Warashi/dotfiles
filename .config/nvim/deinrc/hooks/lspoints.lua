@@ -42,4 +42,10 @@ vimx.create_autocmd('FileType', {
     vimx.fn.lspoints.attach('nills')
   end,
 })
+vimx.create_autocmd('FileType', {
+  pattern = { 'vim' },
+  callback = function()
+    vimx.fn.lspoints.attach('vimls')
+  end,
+})
 -- }}}
