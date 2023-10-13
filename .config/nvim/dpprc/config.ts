@@ -1,10 +1,10 @@
-import {
-  BaseConfig,
+import { BaseConfig } from "https://deno.land/x/dpp_vim@v0.0.2/types.ts";
+import type {
   ContextBuilder,
   Dpp,
   Plugin,
 } from "https://deno.land/x/dpp_vim@v0.0.2/types.ts";
-import { Denops } from "https://deno.land/x/dpp_vim@v0.0.2/deps.ts";
+import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.2/deps.ts";
 
 export class Config extends BaseConfig {
   override async config(args: {
@@ -22,7 +22,7 @@ export class Config extends BaseConfig {
 
     const [context, options] = await args.contextBuilder.get(args.denops);
 
-    const loadToml = async (path: string, lazy: boolean) =>
+    const loadToml = async (path: string, lazy: boolean): Promise<Plugin[]> =>
       await args.dpp.extAction(
         args.denops,
         context,
@@ -37,9 +37,34 @@ export class Config extends BaseConfig {
         },
       ) as Plugin[];
 
-    const plugins = ([] as Plugin[])
-      .concat(await loadToml("$DPP_CONFIG_BASE/dpp.toml", false))
-      .concat(await loadToml("$DPP_CONFIG_BASE/libs.toml", false));
+      const loadTomls = async (configs: {path: string, lazy: boolean}[]): Promise<Plugin[]> => {
+        let plugins = ([] as Plugin[])
+        for (const config of configs) {
+          console.log(config.path)
+          plugins = plugins.concat(await loadToml(config.path, config.lazy))
+        }
+        return plugins
+      }
+
+    const plugins = await loadTomls([
+      {path: "$DPP_CONFIG_BASE/someone.toml", lazy: false},
+      // {path: "$DPP_CONFIG_BASE/ft.toml", lazy: false},
+
+      {path: "$DPP_CONFIG_BASE/dpp.toml", lazy: false},
+
+      {path: "$DPP_CONFIG_BASE/libs.toml", lazy: false},
+      {path: "$DPP_CONFIG_BASE/libs-lazy.toml", lazy: true},
+
+      {path: "$DPP_CONFIG_BASE/ui.toml", lazy: false},
+      {path: "$DPP_CONFIG_BASE/ui-lazy.toml", lazy: true},
+
+      {path: "$DPP_CONFIG_BASE/ddc.toml", lazy: true},
+      {path: "$DPP_CONFIG_BASE/ddu.toml", lazy: true},
+
+      {path: "$DPP_CONFIG_BASE/lsp.toml", lazy: true},
+      {path: "$DPP_CONFIG_BASE/snippets.toml", lazy: true},
+      {path: "$DPP_CONFIG_BASE/treesitter.toml", lazy: true},
+    ])
 
     const stateLines = await args.dpp.extAction(
       args.denops,

@@ -1,0 +1,48 @@
+[[plugins]]
+repo = 'kuuote/lspoints'
+on_event = ['BufRead', 'BufNewFile']
+on_source = ['ddc-source-nvim-lsp']
+hooks_file = '$DEIN_CONFIG_BASE/hooks/lspoints.lua'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_event = ['BufRead', 'BufNewFile']
+depends = ['ddc-nvim-lsp-setup']
+hooks_file = '$DEIN_CONFIG_BASE/hooks/lspconfig.lua'
+if = 0
+
+[[plugins]]
+repo = 'folke/neoconf.nvim'
+on_source = ['nvim-lspconfig']
+lua_source = 'require("neoconf").setup({})'
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+rev = 'legacy'
+on_source = ['nvim-lspconfig']
+lua_source = 'require("fidget").setup({})'
+
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
+on_source = ['nvim-lspconfig']
+hooks_file = '$DEIN_CONFIG_BASE/hooks/null-ls.lua'
+
+[[plugins]]
+repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+on_source = ['nvim-lspconfig']
+lua_source = '''
+  vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = { only_current_line = true },
+  })
+  require("lsp_lines").setup()
+'''
+
+[[plugins]]
+repo = 'SmiteshP/nvim-navic'
+on_source = ['nvim-lspconfig']
+hooks_file = '$DEIN_CONFIG_BASE/hooks/lsp-navic.lua'
+
+[[plugins]]
+repo = 'davidmh/cspell.nvim'
+on_source = ['null-ls.nvim']

@@ -1,0 +1,9 @@
+[[plugins]]
+name = 'shougo-s-github'
+repo = 'Shougo/shougo-s-github'
+if = 0
+
+[[plugins]]
+name = 'kuuote-dotvim'
+repo = 'kuuote/dotvim'
+if = 0
