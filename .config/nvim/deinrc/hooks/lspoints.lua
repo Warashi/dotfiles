@@ -33,13 +33,13 @@ vimx.create_autocmd('FileType', {
 vimx.create_autocmd('FileType', {
   pattern = { 'go' },
   callback = function()
-    require('config.lspoints').server.gopls.attach()
+    vimx.fn.lspoints.attach('gopls')
   end,
 })
 vimx.create_autocmd('FileType', {
   pattern = { 'nix' },
   callback = function()
-    require('config.lspoints').server.nills.attach()
+    vimx.fn.lspoints.attach('nills')
   end,
 })
 -- }}}
