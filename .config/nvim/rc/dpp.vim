@@ -51,4 +51,6 @@ if dpp#min#load_state(s:dpp_base)
   autocmd User DenopsReady call dpp#make_state(s:dpp_base, '$DPP_CONFIG_BASE/config.ts')
 endif
 
+command DppMakeState :call dpp#make_state(s:dpp_base, '$DPP_CONFIG_BASE/config.ts')
+
 filetype indent plugin on
