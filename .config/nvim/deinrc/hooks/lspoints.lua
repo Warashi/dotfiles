@@ -1,13 +1,7 @@
 -- lua_source {{{
 local vimx = require('artemis')
-vimx.create_autocmd('User', {
-  pattern = 'DenopsPluginPost:lspoints',
-  callback = function()
-    -- 応急処置
-    vimx.fn.lspoints.denops.request('loadExtensions', { { 'config', 'nvim_diagnostics', 'format' } })
-    -- vimx.fn.lspoints.load_extensions({ 'config', 'nvim_diagnostics', 'format' })
-  end,
-})
+vimx.fn.lspoints.load_extensions({ 'config', 'nvim_diagnostics', 'format' })
+
 vimx.create_autocmd('User', {
   pattern = 'LspointsAttach:*',
   callback = function()
