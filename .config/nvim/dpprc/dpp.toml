@@ -1,0 +1,23 @@
+[[plugins]]
+# denops
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'Shougo/dpp.vim'
+if = 0
+
+[[plugins]]
+repo = 'Shougo/dpp-protocol-git'
+if = 0
+
+[[plugins]]
+repo = 'Shougo/dpp-ext-installer'
+if = 0
+
+[[plugins]]
+repo = 'Shougo/dpp-ext-toml'
+if = 0
+
+[[plugins]]
+repo = 'Shougo/dpp-ext-lazy'
+if = 0
