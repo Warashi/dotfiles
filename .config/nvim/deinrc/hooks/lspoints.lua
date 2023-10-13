@@ -3,10 +3,9 @@ local vimx = require('artemis')
 vimx.create_autocmd('User', {
   pattern = 'DenopsPluginPost:lspoints',
   callback = function()
-    vimx.fn.lspoints.load_extensions { 'nvim_diagnostics', 'format' }
-    vimx.fn.lspoints.settings.patch {
-      tracePath = '/tmp/lspoints',
-    }
+    -- 応急処置
+    vimx.fn.lspoints.denops.request('loadExtensions', { { 'config', 'nvim_diagnostics', 'format' } })
+    -- vimx.fn.lspoints.load_extensions({ 'config', 'nvim_diagnostics', 'format' })
   end,
 })
 vimx.create_autocmd('User', {
@@ -28,13 +27,13 @@ vimx.create_autocmd('User', {
 vimx.create_autocmd('FileType', {
   pattern = { 'lua' },
   callback = function()
-    require('config.lspoints').server.luals.attach()
+    vimx.fn.lspoints.attach('luals')
   end,
 })
 vimx.create_autocmd('FileType', {
   pattern = { 'typescript', 'typescriptreact' },
   callback = function()
-    require('config.lspoints').server.denols.attach()
+    vimx.fn.lspoints.attach('denols')
   end,
 })
 vimx.create_autocmd('FileType', {
