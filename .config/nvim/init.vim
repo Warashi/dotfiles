@@ -31,11 +31,6 @@ lua if vim.loader then vim.loader.enable() end
 
 let s:base_path = fnamemodify(expand('<sfile>'), ':h')
 
-execute 'source' s:base_path .. '/rc/disable-builtins.rc.vim'
-execute 'source' s:base_path .. '/rc/options.rc.vim'
-execute 'source' s:base_path .. '/rc/mappings.rc.vim'
-execute 'source' s:base_path .. '/rc/signs.rc.vim'
-
 execute 'source' s:base_path .. '/rc/dpp.vim'
 
 " load colorscheme after dpp.vim because manage colorscheme plugin with dpp.vim
