@@ -1,0 +1,6 @@
+post-checkout:
+  follow: true
+  commands:
+    link-apply:
+      run: make link-apply
+
