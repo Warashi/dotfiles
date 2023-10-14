@@ -19,6 +19,7 @@
     kubectl
     kubectx
     lazygit
+    lefthook
     mocword
     mocword-data
     neovim
