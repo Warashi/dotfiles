@@ -10,5 +10,25 @@ export function main(denops: Denops): void {
       u.assert(text, u.isString);
       return parser.parse(text);
     },
+    isBoundary(text: unknown, index: unknown): boolean {
+      u.assert(text, u.isString);
+      u.assert(index, u.isNumber);
+      const target = text.substring(index - 3, index + 3);
+      const parsed = parser.parse(target);
+
+      let targetIndex = 3;
+      if (index < 3) {
+        targetIndex = index;
+      }
+
+      let left = "";
+      for (const p of parsed) {
+        left += p;
+        if ([...left].length == targetIndex) {
+          return true;
+        }
+      }
+      return false;
+    },
   };
 }
