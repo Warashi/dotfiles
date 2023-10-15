@@ -1,0 +1,5 @@
+[post-checkout]
+follow = true
+
+[post-checkout.commands.link-apply]
+run = "make link-apply"
