@@ -10,6 +10,32 @@ export function main(denops: Denops): void {
       u.assert(text, u.isString);
       return parser.parse(text);
     },
+    nextBoundary(text: unknown, index: unknown): number {
+      u.assert(text, u.isString);
+      u.assert(index, u.isNumber);
+      const parsed = parser.parse(text);
+      let left = 0;
+      for (const p of parsed) {
+        left += [...p].length;
+        if (left > index) {
+          return left;
+        }
+      }
+      return left;
+    },
+    prevBoundary(text: unknown, index: unknown): number {
+      u.assert(text, u.isString);
+      u.assert(index, u.isNumber);
+      const parsed = parser.parse(text);
+      let left = 0;
+      for (const p of parsed) {
+        left += [...p].length;
+        if (left >= index) {
+          return left - [...p].length;
+        }
+      }
+      return left;
+    },
     isBoundary(text: unknown, index: unknown): boolean {
       u.assert(text, u.isString);
       u.assert(index, u.isNumber);
