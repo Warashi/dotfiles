@@ -1,14 +1,14 @@
 import {
   BaseExtension,
   Lspoints,
-} from "https://deno.land/x/lspoints@v0.0.3/interface.ts";
-import { Denops } from "https://deno.land/x/lspoints@v0.0.3/deps/denops.ts";
-import { LSP } from "https://deno.land/x/lspoints@v0.0.3/deps/lsp.ts";
-import { u } from "https://deno.land/x/lspoints@v0.0.3/deps/unknownutil.ts";
+} from "https://deno.land/x/lspoints@v0.0.4/interface.ts";
+import { Denops } from "https://deno.land/x/lspoints@v0.0.4/deps/denops.ts";
+import { LSP } from "https://deno.land/x/lspoints@v0.0.4/deps/lsp.ts";
+import { u } from "https://deno.land/x/lspoints@v0.0.4/deps/unknownutil.ts";
 import {
   makePositionParams,
   OffsetEncoding,
-} from "https://deno.land/x/denops_lsputil@v0.7.3/mod.ts";
+} from "https://deno.land/x/denops_lsputil@v0.7.4/mod.ts";
 import * as fn from "https://deno.land/x/denops_std@v5.0.1/function/mod.ts";
 
 function splitLines(s: string): string[] {

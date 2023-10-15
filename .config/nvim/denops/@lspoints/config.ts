@@ -1,9 +1,9 @@
-import { Denops } from "https://deno.land/x/lspoints@v0.0.3/deps/denops.ts";
+import { Denops } from "https://deno.land/x/lspoints@v0.0.4/deps/denops.ts";
 import {
   BaseExtension,
   Lspoints,
   StartOptions,
-} from "https://deno.land/x/lspoints@v0.0.3/interface.ts";
+} from "https://deno.land/x/lspoints@v0.0.4/interface.ts";
 import { runtimepath } from "https://deno.land/x/denops_std@v5.0.1/option/mod.ts";
 
 export class Extension extends BaseExtension {
