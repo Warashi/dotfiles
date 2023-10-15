@@ -1,3 +1,5 @@
 [[plugins]]
 repo = 'lambdalisue/guise.vim'
-on_event = ['BufRead', 'BufNewFile']
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
