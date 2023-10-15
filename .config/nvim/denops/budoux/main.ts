@@ -21,10 +21,10 @@ export function main(denops: Denops): void {
         targetIndex = index;
       }
 
-      let left = "";
+      let left = 0;
       for (const p of parsed) {
-        left += p;
-        if ([...left].length == targetIndex) {
+        left += [...p].length;
+        if (left === targetIndex) {
           return true;
         }
       }
