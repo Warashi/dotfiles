@@ -36,7 +36,7 @@ endfor
 let $DPP_CONFIG_BASE = stdpath("config") .. "/dpprc"
 
 " Set dpp base path (required)
-const s:dpp_base = $CACHE .. '/dpp/'
+const s:dpp_base = $CACHE .. '/dpp'
 
 " Set dpp source path (required)
 const s:dpp_src = $CACHE .. '/dpp/repos/github.com/Shougo/dpp.vim'
