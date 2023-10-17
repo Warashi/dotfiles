@@ -1,20 +1,12 @@
-local conditions = require("heirline.conditions")
-
 return {
-  condition = conditions.lsp_attached,
-  update = { "LspAttach", "LspDetach", "WinEnter" },
+  condition = function()
+    return vim.fn["denops#plugin#is_loaded"]("lspoints") == 1 and #(vim.fn["lspoints#get_clients"]()) > 0
+  end,
+  update = { "User", pattern = { "LspointsAttach:*", "LspointsDetach:*", "DenopsPluginPost:lspoints" } },
   provider = function(_)
     local servers = {}
-    for _, server in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-      if server.name ~= "null-ls" then
-        table.insert(servers, server.name)
-      else
-        local sources = {}
-        for _, source in ipairs(require("null-ls.sources").get_available(vim.bo.filetype)) do
-          table.insert(sources, source.name)
-        end
-        table.insert(servers, ("null-ls(%s)"):format(table.concat(sources, ", ")))
-      end
+    for _, server in ipairs(vim.fn["lspoints#get_clients"]()) do
+      table.insert(servers, server.name)
     end
     return (" [%s]"):format(table.concat(servers, ", "))
   end,
