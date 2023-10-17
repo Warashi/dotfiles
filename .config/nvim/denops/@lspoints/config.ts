@@ -75,13 +75,18 @@ export class Extension extends BaseExtension {
       },
     } as StartOptions;
 
+    const taplo = {
+      cmd: ["taplo", "lsp", "stdio"],
+    } as StartOptions;
+
     lspoints.settings.patch({
       startOptions: {
-        denols: denols,
-        luals: luals,
-        gopls: gopls,
-        nills: nills,
-        vimls: vimls,
+        denols,
+        luals,
+        gopls,
+        nills,
+        vimls,
+        taplo,
       },
     });
   }
