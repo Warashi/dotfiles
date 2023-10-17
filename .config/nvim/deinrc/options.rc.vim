@@ -9,7 +9,7 @@ set shiftwidth=2
 set clipboard+=unnamedplus
 set signcolumn=yes
 set noshowmode
-set cmdheight=0
+set cmdheight=1
 set laststatus=3
 set showtabline=2
 let g:mapleader=","
