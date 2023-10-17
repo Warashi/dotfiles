@@ -5,6 +5,8 @@ import {
   StartOptions,
 } from "https://deno.land/x/lspoints@v0.0.4/interface.ts";
 import { runtimepath } from "https://deno.land/x/denops_std@v5.0.1/option/mod.ts";
+import { nvim_get_runtime_file } from "https://deno.land/x/denops_std@v5.0.1/function/nvim/mod.ts";
+import { environment } from "https://deno.land/x/denops_std@v5.0.1/variable/mod.ts";
 
 export class Extension extends BaseExtension {
   override async initialize(denops: Denops, lspoints: Lspoints) {
@@ -27,11 +29,12 @@ export class Extension extends BaseExtension {
             runtime: {
               version: "LuaJIT",
             },
-            diagnostics: {
-              globals: ["vim"],
-            },
             format: {
               enable: true,
+            },
+            workspace: {
+              library: await nvim_get_runtime_file(denops, "", true),
+              checkThirdParty: false,
             },
           },
         },
@@ -54,7 +57,7 @@ export class Extension extends BaseExtension {
       initializationOptions: {
         isNeovim: true,
         isKeyword: "@,48-57,_,192-255,-#",
-        vimruntime: Deno.env.get("VIMRUNTIME") ?? "",
+        vimruntime: await environment.get(denops, "VIMRUNTIME"),
         runtimepath: await runtimepath.get(denops),
         diagnostic: {
           enable: true,
