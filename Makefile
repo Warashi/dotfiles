@@ -10,6 +10,9 @@ link-import:
 .PHONY: format-nix
 format-nix:
 	fd --hidden '.nix$$' -x nixpkgs-fmt
+.PHONY: format-toml
+format-toml:
+	taplo format
 .PHONY: format-stylua
 format-stylua:
 	fd --hidden '.lua$$' -x stylua
