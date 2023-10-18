@@ -5,8 +5,9 @@
 /.luarc.json
 /.neoconf.json
 /Makefile
+/lefthook.toml
 /selene.toml
 /state.json
 /stylua.toml
+/taplo.toml
 /vim.toml
-/lefthook.toml
