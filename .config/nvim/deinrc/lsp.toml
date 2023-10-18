@@ -8,6 +8,10 @@ hooks_file = [
 ]
 
 [[plugins]]
+repo = 'Warashi/lspoints-hover'
+on_source = ['lspoints']
+
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ['BufRead', 'BufNewFile']
 depends = ['ddc-nvim-lsp-setup']
