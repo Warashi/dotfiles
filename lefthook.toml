@@ -3,3 +3,9 @@ follow = true
 
 [post-checkout.commands.link-apply]
 run = "make link-apply"
+
+[post-merge]
+follow = true
+
+[post-merge.commands.link-apply]
+run = "make link-apply"
