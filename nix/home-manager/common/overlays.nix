@@ -154,8 +154,8 @@
             src = prev.fetchFromGitHub {
               owner = "Warashi";
               repo = "tmux-1password";
-              rev = "089f284f25ea8fe0d1433e6c4c231583a1e0d09c";
-              hash = "sha256-/kyTikryPiZQP+ECrrEGu2Gp0lXQCtvhnvlAMtziCVU=";
+              rev = "1bd0276a4325750795ec373ef6c5bad5e29bcb64";
+              hash = "sha256-cTlYgAGXWzePX3muDSwBfuCtLsJ+YsvHiIGrmczAYvo=";
             };
             meta = with prev.lib; {
               description = "1password integration for tmux";
