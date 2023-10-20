@@ -1,7 +1,7 @@
 [plugins.fzf]
 fzf-tmux = true
 fzf-options = "-1 -p 80%"
-ghq-cd-preview = "glow -s $HOME/.config/glamour/catppuccin-frappe.json {}/README.md"
+ghq-cd-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {}/README.md"
 
 [plugins.abbrev]
 [[plugins.abbrev.snippets]]

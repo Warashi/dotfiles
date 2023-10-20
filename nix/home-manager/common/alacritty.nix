@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       import = [
-        "${inputs.catppuccin-alacritty + "/catppuccin-frappe.yml"}"
+        "${inputs.catppuccin-alacritty + "/catppuccin-latte.yml"}"
       ];
       env = {
         TERM = "xterm-256color";

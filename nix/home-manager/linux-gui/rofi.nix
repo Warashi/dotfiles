@@ -12,6 +12,6 @@
     enable = true;
     font = "PlemolJP Console NF 18";
     terminal = ''${pkgs.alacritty}/bin/alacritty'';
-    theme = "catppuccin-frappe";
+    theme = "catppuccin-latte";
   };
 }

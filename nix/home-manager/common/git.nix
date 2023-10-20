@@ -37,7 +37,7 @@
         "~/ghq/"
       ];
       delta = {
-        syntax-theme = "Catppuccin-frappe";
+        syntax-theme = "Catppuccin-latte";
         light = true;
         side-by-side = true;
         line-numbers = true;

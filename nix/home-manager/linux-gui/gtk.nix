@@ -2,13 +2,13 @@
   home.file.catppuccin-cursor-theme = {
     text = ''
       [icon theme]
-      Inherits=Catppuccin-Frappe-Blue-Cursors
+      Inherits=Catppuccin-Latte-Blue-Cursors
     '';
     target = ".icons/default/index.theme";
   };
   xresources = {
     properties = {
-      "Xcursor.theme" = "Catppuccin-Frappe-Blue-Cursors";
+      "Xcursor.theme" = "Catppuccin-Latte-Blue-Cursors";
       "Xcursor.size" = 24;
     };
   };
@@ -20,15 +20,15 @@
     };
     theme = {
       package = pkgs.catppuccin-gtk;
-      name = "Catppuccin-Frappe-Standard-Blue-dark";
+      name = "Catppuccin-Latte-Standard-Blue-light";
     };
     iconTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
     };
     cursorTheme = {
-      package = pkgs.catppuccin-cursors.frappeBlue;
-      name = "Catppuccin-Frappe-Blue-Cursors";
+      package = pkgs.catppuccin-cursors.latteBlue;
+      name = "Catppuccin-Latte-Blue-Cursors";
       size = 24;
     };
   };

@@ -51,7 +51,7 @@
   services = {
     dunst = {
       enable = true;
-      configFile = inputs.catppuccin-dunst + "/src/frappe.conf";
+      configFile = inputs.catppuccin-dunst + "/src/latte.conf";
     };
     picom = {
       enable = true;
