@@ -1,8 +1,14 @@
 " hook_source {{{
 call lspoints#load_extensions(['config', 'nvim_diagnostics', 'format', 'hover'])
 
-function s:lspoints_on_attach() abort
+function s:lspoints_on_attach(pattern) abort
   nnoremap <buffer> <space>f <Cmd>call denops#request('lspoints', 'executeCommand', ['format', 'execute', bufnr()])<CR>
+
+  if a:pattern == 'LspointsAttach:efmls'
+    " efmls is used for format and lint only, so other commands are not available
+    return
+  endif
+
   nnoremap <buffer> K <Cmd>call denops#request('lspoints', 'executeCommand', ['hover', 'execute', {'title': 'Hover', 'border': 'single'}])<CR>
   nnoremap <buffer> gd <Cmd>call ddu#start({'name': 'lsp-definition'})<CR>
   nnoremap <buffer> gr <Cmd>call ddu#start({'name': 'lsp-references'})<CR>
@@ -13,7 +19,7 @@ endfunction
 
 augroup MyAutoCmdLspoints
   autocmd!
-  autocmd User LspointsAttach:* call s:lspoints_on_attach()
+  autocmd User LspointsAttach:* call s:lspoints_on_attach('<amatch>'->expand())
 
   autocmd FileType lua call lspoints#attach('luals')
   autocmd FileType typescript,typescriptreact call lspoints#attach('denols')
