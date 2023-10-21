@@ -21,5 +21,6 @@ augroup MyAutoCmdLspoints
   autocmd FileType nix call lspoints#attach('nills')
   autocmd FileType vim call lspoints#attach('vimls')
   autocmd FileType toml call lspoints#attach('taplo')
+  autocmd FileType * call lspoints#attach('efmls')
 augroup END
 " }}}

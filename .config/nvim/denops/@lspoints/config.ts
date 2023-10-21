@@ -79,6 +79,39 @@ export class Extension extends BaseExtension {
       cmd: ["taplo", "lsp", "stdio"],
     } as StartOptions;
 
+    const efmls = {
+      cmd: ["efm-langserver"],
+      settings: {
+        rootMarkers: [".git/"],
+        languages: {
+          '=': [
+            {
+              prefix: 'cspell',
+              lintCommand: 'cspell lint --no-progress --no-summary --no-color ${INPUT}',
+              lintFormats: [
+                '%f:%l:%c - %m',
+                '%f:%l:%c: %m',
+              ],
+              rootMakers: [
+                'package.json',
+                '.cspell.json',
+                'cspell.json',
+                '.cSpell.json',
+                'cSpell.json',
+                'cspell.config.js',
+                'cspell.config.cjs',
+                'cspell.config.json',
+                'cspell.config.yaml',
+                'cspell.config.yml',
+                'cspell.yaml',
+                'cspell.yml',
+              ],
+            },
+          ],
+        },
+      },
+    } as StartOptions;
+
     lspoints.settings.patch({
       startOptions: {
         denols,
@@ -87,6 +120,7 @@ export class Extension extends BaseExtension {
         nills,
         vimls,
         taplo,
+        efmls,
       },
     });
   }

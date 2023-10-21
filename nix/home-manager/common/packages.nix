@@ -38,6 +38,7 @@
 
     # lanuage server
     buf-language-server
+    efm-langserver
     haskell-language-server
     lua-language-server
     nil # nix language server
