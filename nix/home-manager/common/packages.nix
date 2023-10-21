@@ -47,16 +47,21 @@
     terraform-ls
 
     # formatter, linter
-    alejandra
+    ## shell
     beautysh
-    deadnix
-    nixpkgs-fmt
-    nodePackages.cspell
-    selene
     shellcheck
     shellharden
-    shfmt
+
+    ## nix
+    alejandra
+    deadnix
     statix
+
+    ## lua
+    selene
     stylua
+
+    ## spelling
+    nodePackages_latest.cspell
   ];
 }
