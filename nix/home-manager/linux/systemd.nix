@@ -1,13 +1,12 @@
-{ inputs
-, pkgs
-, ...
-}:
-let
-  yaskkserv2-dictionary = pkgs.runCommand "yaskkserv2-dictionary" { } ''
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  yaskkserv2-dictionary = pkgs.runCommand "yaskkserv2-dictionary" {} ''
     ${pkgs.yaskkserv2}/bin/yaskkserv2_make_dictionary --dictionary-filename=$out ${inputs.skk-jisyo-L + "/SKK-JISYO.L"} ${inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki"}
   '';
-in
-{
+in {
   systemd.user.services = {
     # メモリリークっぽい挙動があるので一旦やめる
     # denops-shared-server = {
@@ -33,7 +32,7 @@ in
         Restart = ''always'';
       };
       Install = {
-        WantedBy = [ "default.target" ];
+        WantedBy = ["default.target"];
       };
     };
   };

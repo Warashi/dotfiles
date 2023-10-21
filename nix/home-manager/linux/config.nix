@@ -1,6 +1,7 @@
-{ local
-, home
-, ...
+{
+  local,
+  home,
+  ...
 }: {
   home = {
     username = local.user;

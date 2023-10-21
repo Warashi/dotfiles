@@ -1,4 +1,4 @@
-{ pkgs }: ''
+{pkgs}: ''
   setopt extended_glob
   local direnvsource="''${ZDOTDIR:-$HOME}/direnvsource.zsh"
   if [[ ! -e ''${direnvsource}(#qN.mh-24) ]]; then

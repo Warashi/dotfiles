@@ -11,7 +11,7 @@ link-import:
 format: format-nix format-toml format-stylua
 .PHONY: format-nix
 format-nix:
-	fd --hidden '.nix$$' -x nixpkgs-fmt
+	fd --hidden '.nix$$' -x alejandra
 .PHONY: format-toml
 format-toml:
 	taplo format

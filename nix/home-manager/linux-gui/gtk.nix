@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.file.catppuccin-cursor-theme = {
     text = ''
       [icon theme]

@@ -67,91 +67,91 @@
     };
   };
 
-  outputs =
-    inputs @ { self
-    , nixpkgs
-    , nix-darwin
-    , home-manager
-    , xremap-flake
-    , ...
-    }: rec {
-      flakeInputs = inputs;
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nix-darwin,
+    home-manager,
+    xremap-flake,
+    ...
+  }: rec {
+    flakeInputs = inputs;
 
-      nixos = {
-        modules = [
-          ./nixos/config.nix
-        ];
+    nixos = {
+      modules = [
+        ./nixos/config.nix
+      ];
+    };
+    darwin = {
+      modules = [
+        ./nix-darwin/host.nix
+        ./nix-darwin/config.nix
+      ];
+      specialArgs = {inherit self;};
+    };
+    homeManagerBase = {
+      modules = [
+        ./home-manager/common/default.nix
+      ];
+    };
+    homeManagerDarwin =
+      homeManagerBase
+      // {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        modules =
+          homeManagerBase.modules
+          ++ [
+            ./home-manager/darwin/default.nix
+          ];
       };
-      darwin = {
-        modules = [
-          ./nix-darwin/host.nix
-          ./nix-darwin/config.nix
-        ];
-        specialArgs = { inherit self; };
+    homeManagerLinuxBase =
+      homeManagerBase
+      // {
+        modules =
+          homeManagerBase.modules
+          ++ [
+            ./home-manager/linux/default.nix
+          ];
       };
-      homeManagerBase = {
-        modules = [
-          ./home-manager/common/default.nix
-        ];
+    homeManagerLinuxNonGUI =
+      homeManagerLinuxBase
+      // {
+        modules =
+          homeManagerLinuxBase.modules
+          ++ [
+            ./home-manager/linux-nongui/default.nix
+          ];
       };
-      homeManagerDarwin =
-        homeManagerBase
-        // {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          modules =
-            homeManagerBase.modules
-            ++ [
-              ./home-manager/darwin/default.nix
-            ];
-        };
-      homeManagerLinuxBase =
-        homeManagerBase
-        // {
-          modules =
-            homeManagerBase.modules
-            ++ [
-              ./home-manager/linux/default.nix
-            ];
-        };
-      homeManagerLinuxNonGUI =
-        homeManagerLinuxBase
-        // {
-          modules =
-            homeManagerLinuxBase.modules
-            ++ [
-              ./home-manager/linux-nongui/default.nix
-            ];
-        };
-      homeManagerLinuxGUI =
-        homeManagerLinuxBase
-        // {
-          modules =
-            homeManagerLinuxBase.modules
-            ++ [
-              xremap-flake.homeManagerModules.default
-              ./home-manager/linux-gui/default.nix
-            ];
-        };
+    homeManagerLinuxGUI =
+      homeManagerLinuxBase
+      // {
+        modules =
+          homeManagerLinuxBase.modules
+          ++ [
+            xremap-flake.homeManagerModules.default
+            ./home-manager/linux-gui/default.nix
+          ];
+      };
 
-      nixosConfigurations = {
-        parallels = nixpkgs.lib.nixosSystem (nixos
-          // {
+    nixosConfigurations = {
+      parallels = nixpkgs.lib.nixosSystem (nixos
+        // {
           system = "aarch64-linux";
           modules =
             nixos.modules
-              ++ [
+            ++ [
               ./nixos/hosts/parallels/config.nix
             ];
         });
-      };
+    };
 
-      darwinConfigurations = {
-        warashi = nix-darwin.lib.darwinSystem darwin;
-      };
+    darwinConfigurations = {
+      warashi = nix-darwin.lib.darwinSystem darwin;
+    };
 
-      homeConfigurations = {
-        parallels = home-manager.lib.homeManagerConfiguration (homeManagerLinuxGUI
-          // {
+    homeConfigurations = {
+      parallels = home-manager.lib.homeManagerConfiguration (homeManagerLinuxGUI
+        // {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
           extraSpecialArgs = {
             inherit inputs;
@@ -161,8 +161,8 @@
           };
         });
 
-        warashi = home-manager.lib.homeManagerConfiguration (homeManagerDarwin
-          // {
+      warashi = home-manager.lib.homeManagerConfiguration (homeManagerDarwin
+        // {
           extraSpecialArgs = {
             inherit inputs;
             local = {
@@ -171,8 +171,8 @@
           };
         });
 
-        workbench = home-manager.lib.homeManagerConfiguration (homeManagerLinuxNonGUI
-          // {
+      workbench = home-manager.lib.homeManagerConfiguration (homeManagerLinuxNonGUI
+        // {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
 
           extraSpecialArgs = {
@@ -182,6 +182,6 @@
             };
           };
         });
-      };
     };
+  };
 }
