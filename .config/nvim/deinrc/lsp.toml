@@ -3,7 +3,6 @@ repo = 'kuuote/lspoints'
 on_event = ['BufRead', 'BufNewFile']
 on_source = ['ddc-source-nvim-lsp']
 hooks_file = [
-  '$DEIN_CONFIG_BASE/hooks/lspoints.lua',
   '$DEIN_CONFIG_BASE/hooks/lspoints.vim',
 ]
 

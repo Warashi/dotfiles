@@ -3,7 +3,7 @@ call lspoints#load_extensions(['config', 'nvim_diagnostics', 'format', 'hover'])
 
 function s:lspoints_on_attach() abort
   nnoremap <buffer> <space>f <Cmd>call denops#request('lspoints', 'executeCommand', ['format', 'execute', bufnr()])<CR>
-  nnoremap <buffer> K <Cmd>call denops#request('lspoints', 'executeCommand', ['hover', 'execute'])<CR>
+  nnoremap <buffer> K <Cmd>call denops#request('lspoints', 'executeCommand', ['hover', 'execute', {'title': 'Hover', 'border': 'single'}])<CR>
   nnoremap <buffer> gd <Cmd>call ddu#start({name: 'lsp-definition'})<CR>
   nnoremap <buffer> gr <Cmd>call ddu#start({name: 'lsp-references'})<CR>
   nnoremap <buffer> <space>q <Cmd>call ddu#start({name: 'lsp-diagnostic'})<CR>
