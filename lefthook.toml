@@ -9,3 +9,7 @@ follow = true
 
 [post-merge.commands.link-apply]
 run = "make link-apply"
+
+[pre-commit]
+[pre-commit.commands.format]
+run = "make format"

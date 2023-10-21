@@ -7,6 +7,8 @@ link-apply:
 .PHONY: link-import
 link-import:
 	go run github.com/Warashi/dotlink/cmd/dotlink@latest import
+.PHONY: format
+format: format-nix format-toml format-stylua
 .PHONY: format-nix
 format-nix:
 	fd --hidden '.nix$$' -x nixpkgs-fmt
