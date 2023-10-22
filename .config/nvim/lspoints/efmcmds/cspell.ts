@@ -10,6 +10,7 @@ export async function cspell(_denops: Denops): Promise<ToolDefinition> {
       "%f:%l:%c - %m",
       "%f:%l:%c: %m",
     ],
+    lintSeverity: 4,
     rootMakers: [
       "package.json",
       ".cspell.json",
