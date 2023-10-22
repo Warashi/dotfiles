@@ -1,5 +1,5 @@
 import type { Denops, StartOptions } from "./deps.ts";
-import { nvim_get_runtime_file } from "./deps.ts";
+import { nvim_list_runtime_paths } from "./deps.ts";
 
 export async function fennells(denops: Denops): Promise<StartOptions> {
   return {
@@ -8,7 +8,7 @@ export async function fennells(denops: Denops): Promise<StartOptions> {
       settings: {
         fennel: {
           workspace: {
-            library: await nvim_get_runtime_file(denops, "", true),
+            library: await nvim_list_runtime_paths(denops),
           },
           diagnostics: {
             globals: ["vim"],
