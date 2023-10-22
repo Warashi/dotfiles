@@ -21,12 +21,13 @@ augroup MyAutoCmdLspoints
   autocmd!
   autocmd User LspointsAttach:* call s:lspoints_on_attach('<amatch>'->expand())
 
-  autocmd FileType lua call lspoints#attach('luals')
-  autocmd FileType typescript,typescriptreact call lspoints#attach('denols')
+  autocmd FileType fennel call lspoints#attach('fennells')
   autocmd FileType go call lspoints#attach('gopls')
+  autocmd FileType lua call lspoints#attach('luals')
   autocmd FileType nix call lspoints#attach('nills')
-  autocmd FileType vim call lspoints#attach('vimls')
   autocmd FileType toml call lspoints#attach('taplo')
+  autocmd FileType typescript,typescriptreact call lspoints#attach('denols')
+  autocmd FileType vim call lspoints#attach('vimls')
   autocmd FileType * call lspoints#attach('efmls')
 augroup END
 " }}}

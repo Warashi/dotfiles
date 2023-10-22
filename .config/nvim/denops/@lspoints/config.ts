@@ -26,6 +26,9 @@ export class Extension extends BaseExtension {
               await config.efmcmds.deadnix(denops),
               await config.efmcmds.statix(denops),
             ],
+            "fennel": [
+              await config.efmcmds.fnlfmt(denops),
+            ],
           },
         },
       },
@@ -33,13 +36,15 @@ export class Extension extends BaseExtension {
 
     lspoints.settings.patch({
       startOptions: {
-        denols: await config.denols(denops),
-        luals: await config.luals(denops),
-        gopls: await config.gopls(denops),
-        nills: await config.nills(denops),
-        vimls: await config.vimls(denops),
-        taplo: await config.taplo(denops),
         efmls,
+
+        denols: await config.denols(denops),
+        fennells: await config.fennells(denops),
+        gopls: await config.gopls(denops),
+        luals: await config.luals(denops),
+        nills: await config.nills(denops),
+        taplo: await config.taplo(denops),
+        vimls: await config.vimls(denops),
       },
     });
   }
