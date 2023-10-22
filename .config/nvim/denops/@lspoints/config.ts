@@ -11,12 +11,18 @@ export class Extension extends BaseExtension {
   override async initialize(denops: Denops, lspoints: Lspoints) {
     const efmls = {
       cmd: ["efm-langserver"],
+      initializationOptions: {
+        documentFormatting: true,
+      },
       params: {
         settings: {
           rootMarkers: [".git/"],
           languages: {
             "=": [
               await config.efmcmds.cspell(denops),
+            ],
+            "nix": [
+              await config.efmcmds.alejandra(denops),
             ],
           },
         },
