@@ -3,6 +3,11 @@
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     inputs.neovim-nightly-overlay.overlay
     (_: prev: {
+      neovim-unwrapped = prev.neovim-unwrapped.override {
+        stdenv = prev.llvmPackages_latest.stdenv;
+      };
+    })
+    (_: prev: {
       sheldon =
         prev.sheldon.overrideAttrs
         (old: rec {
