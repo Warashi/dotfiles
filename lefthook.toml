@@ -18,9 +18,9 @@ parallel = true
 glob = "*.nix"
 run = "alejandra --quiet {staged_files} && git add {staged_files}"
 
-[pre-commit.commands.format-lua]
-glob = "*.lua"
-run = "stylua {staged_files} && git add {staged_files}"
+[pre-commit.commands.format-fennel]
+glob = "*.fnl"
+run = "fnlfmt --fix {staged_files} && git add {staged_files}"
 
 [pre-commit.commands.format-toml]
 glob = "*.toml"

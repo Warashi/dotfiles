@@ -10,6 +10,9 @@ export async function fennells(denops: Denops): Promise<StartOptions> {
           workspace: {
             library: await nvim_get_runtime_file(denops, "", true),
           },
+          diagnostics: {
+            globals: ["vim"],
+          },
         },
       },
     },

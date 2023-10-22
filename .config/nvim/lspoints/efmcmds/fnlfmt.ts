@@ -5,6 +5,6 @@ import type { ToolDefinition } from "./types.ts";
 export async function fnlfmt(_denops: Denops): Promise<ToolDefinition> {
   return {
     prefix: "fnlfmt",
-    formatCommand: "fnlfmt ${INPUT}",
+    formatCommand: "fnlfmt \${INPUT}",
   };
 }

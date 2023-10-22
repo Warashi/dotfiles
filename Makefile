@@ -1,23 +1,32 @@
+SRC_FNL := $(shell find . -name '*.fnl')
+OUT_LUA := $(patsubst %.fnl,%.lua,$(SRC_FNL))
+
+.PHONY: all
+all: $(OUT_LUA) link-apply
+
+%.lua: %.fnl
+	fennel --compile $< > $@
+
 .PHONY: link-plan
-link-plan:
+link-plan: $(OUT_LUA)
 	go run github.com/Warashi/dotlink/cmd/dotlink@latest plan
 .PHONY: link-apply
-link-apply:
+link-apply: $(OUT_LUA)
 	go run github.com/Warashi/dotlink/cmd/dotlink@latest apply
 .PHONY: link-import
-link-import:
+link-import: $(OUT_LUA)
 	go run github.com/Warashi/dotlink/cmd/dotlink@latest import
 .PHONY: format
-format: format-nix format-toml format-stylua
+format: format-nix format-toml format-fennel
 .PHONY: format-nix
 format-nix:
 	fd --hidden '.nix$$' -X alejandra -q
 .PHONY: format-toml
 format-toml:
 	taplo format
-.PHONY: format-stylua
-format-stylua:
-	fd --hidden '.lua$$' -X stylua
+.PHONY: format-fennel
+format-fennel:
+	fd --hidden '.fnl$$' -X fnlfmt --fix
 .PHONY: nixos-rebuild
 nixos-rebuild:
 	nixos-rebuild switch --flake '$(FLAKE)'
