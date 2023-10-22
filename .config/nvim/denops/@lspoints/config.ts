@@ -24,6 +24,7 @@ export class Extension extends BaseExtension {
             "nix": [
               await config.efmcmds.alejandra(denops),
               await config.efmcmds.deadnix(denops),
+              await config.efmcmds.statix(denops),
             ],
           },
         },
