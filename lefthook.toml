@@ -11,5 +11,17 @@ follow = true
 run = "make link-apply"
 
 [pre-commit]
-[pre-commit.commands.format]
-run = "make format"
+follow = true
+parallel = true
+
+[pre-commit.commands.format-nix]
+glob = "*.nix"
+run = "alejandra --quiet {staged_files} && git add {staged_files}"
+
+[pre-commit.commands.format-lua]
+glob = "*.lua"
+run = "stylua {staged_files} && git add {staged_files}"
+
+[pre-commit.commands.format-toml]
+glob = "*.toml"
+run = "taplo format {staged_files} && git add {staged_files}"
