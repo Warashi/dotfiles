@@ -225,5 +225,24 @@
         '';
       };
     })
+    (_: prev: {
+      fennel-language-server = prev.rustPlatform.buildRustPackage rec {
+        pname = "fennel-language-server";
+        version = "dev";
+
+        src = inputs.fennel-language-server;
+
+        cargoLock = {
+          lockFile = src + "/Cargo.lock";
+        };
+        doCheck = false;
+
+        meta = with prev.lib; {
+          description = "Fennel language server protocol (LSP) support.";
+          homepage = "https://github.com/rydesun/fennel-language-server";
+          license = licenses.mit;
+        };
+      };
+    })
   ];
 }

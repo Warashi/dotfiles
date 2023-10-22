@@ -131,6 +131,22 @@
         "type": "github"
       }
     },
+    "fennel-language-server": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688040763,
+        "narHash": "sha256-pp1+lquYRFZLHvU9ArkdLY/kBsfaHoZ9x8wAbWpApck=",
+        "owner": "rydesun",
+        "repo": "fennel-language-server",
+        "rev": "59005549ca1191bf2aa364391e6bf2371889b4f8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rydesun",
+        "repo": "fennel-language-server",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -582,6 +598,7 @@
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "denops-vim": "denops-vim",
+        "fennel-language-server": "fennel-language-server",
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
         "neovim-nightly-overlay": "neovim-nightly-overlay",

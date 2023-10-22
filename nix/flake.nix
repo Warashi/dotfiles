@@ -41,6 +41,10 @@
       url = "github:tokuhirom/jawiki-kana-kanji-dict";
       flake = false;
     };
+    fennel-language-server = {
+      url = "github:rydesun/fennel-language-server";
+      flake = false;
+    };
     catppuccin-alacritty = {
       url = "github:catppuccin/alacritty";
       flake = false;

@@ -36,9 +36,12 @@
     yq-go
     zstd
 
+    luajitPackages.fennel
+
     # lanuage server
     buf-language-server
     efm-langserver
+    fennel-language-server
     haskell-language-server
     lua-language-server
     nil # nix language server
@@ -61,6 +64,9 @@
     ## lua
     selene
     stylua
+
+    ## fennel
+    fnlfmt
 
     ## spelling
     nodePackages_latest.cspell
