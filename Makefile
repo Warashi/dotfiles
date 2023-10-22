@@ -11,13 +11,13 @@ link-import:
 format: format-nix format-toml format-stylua
 .PHONY: format-nix
 format-nix:
-	fd --hidden '.nix$$' -x alejandra
+	fd --hidden '.nix$$' -X alejandra -q
 .PHONY: format-toml
 format-toml:
 	taplo format
 .PHONY: format-stylua
 format-stylua:
-	fd --hidden '.lua$$' -x stylua
+	fd --hidden '.lua$$' -X stylua
 .PHONY: nixos-rebuild
 nixos-rebuild:
 	nixos-rebuild switch --flake '$(FLAKE)'
