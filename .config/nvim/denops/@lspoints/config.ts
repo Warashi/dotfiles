@@ -18,9 +18,9 @@ export class Extension extends BaseExtension {
         settings: {
           rootMarkers: [".git/"],
           languages: {
-            "=": [
-              await config.efmcmds.cspell(denops),
-            ],
+            // "=": [
+            //   await config.efmcmds.cspell(denops),
+            // ],
             "nix": [
               await config.efmcmds.alejandra(denops),
               await config.efmcmds.deadnix(denops),
