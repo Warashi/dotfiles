@@ -233,7 +233,7 @@
     (_: prev: {
       fennel-language-server = prev.rustPlatform.buildRustPackage rec {
         pname = "fennel-language-server";
-        version = "dev";
+        version = "dev-" + inputs.fennel-language-server.lastModifiedDate;
 
         src = inputs.fennel-language-server;
 
