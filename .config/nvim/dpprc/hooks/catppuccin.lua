@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("ColorSchemePre", {
   once = true,
   callback = function()
     require("catppuccin").setup({
-      flavour = "frappe",
+      flavour = "latte",
       transparent_background = false,
       term_colors = true,
       dim_inactive = {

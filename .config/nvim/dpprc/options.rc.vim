@@ -9,12 +9,12 @@ set shiftwidth=2
 set clipboard+=unnamedplus
 set signcolumn=yes
 set noshowmode
-set cmdheight=0
+set cmdheight=1
 set laststatus=3
 set showtabline=2
 let g:mapleader=","
 let g:maplocalleader=","
-set background=dark
+set background=light
 
 set history=200
 set shada='100,<20,s10,h,r/tmp/,rterm:

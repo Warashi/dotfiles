@@ -1,2 +1,5 @@
 [[plugins]]
 repo = 'lambdalisue/guise.vim'
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'

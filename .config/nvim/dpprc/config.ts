@@ -1,10 +1,21 @@
-import { BaseConfig } from "https://deno.land/x/dpp_vim@v0.0.3/types.ts";
+import { BaseConfig } from "https://deno.land/x/dpp_vim@v0.0.4/types.ts";
 import type {
   ContextBuilder,
   Dpp,
   Plugin,
-} from "https://deno.land/x/dpp_vim@v0.0.3/types.ts";
-import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.3/deps.ts";
+} from "https://deno.land/x/dpp_vim@v0.0.4/types.ts";
+import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.4/deps.ts";
+
+type Toml = {
+  hooks_file?: string;
+  ftplugins?: Record<string, string>;
+  plugins: Plugin[];
+};
+
+type LazyMakeStateResult = {
+  plugins: Plugin[];
+  stateLines: string[];
+};
 
 export class Config extends BaseConfig {
   override async config(args: {
@@ -30,20 +41,15 @@ export class Config extends BaseConfig {
 
     const [context, options] = await args.contextBuilder.get(args.denops);
 
-    const loadToml = async (path: string, lazy: boolean): Promise<Plugin[]> =>
+    const loadToml = async (path: string, lazy: boolean): Promise<Toml> =>
       await args.dpp.extAction(
         args.denops,
         context,
         options,
         "toml",
         "load",
-        {
-          path,
-          options: {
-            lazy,
-          },
-        },
-      ) as Plugin[];
+        { path, options: { lazy } },
+      ) as Toml;
 
     const loadTomls = async (
       configs: { path: string; lazy: boolean }[],
@@ -51,13 +57,15 @@ export class Config extends BaseConfig {
       let plugins = [] as Plugin[];
       for (const config of configs) {
         console.log(config.path);
-        plugins = plugins.concat(await loadToml(config.path, config.lazy));
+        plugins = plugins.concat(
+          (await loadToml(config.path, config.lazy)).plugins,
+        );
       }
       return plugins;
     };
 
     const plugins = await loadTomls([
-      { path: "$DPP_CONFIG_BASE/someone.toml", lazy: false },
+      // { path: "$DPP_CONFIG_BASE/someone.toml", lazy: false },
       // {path: "$DPP_CONFIG_BASE/ft.toml", lazy: false},
 
       { path: "$DPP_CONFIG_BASE/dpp.toml", lazy: false },
@@ -68,25 +76,25 @@ export class Config extends BaseConfig {
       { path: "$DPP_CONFIG_BASE/ui.toml", lazy: false },
       { path: "$DPP_CONFIG_BASE/ui-lazy.toml", lazy: true },
 
-      { path: "$DPP_CONFIG_BASE/ddc.toml", lazy: true },
-      { path: "$DPP_CONFIG_BASE/ddu.toml", lazy: true },
+      // { path: "$DPP_CONFIG_BASE/ddc.toml", lazy: true },
+      // { path: "$DPP_CONFIG_BASE/ddu.toml", lazy: true },
 
-      { path: "$DPP_CONFIG_BASE/lsp.toml", lazy: true },
-      { path: "$DPP_CONFIG_BASE/snippets.toml", lazy: true },
-      { path: "$DPP_CONFIG_BASE/treesitter.toml", lazy: true },
+      // { path: "$DPP_CONFIG_BASE/lsp.toml", lazy: true },
+      // { path: "$DPP_CONFIG_BASE/snippets.toml", lazy: true },
+      // { path: "$DPP_CONFIG_BASE/treesitter.toml", lazy: true },
     ]);
 
-    const stateLines = await args.dpp.extAction(
+    const lazyResult = await args.dpp.extAction(
       args.denops,
       context,
       options,
       "lazy",
       "makeState",
-      {
-        plugins: plugins,
-      },
-    ) as string[];
+      { plugins },
+    ) as LazyMakeStateResult;
 
-    return { plugins, stateLines };
+    return { 
+      ...lazyResult,
+    };
   }
 }
