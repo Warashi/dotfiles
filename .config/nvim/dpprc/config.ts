@@ -11,8 +11,6 @@ import {
 import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.5/deps.ts";
 import * as u from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
 
-type MyPlugin = Plugin & { [key: string]: unknown };
-
 type Toml = {
   hooks_file?: string;
   ftplugins?: Record<string, string>;
@@ -75,7 +73,7 @@ export class Config extends BaseConfig {
 
     const loadTomls = async (
       configs: { path: string; lazy: boolean }[],
-    ): Promise<MyPlugin[]> => {
+    ): Promise<Plugin[]> => {
       let plugins = [] as Plugin[];
       for (const config of configs) {
         console.log(config.path);
@@ -118,17 +116,23 @@ export class Config extends BaseConfig {
 
         const hooks = parseHooksFile(options.hooksFileMarker, hooksFileLines);
         plugin = Object.assign(plugin, hooks);
+        console.log(hooks);
       }
       plugin.hooks_file = undefined;
       return plugin;
     }));
 
     plugins = await Promise.all(plugins.map(async (plugin) => {
-      if (u.isString(plugin.fennel_add)) {
-        plugin.lua_add = await fennelCompile(plugin.fennel_add);
+      if (!plugin.ftplugin) {
+        return plugin;
       }
-      if (u.isString(plugin.fennel_source)) {
-        plugin.lua_source = await fennelCompile(plugin.fennel_source);
+      if (u.isString(plugin.ftplugin.fennel_add)) {
+        plugin.lua_add = await fennelCompile(plugin.ftplugin.fennel_add);
+        delete plugin.ftplugin.fennel_add;
+      }
+      if (u.isString(plugin.ftplugin.fennel_source)) {
+        plugin.lua_source = await fennelCompile(plugin.ftplugin.fennel_source);
+        delete plugin.ftplugin.fennel_source;
       }
       return plugin;
     }));

@@ -2,7 +2,7 @@
 name = 'catppuccin'
 repo = 'catppuccin/nvim'
 on_lua = 'catppuccin'
-hooks_file = '$DEIN_CONFIG_BASE/hooks/catppuccin.lua'
+hooks_file = '$DEIN_CONFIG_BASE/hooks/catppuccin.fnl'
 hook_post_update = 'CatppuccinCompile'
 
 [[plugins]]

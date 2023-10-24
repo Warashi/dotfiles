@@ -2,7 +2,7 @@ SRC_FNL := $(shell find . -name '*.fnl')
 OUT_LUA := $(patsubst %.fnl,%.lua,$(SRC_FNL))
 
 .PHONY: all
-all: $(OUT_LUA) link-apply
+all: link-apply
 
 %.lua: %.fnl
 	fennel --compile $< > $@
