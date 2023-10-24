@@ -66,7 +66,7 @@ export class Config extends BaseConfig {
 
     const plugins = await loadTomls([
       // { path: "$DPP_CONFIG_BASE/someone.toml", lazy: false },
-      // {path: "$DPP_CONFIG_BASE/ft.toml", lazy: false},
+      // { path: "$DPP_CONFIG_BASE/ft.toml", lazy: false },
 
       { path: "$DPP_CONFIG_BASE/dpp.toml", lazy: false },
 
@@ -76,12 +76,12 @@ export class Config extends BaseConfig {
       { path: "$DPP_CONFIG_BASE/ui.toml", lazy: false },
       { path: "$DPP_CONFIG_BASE/ui-lazy.toml", lazy: true },
 
-      // { path: "$DPP_CONFIG_BASE/ddc.toml", lazy: true },
-      // { path: "$DPP_CONFIG_BASE/ddu.toml", lazy: true },
+      { path: "$DPP_CONFIG_BASE/ddc.toml", lazy: true },
+      { path: "$DPP_CONFIG_BASE/ddu.toml", lazy: true },
 
-      // { path: "$DPP_CONFIG_BASE/lsp.toml", lazy: true },
-      // { path: "$DPP_CONFIG_BASE/snippets.toml", lazy: true },
-      // { path: "$DPP_CONFIG_BASE/treesitter.toml", lazy: true },
+      { path: "$DPP_CONFIG_BASE/lsp.toml", lazy: true },
+      { path: "$DPP_CONFIG_BASE/snippets.toml", lazy: true },
+      { path: "$DPP_CONFIG_BASE/treesitter.toml", lazy: true },
     ]);
 
     const lazyResult = await args.dpp.extAction(
@@ -93,7 +93,7 @@ export class Config extends BaseConfig {
       { plugins },
     ) as LazyMakeStateResult;
 
-    return { 
+    return {
       ...lazyResult,
     };
   }
