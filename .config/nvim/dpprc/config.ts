@@ -1,10 +1,17 @@
-import { BaseConfig } from "https://deno.land/x/dpp_vim@v0.0.4/types.ts";
+import { BaseConfig } from "https://deno.land/x/dpp_vim@v0.0.5/types.ts";
 import type {
   ContextBuilder,
   Dpp,
   Plugin,
-} from "https://deno.land/x/dpp_vim@v0.0.4/types.ts";
-import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.4/deps.ts";
+} from "https://deno.land/x/dpp_vim@v0.0.5/types.ts";
+import {
+  convert2List,
+  parseHooksFile,
+} from "https://deno.land/x/dpp_vim@v0.0.5/utils.ts";
+import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.5/deps.ts";
+import * as u from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+
+type MyPlugin = Plugin & { [key: string]: unknown };
 
 type Toml = {
   hooks_file?: string;
@@ -16,6 +23,21 @@ type LazyMakeStateResult = {
   plugins: Plugin[];
   stateLines: string[];
 };
+
+async function fennelCompile(text: string): Promise<string> {
+  const cmd = new Deno.Command("fennel", {
+    args: ["--compile", "-"],
+    stdin: "piped",
+    stdout: "piped",
+  });
+  const child = cmd.spawn();
+
+  (new Blob([text], { type: "text/plain" }).stream()).pipeTo(
+    child.stdin,
+  );
+
+  return await new Response(child.stdout).text();
+}
 
 export class Config extends BaseConfig {
   override async config(args: {
@@ -53,7 +75,7 @@ export class Config extends BaseConfig {
 
     const loadTomls = async (
       configs: { path: string; lazy: boolean }[],
-    ): Promise<Plugin[]> => {
+    ): Promise<MyPlugin[]> => {
       let plugins = [] as Plugin[];
       for (const config of configs) {
         console.log(config.path);
@@ -64,7 +86,7 @@ export class Config extends BaseConfig {
       return plugins;
     };
 
-    const plugins = await loadTomls([
+    let plugins = await loadTomls([
       // { path: "$DPP_CONFIG_BASE/someone.toml", lazy: false },
       // { path: "$DPP_CONFIG_BASE/ft.toml", lazy: false },
 
@@ -83,6 +105,33 @@ export class Config extends BaseConfig {
       { path: "$DPP_CONFIG_BASE/snippets.toml", lazy: true },
       { path: "$DPP_CONFIG_BASE/treesitter.toml", lazy: true },
     ]);
+
+    plugins = await Promise.all(plugins.map(async (plugin) => {
+      for (const hooksFile of convert2List(plugin.hooks_file)) {
+        const hooksFilePath = await args.denops.call(
+          "dpp#util#_expand",
+          hooksFile,
+        ) as string;
+        const hooksFileLines = (await Deno.readTextFile(hooksFilePath)).split(
+          "\n",
+        );
+
+        const hooks = parseHooksFile(options.hooksFileMarker, hooksFileLines);
+        plugin = Object.assign(plugin, hooks);
+      }
+      plugin.hooks_file = undefined;
+      return plugin;
+    }));
+
+    plugins = await Promise.all(plugins.map(async (plugin) => {
+      if (u.isString(plugin.fennel_add)) {
+        plugin.lua_add = await fennelCompile(plugin.fennel_add);
+      }
+      if (u.isString(plugin.fennel_source)) {
+        plugin.lua_source = await fennelCompile(plugin.fennel_source);
+      }
+      return plugin;
+    }));
 
     const lazyResult = await args.dpp.extAction(
       args.denops,
