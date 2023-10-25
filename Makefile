@@ -8,13 +8,13 @@ all: link-apply
 	fennel --compile $< > $@
 
 .PHONY: link-plan
-link-plan: $(OUT_LUA)
+link-plan:
 	go run github.com/Warashi/dotlink/cmd/dotlink@latest plan
 .PHONY: link-apply
-link-apply: $(OUT_LUA)
+link-apply:
 	go run github.com/Warashi/dotlink/cmd/dotlink@latest apply
 .PHONY: link-import
-link-import: $(OUT_LUA)
+link-import:
 	go run github.com/Warashi/dotlink/cmd/dotlink@latest import
 .PHONY: format
 format: format-nix format-toml format-fennel
