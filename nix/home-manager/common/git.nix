@@ -33,7 +33,6 @@
       fetch.prune = true;
       ghq.root = [
         "~/.local/share/sheldon/repos/"
-        "~/.cache/nvim/dein/repos/"
         "~/.cache/nvim/dpp/repos/"
         "~/ghq/"
       ];
