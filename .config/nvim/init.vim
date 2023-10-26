@@ -29,6 +29,9 @@ augroup END
 
 lua if vim.loader then vim.loader.enable() end
 
-let s:base_path = expand('<sfile>')->fnamemodify(':h')
-execute 'source' s:base_path .. '/rc/dein.vim'
+let s:base_path = fnamemodify(expand('<sfile>'), ':h')
+
+execute 'source' s:base_path .. '/rc/dpp.vim'
+
+" load colorscheme after dpp.vim because manage colorscheme plugin with dpp.vim
 execute 'source' s:base_path .. '/rc/colorscheme.vim'

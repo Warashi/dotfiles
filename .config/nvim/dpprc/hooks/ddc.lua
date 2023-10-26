@@ -1,5 +1,5 @@
 -- lua_source {{{
-vim.fn["ddc#custom#load_config"](vim.env.DEIN_CONFIG_BASE .. "/hooks/ddc.ts")
+vim.fn["ddc#custom#load_config"](vim.env.DPP_CONFIG_BASE .. "/hooks/ddc.ts")
 
 -- pum
 vim.fn["pum#set_option"]("border", "single")

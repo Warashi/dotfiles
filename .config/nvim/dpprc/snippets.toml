@@ -6,4 +6,4 @@ on_source = ['vim-vsnip', 'denippet.vim']
 repo = 'uga-rosa/denippet.vim'
 on_event = ['InsertEnter', 'CmdlineEnter']
 on_source = ['ddc.vim']
-hooks_file = ['$DEIN_CONFIG_BASE/hooks/snippet.lua']
+hooks_file = ['$DPP_CONFIG_BASE/hooks/snippet.lua']

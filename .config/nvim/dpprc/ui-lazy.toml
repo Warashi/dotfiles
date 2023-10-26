@@ -1,14 +1,15 @@
 [[plugins]]
 name = 'catppuccin'
 repo = 'catppuccin/nvim'
-hooks_file = '$DEIN_CONFIG_BASE/hooks/catppuccin.lua'
+on_lua = 'catppuccin'
+hooks_file = '$DPP_CONFIG_BASE/hooks/catppuccin.fnl'
 hook_post_update = 'CatppuccinCompile'
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
 on_lua = ['notify']
 depends = ['catppuccin']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/nvim-notify.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/nvim-notify.lua'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
@@ -19,7 +20,7 @@ lua_source = 'require("gitsigns").setup()'
 [[plugins]]
 repo = 'gen740/SmoothCursor.nvim'
 on_event = ['BufNewFile', 'BufRead']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/smooth-cursor.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/smooth-cursor.lua'
 
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
@@ -30,7 +31,7 @@ lua_source = 'require("nvim-autopairs").setup()'
 repo = 'monaqa/modesearch.nvim'
 depends = ['kensaku.vim']
 on_lua = ['modesearch']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/modesearch.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/modesearch.lua'
 
 [[plugins]]
 repo = 'dstein64/vim-startuptime'
@@ -58,7 +59,7 @@ hook_add = '''
 repo = 'vim-skk/skkeleton'
 on_source = ['ddc.vim']
 on_event = ['InsertEnter', 'CmdlineEnter', 'TermOpen']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/skkeleton.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/skkeleton.lua'
 
 [[plugins]]
 repo = 'delphinus/skkeleton_indicator.nvim'
@@ -90,7 +91,7 @@ hook_source = '''
 repo = 'rebelot/heirline.nvim'
 on_lua = ['heirline']
 on_event = ['BufNewFile', 'BufRead']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/heirline.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/heirline.lua'
 depends = ['nvim-navic', 'catppuccin']
 
 [[plugins]]
@@ -115,4 +116,4 @@ hook_add = '''
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
-on_event = ['BufRead', 'StdinRaedPre']
+on_event = ['BufRead', 'StdinReadPre']

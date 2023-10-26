@@ -2,7 +2,7 @@
 repo = 'nvim-treesitter/nvim-treesitter'
 on_cmd = ['TSInstall', 'TSUpdate', 'TSUninstall']
 on_event = ['BufRead', 'BufNewFile']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/treesitter.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/treesitter.lua'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-context'
