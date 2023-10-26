@@ -2,7 +2,7 @@
 repo = 'kuuote/lspoints'
 on_event = ['BufRead', 'BufNewFile']
 on_source = ['ddc-source-nvim-lsp']
-hooks_file = ['$DEIN_CONFIG_BASE/hooks/lspoints.vim']
+hooks_file = ['$DPP_CONFIG_BASE/hooks/lspoints.vim']
 
 [[plugins]]
 repo = 'Warashi/lspoints-hover'
@@ -12,7 +12,7 @@ on_source = ['lspoints']
 repo = 'neovim/nvim-lspconfig'
 on_event = ['BufRead', 'BufNewFile']
 depends = ['ddc-nvim-lsp-setup']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/lspconfig.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/lspconfig.lua'
 if = 0
 
 [[plugins]]
@@ -29,7 +29,7 @@ lua_source = 'require("fidget").setup({})'
 [[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
 on_source = ['nvim-lspconfig']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/null-ls.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/null-ls.lua'
 
 [[plugins]]
 repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
@@ -45,7 +45,7 @@ lua_source = '''
 [[plugins]]
 repo = 'SmiteshP/nvim-navic'
 on_source = ['nvim-lspconfig']
-hooks_file = '$DEIN_CONFIG_BASE/hooks/lsp-navic.lua'
+hooks_file = '$DPP_CONFIG_BASE/hooks/lsp-navic.lua'
 
 [[plugins]]
 repo = 'davidmh/cspell.nvim'

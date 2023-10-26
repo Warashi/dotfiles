@@ -34,7 +34,6 @@ endfor
 
 " set config path
 let $DPP_CONFIG_BASE = stdpath("config") .. "/dpprc"
-let $DEIN_CONFIG_BASE = stdpath("config") .. "/dpprc"
 
 " Set dpp base path (required)
 const s:dpp_base = $CACHE .. '/dpp'

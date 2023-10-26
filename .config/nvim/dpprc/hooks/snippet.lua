@@ -13,7 +13,7 @@ local function loadSnippetDir(dir, name, filetype)
   end
 end
 local function initializeDenippet()
-  local root = vim.fn.stdpath("cache") .. "/dein/repos/github.com/rafamadriz/friendly-snippets/snippets"
+  local root = vim.fn.stdpath("cache") .. "/dpp/repos/github.com/rafamadriz/friendly-snippets/snippets"
 
   for name, _ in vim.fs.dir(root) do
     loadSnippetDir(root, name, { name })
