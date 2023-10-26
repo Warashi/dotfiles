@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'rafamadriz/friendly-snippets'
-on_source = ['vim-vsnip', 'denippet.vim']
+on_source = ['denippet.vim']
 
 [[plugins]]
 repo = 'uga-rosa/denippet.vim'
