@@ -116,4 +116,4 @@ hook_add = '''
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
-on_event = ['BufRead', 'StdinRaedPre']
+on_event = ['BufRead', 'StdinReadPre']
