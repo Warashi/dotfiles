@@ -92,7 +92,7 @@ repo = 'rebelot/heirline.nvim'
 on_lua = ['heirline']
 on_event = ['BufNewFile', 'BufRead']
 hooks_file = '$DPP_CONFIG_BASE/hooks/heirline.lua'
-depends = ['nvim-navic', 'catppuccin']
+depends = ['catppuccin']
 
 [[plugins]]
 repo = 'nvim-zh/colorful-winsep.nvim'
