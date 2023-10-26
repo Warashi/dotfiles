@@ -3,7 +3,7 @@ repo = 'Shougo/ddu.vim'
 on_func = ['ddu#start']
 depends = ['denops.vim']
 hooks_file = [
-  #  '$DPP_CONFIG_BASE/hooks/ddu.vim',
+  '$DPP_CONFIG_BASE/hooks/ddu.vim',
   '$DPP_CONFIG_BASE/hooks/ddu.lua',
 ]
 
