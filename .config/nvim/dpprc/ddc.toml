@@ -2,10 +2,7 @@
 repo = 'Shougo/ddc.vim'
 depends = ['denops.vim']
 on_event = ['InsertEnter', 'CmdlineEnter']
-hooks_file = [
-  '$DPP_CONFIG_BASE/hooks/ddc.lua',
-  "$DPP_CONFIG_BASE/hooks/ddc.vim",
-]
+hooks_file = ['$DPP_CONFIG_BASE/hooks/ddc.lua']
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
