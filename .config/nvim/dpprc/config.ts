@@ -76,7 +76,6 @@ export class Config extends BaseConfig {
     ): Promise<Plugin[]> => {
       let plugins = [] as Plugin[];
       for (const config of configs) {
-        console.log(config.path);
         plugins = plugins.concat(
           (await loadToml(config.path, config.lazy)).plugins,
         );
@@ -116,7 +115,6 @@ export class Config extends BaseConfig {
 
         const hooks = parseHooksFile(options.hooksFileMarker, hooksFileLines);
         plugin = Object.assign(plugin, hooks);
-        console.log(hooks);
       }
       plugin.hooks_file = undefined;
       return plugin;
