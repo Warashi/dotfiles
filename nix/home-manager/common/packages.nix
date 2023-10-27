@@ -44,6 +44,7 @@
     fennel-language-server
     haskell-language-server
     lua-language-server
+    marksman # markdown language server
     nil # nix language server
     nodePackages_latest.typescript-language-server
     nodePackages_latest.vim-language-server
