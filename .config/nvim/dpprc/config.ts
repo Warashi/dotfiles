@@ -68,7 +68,7 @@ export class Config extends BaseConfig {
         options,
         "toml",
         "load",
-        { path, options: { lazy } },
+        { path, options: { lazy, denops_wait: false } },
       ) as Toml;
 
     const loadTomls = async (
