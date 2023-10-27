@@ -16,6 +16,11 @@ let g:mapleader=","
 let g:maplocalleader=","
 set background=light
 
+set foldlevelstart=0
+set foldmethod=expr
+set foldexpr=v:lua.vim.treesitter.foldexpr()
+set foldtext=v:lua.vim.treesitter.foldtext()
+
 set history=200
 set shada='100,<20,s10,h,r/tmp/,rterm:
 
