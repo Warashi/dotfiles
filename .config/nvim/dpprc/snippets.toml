@@ -1,9 +1,4 @@
 [[plugins]]
-repo = 'rafamadriz/friendly-snippets'
-on_source = ['denippet.vim']
-
-[[plugins]]
 repo = 'uga-rosa/denippet.vim'
 on_event = ['InsertEnter', 'CmdlineEnter']
 on_source = ['ddc.vim']
-hooks_file = ['$DPP_CONFIG_BASE/hooks/snippet.lua']
