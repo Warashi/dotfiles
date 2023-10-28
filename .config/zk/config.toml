@@ -17,4 +17,4 @@ dead-link = "error"
 pager = "less -FIRX"
 
 # Command used to preview a note during interactive fzf mode.
-fzf-preview = "bat -p --color always {-1}"
+fzf-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {-1}"
