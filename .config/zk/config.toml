@@ -5,6 +5,10 @@ dir = "~/zettelkasten"
 [lsp.diagnostics]
 wiki-title = "hint"
 dead-link = "error"
+[lsp.completion]
+note-label = "{{title-or-path}}"
+note-filter-text = "{{title}} {{path}}"
+use-additional-text-edits = true
 
 [tool]
 pager = "less -FIRX"
@@ -12,6 +16,9 @@ fzf-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {-1}"
 
 [filter]
 last = "--sort modified- --limit 1"
+today = "--created today"
+this-week = "--created-after 'last monday'"
 
 [alias]
 amend = "zk edit last $@"
+lg = "lazygit"
