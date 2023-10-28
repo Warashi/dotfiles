@@ -34,6 +34,7 @@
     vivid
     yaskkserv2
     yq-go
+    zk # makrdown zettelkasten tool
     zstd
 
     luajitPackages.fennel
