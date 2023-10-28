@@ -1,14 +1,14 @@
-import { BaseConfig } from "https://deno.land/x/dpp_vim@v0.0.5/types.ts";
+import { BaseConfig } from "https://deno.land/x/dpp_vim@v0.0.7/types.ts";
 import type {
   ContextBuilder,
   Dpp,
   Plugin,
-} from "https://deno.land/x/dpp_vim@v0.0.5/types.ts";
+} from "https://deno.land/x/dpp_vim@v0.0.7/types.ts";
 import {
   convert2List,
   parseHooksFile,
-} from "https://deno.land/x/dpp_vim@v0.0.5/utils.ts";
-import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.5/deps.ts";
+} from "https://deno.land/x/dpp_vim@v0.0.7/utils.ts";
+import type { Denops } from "https://deno.land/x/dpp_vim@v0.0.7/deps.ts";
 import * as u from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
 
 type Toml = {
