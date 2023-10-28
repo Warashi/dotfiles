@@ -1,3 +1,6 @@
+[notebook]
+dir = "~/zettelkasten"
+
 # LSP (EDITOR INTEGRATION)
 [lsp]
 
