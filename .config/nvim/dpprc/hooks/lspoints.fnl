@@ -37,7 +37,7 @@
             {:filetype "typescript,typescriptreact" :name :denols}
             {:filetype :fennel :name :fennells}
             {:filetype :lua :name :luals}
-            {:filetype :markdown :name :marksman}
+            {:filetype :markdown :name :zk}
             {:filetype :nix :name :nills}
             {:filetype :toml :name :taplo}
             {:filetype :vim :name :vimls}]]

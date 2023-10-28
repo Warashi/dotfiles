@@ -46,6 +46,7 @@ export class Extension extends BaseExtension {
         nills: await config.nills(denops),
         taplo: await config.taplo(denops),
         vimls: await config.vimls(denops),
+        zk: await config.zk(denops),
       },
     });
   }
