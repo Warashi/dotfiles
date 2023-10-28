@@ -33,13 +33,14 @@
         (vim.keymap.set map.mode map.key map.callback {:buffer true})))))
 
 (let [id (vim.api.nvim_create_augroup :MyAutoCmdLspoints {})
-      lsps [{:filetype :fennel :name :fennells}
+      lsps [{:filetype "*" :name :efmls}
+            {:filetype "typescript,typescriptreact" :name :denols}
+            {:filetype :fennel :name :fennells}
             {:filetype :lua :name :luals}
+            {:filetype :markdown :name :marksman}
             {:filetype :nix :name :nills}
             {:filetype :toml :name :taplo}
-            {:filetype "typescript,typescriptreact" :name :denols}
-            {:filetype :vim :name :vimls}
-            {:filetype "*" :name :efmls}]]
+            {:filetype :vim :name :vimls}]]
   (vim.api.nvim_create_autocmd :User
                                {:pattern "LspointsAttach:*"
                                 :callback on_attach

@@ -42,6 +42,7 @@ export class Extension extends BaseExtension {
         fennells: await config.fennells(denops),
         gopls: await config.gopls(denops),
         luals: await config.luals(denops),
+        marksman: await config.marksman(denops),
         nills: await config.nills(denops),
         taplo: await config.taplo(denops),
         vimls: await config.vimls(denops),
