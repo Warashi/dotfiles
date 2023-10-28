@@ -16,8 +16,8 @@ fzf-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {-1}"
 
 [filter]
 last = "--sort modified- --limit 1"
-today = "--created today"
-this-week = "--created-after 'last monday'"
+today = "--created today --sort created"
+this-week = "--sort created --created-after 'last monday'"
 
 [alias]
 amend = "zk edit last $@"
