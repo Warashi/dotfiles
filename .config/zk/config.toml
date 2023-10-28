@@ -1,20 +1,17 @@
 [notebook]
 dir = "~/zettelkasten"
 
-# LSP (EDITOR INTEGRATION)
 [lsp]
-
 [lsp.diagnostics]
-# Report titles of wiki-links as hints.
 wiki-title = "hint"
-# Warn for dead links between notes.
 dead-link = "error"
 
-# EXTERNAL TOOLS
 [tool]
-
-# Pager used to scroll through long output.
 pager = "less -FIRX"
-
-# Command used to preview a note during interactive fzf mode.
 fzf-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {-1}"
+
+[filter]
+last = "--sort modified- --limit 1"
+
+[alias]
+amend = "zk edit last $@"
