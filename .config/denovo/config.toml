@@ -43,3 +43,8 @@ snippet = "exit"
 name = "lazygit"
 keyword = "lg"
 snippet = "lazygit"
+
+[[plugins.abbrev.snippets]]
+name = "zk lazygit"
+keyword = "zl"
+snippet = "zk lazygit"

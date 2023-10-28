@@ -21,4 +21,4 @@ this-week = "--sort created --created-after 'last monday'"
 
 [alias]
 amend = "zk edit last $@"
-lg = "lazygit"
+lazygit = "lazygit"
