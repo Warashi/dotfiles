@@ -12,7 +12,7 @@
     git-lfs
     glow
     gnumake
-    go_1_21
+    go
     htop
     hyperfine
     jq
