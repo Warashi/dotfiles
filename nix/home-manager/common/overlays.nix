@@ -3,30 +3,26 @@
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     inputs.neovim-nightly-overlay.overlay
     (_: prev: {
+      libvterm-neovim = prev.libvterm-neovim.overrideAttrs (_: rec {
+        version = "0.3.3";
+        src = prev.fetchurl {
+          url = "https://launchpad.net/libvterm/trunk/v${prev.lib.versions.majorMinor version}/+download/libvterm-${version}.tar.gz";
+          hash = "sha256-CRVvQ90hKL00fL7r5Q2aVx0yxk4M8Y0hEZeUav9yJuA=";
+        };
+        doCheck = false;
+      });
+    })
+    (final: prev: {
       neovim-unwrapped = prev.neovim-unwrapped.override {
-        stdenv = prev.llvmPackages_latest.stdenv;
+        inherit (prev.llvmPackages_latest) stdenv;
+        inherit (final) libvterm-neovim;
       };
     })
     (_: prev: {
       sheldon =
         prev.sheldon.overrideAttrs
-        (old: rec {
-          inherit (old) pname;
-          version = "0.7.3";
-
-          src = prev.fetchCrate {
-            inherit pname version;
-            sha256 = "sha256-uis3a16bGfycGzjmG6RjSCCgc1x+0LGuKKXX4Cs+NGc=";
-          };
-
-          cargoDeps = old.cargoDeps.overrideAttrs (prev.lib.const {
-            inherit src;
-            name = "${old.pname}-${version}-vendor.tar.gz";
-            outputHash = "sha256-wVB+yL+h90f7NnASDaX5gxT5z45M8I1rxIJwY8uyB4k=";
-          });
-
+        (_: {
           doCheck = false;
-
           meta.platforms = prev.lib.platforms.unix;
         });
     })
