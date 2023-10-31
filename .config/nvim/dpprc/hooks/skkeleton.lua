@@ -3,7 +3,6 @@ local function skkeleton_init()
   vim.fn["skkeleton#config"]({
     globalDictionaries = { "/dev/null" },
     completionRankFile = "~/.config/skkeleton/rank.json",
-    registerConvertResult = true,
     useSkkServer = true,
   })
   vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
