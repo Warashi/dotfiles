@@ -36,6 +36,7 @@
       lsps [{:filetype "*" :name :efmls}
             {:filetype "typescript,typescriptreact" :name :denols}
             {:filetype :fennel :name :fennells}
+            {:filetype :go :name :gopls}
             {:filetype :lua :name :luals}
             {:filetype :markdown :name :zk}
             {:filetype :nix :name :nills}
