@@ -50,7 +50,8 @@
     (vim.api.nvim_create_autocmd :Filetype
                                  {:pattern lsp.filetype
                                   :callback (fn []
-                                              (vim.fn.lspoints#attach lsp.name))
+                                              (when (= vim.o.buftype "")
+                                                (vim.fn.lspoints#attach lsp.name)))
                                   :group id})))
 
 ; }}}
