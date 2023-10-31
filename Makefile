@@ -57,3 +57,6 @@ nix-flake-update:
 .PHONY: setup-dotlink
 setup-dotlink:
 	nix --extra-experimental-features 'nix-command flakes' shell 'nixpkgs/nixos-unstable#go_1_21' 'nixpkgs#gnumake' --command $(MAKE) link-import link-apply
+.PHONY: update-cspell-dict
+update-cspell-dict:
+	cspell --words-only --unique --dot . | sort -u --ignore-case | tr '[:upper:]' '[:lower:]' > ./.cspell/project-words.txt

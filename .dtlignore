@@ -11,3 +11,5 @@
 /stylua.toml
 /taplo.toml
 /vim.toml
+/.cspell/
+/cspell.yaml
