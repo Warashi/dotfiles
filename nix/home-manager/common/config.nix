@@ -48,6 +48,8 @@
       enable = true;
       config = {
         theme = "Catppuccin-latte";
+        wrap = "never";
+        pager = "${pkgs.ov}/bin/ov --quit-if-one-screen -H1 --section-header";
       };
     };
 
