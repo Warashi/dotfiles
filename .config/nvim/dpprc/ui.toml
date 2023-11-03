@@ -9,6 +9,8 @@ repo = 'glacambre/firenvim'
 if = 'exists("g:started_by_firenvim")'
 hook_post_update = 'call firenvim#install(0)'
 hook_add = '''
-  set laststatus=0
-  set showtabline=0
+  if exists('g:started_by_firenvim')
+    set laststatus=0
+    set showtabline=0
+  endif
 '''
