@@ -78,10 +78,11 @@ if dpp#min#load_state(s:dpp_base)
   runtime! plugin/denops.vim
 
   autocmd MyAutoCmd User DenopsReady
-        \ call dpp#make_state(s:dpp_base, '$BASE_DIR/dpp.ts'->expand())
-  autocmd MyAutoCmd User Dpp:makeStatePost
-        \ echohl WarningMsg | echomsg 'dpp make_state() is done' | echohl NONE
+        \ call dpp#make_state(s:dpp_base, '$DPP_CONFIG_BASE/config.ts'->expand())
 endif
+
+autocmd MyAutoCmd User Dpp:makeStatePost
+      \ echohl WarningMsg | echomsg 'dpp make_state() is done' | echohl NONE
 
 command DppMakeState :call dpp#make_state(s:dpp_base, '$DPP_CONFIG_BASE/config.ts')
 command DppInstall :call dpp#async_ext_action('installer', 'install')
