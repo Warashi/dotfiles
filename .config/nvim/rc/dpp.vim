@@ -21,30 +21,6 @@ endfunction
 call InitPlugin('Shougo/dpp.vim')
 call InitPlugin('Shougo/dpp-ext-lazy')
 
-" Install plugin manager automatically.
-for s:plugin in [
-      \ 'Shougo/dpp.vim',
-      \ 'Shougo/dpp-protocol-git',
-      \ 'Shougo/dpp-ext-installer',
-      \ 'Shougo/dpp-ext-toml',
-      \ 'Shougo/dpp-ext-lazy',
-      \ 'vim-denops/denops.vim',
-      \ ]->filter({ _, val ->
-      \           &runtimepath !~# '/' .. val->fnamemodify(':t') })
-  " Search from current directory
-  let s:dir = s:plugin->fnamemodify(':t')->fnamemodify(':p')
-  if !(s:dir->isdirectory())
-    " Search from $CACHE directory
-    let s:dir = $CACHE .. '/dpp/repos/github.com/' .. s:plugin
-    if !(s:dir->isdirectory())
-      execute '!git clone https://github.com/' .. s:plugin s:dir
-    endif
-  endif
-
-  execute 'set runtimepath^='
-        \ .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
-endfor
-
 "---------------------------------------------------------------------------
 " dpp configurations.
 
