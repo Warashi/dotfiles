@@ -60,8 +60,4 @@ endif
 autocmd MyAutoCmd User Dpp:makeStatePost
       \ echohl WarningMsg | echomsg 'dpp make_state() is done' | echohl NONE
 
-command DppMakeState :call dpp#make_state(s:dpp_base, '$DPP_CONFIG_BASE/config.ts')
-command DppInstall :call dpp#async_ext_action('installer', 'install')
-command DppUpdate :call dpp#async_ext_action('installer', 'update')
-
 filetype indent plugin on

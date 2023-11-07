@@ -1,18 +1,27 @@
 [[plugins]]
-# denops
-repo = 'vim-denops/denops.vim'
+# rc/dpp.vim 内で読み込む
+repo = 'Shougo/dpp.vim'
+rtp = ''
+on_cmd = ["DppMakeState", "DppInstall", "DppUpdate"]
+hook_source = '''
+  command! DppMakeState :call dpp#make_state($CACHE .. '/dpp', '$DPP_CONFIG_BASE/config.ts')
+  command! DppInstall :call dpp#async_ext_action('installer', 'install')
+  command! DppUpdate :call dpp#async_ext_action('installer', 'update')
+'''
 
 [[plugins]]
-repo = 'Shougo/dpp.vim'
+# rc/dpp.vim 内で読み込む
+repo = 'Shougo/dpp-ext-lazy'
+rtp = ''
 
 [[plugins]]
 repo = 'Shougo/dpp-protocol-git'
+on_source = 'dpp.vim'
 
 [[plugins]]
 repo = 'Shougo/dpp-ext-installer'
+on_source = 'dpp.vim'
 
 [[plugins]]
 repo = 'Shougo/dpp-ext-toml'
-
-[[plugins]]
-repo = 'Shougo/dpp-ext-lazy'
+on_source = 'dpp.vim'
