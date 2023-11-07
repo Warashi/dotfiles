@@ -63,7 +63,7 @@ export class Config extends BaseConfig {
         "nvim-lsp": {
           mark: "lsp",
           dup: "keep",
-          keywordPattern: "\\k+",
+          keywordPattern: "\\.\\w*|:\\w*|->\\w*",
           sorters: ["sorter_lsp-kind"],
           converters: ["converter_kind_labels"],
         },
