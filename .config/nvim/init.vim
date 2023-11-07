@@ -27,7 +27,8 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-lua if vim.loader then vim.loader.enable() end
+" vim.loader 使った方がなぜか遅いんじゃが…
+" lua if vim.loader then vim.loader.enable() end
 
 let s:base_path = fnamemodify(expand('<sfile>'), ':h')
 
