@@ -28,7 +28,6 @@ deol
 devbox
 direnv
 direnvsource
-doautocmd
 donotpresent
 dpprc
 drun
@@ -36,6 +35,7 @@ dstein
 dtlignore
 dunst
 dyre
+echohl
 efmcmds
 efmls
 eiji
@@ -43,11 +43,11 @@ enulation
 envrc
 ewmh
 fennells
+firenvim
 firx
 fluxctl
 fnamemodify
 fnlfmt
-foldexpr
 foldr
 fseventsd
 ftook
@@ -55,6 +55,7 @@ ftplugin
 fwith
 gcloud
 gitstatusd
+glacambre
 goenv
 golangdesign
 gopls
