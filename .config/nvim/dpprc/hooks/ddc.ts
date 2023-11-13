@@ -22,8 +22,15 @@ export class Config extends BaseConfig {
         "shell-native",
         "mocword",
       ],
-      autoCompleteEvents: [],
-      backspaceCompletion: false,
+      autoCompleteEvents: [
+        "InsertEnter",
+        "TextChangedI",
+        "TextChangedP",
+        "CmdlineEnter",
+        "CmdlineChanged",
+        "TextChangedT",
+      ],
+      backspaceCompletion: true,
       cmdlineSources: {
         ":": ["cmdline", "cmdline-history", "around"],
         "@": ["input", "cmdline-history", "file", "around"],
