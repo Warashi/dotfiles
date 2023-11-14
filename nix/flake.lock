@@ -270,11 +270,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699663185,
-        "narHash": "sha256-hI3CZPINBWstkMN+ptyzWibw5eRtFCiEvO7zR61bGBs=",
+        "lastModified": 1699783872,
+        "narHash": "sha256-4zTwLT2LL45Nmo6iwKB3ls3hWodVP9DiSWxki/oewWE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "691cbcc03af6ad1b5384c0e0e0b5f2298f58c5ce",
+        "rev": "280721186ab75a76537713ec310306f0eba3e407",
         "type": "github"
       },
       "original": {
@@ -360,11 +360,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1699686778,
-        "narHash": "sha256-P0b+cSzWh/KJbGH9SanQZA+KR3V+6per/681kBEVk5M=",
+        "lastModified": 1699915196,
+        "narHash": "sha256-WdbXjMGWZUYYZK+D03nr+4gFTzbzi4QgeSD2r+eKd+g=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "6c3e170e5668e72b2b144a86b4e8278bc70daa48",
+        "rev": "28f4f3c48498086307ed825d1761edb5789ca0e8",
         "type": "github"
       },
       "original": {
@@ -387,11 +387,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699661326,
-        "narHash": "sha256-bR34ECMLU5U6Sx7YuzFUqCHKT5WlHPoA5eX2Ti8GJX4=",
+        "lastModified": 1699834167,
+        "narHash": "sha256-T9SxEnpx2u6abMC4mBLk3sCHsJOUbjJtKeYprF+BHis=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "cd52e910eb75850f2a45f606d85cc14245d45b68",
+        "rev": "c7a539280a90f5f3dccf9ecd740bcabb3c06e861",
         "type": "github"
       },
       "original": {
@@ -407,11 +407,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699569089,
-        "narHash": "sha256-MdOnyXrmMdVU9o7GpcbWKgehoK9L76ihp8rTikPcC1k=",
+        "lastModified": 1699867978,
+        "narHash": "sha256-+arl45HUOcBdKiRGrKXZYXDyBQ6MQGkYPZa/28f6Yzo=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "c8f385766ba076a096caa794309c40f89894d88a",
+        "rev": "e67f2bf515343da378c3f82f098df8ca01bccc5f",
         "type": "github"
       },
       "original": {
@@ -539,11 +539,11 @@
     "skk-jisyo-jawiki": {
       "flake": false,
       "locked": {
-        "lastModified": 1697896766,
-        "narHash": "sha256-SLFiw9cJjm+34pxFQKbNP9eLj7Ut2bP7d0q+mLz2d14=",
+        "lastModified": 1699795519,
+        "narHash": "sha256-jQ78UpVuvwAP8oLkqFN+UgWydo/6jU+Ulr7bcOovO9I=",
         "owner": "tokuhirom",
         "repo": "jawiki-kana-kanji-dict",
-        "rev": "3b68ce1e23a4064f0e5c6e59a2e5ff805502ba30",
+        "rev": "dfc576df7da91982fbc7ee8db0e0d56536fb52e2",
         "type": "github"
       },
       "original": {
