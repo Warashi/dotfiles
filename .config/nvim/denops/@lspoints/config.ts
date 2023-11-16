@@ -10,7 +10,7 @@ import * as config from "../../lspoints/mod.ts";
 export class Extension extends BaseExtension {
   override async initialize(denops: Denops, lspoints: Lspoints) {
     const efmls = {
-      cmd: ["efm-langserver"],
+      cmd: ["efm-langserver", "-q"],
       initializationOptions: {
         documentFormatting: true,
       },
