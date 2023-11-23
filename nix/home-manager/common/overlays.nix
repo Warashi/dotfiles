@@ -80,7 +80,7 @@
         prev.buildGo121Module rec {
           pname = "muscat";
           version = "2.1.2";
-          vendorSha256 = "sha256-cugzXGa74tEk3fgspPcZSZ0viyXg23JL6fKqah1ndlQ=";
+          vendorHash = "sha256-cugzXGa74tEk3fgspPcZSZ0viyXg23JL6fKqah1ndlQ=";
 
           src = prev.fetchFromGitHub {
             owner = "Warashi";
