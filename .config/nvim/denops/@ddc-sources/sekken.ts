@@ -68,9 +68,9 @@ function replaceDoubledConsonant(roman: string): string {
   let result = roman;
   while (true) {
     const old = result;
+    result = result.replace(/n(n|$)/g, "ん");
     result = result.replace(/([bcdfghjklmpqrstvwxyz])\1/, "っ$1");
     result = result.replace(/n([bcdfghjklmpqrstvwxyz])/, "ん$1");
-    result = result.replace(/nn/, "ん");
     if (old === result) {
       return result;
     }
