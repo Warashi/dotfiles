@@ -55,26 +55,17 @@ export class Source extends BaseSource<Params> {
 
 // ローマ字からひらがなに変換する
 function roman2kana(roman: string): string {
-  return roman
-    .split(/(?<=[aiueo])/)
-    .map((roman) => replaceDoubledConsonant(roman))
-    .flatMap((roman) => roman.split(/(?=[\u3040-\u309F]+)/))
-    .flatMap((roman) => roman.split(/(?<=[\u3040-\u309F]+)/))
+  return replaceDoubledConsonant(roman)
+    .split(/((?=[\u3040-\u309F]+)|(?<=[\u3040-\u309F]+)|(?<=[aiueo]))/)
     .map((roman) => kanaTable[roman] ?? roman)
     .join("");
 }
 
 function replaceDoubledConsonant(roman: string): string {
-  let result = roman;
-  while (true) {
-    const old = result;
-    result = result.replace(/n(n|$)/g, "ん");
-    result = result.replace(/([bcdfghjklmpqrstvwxyz])\1/, "っ$1");
-    result = result.replace(/n([bcdfghjklmpqrstvwxyz])/, "ん$1");
-    if (old === result) {
-      return result;
-    }
-  }
+  return roman
+    .replace(/n(n|$)/g, "ん")
+    .replace(/([bcdfghjklmpqrstvwxyz])\1/g, "っ$1")
+    .replace(/n([bcdfghjklmpqrstvwxyz])/g, "ん$1");
 }
 
 function okuri_nasi(from: string): string[] {
@@ -83,13 +74,12 @@ function okuri_nasi(from: string): string[] {
 
 function okuri_ari(from: string): string[] {
   const [left, right] = from.split(/(?<=[A-Z])/);
-  const m = left.match(/^([あ-ん]+)([A-Z])/) ?? [];
-  if (m.length < 2) {
+  const [hira, alpha] = [left.slice(0, -1), left.slice(-1).toLowerCase()];
+  const entries = jisyo.okuri_ari[hira + alpha];
+  if (!entries) {
     return [];
   }
-  return (jisyo.okuri_ari[m[1] + m[2].toLowerCase()] ?? []).map((
-    word,
-  ) => word + roman2kana(m[2].toLowerCase() + (right ?? "")));
+  return entries.map((word) => word + roman2kana(alpha + (right ?? "")));
 }
 
 const kanaTable: Record<string, string> = {
