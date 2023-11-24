@@ -44,6 +44,7 @@ export class Extension extends BaseExtension {
         luals: await config.luals(denops),
         marksman: await config.marksman(denops),
         nills: await config.nills(denops),
+        rust_analyzer: await config.rust_analyzer(denops),
         taplo: await config.taplo(denops),
         vimls: await config.vimls(denops),
         zk: await config.zk(denops),

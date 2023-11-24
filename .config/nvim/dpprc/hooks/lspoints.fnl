@@ -40,6 +40,7 @@
             {:filetype :lua :name :luals}
             {:filetype :markdown :name :zk}
             {:filetype :nix :name :nills}
+            {:filetype :rust :name :rust_analyzer}
             {:filetype :toml :name :taplo}
             {:filetype :vim :name :vimls}]]
   (vim.api.nvim_create_autocmd :User
