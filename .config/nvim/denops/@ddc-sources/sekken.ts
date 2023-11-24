@@ -2,7 +2,20 @@ import {
   BaseSource,
   Context,
   Item,
-} from "https://deno.land/x/ddc_vim@v4.0.4/types.ts";
+} from "https://deno.land/x/ddc_vim@v4.1.0/types.ts";
+import * as u from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+
+const jisyo = u.ensure(
+  JSON.parse(
+    Deno.readTextFileSync(
+      Deno.env.get("HOME") + "/.config/sekken/jisyo/SKK-JISYO.L.json",
+    ),
+  ),
+  u.isObjectOf({
+    okuri_ari: u.isRecordOf(u.isArrayOf(u.isString)),
+    okuri_nasi: u.isRecordOf(u.isArrayOf(u.isString)),
+  }),
+);
 
 export type Params = Record<string | never | symbol, never>;
 
@@ -21,10 +34,17 @@ export class Source extends BaseSource<Params> {
       /[\u3040-\u309F]/g,
       (c) => String.fromCharCode(c.charCodeAt(0) + 96),
     );
+    if (args.completeStr.match(/[A-Z]/)) {
+      return [
+        { word: zenkaku },
+        ...okuri_ari(hiragana).map((word) => ({ word })),
+      ];
+    }
     return [
       { word: hiragana },
       { word: katakana },
       { word: zenkaku },
+      ...okuri_nasi(hiragana).map((word) => ({ word })),
     ];
   }
 
@@ -36,7 +56,6 @@ export class Source extends BaseSource<Params> {
 // ローマ字からひらがなに変換する
 function roman2kana(roman: string): string {
   return roman
-    .toLowerCase()
     .split(/(?<=[aiueo])/)
     .map((roman) => replaceDoubledConsonant(roman))
     .flatMap((roman) => roman.split(/(?=[\u3040-\u309F]+)/))
@@ -50,11 +69,27 @@ function replaceDoubledConsonant(roman: string): string {
   while (true) {
     const old = result;
     result = result.replace(/([bcdfghjklmpqrstvwxyz])\1/, "っ$1");
-    result = result.replace(/n([bcdfghjklmnpqrstvwxyz])/, "ん");
+    result = result.replace(/n([bcdfghjklmpqrstvwxyz])/, "ん$1");
+    result = result.replace(/nn/, "ん");
     if (old === result) {
       return result;
     }
   }
+}
+
+function okuri_nasi(from: string): string[] {
+  return jisyo.okuri_nasi[from] ?? [];
+}
+
+function okuri_ari(from: string): string[] {
+  const [left, right] = from.split(/(?<=[A-Z])/);
+  const m = left.match(/^([あ-ん]+)([A-Z])/) ?? [];
+  if (m.length < 2) {
+    return [];
+  }
+  return (jisyo.okuri_ari[m[1] + m[2].toLowerCase()] ?? []).map((
+    word,
+  ) => word + roman2kana(m[2].toLowerCase() + (right ?? "")));
 }
 
 const kanaTable: Record<string, string> = {
