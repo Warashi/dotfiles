@@ -13,7 +13,7 @@ export class Config extends BaseConfig {
     args.contextBuilder.patchGlobal({
       ui: "pum",
       sources: [
-        "sekka",
+        "sekken",
         "skkeleton",
         "nvim-lsp",
         "buffer",
@@ -105,8 +105,8 @@ export class Config extends BaseConfig {
           sorters: [],
           isVolatile: true,
         },
-        sekka: {
-          mark: "sekka",
+        sekken: {
+          mark: "sekken",
           matchers: [],
           sorters: [],
           isVolatile: true,
