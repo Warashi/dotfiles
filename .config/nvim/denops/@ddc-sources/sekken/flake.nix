@@ -19,8 +19,8 @@
       system: let
         rust-toolchain = with fenix.packages.${system};
           combine [
-            stable.toolchain
-            targets.wasm32-unknown-unknown.stable.rust-std
+            complete.toolchain
+            targets.wasm32-unknown-unknown.latest.rust-std
           ];
         pkgs = nixpkgs.legacyPackages.${system};
       in {

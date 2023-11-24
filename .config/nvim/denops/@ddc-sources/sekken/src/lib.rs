@@ -1,3 +1,5 @@
+mod kana;
+
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -7,10 +9,11 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, {{project-name}}!");
+pub fn init() {
+    console_error_panic_hook::set_once();
 }
 
-pub fn set_panic_hook() {
-    console_error_panic_hook::set_once();
+#[wasm_bindgen]
+pub fn roman2kana(roman: String) -> String {
+    kana::roman2kana(roman)
 }

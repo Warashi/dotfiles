@@ -13,3 +13,6 @@
 /vim.toml
 /.cspell/
 /cspell.yaml
+target/
+.envrc
+.direnv/
