@@ -51,10 +51,11 @@ export class Source extends BaseSource<Params> {
       (c) => String.fromCharCode(c.charCodeAt(0) + 96),
     );
     return [
+      ...okuri_nasi(args.completeStr).map((word) => ({ word })),
+      ...okuri_nasi(hiragana).map((word) => ({ word })),
       { word: hiragana },
       { word: katakana },
       { word: zenkaku },
-      ...okuri_nasi(hiragana).map((word) => ({ word })),
     ];
   }
 
