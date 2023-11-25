@@ -1,9 +1,9 @@
 mod table;
 
-use daachorse::DoubleArrayAhoCorasick;
-
 pub fn roman2kana(roman: String) -> String {
-    let mut it = table::kana_table().leftmost_find_iter(roman.clone()).collect::<Vec<_>>();
+    let mut it = table::kana_table()
+        .leftmost_find_iter(roman.clone())
+        .collect::<Vec<_>>();
     it.reverse();
 
     let mut kana = roman.clone();
