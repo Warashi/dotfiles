@@ -27,21 +27,29 @@ export class Source extends BaseSource<Params> {
     context: Context;
     completeStr: string;
   }): Promise<Item[]> {
+    // 全角変換は常に候補に入れる
     const zenkaku = args.completeStr.replace(
       /[!-~]/g,
       (c) => String.fromCharCode(c.charCodeAt(0) + 0xFEE0),
     );
+
+    // 大文字から先は送り仮名として扱う
+    const idx = args.completeStr.search(/[A-Z]/);
+    if (idx !== -1) {
+      const hiragana = roman2kana(args.completeStr.slice(0, idx));
+      const okuri = args.completeStr.slice(idx).toLowerCase();
+      return [
+        { word: zenkaku },
+        ...okuri_ari(hiragana, okuri).map((word) => ({ word })),
+      ];
+    }
+
+    // 送り仮名なしの場合のみひらがなとカタカナの候補を入れる
     const hiragana = roman2kana(args.completeStr);
     const katakana = hiragana.replace(
       /[\u3040-\u309F]/g,
       (c) => String.fromCharCode(c.charCodeAt(0) + 96),
     );
-    if (args.completeStr.match(/[A-Z]/)) {
-      return [
-        { word: zenkaku },
-        ...okuri_ari(hiragana).map((word) => ({ word })),
-      ];
-    }
     return [
       { word: hiragana },
       { word: katakana },
@@ -64,12 +72,12 @@ function okuri_nasi(from: string): string[] {
   return jisyo.okuri_nasi[from] ?? [];
 }
 
-function okuri_ari(from: string): string[] {
-  const [left, right] = from.split(/(?<=[A-Z])/);
-  const [hira, alpha] = [left.slice(0, -1), left.slice(-1).toLowerCase()];
+function okuri_ari(hira: string, okuri: string): string[] {
+  const alpha = okuri[0];
   const entries = jisyo.okuri_ari[hira + alpha];
   if (!entries) {
     return [];
   }
-  return entries.map((word) => word + roman2kana(alpha + (right ?? "")));
+  return entries.map((word) => word + roman2kana(okuri));
 }
+
