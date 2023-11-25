@@ -104,12 +104,14 @@ export class Config extends BaseConfig {
           matchers: ["skkeleton"],
           sorters: [],
           isVolatile: true,
+          minAutoCompleteLength: 1,
         },
         sekken: {
           mark: "sekken",
           matchers: [],
           sorters: [],
           isVolatile: true,
+          minAutoCompleteLength: 1,
         },
       },
       sourceParams: {
