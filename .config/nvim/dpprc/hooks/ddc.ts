@@ -112,6 +112,7 @@ export class Config extends BaseConfig {
           sorters: [],
           isVolatile: true,
           minAutoCompleteLength: 1,
+          keywordPattern: "[-<>\\w]+",
         },
       },
       sourceParams: {
