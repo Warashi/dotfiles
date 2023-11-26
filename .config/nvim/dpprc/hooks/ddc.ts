@@ -23,7 +23,7 @@ export class Config extends BaseConfig {
         "shell-native",
         "mocword",
       ],
-      autoCompleteDelay: 15,
+      autoCompleteDelay: 100,
       autoCompleteEvents: [
         "InsertEnter",
         "TextChangedI",
