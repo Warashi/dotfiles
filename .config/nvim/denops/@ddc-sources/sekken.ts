@@ -84,7 +84,6 @@ function kanaHenkan(roman: string): string[] {
 
 function kanjiHenkan(roman: string): string[] {
   const from = roman[0].toLowerCase() + roman.slice(1);
-  console.log(from);
   const idx = from.search(/[A-Z]/);
   switch (idx) {
     case -1: {
