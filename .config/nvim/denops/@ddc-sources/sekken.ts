@@ -27,40 +27,79 @@ export class Source extends BaseSource<Params> {
     context: Context;
     completeStr: string;
   }): Promise<Item[]> {
-    // 全角変換は常に候補に入れる
-    const zenkaku = args.completeStr.replace(
-      /[!-~]/g,
-      (c) => String.fromCharCode(c.charCodeAt(0) + 0xFEE0),
-    );
-
-    // 大文字から先は送り仮名として扱う
-    const idx = args.completeStr.search(/[A-Z]/);
-    if (idx !== -1) {
-      const hiragana = roman2kana(args.completeStr.slice(0, idx));
-      const okuri = args.completeStr.slice(idx).toLowerCase();
-      return [
-        { word: zenkaku },
-        ...okuri_ari(hiragana, okuri).map((word) => ({ word })),
-      ];
-    }
-
-    // 送り仮名なしの場合のみひらがなとカタカナの候補を入れる
-    const hiragana = roman2kana(args.completeStr);
-    const katakana = hiragana.replace(
-      /[\u3040-\u309F]/g,
-      (c) => String.fromCharCode(c.charCodeAt(0) + 96),
-    );
-    return [
-      ...okuri_nasi(args.completeStr).map((word) => ({ word })),
-      ...okuri_nasi(hiragana).map((word) => ({ word })),
-      { word: hiragana },
-      { word: katakana },
-      { word: zenkaku },
-    ];
+    return henkan(args.completeStr).map((word) => ({ word }));
   }
 
   override params(): Params {
     return {};
+  }
+}
+
+function henkan(roman: string): string[] {
+  // 全角変換は常に候補に入れる
+  const zenkaku = roman.replace(
+    /[!-~]/g,
+    (c) => String.fromCharCode(c.charCodeAt(0) + 0xFEE0),
+  );
+
+  const idx = roman.search(/[A-Z]/);
+  switch (idx) {
+    case -1: {
+      // 漢字の候補を入れない
+      return [
+        ...kanaHenkan(roman),
+        zenkaku,
+      ];
+    }
+    case 0: {
+      // 漢字の候補を入れる
+      return [
+        ...kanjiHenkan(roman),
+        zenkaku,
+      ];
+    }
+    default: {
+      // 最初の大文字まではひらがなに変換してから漢字の候補を入れる
+      const hiragana = roman2kana(roman.slice(0, idx));
+      return [
+        ...kanjiHenkan(roman.slice(idx)).map((word) => hiragana + word),
+        zenkaku,
+      ];
+    }
+  }
+}
+
+function kanaHenkan(roman: string): string[] {
+  const hiragana = roman2kana(roman);
+  const katakana = hiragana.replace(
+    /[\u3040-\u309F]/g,
+    (c) => String.fromCharCode(c.charCodeAt(0) + 96),
+  );
+  return [
+    hiragana,
+    katakana,
+    ...okuri_nasi(roman),
+  ];
+}
+
+function kanjiHenkan(roman: string): string[] {
+  const from = roman[0].toLowerCase() + roman.slice(1);
+  console.log(from);
+  const idx = from.search(/[A-Z]/);
+  switch (idx) {
+    case -1: {
+      // 送り仮名なし
+      return [
+        ...okuri_nasi(roman2kana(from)),
+        ...okuri_nasi(roman),
+      ];
+    }
+    default: {
+      // 送り仮名あり
+      const hiragana = roman2kana(from.slice(0, idx));
+      const okuri = from.slice(idx).toLowerCase();
+      return okuri_ari(hiragana, okuri);
+    }
   }
 }
 
@@ -81,4 +120,3 @@ function okuri_ari(hira: string, okuri: string): string[] {
   }
   return entries.map((word) => word + roman2kana(okuri));
 }
-
