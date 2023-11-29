@@ -87,17 +87,20 @@ function kanjiHenkan(roman: string): string[] {
   const idx = from.search(/[A-Z]/);
   switch (idx) {
     case -1: {
-      // 送り仮名なし
+      // 後続のひらがななし
       return [
         ...okuri_nasi(roman2kana(from)),
         ...okuri_nasi(roman),
       ];
     }
     default: {
-      // 送り仮名あり
+      // 後続のひらがなあり
       const hiragana = roman2kana(from.slice(0, idx));
       const okuri = from.slice(idx).toLowerCase();
-      return okuri_ari(hiragana, okuri);
+      return [
+        ...okuri_ari(hiragana, okuri),
+        ...okuri_nasi(hiragana).map((word) => word + roman2kana(okuri)),
+      ];
     }
   }
 }
