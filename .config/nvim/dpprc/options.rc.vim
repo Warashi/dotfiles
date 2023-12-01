@@ -7,7 +7,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set clipboard+=unnamedplus
-set signcolumn=yes
+set signcolumn=no
 set noshowmode
 set cmdheight=1
 set laststatus=3
