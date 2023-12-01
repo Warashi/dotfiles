@@ -15,7 +15,7 @@ export class Config extends BaseConfig {
       sources: [
         "sekken",
         "skkeleton",
-        "nvim-lsp",
+        "lsp",
         "buffer",
         "around",
         "file",
@@ -69,7 +69,7 @@ export class Config extends BaseConfig {
           mark: "line",
           matchers: ["matcher_vimregexp"],
         },
-        "nvim-lsp": {
+        lsp: {
           mark: "lsp",
           dup: "keep",
           keywordPattern: "\\.\\w*|:\\w*|->\\w*",
@@ -120,7 +120,7 @@ export class Config extends BaseConfig {
         "shell-native": {
           shell: "zsh",
         },
-        "nvim-lsp": {
+        lsp: {
           confirmBehavior: "replace",
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
