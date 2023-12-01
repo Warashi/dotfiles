@@ -6,6 +6,7 @@ import {
 import * as u from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
 import * as rs from "./sekken/pkg/sekken.js";
 rs.init();
+rs.use_default_kana_table();
 
 const jisyo = u.ensure(
   JSON.parse(

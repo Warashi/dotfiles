@@ -120,6 +120,12 @@ export function roman2kana(roman) {
     }
 }
 
+/**
+*/
+export function use_default_kana_table() {
+    wasm.use_default_kana_table();
+}
+
 function addHeapObject(obj) {
     if (heap_next === heap.length) heap.push(heap.length + 1);
     const idx = heap_next;
