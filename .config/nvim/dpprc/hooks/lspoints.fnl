@@ -33,8 +33,7 @@
         (vim.keymap.set map.mode map.key map.callback {:buffer true})))))
 
 (let [id (vim.api.nvim_create_augroup :MyAutoCmdLspoints {})
-      lsps [{:filetype "*" :name :efmls}
-            {:filetype "typescript,typescriptreact" :name :denols}
+      lsps [{:filetype "typescript,typescriptreact" :name :denols}
             {:filetype :fennel :name :fennells}
             {:filetype :go :name :gopls}
             {:filetype :lua :name :luals}
