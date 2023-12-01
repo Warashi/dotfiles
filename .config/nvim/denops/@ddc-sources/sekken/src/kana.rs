@@ -2,24 +2,40 @@ mod table;
 
 use daachorse::{DoubleArrayAhoCorasick, DoubleArrayAhoCorasickBuilder, MatchKind};
 
-pub struct KanaTable<'a> {
-    table: DoubleArrayAhoCorasick<&'a str>,
+pub struct KanaTable {
+    table: DoubleArrayAhoCorasick<usize>,
+    values: Vec<String>,
 }
 
-impl<'a> KanaTable<'a> {
-    pub fn new<I>(patvals: I) -> Option<KanaTable<'a>>
+impl KanaTable {
+    pub fn new<I>(patvals: I) -> Option<KanaTable>
     where
-        I: IntoIterator<Item = (&'a str, &'a str)>,
+        I: IntoIterator<Item = (String, String)>,
     {
-        let ac = DoubleArrayAhoCorasickBuilder::new()
+        let patvals = patvals.into_iter().collect::<Vec<_>>();
+        let values = patvals
+            .clone()
+            .into_iter()
+            .map(|(_, val)| val)
+            .collect::<Vec<_>>();
+        let table = patvals
+            .clone()
+            .into_iter()
+            .enumerate()
+            .map(|(i, (pat, _))| (pat, i))
+            .collect::<Vec<_>>();
+        let table = DoubleArrayAhoCorasickBuilder::new()
             .match_kind(MatchKind::LeftmostLongest)
-            .build_with_values(patvals)
+            .build_with_values(table)
             .ok()?;
 
-        return Some(KanaTable { table: ac });
+        return Some(KanaTable {
+            table: table,
+            values: values,
+        });
     }
 
-    pub fn default() -> Option<KanaTable<'a>> {
+    pub fn default() -> Option<KanaTable> {
         return KanaTable::new(table::default());
     }
 
@@ -32,7 +48,7 @@ impl<'a> KanaTable<'a> {
 
         let mut kana = roman.clone();
         for m in it {
-            kana.replace_range(m.start()..m.end(), m.value());
+            kana.replace_range(m.start()..m.end(), self.values[m.value()].as_str());
         }
         return kana;
     }

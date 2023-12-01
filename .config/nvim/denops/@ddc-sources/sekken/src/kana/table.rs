@@ -1,5 +1,5 @@
-pub fn default<'a>() -> Vec<(&'a str, &'a str)> {
-    vec![
+pub fn default() -> Vec<(String, String)> {
+    (vec![
         ("!", "！"),
         (",", "、"),
         ("-", "ー"),
@@ -242,5 +242,8 @@ pub fn default<'a>() -> Vec<(&'a str, &'a str)> {
         ("zyo", "じょ"),
         ("zyu", "じゅ"),
         ("z", "っ"),
-    ]
+    ])
+    .into_iter()
+    .map(|(a, b)| (a.to_string(), b.to_string()))
+    .collect()
 }

@@ -11,3 +11,7 @@ export function roman2kana(roman: string): string;
 /**
 */
 export function use_default_kana_table(): void;
+/**
+* @param {any} map
+*/
+export function use_kana_table(map: any): void;
