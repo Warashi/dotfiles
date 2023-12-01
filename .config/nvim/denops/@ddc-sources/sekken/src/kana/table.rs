@@ -1,13 +1,6 @@
 use daachorse::{DoubleArrayAhoCorasick, DoubleArrayAhoCorasickBuilder, MatchKind};
-use std::sync::OnceLock;
 
-static KANA_TABLE: OnceLock<DoubleArrayAhoCorasick<&str>> = OnceLock::new();
-
-pub fn kana_table() -> &'static DoubleArrayAhoCorasick<&'static str> {
-    KANA_TABLE.get_or_init(|| gen_kana_table())
-}
-
-fn gen_kana_table() -> DoubleArrayAhoCorasick<&'static str> {
+pub fn gen_kana_table() -> DoubleArrayAhoCorasick<&'static str> {
     return DoubleArrayAhoCorasickBuilder::new()
         .match_kind(MatchKind::LeftmostLongest)
         .build_with_values(vec![
