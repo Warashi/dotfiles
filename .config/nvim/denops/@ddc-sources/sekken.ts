@@ -3,7 +3,7 @@ import {
   Context,
   Item,
 } from "https://deno.land/x/ddc_vim@v4.1.0/types.ts";
-import * as rs from "./sekken/pkg/sekken.js";
+import * as rs from "./sekken/wasm/pkg/sekken_wasm.js";
 rs.init();
 rs.use_default_kana_table();
 
