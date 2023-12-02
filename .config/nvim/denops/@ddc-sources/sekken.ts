@@ -20,7 +20,7 @@ const jisyo = u.ensure(
   }),
 );
 
-export type Params = Record<string | never | symbol, never>;
+export type Params = Record<string | number | symbol, never>;
 
 export class Source extends BaseSource<Params> {
   // deno-lint-ignore require-await
