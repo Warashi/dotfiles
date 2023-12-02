@@ -14,4 +14,8 @@ export function use_default_kana_table(): void;
 /**
 * @param {any} map
 */
-export function use_kana_table(map: any): void;
+export function set_kana_table(map: any): void;
+/**
+* @param {any} dict
+*/
+export function set_skk_dictionary(dict: any): void;

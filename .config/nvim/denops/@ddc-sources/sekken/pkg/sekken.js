@@ -217,8 +217,15 @@ export function use_default_kana_table() {
 /**
 * @param {any} map
 */
-export function use_kana_table(map) {
-    wasm.use_kana_table(addHeapObject(map));
+export function set_kana_table(map) {
+    wasm.set_kana_table(addHeapObject(map));
+}
+
+/**
+* @param {any} dict
+*/
+export function set_skk_dictionary(dict) {
+    wasm.set_skk_dictionary(addHeapObject(dict));
 }
 
 function handleError(f, args) {
@@ -251,6 +258,18 @@ const imports = {
             const ret = typeof(val) === 'object' && val !== null;
             return ret;
         },
+        __wbindgen_is_undefined: function(arg0) {
+            const ret = getObject(arg0) === undefined;
+            return ret;
+        },
+        __wbindgen_in: function(arg0, arg1) {
+            const ret = getObject(arg0) in getObject(arg1);
+            return ret;
+        },
+        __wbindgen_object_clone_ref: function(arg0) {
+            const ret = getObject(arg0);
+            return addHeapObject(ret);
+        },
         __wbindgen_jsval_loose_eq: function(arg0, arg1) {
             const ret = getObject(arg0) == getObject(arg1);
             return ret;
@@ -265,6 +284,14 @@ const imports = {
             const ret = typeof(obj) === 'number' ? obj : undefined;
             getFloat64Memory0()[arg0 / 8 + 1] = isLikeNone(ret) ? 0 : ret;
             getInt32Memory0()[arg0 / 4 + 0] = !isLikeNone(ret);
+        },
+        __wbindgen_string_new: function(arg0, arg1) {
+            const ret = getStringFromWasm0(arg0, arg1);
+            return addHeapObject(ret);
+        },
+        __wbg_getwithrefkey_3b3c46ba20582127: function(arg0, arg1) {
+            const ret = getObject(arg0)[getObject(arg1)];
+            return addHeapObject(ret);
         },
         __wbg_get_4a9aa5157afeb382: function(arg0, arg1) {
             const ret = getObject(arg0)[arg1 >>> 0];
@@ -306,6 +333,10 @@ const imports = {
             const ret = getObject(arg0).call(getObject(arg1));
             return addHeapObject(ret);
         }, arguments) },
+        __wbg_isArray_38525be7442aa21e: function(arg0) {
+            const ret = Array.isArray(getObject(arg0));
+            return ret;
+        },
         __wbg_instanceof_ArrayBuffer_c7cc317e5c29cc0d: function(arg0) {
             let result;
             try {

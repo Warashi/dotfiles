@@ -1,3 +1,4 @@
+mod dictionary;
 mod kana;
 
 use std::cell::RefCell;
@@ -7,6 +8,7 @@ use wasm_bindgen::prelude::*;
 
 thread_local! {
     static KANA_TABLE: RefCell<Option<kana::KanaTable>> = RefCell::new(None);
+    static SKK_DICTIONARY: RefCell<Option<dictionary::SKKDictionary>> = RefCell::new(None);
 }
 
 #[wasm_bindgen]
@@ -28,7 +30,7 @@ pub fn roman2kana(roman: String) -> String {
     })
 }
 
-fn set_kana_table(map: kana::KanaTable) {
+fn replace_kana_table(map: kana::KanaTable) {
     if let Some(map) = KANA_TABLE.replace(Some(map)) {
         drop(map);
     }
@@ -37,12 +39,24 @@ fn set_kana_table(map: kana::KanaTable) {
 #[wasm_bindgen]
 pub fn use_default_kana_table() {
     let kana_table = kana::KanaTable::default().unwrap();
-    set_kana_table(kana_table);
+    replace_kana_table(kana_table);
 }
 
 #[wasm_bindgen]
-pub fn use_kana_table(map: JsValue) {
+pub fn set_kana_table(map: JsValue) {
     let map: HashMap<String, String> = serde_wasm_bindgen::from_value(map).unwrap();
     let kana_table = kana::KanaTable::new(map).unwrap();
-    set_kana_table(kana_table);
+    replace_kana_table(kana_table);
+}
+
+fn replace_skk_dictionary(dict: dictionary::SKKDictionary) {
+    if let Some(dict) = SKK_DICTIONARY.replace(Some(dict)) {
+        drop(dict);
+    }
+}
+
+#[wasm_bindgen]
+pub fn set_skk_dictionary(dict: JsValue) {
+    let dict: dictionary::SKKDictionary = serde_wasm_bindgen::from_value(dict).unwrap();
+    replace_skk_dictionary(dict);
 }
