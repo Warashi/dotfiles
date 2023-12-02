@@ -29,10 +29,7 @@ impl KanaTable {
             .build_with_values(table)
             .ok()?;
 
-        return Some(KanaTable {
-            table: table,
-            values: values,
-        });
+        return Some(KanaTable { table, values });
     }
 
     pub fn default() -> Option<KanaTable> {
