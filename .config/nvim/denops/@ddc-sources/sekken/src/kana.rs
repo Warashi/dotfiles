@@ -2,6 +2,7 @@ mod table;
 
 use daachorse::{DoubleArrayAhoCorasick, DoubleArrayAhoCorasickBuilder, MatchKind};
 
+#[derive(Clone)]
 pub struct KanaTable {
     table: DoubleArrayAhoCorasick<usize>,
     values: Vec<String>,

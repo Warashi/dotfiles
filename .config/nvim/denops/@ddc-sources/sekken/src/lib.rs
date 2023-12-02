@@ -1,5 +1,6 @@
-mod dictionary;
-mod kana;
+pub(crate) mod dictionary;
+pub(crate) mod kana;
+mod sekken;
 
 use std::cell::RefCell;
 use std::collections::HashMap;
@@ -7,6 +8,7 @@ use std::option::Option;
 use wasm_bindgen::prelude::*;
 
 thread_local! {
+    static SEKKEN: sekken::Sekken = sekken::Sekken::new();
     static KANA_TABLE: RefCell<Option<kana::KanaTable>> = RefCell::new(None);
     static SKK_DICTIONARY: RefCell<Option<dictionary::SKKDictionary>> = RefCell::new(None);
 }
@@ -31,9 +33,12 @@ pub fn roman2kana(roman: String) -> String {
 }
 
 fn replace_kana_table(map: kana::KanaTable) {
-    if let Some(map) = KANA_TABLE.replace(Some(map)) {
+    if let Some(map) = KANA_TABLE.replace(Some(map.clone())) {
         drop(map);
     }
+    SEKKEN.with(|sekken| {
+        sekken.replace_kana_table(map);
+    });
 }
 
 #[wasm_bindgen]
@@ -50,9 +55,12 @@ pub fn set_kana_table(map: JsValue) {
 }
 
 fn replace_skk_dictionary(dict: dictionary::SKKDictionary) {
-    if let Some(dict) = SKK_DICTIONARY.replace(Some(dict)) {
+    if let Some(dict) = SKK_DICTIONARY.replace(Some(dict.clone())) {
         drop(dict);
     }
+    SEKKEN.with(|sekken| {
+        sekken.replace_dictionary(dict);
+    });
 }
 
 #[wasm_bindgen]
