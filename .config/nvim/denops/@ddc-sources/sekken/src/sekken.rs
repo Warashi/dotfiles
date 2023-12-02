@@ -25,14 +25,17 @@ impl Sekken {
     }
 
     pub fn henkan(&self, roman: String) -> Vec<String> {
-        let zenkaku = vec![self.zenkaku_henkan(roman.clone())];
+        let default = self
+            .roman_henkan(roman.clone())
+            .into_iter()
+            .chain(vec![self.zenkaku_henkan(roman.clone())]);
 
         let idx = self.search_upper(roman.clone());
         match idx {
             Some(0) => self
                 .kanji_henkan(roman.clone())
                 .into_iter()
-                .chain(zenkaku)
+                .chain(default)
                 .collect(),
             Some(i) => {
                 let (hira, kanji) = roman.split_at(i);
@@ -41,10 +44,10 @@ impl Sekken {
                 kanji
                     .into_iter()
                     .map(|s| hira.clone() + &s)
-                    .chain(zenkaku)
+                    .chain(default)
                     .collect()
             }
-            None => self.kana_henkan(roman).into_iter().chain(zenkaku).collect(),
+            None => self.kana_henkan(roman).into_iter().chain(default).collect(),
         }
     }
 
@@ -63,7 +66,7 @@ impl Sekken {
     fn roman_henkan(&self, roman: String) -> Vec<String> {
         let dict = self.dictionary.borrow();
         let dict = dict.as_ref().unwrap();
-        dict.okuri_nasi.get(&roman).unwrap().clone()
+        dict.okuri_nasi.get(&roman).unwrap_or(&Vec::new()).clone()
     }
 
     fn kana_henkan(&self, roman: String) -> Vec<String> {
@@ -94,11 +97,14 @@ impl Sekken {
         match self.search_upper(roman.clone()) {
             Some(i) => {
                 let (hira, okuri) = roman.split_at(i);
+                let hira = self.hira_kana_henkan(hira.to_string());
+                let okuri = okuri.to_lowercase();
+                let okuri_hira = self.hira_kana_henkan(okuri.to_string());
                 let okuri_ari = self.okuri_ari_henkan(hira.to_string(), okuri.to_string());
                 let okuri_nashi = self
                     .okuri_nasi_henkan(hira.to_string())
                     .into_iter()
-                    .map(|s| s + &okuri);
+                    .map(|s| s + &okuri_hira);
                 okuri_ari.into_iter().chain(okuri_nashi).collect()
             }
             None => self.okuri_nasi_henkan(roman),
@@ -113,7 +119,7 @@ impl Sekken {
             .unwrap()
             .okuri_nasi
             .get(&kana)
-            .unwrap()
+            .unwrap_or(&Vec::new())
             .clone()
     }
 
@@ -127,7 +133,7 @@ impl Sekken {
             .unwrap()
             .okuri_ari
             .get(&key)
-            .unwrap()
+            .unwrap_or(&Vec::new())
             .clone()
             .into_iter()
             .map(|s| s + &okuri)
