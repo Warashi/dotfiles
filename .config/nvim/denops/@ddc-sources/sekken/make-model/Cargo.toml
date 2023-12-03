@@ -7,3 +7,4 @@ edition = "2021"
 bzip2 = "0.4.4"
 utf8-read = "0.4.0"
 sekken-model = { path = "../model" }
+sekken-core = { path = "../core" }

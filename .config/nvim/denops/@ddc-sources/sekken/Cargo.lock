@@ -197,6 +197,7 @@ name = "sekken-make-model"
 version = "0.1.0"
 dependencies = [
  "bzip2",
+ "sekken-core",
  "sekken-model",
  "utf8-read",
 ]
