@@ -7,3 +7,4 @@ edition = "2021"
 daachorse = "1.0.0"
 serde = { version = "1.0.193", features = ["derive"] }
 sekken-model = { path = "../model" }
+anyhow = "1.0.75"
