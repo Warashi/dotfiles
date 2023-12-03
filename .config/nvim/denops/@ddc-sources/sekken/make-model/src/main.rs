@@ -1,7 +1,8 @@
+use std::io::{BufWriter, Write};
+
 use bzip2::read::MultiBzDecoder;
-use sekken_model::Model;
-use std::collections::HashMap;
-use std::io::{Write, BufWriter};
+
+use sekken_model::NormalModel;
 
 fn main() {
     let input = std::io::stdin();
@@ -10,10 +11,7 @@ fn main() {
     let mut input = utf8_read::Reader::new(input);
     let mut pre: Option<char> = None;
 
-    let mut model = Model {
-        char_cost: HashMap::<u32, u128>::new(),
-        bigram_cost: HashMap::<u64, u128>::new(),
-    };
+    let mut model = NormalModel::new();
 
     for ch in input.into_iter() {
         if let Ok(c) = ch {
@@ -21,15 +19,10 @@ fn main() {
                 continue;
             }
 
-            let ch_cost = model.char_cost.entry(c as u32).or_insert(0);
-            *ch_cost += 1;
+            model.increment_unigram_cost(c);
 
             if let Some(p) = pre {
-                let bg_cost = model
-                    .bigram_cost
-                    .entry(((p as u64) << 32) + (c as u64))
-                    .or_insert(0);
-                *bg_cost += 1;
+                model.increment_bigram_cost(p, c);
             }
 
             pre = Some(c);
@@ -40,7 +33,7 @@ fn main() {
     let output = std::io::stdout();
     let mut output = BufWriter::new(output);
 
-    model.save(&mut output).unwrap();
+    model.compact().save(&mut output).unwrap();
     output.flush().unwrap();
 }
 

@@ -4,5 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+anyhow = "1.0.75"
 rmp-serde = "1.1.2"
 serde = { version = "1.0.193", features = ["derive"] }
+zstd = { version = "0.13.0", features = ["wasm"] }
