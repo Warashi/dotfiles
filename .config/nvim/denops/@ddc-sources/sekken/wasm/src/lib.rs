@@ -1,9 +1,10 @@
-pub(crate) mod dictionary;
-pub(crate) mod kana;
-mod sekken;
-
 use std::collections::HashMap;
+
 use wasm_bindgen::prelude::*;
+
+use sekken_core::dictionary;
+use sekken_core::kana;
+use sekken_core::sekken;
 
 thread_local! {
     static SEKKEN: sekken::Sekken = sekken::Sekken::new();

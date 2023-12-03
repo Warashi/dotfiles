@@ -1,0 +1,9 @@
+[package]
+name = "sekken-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+daachorse = "1.0.0"
+serde = { version = "1.0.193", features = ["derive"] }
+sekken-model = { path = "../model" }

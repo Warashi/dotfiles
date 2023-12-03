@@ -1,0 +1,7 @@
+[package]
+name = "sekken-poc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sekken-model = { path = "../model" }
