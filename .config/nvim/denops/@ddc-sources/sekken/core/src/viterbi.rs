@@ -50,10 +50,16 @@ where
 
     pub fn calculate(&mut self, top_n: usize) -> Result<BTreeMap<u16, Vec<T>>> {
         if self.result.is_some() {
-            return self.clone().result.context("result");
+            return self.result.clone().context("result");
         }
 
         let mut result = BTreeMap::new();
+
+        if self.left.is_empty() {
+            result.insert(self.score as u16, vec![self.value.clone()]);
+            self.result = Some(result.clone());
+            return Ok(result);
+        }
 
         for edge in &self.left {
             let left_result = edge
@@ -71,10 +77,10 @@ where
                     result.insert(score, values);
                 } else {
                     let r2 = result.clone();
-                    let max_score = r2.keys().max().context("min score")?;
+                    let min_score = r2.keys().min().context("min score")?;
 
-                    if score > *max_score {
-                        result.remove(&max_score);
+                    if score < *min_score {
+                        result.remove(&min_score);
                         result.insert(score, values);
                     }
                 }

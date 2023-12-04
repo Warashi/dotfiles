@@ -5,3 +5,6 @@ edition = "2021"
 
 [dependencies]
 sekken-model = { path = "../model" }
+sekken-core = { path = "../core" }
+serde_json = "1.0.108"
+anyhow = "1.0.75"

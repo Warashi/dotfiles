@@ -33,10 +33,6 @@ impl Lattice {
         Lattice { entries }
     }
 
-    pub fn push(&mut self, entries: Vec<Entry>) {
-        self.entries.push(entries);
-    }
-
     pub fn viterbi(&self, model: &CompactModel, top_n: usize) -> Result<Vec<(u16, String)>> {
         if self.entries.is_empty() {
             return Ok(Vec::new());
@@ -51,9 +47,8 @@ impl Lattice {
             for left_entry in left {
                 for right_entry in right {
                     let score = model.get_bigram_cost(left_entry.tail_han, right_entry.head_han);
-                    let right_node = right_entry.node.clone();
+                    let mut right_node = right_entry.node.borrow_mut();
                     right_node
-                        .borrow_mut()
                         .add_left(left_entry.node.clone(), score);
                 }
             }
@@ -62,8 +57,7 @@ impl Lattice {
         }
 
         let result = last
-            .borrow()
-            .clone()
+            .borrow_mut()
             .calculate(top_n)
             .context("failed to calculate viterbi")?;
 

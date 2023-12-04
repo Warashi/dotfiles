@@ -34,6 +34,10 @@ impl Sekken {
         self.dictionary.replace(Some(dictionary));
     }
 
+    pub fn replace_model(&self, model: CompactModel) {
+        self.model.replace(Some(model));
+    }
+
     pub fn henkan(&self, roman: String) -> Vec<String> {
         let default = self
             .roman_henkan(roman.clone())
@@ -155,24 +159,25 @@ impl Sekken {
     }
 
     fn split_upper(&self, roman: String) -> Vec<String> {
-        let mut result = Vec::new();
-        let mut roman = roman;
-        loop {
-            match self.search_upper(roman.clone()) {
-                Some(i) => {
-                    let (head, tail) = roman.split_at(i);
-                    result.push(head.to_string());
-                    roman = tail.to_string();
+        let mut words = Vec::new();
+        let mut word = String::new();
+        for c in roman.chars() {
+            if c.is_uppercase() {
+                if !word.is_empty() {
+                    words.push(word);
                 }
-                None => {
-                    result.push(roman);
-                    return result;
-                }
+                word = c.to_string();
+            } else {
+                word += &c.to_string();
             }
         }
+        if !word.is_empty() {
+            words.push(word);
+        }
+        words
     }
 
-    fn viterbi_henkan(&self, roman: String, top_n: usize) -> Result<Vec<String>> {
+    pub fn viterbi_henkan(&self, roman: String, top_n: usize) -> Result<Vec<String>> {
         let default = self
             .roman_henkan(roman.clone())
             .into_iter()
@@ -206,16 +211,21 @@ impl Sekken {
             .clone()
             .into_iter()
             .zip(words.into_iter().chain(vec!["".to_string()]).skip(1))
-            .map(|(kanji, kana)| self.get_candidates(kanji.clone(), kana.clone()))
             .enumerate()
-            .map(|(i, s)| {
+            .filter(|(i, _)| i % 2 == 0)
+            .map(|(_, (kanji, kana))| self.get_candidates(kanji.clone(), kana.clone()))
+            .map(|s| {
                 s.into_iter()
-                    .map(|s| {
+                    .enumerate()
+                    .map(|(i, s)| {
                         let hans = s
                             .chars()
                             .into_iter()
                             .filter(|c| is_han(c.clone()))
                             .collect::<Vec<char>>();
+                        if hans.is_empty() {
+                            return lattice::Entry::new(Node::new(s, i as u8), '\0', '\0');
+                        }
                         let (head_han, tail_han) = (hans[0].clone(), hans[hans.len() - 1].clone());
                         lattice::Entry::new(Node::new(s, i as u8), head_han, tail_han)
                     })
@@ -226,11 +236,23 @@ impl Sekken {
         Ok(lattice)
     }
 
-    fn get_candidates(&self, kanji: String, kana: String) -> Vec<String> {
-        if kana.is_empty() {
-            self.okuri_nasi_henkan(kanji)
+    fn get_candidates(&self, kanji: String, okuri: String) -> Vec<String> {
+        let (kanji, okuri) = (kanji.to_lowercase(), okuri.to_lowercase());
+        if okuri.is_empty() {
+            self.okuri_nasi_henkan(kanji.clone())
+                .into_iter()
+                .chain(self.kana_henkan(kanji))
+                .collect()
         } else {
-            self.okuri_ari_henkan(kanji, kana)
+            let kanji = self.hira_kana_henkan(kanji.to_string());
+            let okuri = okuri.to_lowercase();
+            let okuri_hira = self.hira_kana_henkan(okuri.to_string());
+            let okuri_ari = self.okuri_ari_henkan(kanji.to_string(), okuri.to_string());
+            let okuri_nashi = self
+                .okuri_nasi_henkan(kanji.to_string())
+                .into_iter()
+                .map(|s| s + &okuri_hira);
+            okuri_ari.into_iter().chain(okuri_nashi).collect()
         }
     }
 }
