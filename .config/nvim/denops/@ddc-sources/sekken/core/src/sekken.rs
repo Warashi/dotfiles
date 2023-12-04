@@ -1,7 +1,9 @@
+use std::cell::RefCell;
+
 use crate::dictionary::SKKDictionary;
 use crate::kana::KanaTable;
 
-use std::cell::RefCell;
+mod lattice;
 
 pub struct Sekken {
     pub kana_table: RefCell<Option<KanaTable>>,

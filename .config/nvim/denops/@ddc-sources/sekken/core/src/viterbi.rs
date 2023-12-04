@@ -31,21 +31,21 @@ impl<T> Node<T>
 where
     T: Clone,
 {
-    pub fn new(value: T) -> Rc<RefCell<Self>> {
-        Rc::new(RefCell::new(Self::new_node(value)))
+    pub fn new(value: T, score: u8) -> Rc<RefCell<Self>> {
+        Rc::new(RefCell::new(Self::new_node(value, score)))
     }
 
-    fn new_node(value: T) -> Self {
+    fn new_node(value: T, score: u8) -> Self {
         Self {
             value,
-            score: 0,
+            score,
             left: Vec::new(),
             result: None,
         }
     }
 
-    pub fn add_right(&mut self, score: u8, right: Rc<RefCell<Node<T>>>) {
-        self.left.push(Edge { score, left: right });
+    pub fn add_left(&mut self, left: Rc<RefCell<Self>>, score: u8) {
+        self.left.push(Edge { score, left });
     }
 
     pub fn calculate(&mut self, top_n: usize) -> Result<BTreeMap<u16, Vec<T>>> {
