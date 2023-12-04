@@ -7,4 +7,4 @@ edition = "2021"
 anyhow = "1.0.75"
 rmp-serde = "1.1.2"
 serde = { version = "1.0.193", features = ["derive"] }
-zstd = { version = "0.13.0", features = ["wasm"] }
+zstd = { version = "0.10.2", default-features = false, features = ["wasm"] }
