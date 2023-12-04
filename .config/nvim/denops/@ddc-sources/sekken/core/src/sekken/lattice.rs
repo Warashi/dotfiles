@@ -25,21 +25,19 @@ impl Entry {
 
 #[derive(Clone, Debug)]
 pub struct Lattice {
-    pub entries: Vec<Vec<Entry>>,
+    entries: Vec<Vec<Entry>>,
 }
 
 impl Lattice {
-    pub fn new() -> Lattice {
-        Lattice {
-            entries: Vec::new(),
-        }
+    pub fn new(entries: Vec<Vec<Entry>>) -> Lattice {
+        Lattice { entries }
     }
 
     pub fn push(&mut self, entries: Vec<Entry>) {
         self.entries.push(entries);
     }
 
-    pub fn viterbi(&self, model: CompactModel, top_n: usize) -> Result<Vec<(u16, String)>> {
+    pub fn viterbi(&self, model: &CompactModel, top_n: usize) -> Result<Vec<(u16, String)>> {
         if self.entries.is_empty() {
             return Ok(Vec::new());
         }

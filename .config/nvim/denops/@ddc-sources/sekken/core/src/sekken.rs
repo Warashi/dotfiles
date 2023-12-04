@@ -1,13 +1,20 @@
 use std::cell::RefCell;
 
+use anyhow::{Context, Result};
+
+use sekken_model::compact::CompactModel;
+
 use crate::dictionary::SKKDictionary;
 use crate::kana::KanaTable;
+use crate::util::is_han;
+use crate::viterbi::Node;
 
 mod lattice;
 
 pub struct Sekken {
-    pub kana_table: RefCell<Option<KanaTable>>,
-    pub dictionary: RefCell<Option<SKKDictionary>>,
+    kana_table: RefCell<Option<KanaTable>>,
+    dictionary: RefCell<Option<SKKDictionary>>,
+    model: RefCell<Option<CompactModel>>,
 }
 
 impl Sekken {
@@ -15,6 +22,7 @@ impl Sekken {
         Sekken {
             kana_table: RefCell::new(None),
             dictionary: RefCell::new(None),
+            model: RefCell::new(None),
         }
     }
 
@@ -144,5 +152,85 @@ impl Sekken {
 
     fn search_upper(&self, roman: String) -> Option<usize> {
         roman.chars().position(|c| c.is_uppercase())
+    }
+
+    fn split_upper(&self, roman: String) -> Vec<String> {
+        let mut result = Vec::new();
+        let mut roman = roman;
+        loop {
+            match self.search_upper(roman.clone()) {
+                Some(i) => {
+                    let (head, tail) = roman.split_at(i);
+                    result.push(head.to_string());
+                    roman = tail.to_string();
+                }
+                None => {
+                    result.push(roman);
+                    return result;
+                }
+            }
+        }
+    }
+
+    fn viterbi_henkan(&self, roman: String, top_n: usize) -> Result<Vec<String>> {
+        let default = self
+            .roman_henkan(roman.clone())
+            .into_iter()
+            .chain(vec![self.zenkaku_henkan(roman.clone())]);
+
+        let words = self.split_upper(roman.clone());
+        match self.search_upper(roman.clone()) {
+            Some(0) => {
+                let lattice = self.make_lattice(words).context("make lattice")?;
+                let model = self.model.borrow();
+                let model = model.as_ref().context("model is not set")?;
+                let result = lattice.viterbi(model, top_n).context("calculate viterbi")?;
+                Ok(result.into_iter().map(|(_, s)| s).collect())
+            }
+            Some(_) => {
+                let hira = self.hira_kana_henkan(words[0].clone());
+                let lattice = self
+                    .make_lattice(words.into_iter().skip(1).collect())
+                    .context("make lattice")?;
+                let model = self.model.borrow();
+                let model = model.as_ref().context("model is not set")?;
+                let result = lattice.viterbi(model, top_n).context("calculate viterbi")?;
+                Ok(result.into_iter().map(|(_, s)| hira.clone() + &s).collect())
+            }
+            None => Ok(self.kana_henkan(roman).into_iter().chain(default).collect()),
+        }
+    }
+
+    fn make_lattice(&self, words: Vec<String>) -> Result<lattice::Lattice> {
+        let entries = words
+            .clone()
+            .into_iter()
+            .zip(words.into_iter().chain(vec!["".to_string()]).skip(1))
+            .map(|(kanji, kana)| self.get_candidates(kanji.clone(), kana.clone()))
+            .enumerate()
+            .map(|(i, s)| {
+                s.into_iter()
+                    .map(|s| {
+                        let hans = s
+                            .chars()
+                            .into_iter()
+                            .filter(|c| is_han(c.clone()))
+                            .collect::<Vec<char>>();
+                        let (head_han, tail_han) = (hans[0].clone(), hans[hans.len() - 1].clone());
+                        lattice::Entry::new(Node::new(s, i as u8), head_han, tail_han)
+                    })
+                    .collect::<Vec<_>>()
+            })
+            .collect::<Vec<_>>();
+        let lattice = lattice::Lattice::new(entries);
+        Ok(lattice)
+    }
+
+    fn get_candidates(&self, kanji: String, kana: String) -> Vec<String> {
+        if kana.is_empty() {
+            self.okuri_nasi_henkan(kanji)
+        } else {
+            self.okuri_ari_henkan(kanji, kana)
+        }
     }
 }

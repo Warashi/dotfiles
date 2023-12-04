@@ -8,8 +8,8 @@ use zstd::stream::{Decoder, Encoder};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct CompactModel {
-    pub unigram_cost: HashMap<u32, u8>,
-    pub bigram_cost: HashMap<u64, u8>,
+    unigram_cost: HashMap<u32, u8>,
+    bigram_cost: HashMap<u64, u8>,
 }
 
 impl CompactModel {

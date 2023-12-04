@@ -1,8 +1,6 @@
 
 
-const cachedTextDecoder = (typeof TextDecoder !== 'undefined' ? new TextDecoder('utf-8', { ignoreBOM: true, fatal: true }) : { decode: () => { throw Error('TextDecoder not available') } } );
-
-if (typeof TextDecoder !== 'undefined') { cachedTextDecoder.decode(); };
+let WASM_VECTOR_LEN = 0;
 
 let cachedUint8Memory0 = null;
 
@@ -12,13 +10,6 @@ function getUint8Memory0() {
     }
     return cachedUint8Memory0;
 }
-
-function getStringFromWasm0(ptr, len) {
-    ptr = ptr >>> 0;
-    return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
-}
-
-let WASM_VECTOR_LEN = 0;
 
 const cachedTextEncoder = (typeof TextEncoder !== 'undefined' ? new TextEncoder('utf-8') : { encode: () => { throw Error('TextEncoder not available') } } );
 
@@ -75,6 +66,15 @@ function getInt32Memory0() {
         cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
     }
     return cachedInt32Memory0;
+}
+
+const cachedTextDecoder = (typeof TextDecoder !== 'undefined' ? new TextDecoder('utf-8', { ignoreBOM: true, fatal: true }) : { decode: () => { throw Error('TextDecoder not available') } } );
+
+if (typeof TextDecoder !== 'undefined') { cachedTextDecoder.decode(); };
+
+function getStringFromWasm0(ptr, len) {
+    ptr = ptr >>> 0;
+    return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
 
 let cachedFloat64Memory0 = null;
@@ -233,10 +233,6 @@ function handleError(f, args) {
 
 const imports = {
     __wbindgen_placeholder__: {
-        __wbindgen_error_new: function(arg0, arg1) {
-            const ret = new Error(getStringFromWasm0(arg0, arg1));
-            return ret;
-        },
         __wbindgen_string_get: function(arg0, arg1) {
             const obj = arg1;
             const ret = typeof(obj) === 'string' ? obj : undefined;
@@ -256,6 +252,10 @@ const imports = {
         },
         __wbindgen_in: function(arg0, arg1) {
             const ret = arg0 in arg1;
+            return ret;
+        },
+        __wbindgen_error_new: function(arg0, arg1) {
+            const ret = new Error(getStringFromWasm0(arg0, arg1));
             return ret;
         },
         __wbindgen_jsval_loose_eq: function(arg0, arg1) {
