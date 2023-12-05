@@ -20,8 +20,6 @@ fn main() {
                 continue;
             }
 
-            model.increment_unigram_cost(c);
-
             if let Some(p) = pre {
                 model.increment_bigram_cost(p, c);
             }

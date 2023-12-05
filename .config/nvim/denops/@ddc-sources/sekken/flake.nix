@@ -27,11 +27,14 @@
         devShells.default = with pkgs;
           mkShell {
             buildInputs = [
-              binaryen
-              cargo-edit
               rust-toolchain
-              wasm-pack
+
+              binaryen
+              capnproto
+              capnproto-rust
+              cargo-edit
               wasm-bindgen-cli
+              wasm-pack
             ];
           };
       }

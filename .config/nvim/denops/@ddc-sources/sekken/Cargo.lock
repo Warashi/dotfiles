@@ -48,6 +48,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "capnp"
+version = "0.18.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dfb4e822ca379e0c588cfcaedd082f53aba001b2b11629a14e4a8c6bb0351d6f"
+dependencies = [
+ "embedded-io",
+]
+
+[[package]]
 name = "cc"
 version = "1.0.83"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -78,6 +87,12 @@ name = "daachorse"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "63b7ef7a4be509357f4804d0a22e830daddb48f19fd604e4ad32ddce04a94c36"
+
+[[package]]
+name = "embedded-io"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "658bbadc628dc286b9ae02f0cb0f5411c056eb7487b72f0083203f115de94060"
 
 [[package]]
 name = "itoa"
@@ -219,6 +234,7 @@ name = "sekken-model"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "capnp",
  "rmp-serde",
  "serde",
  "zstd",
