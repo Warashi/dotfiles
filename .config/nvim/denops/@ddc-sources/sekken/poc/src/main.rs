@@ -29,7 +29,7 @@ fn main() -> Result<()> {
     sekken.replace_model(model);
 
     let result = sekken
-        .viterbi_henkan(args[3].clone(), 5)
+        .viterbi_henkan(args[3].clone(), 10)
         .context("failed to henkan")?;
 
     println!("{:?}", result);

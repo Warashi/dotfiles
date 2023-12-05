@@ -62,7 +62,7 @@ impl Lattice {
 
         Ok(result
             .iter()
-            .map(|(score, path)| (*score, path.join("")))
+            .map(|((score, _), path)| (*score, path.join("")))
             .collect())
     }
 }

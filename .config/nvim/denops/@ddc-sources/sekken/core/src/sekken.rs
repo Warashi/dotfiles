@@ -216,7 +216,6 @@ impl Sekken {
             .map(|(_, (kanji, kana))| self.get_candidates(kanji.clone(), kana.clone()))
             .map(|s| {
                 s.into_iter()
-                    .enumerate()
                     .map(|(i, s)| {
                         let hans = s
                             .chars()
@@ -236,12 +235,13 @@ impl Sekken {
         Ok(lattice)
     }
 
-    fn get_candidates(&self, kanji: String, okuri: String) -> Vec<String> {
+    fn get_candidates(&self, kanji: String, okuri: String) -> Vec<(usize, String)> {
         let (kanji, okuri) = (kanji.to_lowercase(), okuri.to_lowercase());
         if okuri.is_empty() {
             self.okuri_nasi_henkan(kanji.clone())
                 .into_iter()
                 .chain(self.kana_henkan(kanji))
+                .enumerate()
                 .collect()
         } else {
             let kanji = self.hira_kana_henkan(kanji.to_string());
@@ -252,7 +252,11 @@ impl Sekken {
                 .okuri_nasi_henkan(kanji.to_string())
                 .into_iter()
                 .map(|s| s + &okuri_hira);
-            okuri_ari.into_iter().chain(okuri_nashi).collect()
+            okuri_ari
+                .into_iter()
+                .enumerate()
+                .chain(okuri_nashi.enumerate())
+                .collect()
         }
     }
 }
