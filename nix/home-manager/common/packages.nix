@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     _1password
     aria
-    # awscli2 # broken. ref; https://github.com/NixOS/nixpkgs/pull/268590
+    awscli2
     bat
     delta
     deno
