@@ -19,3 +19,13 @@ export function set_skk_dictionary(dict: any): void;
 * @returns {(string)[]}
 */
 export function henkan(roman: string): (string)[];
+/**
+* @param {Uint8Array} data
+*/
+export function set_model(data: Uint8Array): void;
+/**
+* @param {string} roman
+* @param {number} n
+* @returns {(string)[]}
+*/
+export function viterbi_henkan(roman: string, n: number): (string)[];

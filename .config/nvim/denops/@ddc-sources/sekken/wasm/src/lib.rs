@@ -5,6 +5,7 @@ use wasm_bindgen::prelude::*;
 use sekken_core::dictionary;
 use sekken_core::kana;
 use sekken_core::sekken;
+use sekken_model::compact::CompactModel;
 
 thread_local! {
     static SEKKEN: sekken::Sekken = sekken::Sekken::new();
@@ -55,4 +56,17 @@ pub fn set_skk_dictionary(dict: JsValue) {
 #[wasm_bindgen]
 pub fn henkan(roman: String) -> Vec<String> {
     SEKKEN.with(|sekken| sekken.henkan(roman))
+}
+
+#[wasm_bindgen]
+pub fn set_model(data: &[u8]) {
+    let model = CompactModel::load(data).unwrap();
+    SEKKEN.with(|sekken| {
+        sekken.replace_model(model);
+    });
+}
+
+#[wasm_bindgen]
+pub fn viterbi_henkan(roman: String, n: usize) -> Vec<String> {
+    SEKKEN.with(|sekken| sekken.viterbi_henkan(roman, n).unwrap())
 }

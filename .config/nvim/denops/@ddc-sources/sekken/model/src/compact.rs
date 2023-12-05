@@ -6,7 +6,6 @@ use anyhow::Result;
 use capnp::message::{Builder, ReaderOptions};
 use capnp::serialize;
 use serde::{Deserialize, Serialize};
-use zstd::stream::{Decoder, Encoder};
 
 use crate::compact_capnp::compact_model;
 
@@ -23,7 +22,6 @@ impl CompactModel {
     }
 
     pub fn load<R: Read>(reader: R) -> Result<Self> {
-        let reader = Decoder::new(reader).context("Failed to initialize decoder")?;
         let reader = serialize::read_message(
             reader,
             ReaderOptions {
@@ -47,9 +45,7 @@ impl CompactModel {
         Ok(CompactModel { bigram_cost })
     }
 
-    pub fn save<W: Write>(&self, writer: W) -> Result<()> {
-        let mut writer = Encoder::new(writer, 22).context("Failed to initialize encoder")?;
-
+    pub fn save<W: Write>(&self, writer: &mut W) -> Result<()> {
         let mut msg = Builder::new_default();
         let entries = msg.init_root::<compact_model::Builder>();
         let mut entries_list = entries.init_entries(self.bigram_cost.len() as u32);
@@ -58,9 +54,7 @@ impl CompactModel {
             entry.set_key(*key);
             entry.set_value(*cost);
         }
-        serialize::write_message(&mut writer, &msg).context("Failed to write message")?;
-
-        writer.finish().context("Failed to finish encoder")?;
+        serialize::write_message(writer, &msg).context("Failed to write message")?;
         Ok(())
     }
 

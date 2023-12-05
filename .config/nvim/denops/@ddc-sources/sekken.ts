@@ -13,6 +13,10 @@ rs.set_skk_dictionary(JSON.parse(
   ),
 ));
 
+rs.set_model(
+  Deno.readFileSync(Deno.env.get("HOME") + "/.config/sekken/model.bin"),
+);
+
 export type Params = Record<string | number | symbol, never>;
 
 export class Source extends BaseSource<Params> {
@@ -30,5 +34,5 @@ export class Source extends BaseSource<Params> {
 }
 
 function henkan(roman: string): string[] {
-  return rs.henkan(roman);
+  return rs.viterbi_henkan(roman, 5);
 }

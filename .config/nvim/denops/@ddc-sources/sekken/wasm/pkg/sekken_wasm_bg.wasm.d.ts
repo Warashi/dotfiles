@@ -6,6 +6,8 @@ export function use_default_kana_table(): void;
 export function set_kana_table(a: number): void;
 export function set_skk_dictionary(a: number): void;
 export function henkan(a: number, b: number, c: number): void;
+export function set_model(a: number, b: number): void;
+export function viterbi_henkan(a: number, b: number, c: number, d: number): void;
 export function __wbindgen_malloc(a: number, b: number): number;
 export function __wbindgen_realloc(a: number, b: number, c: number, d: number): number;
 export const __wbindgen_export_2: WebAssembly.Table;
