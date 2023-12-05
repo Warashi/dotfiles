@@ -1,9 +1,9 @@
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 use std::io::{Read, Write};
 
 use anyhow::Context as _;
 use anyhow::Result;
-use capnp::message::Builder;
+use capnp::message::{Builder, ReaderOptions};
 use capnp::serialize;
 use serde::{Deserialize, Serialize};
 use zstd::stream::{Decoder, Encoder};
@@ -12,31 +12,37 @@ use crate::compact_capnp::compact_model;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct CompactModel {
-    bigram_cost: HashMap<u64, u8>,
+    bigram_cost: BTreeMap<u64, u8>,
 }
 
 impl CompactModel {
     pub fn new() -> Self {
         Self {
-            bigram_cost: HashMap::new(),
+            bigram_cost: BTreeMap::new(),
         }
     }
 
     pub fn load<R: Read>(reader: R) -> Result<Self> {
         let reader = Decoder::new(reader).context("Failed to initialize decoder")?;
-        let reader = serialize::read_message(reader, Default::default())
-            .context("Failed to read message")?;
+        let reader = serialize::read_message(
+            reader,
+            ReaderOptions {
+                traversal_limit_in_words: None,
+                nesting_limit: i32::MAX,
+            },
+        )
+        .context("Failed to read message")?;
         let reader = reader
             .get_root::<compact_model::Reader>()
             .context("Failed to get root")?;
 
         let entries = reader.get_entries().context("Failed to get entries")?;
-        let mut bigram_cost = HashMap::with_capacity(entries.len() as usize);
-        for entry in entries.iter() {
+        let entries = entries.iter().map(|entry| {
             let key = entry.get_key();
             let cost = entry.get_value();
-            bigram_cost.insert(key, cost);
-        }
+            (key, cost)
+        });
+        let bigram_cost = entries.collect();
 
         Ok(CompactModel { bigram_cost })
     }
