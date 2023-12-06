@@ -73,5 +73,6 @@ set_keymaps()
 -- }}}
 
 -- lua_source {{{
+vim.fn["ddu#set_static_import_path"]()
 vim.fn["ddu#custom#load_config"](vim.env.DPP_CONFIG_BASE .. "/hooks/ddu.ts")
 -- }}}

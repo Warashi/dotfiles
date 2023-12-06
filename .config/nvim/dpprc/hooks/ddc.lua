@@ -1,4 +1,5 @@
 -- lua_source {{{
+vim.fn["ddc#set_static_import_path"]()
 vim.fn["ddc#custom#load_config"](vim.env.DPP_CONFIG_BASE .. "/hooks/ddc.ts")
 
 -- pum
