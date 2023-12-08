@@ -102,15 +102,17 @@ impl Sekken {
     }
 
     fn hira2kata(&self, hira: String) -> String {
-        hira.chars().map(|c| self.hira2kata_char(c)).collect()
+        hira.chars()
+            .map(|c| self.hira2kata_char(c).unwrap())
+            .collect()
     }
 
-    fn hira2kata_char(&self, c: char) -> char {
+    fn hira2kata_char(&self, c: char) -> Result<char> {
         let code = c as u32;
         if 0x3041 <= code && code <= 0x3096 {
-            char::from_u32(code + 0x60).unwrap()
+            char::from_u32(code + 0x60).context("convert to katakana")
         } else {
-            c
+            Ok(c)
         }
     }
 
