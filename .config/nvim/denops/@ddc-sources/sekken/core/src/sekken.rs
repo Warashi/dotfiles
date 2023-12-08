@@ -91,7 +91,9 @@ impl Sekken {
         let hira = self
             .hira_kana_henkan(roman)
             .context("convert to hiragana")?;
-        let kata = self.hira2kata(hira.clone());
+        let kata = self
+            .hira2kata(hira.clone())
+            .context("convert to katakana")?;
         Ok(vec![hira, kata])
     }
 
@@ -101,9 +103,9 @@ impl Sekken {
         Ok(table.roman2kana(roman))
     }
 
-    fn hira2kata(&self, hira: String) -> String {
+    fn hira2kata(&self, hira: String) -> Result<String> {
         hira.chars()
-            .map(|c| self.hira2kata_char(c).unwrap())
+            .map(|c| self.hira2kata_char(c).context("convert to katakana"))
             .collect()
     }
 
