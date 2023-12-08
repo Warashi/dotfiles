@@ -61,7 +61,10 @@ impl Sekken {
                     .chain(default)
                     .collect()
             }
-            None => self.kana_henkan(roman).into_iter().chain(default).collect(),
+            None => {
+                let kana = self.kana_henkan(roman.clone()).unwrap();
+                kana.into_iter().chain(default).collect()
+            }
         }
     }
 
@@ -84,10 +87,12 @@ impl Sekken {
             .map_or(Vec::new(), |v| v.clone())
     }
 
-    fn kana_henkan(&self, roman: String) -> Vec<String> {
-        let hira = self.hira_kana_henkan(roman).unwrap();
+    fn kana_henkan(&self, roman: String) -> Result<Vec<String>> {
+        let hira = self
+            .hira_kana_henkan(roman)
+            .context("convert to hiragana")?;
         let kata = self.hira2kata(hira.clone());
-        vec![hira, kata]
+        Ok(vec![hira, kata])
     }
 
     fn hira_kana_henkan(&self, roman: String) -> Result<String> {
@@ -205,7 +210,10 @@ impl Sekken {
                 let result = lattice.viterbi(model, top_n).context("calculate viterbi")?;
                 Ok(result.into_iter().map(|(_, s)| hira.clone() + &s).collect())
             }
-            None => Ok(self.kana_henkan(roman).into_iter().chain(default).collect()),
+            None => {
+                let kana = self.kana_henkan(roman.clone()).context("kana henkan")?;
+                Ok(kana.into_iter().chain(default).collect())
+            }
         }
     }
 
@@ -243,7 +251,7 @@ impl Sekken {
         if okuri.is_empty() {
             self.okuri_nasi_henkan(kanji.clone())
                 .into_iter()
-                .chain(self.kana_henkan(kanji))
+                .chain(self.kana_henkan(kanji).unwrap())
                 .enumerate()
                 .collect()
         } else {
