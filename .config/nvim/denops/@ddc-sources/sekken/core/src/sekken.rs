@@ -53,7 +53,7 @@ impl Sekken {
                 .collect(),
             Some(i) => {
                 let (hira, kanji) = roman.split_at(i);
-                let hira = self.hira_kana_henkan(hira.to_string());
+                let hira = self.hira_kana_henkan(hira.to_string()).unwrap();
                 let kanji = self.kanji_henkan(kanji.to_string());
                 kanji
                     .into_iter()
@@ -84,13 +84,15 @@ impl Sekken {
     }
 
     fn kana_henkan(&self, roman: String) -> Vec<String> {
-        let hira = self.hira_kana_henkan(roman);
+        let hira = self.hira_kana_henkan(roman).unwrap();
         let kata = self.hira2kata(hira.clone());
         vec![hira, kata]
     }
 
-    fn hira_kana_henkan(&self, roman: String) -> String {
-        self.kana_table.borrow().as_ref().unwrap().roman2kana(roman)
+    fn hira_kana_henkan(&self, roman: String) -> Result<String> {
+        let table = self.kana_table.borrow();
+        let table = table.as_ref().context("kana table is not set")?;
+        Ok(table.roman2kana(roman))
     }
 
     fn hira2kata(&self, hira: String) -> String {
@@ -111,9 +113,9 @@ impl Sekken {
         match self.search_upper(roman.clone()) {
             Some(i) => {
                 let (hira, okuri) = roman.split_at(i);
-                let hira = self.hira_kana_henkan(hira.to_string());
+                let hira = self.hira_kana_henkan(hira.to_string()).unwrap();
                 let okuri = okuri.to_lowercase();
-                let okuri_hira = self.hira_kana_henkan(okuri.to_string());
+                let okuri_hira = self.hira_kana_henkan(okuri.to_string()).unwrap();
                 let okuri_ari = self.okuri_ari_henkan(hira.to_string(), okuri.to_string());
                 let okuri_nashi = self
                     .okuri_nasi_henkan(hira.to_string())
@@ -126,7 +128,7 @@ impl Sekken {
     }
 
     fn okuri_nasi_henkan(&self, roman: String) -> Vec<String> {
-        let kana = self.hira_kana_henkan(roman);
+        let kana = self.hira_kana_henkan(roman).unwrap();
         self.dictionary
             .borrow()
             .as_ref()
@@ -139,7 +141,7 @@ impl Sekken {
 
     fn okuri_ari_henkan(&self, hira: String, okuri: String) -> Vec<String> {
         let alpha = okuri[0..1].to_string();
-        let okuri = self.hira_kana_henkan(okuri);
+        let okuri = self.hira_kana_henkan(okuri).unwrap();
         let key = hira + &alpha;
         self.dictionary
             .borrow()
@@ -193,7 +195,7 @@ impl Sekken {
                 Ok(result.into_iter().map(|(_, s)| s).collect())
             }
             Some(_) => {
-                let hira = self.hira_kana_henkan(words[0].clone());
+                let hira = self.hira_kana_henkan(words[0].clone()).unwrap();
                 let lattice = self
                     .make_lattice(words.into_iter().skip(1).collect())
                     .context("make lattice")?;
@@ -244,9 +246,9 @@ impl Sekken {
                 .enumerate()
                 .collect()
         } else {
-            let kanji = self.hira_kana_henkan(kanji.to_string());
+            let kanji = self.hira_kana_henkan(kanji.to_string()).unwrap();
             let okuri = okuri.to_lowercase();
-            let okuri_hira = self.hira_kana_henkan(okuri.to_string());
+            let okuri_hira = self.hira_kana_henkan(okuri.to_string()).unwrap();
             let okuri_ari = self.okuri_ari_henkan(kanji.to_string(), okuri.to_string());
             let okuri_nashi = self
                 .okuri_nasi_henkan(kanji.to_string())
