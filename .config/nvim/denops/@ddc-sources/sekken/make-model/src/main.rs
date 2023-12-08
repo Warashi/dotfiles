@@ -1,11 +1,12 @@
 use std::io::{BufWriter, Write};
 
+use anyhow::{Context, Result};
 use bzip2::read::MultiBzDecoder;
 
 use sekken_core::util::is_han;
 use sekken_model::NormalModel;
 
-fn main() {
+fn main() -> Result<()> {
     let input = std::io::stdin();
     let input = std::io::BufReader::new(input);
     let input = MultiBzDecoder::new(input);
@@ -32,6 +33,12 @@ fn main() {
     let output = std::io::stdout();
     let mut output = BufWriter::new(output);
 
-    model.compact().save(&mut output).unwrap();
-    output.flush().unwrap();
+    model
+        .compact()
+        .save(&mut output)
+        .context("Failed to save model")?;
+
+    output.flush().context("Failed to flush output")?;
+
+    Ok(())
 }

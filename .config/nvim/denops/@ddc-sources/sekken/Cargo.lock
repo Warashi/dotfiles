@@ -213,6 +213,7 @@ dependencies = [
 name = "sekken-make-model"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
  "bzip2",
  "sekken-core",
  "sekken-model",
