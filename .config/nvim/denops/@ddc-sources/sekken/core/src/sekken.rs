@@ -79,8 +79,9 @@ impl Sekken {
 
     fn roman_henkan(&self, roman: String) -> Vec<String> {
         let dict = self.dictionary.borrow();
-        let dict = dict.as_ref().unwrap();
-        dict.okuri_nasi.get(&roman).unwrap_or(&Vec::new()).clone()
+        dict.as_ref()
+            .and_then(|d| d.okuri_nasi.get(&roman))
+            .map_or(Vec::new(), |v| v.clone())
     }
 
     fn kana_henkan(&self, roman: String) -> Vec<String> {
