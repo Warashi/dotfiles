@@ -42,7 +42,7 @@ impl Sekken {
         let default = self
             .roman_henkan(roman.clone())
             .into_iter()
-            .chain(vec![self.zenkaku_henkan(roman.clone())]);
+            .chain(vec![self.zenkaku_henkan(roman.clone()).unwrap()]);
 
         let idx = self.search_upper(roman.clone());
         match idx {
@@ -65,15 +65,15 @@ impl Sekken {
         }
     }
 
-    fn zenkaku_henkan(&self, roman: String) -> String {
+    fn zenkaku_henkan(&self, roman: String) -> Result<String> {
         roman.chars().map(|c| self.zenkaku_henkan_char(c)).collect()
     }
 
-    fn zenkaku_henkan_char(&self, c: char) -> char {
+    fn zenkaku_henkan_char(&self, c: char) -> Result<char> {
         if c.is_ascii() {
-            char::from_u32(c as u32 + 0xFEE0).unwrap()
+            char::from_u32(c as u32 + 0xFEE0).context("convert to zenkaku")
         } else {
-            c
+            Ok(c)
         }
     }
 
@@ -181,7 +181,7 @@ impl Sekken {
         let default = self
             .roman_henkan(roman.clone())
             .into_iter()
-            .chain(vec![self.zenkaku_henkan(roman.clone())]);
+            .chain(vec![self.zenkaku_henkan(roman.clone()).unwrap()]);
 
         let words = self.split_upper(roman.clone());
         match self.search_upper(roman.clone()) {
