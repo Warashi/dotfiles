@@ -54,11 +54,6 @@ pub fn set_skk_dictionary(dict: JsValue) {
 }
 
 #[wasm_bindgen]
-pub fn henkan(roman: String) -> Vec<String> {
-    SEKKEN.with(|sekken| sekken.henkan(roman))
-}
-
-#[wasm_bindgen]
 pub fn set_model(data: &[u8]) {
     let model = CompactModel::load(data).unwrap();
     SEKKEN.with(|sekken| {

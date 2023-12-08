@@ -38,36 +38,6 @@ impl Sekken {
         self.model.replace(Some(model));
     }
 
-    pub fn henkan(&self, roman: String) -> Vec<String> {
-        let default = self
-            .roman_henkan(roman.clone())
-            .into_iter()
-            .chain(vec![self.zenkaku_henkan(roman.clone()).unwrap()]);
-
-        let idx = self.search_upper(roman.clone());
-        match idx {
-            Some(0) => self
-                .kanji_henkan(roman.clone())
-                .into_iter()
-                .chain(default)
-                .collect(),
-            Some(i) => {
-                let (hira, kanji) = roman.split_at(i);
-                let hira = self.hira_kana_henkan(hira.to_string()).unwrap();
-                let kanji = self.kanji_henkan(kanji.to_string());
-                kanji
-                    .into_iter()
-                    .map(|s| hira.clone() + &s)
-                    .chain(default)
-                    .collect()
-            }
-            None => {
-                let kana = self.kana_henkan(roman.clone()).unwrap();
-                kana.into_iter().chain(default).collect()
-            }
-        }
-    }
-
     fn zenkaku_henkan(&self, roman: String) -> Result<String> {
         roman.chars().map(|c| self.zenkaku_henkan_char(c)).collect()
     }
@@ -115,25 +85,6 @@ impl Sekken {
             char::from_u32(code + 0x60).context("convert to katakana")
         } else {
             Ok(c)
-        }
-    }
-
-    fn kanji_henkan(&self, roman: String) -> Vec<String> {
-        let roman = roman[0..1].to_string().to_lowercase() + &roman[1..];
-        match self.search_upper(roman.clone()) {
-            Some(i) => {
-                let (hira, okuri) = roman.split_at(i);
-                let hira = self.hira_kana_henkan(hira.to_string()).unwrap();
-                let okuri = okuri.to_lowercase();
-                let okuri_hira = self.hira_kana_henkan(okuri.to_string()).unwrap();
-                let okuri_ari = self.okuri_ari_henkan(hira.to_string(), okuri.to_string());
-                let okuri_nashi = self
-                    .okuri_nasi_henkan(hira.to_string())
-                    .into_iter()
-                    .map(|s| s + &okuri_hira);
-                okuri_ari.into_iter().chain(okuri_nashi).collect()
-            }
-            None => self.okuri_nasi_henkan(roman),
         }
     }
 
