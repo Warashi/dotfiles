@@ -1,4 +1,5 @@
 [[plugins]]
 repo = 'uga-rosa/denippet.vim'
+depends = ['denops.vim']
 on_event = ['InsertEnter', 'CmdlineEnter']
 on_source = ['ddc.vim']

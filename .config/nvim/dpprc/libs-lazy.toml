@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
 repo = 'MunifTanjim/nui.nvim'
 on_lua = ['nui']
 
@@ -21,3 +24,8 @@ on_func = ['nerdfont']
 [[plugins]]
 repo = 'tani/vim-artemis'
 on_lua = ['artemis']
+
+[[plugins]]
+repo = 'lambdalisue/kensaku.vim'
+depends = ['denops.vim']
+on_event = ['BufRead', 'BufNewFile']

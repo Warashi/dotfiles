@@ -1,9 +1,2 @@
 [ftplugins]
 tf = 'set filetype=terraform'
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'lambdalisue/kensaku.vim'
-depends = ['denops.vim']

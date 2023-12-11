@@ -117,3 +117,7 @@ hook_add = '''
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
 on_event = ['BufRead', 'StdinReadPre']
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+on_event = ['BufRead', 'BufNewFile']

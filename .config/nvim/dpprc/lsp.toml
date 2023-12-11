@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'kuuote/lspoints'
+depends = ['denops.vim']
 on_event = ['BufRead', 'BufNewFile']
 on_source = ['ddc-source-lsp']
 hooks_file = ['$DPP_CONFIG_BASE/hooks/lspoints.fnl']
