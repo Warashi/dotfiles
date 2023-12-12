@@ -23,10 +23,10 @@ format-nix:
 	fd --hidden '.nix$$' -X alejandra -q
 .PHONY: format-toml
 format-toml:
-	taplo format
+	fd --hidden '.toml$$' -X taplo format
 .PHONY: format-fennel
 format-fennel:
-	fd --hidden '.fnl$$' -X fnlfmt --fix
+	fd --hidden '.fnl$$' -x fnlfmt --fix
 .PHONY: nixos-rebuild
 nixos-rebuild:
 	nixos-rebuild switch --flake '$(FLAKE)'
