@@ -1,1 +1,1 @@
-silent! colorscheme catppuccin
+silent! colorscheme flexoki-light

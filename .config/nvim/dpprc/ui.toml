@@ -1,4 +1,8 @@
 [[plugins]]
+name = 'flexoki'
+repo = 'kepano/flexoki-neovim'
+
+[[plugins]]
 repo = 'glacambre/firenvim'
 if = 'exists("g:started_by_firenvim")'
 hook_post_update = 'call firenvim#install(0)'

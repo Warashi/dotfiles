@@ -1,19 +1,10 @@
 [[plugins]]
-name = 'catppuccin'
-repo = 'catppuccin/nvim'
-on_lua = 'catppuccin'
-hooks_file = '$DPP_CONFIG_BASE/hooks/catppuccin.fnl'
-hook_post_update = 'CatppuccinCompile'
-
-[[plugins]]
 repo = 'rcarriga/nvim-notify'
 on_lua = ['notify']
-depends = ['catppuccin']
 hooks_file = '$DPP_CONFIG_BASE/hooks/nvim-notify.lua'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-depends = ['catppuccin']
 on_event = ['BufNewFile', 'BufRead']
 lua_source = 'require("gitsigns").setup()'
 
@@ -78,21 +69,6 @@ lua_source = '''
     abbrevHlName = "String",
   })
 '''
-
-[[plugins]]
-repo = 'matsui54/denops-signature_help'
-on_event = ['InsertEnter']
-hook_source = '''
-  let g:signature_help_config = #{contentsStyle: "remainingLabels", viewStyle: "virtual" }
-  call signature_help#enable()
-'''
-
-[[plugins]]
-repo = 'rebelot/heirline.nvim'
-on_lua = ['heirline']
-on_event = ['BufNewFile', 'BufRead']
-hooks_file = '$DPP_CONFIG_BASE/hooks/heirline.lua'
-depends = ['catppuccin']
 
 [[plugins]]
 repo = 'nvim-zh/colorful-winsep.nvim'
