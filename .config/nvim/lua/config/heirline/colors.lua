@@ -15,8 +15,8 @@ return function()
     diag_error = utils.get_highlight("DiagnosticError").fg,
     diag_hint = utils.get_highlight("DiagnosticHint").fg,
     diag_info = utils.get_highlight("DiagnosticInfo").fg,
-    git_del = utils.get_highlight("diffRemoved").fg,
-    git_add = utils.get_highlight("diffAdded").fg,
-    git_change = utils.get_highlight("diffChanged").fg,
+    git_del = utils.get_highlight("GitSignsDelete").fg,
+    git_add = utils.get_highlight("GitSignsAdd").fg,
+    git_change = utils.get_highlight("GitSignsChange").fg,
   }
 end
