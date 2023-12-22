@@ -217,11 +217,13 @@ impl Sekken {
             let okuri_nashi = self
                 .okuri_nasi_henkan(kanji.to_string())
                 .into_iter()
-                .map(|s| s + &okuri_hira);
+                .chain(self.kana_henkan(kanji).unwrap())
+                .map(|s| s + &okuri_hira)
+                .enumerate();
             okuri_ari
                 .into_iter()
                 .enumerate()
-                .chain(okuri_nashi.enumerate())
+                .chain(okuri_nashi)
                 .collect()
         }
     }

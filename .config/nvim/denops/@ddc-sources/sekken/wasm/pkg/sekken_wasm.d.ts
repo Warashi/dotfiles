@@ -15,11 +15,6 @@ export function set_kana_table(map: any): void;
 */
 export function set_skk_dictionary(dict: any): void;
 /**
-* @param {string} roman
-* @returns {(string)[]}
-*/
-export function henkan(roman: string): (string)[];
-/**
 * @param {Uint8Array} data
 */
 export function set_model(data: Uint8Array): void;
