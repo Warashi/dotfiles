@@ -141,11 +141,6 @@ impl Sekken {
     }
 
     pub fn viterbi_henkan(&self, roman: String, top_n: usize) -> Result<Vec<String>> {
-        let default = self
-            .roman_henkan(roman.clone())
-            .into_iter()
-            .chain(vec![self.zenkaku_henkan(roman.clone()).unwrap()]);
-
         let words = self.split_upper(roman.clone());
         match self.search_upper(roman.clone()) {
             Some(0) => {
@@ -167,7 +162,7 @@ impl Sekken {
             }
             None => {
                 let kana = self.kana_henkan(roman.clone()).context("kana henkan")?;
-                Ok(kana.into_iter().chain(default).collect())
+                Ok(kana)
             }
         }
     }
@@ -206,7 +201,9 @@ impl Sekken {
         if okuri.is_empty() {
             self.okuri_nasi_henkan(kanji.clone())
                 .into_iter()
-                .chain(self.kana_henkan(kanji).unwrap())
+                .chain(self.kana_henkan(kanji.clone()).unwrap())
+                .chain(self.roman_henkan(kanji.clone()))
+                .chain(vec![self.zenkaku_henkan(kanji.clone()).unwrap()])
                 .enumerate()
                 .collect()
         } else {
@@ -217,7 +214,9 @@ impl Sekken {
             let okuri_nashi = self
                 .okuri_nasi_henkan(kanji.to_string())
                 .into_iter()
-                .chain(self.kana_henkan(kanji).unwrap())
+                .chain(self.kana_henkan(kanji.clone()).unwrap())
+                .chain(self.roman_henkan(kanji.clone()))
+                .chain(vec![self.zenkaku_henkan(kanji.clone()).unwrap()])
                 .map(|s| s + &okuri_hira)
                 .enumerate();
             okuri_ari

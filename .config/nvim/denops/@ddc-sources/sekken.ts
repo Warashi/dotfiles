@@ -2,6 +2,7 @@ import {
   BaseSource,
   Context,
   Item,
+  SourceOptions,
 } from "https://deno.land/x/ddc_vim@v4.1.0/types.ts";
 import * as rs from "./sekken/wasm/pkg/sekken_wasm.js";
 rs.init();
@@ -24,8 +25,11 @@ export class Source extends BaseSource<Params> {
   override async gather(args: {
     context: Context;
     completeStr: string;
+    sourceOptions: SourceOptions;
   }): Promise<Item[]> {
-    return henkan(args.completeStr).map((word) => ({ word }));
+    return henkan(args.completeStr, args.sourceOptions.maxItems).map((
+      word,
+    ) => ({ word }));
   }
 
   override params(): Params {
@@ -33,6 +37,6 @@ export class Source extends BaseSource<Params> {
   }
 }
 
-function henkan(roman: string): string[] {
-  return rs.viterbi_henkan(roman, 5);
+function henkan(roman: string, n: number): string[] {
+  return rs.viterbi_henkan(roman, n);
 }
