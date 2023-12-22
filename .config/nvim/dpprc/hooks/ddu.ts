@@ -131,7 +131,7 @@ export class Config extends BaseConfig {
         ff: {
           ...windowParams,
           filterSplitDirection: "floating",
-          startAutoAction: true,
+          startAutoAction: false,
           autoAction: {
             name: "preview",
           },
