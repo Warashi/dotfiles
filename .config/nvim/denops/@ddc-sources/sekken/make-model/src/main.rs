@@ -15,18 +15,16 @@ fn main() -> Result<()> {
 
     let mut model = NormalModel::new();
 
-    for ch in input.into_iter() {
-        if let Ok(c) = ch {
-            if !is_han(c) {
-                continue;
-            }
-
-            if let Some(p) = pre {
-                model.increment_bigram_cost(p, c);
-            }
-
-            pre = Some(c);
+    for ch in input.into_iter().flatten() {
+        if !is_han(ch) {
+            continue;
         }
+
+        if let Some(p) = pre {
+            model.increment_bigram_cost(p, ch);
+        }
+
+        pre = Some(ch);
     }
     let model = model;
 
