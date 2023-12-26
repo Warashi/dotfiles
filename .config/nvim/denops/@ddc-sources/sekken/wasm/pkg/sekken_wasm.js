@@ -156,24 +156,59 @@ export function init() {
     wasm.init();
 }
 
+function takeFromExternrefTable0(idx) {
+    const value = wasm.__wbindgen_export_2.get(idx);
+    wasm.__externref_table_dealloc(idx);
+    return value;
+}
 /**
 */
 export function use_default_kana_table() {
-    wasm.use_default_kana_table();
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        wasm.use_default_kana_table(retptr);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        if (r1) {
+            throw takeFromExternrefTable0(r0);
+        }
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+    }
 }
 
 /**
 * @param {any} map
 */
 export function set_kana_table(map) {
-    wasm.set_kana_table(map);
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        wasm.set_kana_table(retptr, map);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        if (r1) {
+            throw takeFromExternrefTable0(r0);
+        }
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+    }
 }
 
 /**
 * @param {any} dict
 */
 export function set_skk_dictionary(dict) {
-    wasm.set_skk_dictionary(dict);
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        wasm.set_skk_dictionary(retptr, dict);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        if (r1) {
+            throw takeFromExternrefTable0(r0);
+        }
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+    }
 }
 
 function passArray8ToWasm0(arg, malloc) {
@@ -186,9 +221,19 @@ function passArray8ToWasm0(arg, malloc) {
 * @param {Uint8Array} data
 */
 export function set_model(data) {
-    const ptr0 = passArray8ToWasm0(data, wasm.__wbindgen_malloc);
-    const len0 = WASM_VECTOR_LEN;
-    wasm.set_model(ptr0, len0);
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        const ptr0 = passArray8ToWasm0(data, wasm.__wbindgen_malloc);
+        const len0 = WASM_VECTOR_LEN;
+        wasm.set_model(retptr, ptr0, len0);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        if (r1) {
+            throw takeFromExternrefTable0(r0);
+        }
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+    }
 }
 
 let cachedUint32Memory0 = null;
@@ -224,6 +269,11 @@ export function viterbi_henkan(roman, n) {
         wasm.viterbi_henkan(retptr, ptr0, len0, n);
         var r0 = getInt32Memory0()[retptr / 4 + 0];
         var r1 = getInt32Memory0()[retptr / 4 + 1];
+        var r2 = getInt32Memory0()[retptr / 4 + 2];
+        var r3 = getInt32Memory0()[retptr / 4 + 3];
+        if (r3) {
+            throw takeFromExternrefTable0(r2);
+        }
         var v2 = getArrayJsValueFromWasm0(r0, r1).slice();
         wasm.__wbindgen_free(r0, r1 * 4, 4);
         return v2;
@@ -274,6 +324,28 @@ const imports = {
             const ret = arg0 in arg1;
             return ret;
         },
+        __wbg_new_abda76e883ba8a5f: function() {
+            const ret = new Error();
+            return ret;
+        },
+        __wbg_stack_658279fe44541cf6: function(arg0, arg1) {
+            const ret = arg1.stack;
+            const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len1 = WASM_VECTOR_LEN;
+            getInt32Memory0()[arg0 / 4 + 1] = len1;
+            getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+        },
+        __wbg_error_f851667af71bcfc6: function(arg0, arg1) {
+            let deferred0_0;
+            let deferred0_1;
+            try {
+                deferred0_0 = arg0;
+                deferred0_1 = arg1;
+                console.error(getStringFromWasm0(arg0, arg1));
+            } finally {
+                wasm.__wbindgen_free(deferred0_0, deferred0_1, 1);
+            }
+        },
         __wbindgen_jsval_loose_eq: function(arg0, arg1) {
             const ret = arg0 == arg1;
             return ret;
@@ -288,6 +360,13 @@ const imports = {
             const ret = typeof(obj) === 'number' ? obj : undefined;
             getFloat64Memory0()[arg0 / 8 + 1] = isLikeNone(ret) ? 0 : ret;
             getInt32Memory0()[arg0 / 4 + 0] = !isLikeNone(ret);
+        },
+        __wbg_String_917f38a1211cf44b: function(arg0, arg1) {
+            const ret = String(arg1);
+            const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len1 = WASM_VECTOR_LEN;
+            getInt32Memory0()[arg0 / 4 + 1] = len1;
+            getInt32Memory0()[arg0 / 4 + 0] = ptr1;
         },
         __wbindgen_string_new: function(arg0, arg1) {
             const ret = getStringFromWasm0(arg0, arg1);
@@ -379,28 +458,6 @@ const imports = {
             }
             const ret = result;
             return ret;
-        },
-        __wbg_new_abda76e883ba8a5f: function() {
-            const ret = new Error();
-            return ret;
-        },
-        __wbg_stack_658279fe44541cf6: function(arg0, arg1) {
-            const ret = arg1.stack;
-            const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-            const len1 = WASM_VECTOR_LEN;
-            getInt32Memory0()[arg0 / 4 + 1] = len1;
-            getInt32Memory0()[arg0 / 4 + 0] = ptr1;
-        },
-        __wbg_error_f851667af71bcfc6: function(arg0, arg1) {
-            let deferred0_0;
-            let deferred0_1;
-            try {
-                deferred0_0 = arg0;
-                deferred0_1 = arg1;
-                console.error(getStringFromWasm0(arg0, arg1));
-            } finally {
-                wasm.__wbindgen_free(deferred0_0, deferred0_1, 1);
-            }
         },
         __wbindgen_debug_string: function(arg0, arg1) {
             const ret = debugString(arg1);

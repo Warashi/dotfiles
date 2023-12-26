@@ -12,6 +12,7 @@ serde-wasm-bindgen = "0.6.1"
 wasm-bindgen = "0.2.88"
 sekken-model = { path = "../model" }
 sekken-core = { path = "../core" }
+anyhow = "1.0.76"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.38"
