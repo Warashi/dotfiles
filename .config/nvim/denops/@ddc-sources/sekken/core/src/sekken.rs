@@ -88,33 +88,40 @@ impl Sekken {
         }
     }
 
-    fn okuri_nasi_henkan(&self, roman: String) -> Vec<String> {
-        let kana = self.hira_kana_henkan(roman).unwrap();
-        self.dictionary
-            .borrow()
-            .as_ref()
-            .unwrap()
+    fn okuri_nasi_henkan(&self, roman: String) -> Result<Vec<String>> {
+        let kana = self
+            .hira_kana_henkan(roman)
+            .context("convert to hiragana")?;
+        let dictionary = self.dictionary.borrow();
+        let dictionary = dictionary.as_ref();
+        let dictionary = dictionary.context("dictionary is not set")?;
+
+        let result = dictionary
             .okuri_nasi
             .get(&kana)
-            .unwrap_or(&Vec::new())
-            .clone()
+            .cloned()
+            .unwrap_or(Vec::new());
+        Ok(result)
     }
 
-    fn okuri_ari_henkan(&self, hira: String, okuri: String) -> Vec<String> {
+    fn okuri_ari_henkan(&self, hira: String, okuri: String) -> Result<Vec<String>> {
         let alpha = okuri[0..1].to_string();
-        let okuri = self.hira_kana_henkan(okuri).unwrap();
+        let okuri = self
+            .hira_kana_henkan(okuri)
+            .context("convert to hiragana")?;
         let key = hira + &alpha;
-        self.dictionary
-            .borrow()
-            .as_ref()
-            .unwrap()
+
+        let dictionary = self.dictionary.borrow();
+        let dictionary = dictionary.as_ref();
+        let dictionary = dictionary.context("dictionary is not set")?;
+
+        let result = dictionary
             .okuri_ari
             .get(&key)
-            .unwrap_or(&Vec::new())
-            .clone()
-            .into_iter()
-            .map(|s| s + &okuri)
-            .collect()
+            .map(|v| v.iter().cloned().map(|s| s + &okuri).collect())
+            .unwrap_or(Vec::new());
+
+        Ok(result)
     }
 
     fn search_upper(&self, roman: String) -> Option<usize> {
@@ -200,6 +207,7 @@ impl Sekken {
         let (kanji, okuri) = (kanji.to_lowercase(), okuri.to_lowercase());
         if okuri.is_empty() {
             self.okuri_nasi_henkan(kanji.clone())
+                .unwrap_or(Vec::new())
                 .into_iter()
                 .chain(self.kana_henkan(kanji.clone()).unwrap())
                 .chain(self.roman_henkan(kanji.clone()))
@@ -213,6 +221,7 @@ impl Sekken {
             let okuri_ari = self.okuri_ari_henkan(kanji.to_string(), okuri.to_string());
             let okuri_nashi = self
                 .okuri_nasi_henkan(kanji.to_string())
+                .unwrap_or(Vec::new())
                 .into_iter()
                 .chain(self.kana_henkan(kanji.clone()).unwrap())
                 .chain(self.roman_henkan(kanji.clone()))
@@ -220,6 +229,7 @@ impl Sekken {
                 .map(|s| s + &okuri_hira)
                 .enumerate();
             okuri_ari
+                .unwrap_or(Vec::new())
                 .into_iter()
                 .enumerate()
                 .chain(okuri_nashi)
