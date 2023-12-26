@@ -164,9 +164,7 @@ impl Sekken {
                 Ok(result.into_iter().map(|(_, s)| s).collect())
             }
             Some(_) => {
-                let hira = self
-                    .hira_kana_henkan(words[0].clone())
-                    .unwrap_or_default();
+                let hira = self.hira_kana_henkan(words[0].clone()).unwrap_or_default();
                 let lattice = self
                     .make_lattice(words.into_iter().skip(1).collect())
                     .context("make lattice")?;
@@ -193,10 +191,7 @@ impl Sekken {
             .map(|s| {
                 s.into_iter()
                     .map(|(i, s)| {
-                        let hans = s
-                            .chars()
-                            .filter(|c| is_han(*c))
-                            .collect::<Vec<char>>();
+                        let hans = s.chars().filter(|c| is_han(*c)).collect::<Vec<char>>();
                         if hans.is_empty() {
                             return lattice::Entry::new(Node::new(s, i as u8), '\0', '\0');
                         }
@@ -225,13 +220,9 @@ impl Sekken {
                 .enumerate()
                 .collect()
         } else {
-            let kanji = self
-                .hira_kana_henkan(kanji.to_string())
-                .unwrap_or_default();
+            let kanji = self.hira_kana_henkan(kanji.to_string()).unwrap_or_default();
             let okuri = okuri.to_lowercase();
-            let okuri_hira = self
-                .hira_kana_henkan(okuri.to_string())
-                .unwrap_or_default();
+            let okuri_hira = self.hira_kana_henkan(okuri.to_string()).unwrap_or_default();
             let okuri_ari = self.okuri_ari_henkan(kanji.to_string(), okuri.to_string());
             let okuri_nashi = self
                 .okuri_nasi_henkan(kanji.to_string())

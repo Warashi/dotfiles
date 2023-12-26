@@ -24,7 +24,9 @@ fn main() -> Result<()> {
     let model = CompactModel::load(model).context("failed to load model file")?;
 
     let sekken = Sekken::new();
-    sekken.replace_kana_table(KanaTable::default_table().context("failed to load default kana table")?);
+    sekken.replace_kana_table(
+        KanaTable::default_table().context("failed to load default kana table")?,
+    );
     sekken.replace_dictionary(dict);
     sekken.replace_model(model);
 
