@@ -158,7 +158,9 @@ impl Sekken {
                 Ok(result.into_iter().map(|(_, s)| s).collect())
             }
             Some(_) => {
-                let hira = self.hira_kana_henkan(words[0].clone()).context("hira henkan")?;
+                let hira = self
+                    .hira_kana_henkan(words[0].clone())
+                    .unwrap_or(String::new());
                 let lattice = self
                     .make_lattice(words.into_iter().skip(1).collect())
                     .context("make lattice")?;
@@ -209,23 +211,33 @@ impl Sekken {
             self.okuri_nasi_henkan(kanji.clone())
                 .unwrap_or(Vec::new())
                 .into_iter()
-                .chain(self.kana_henkan(kanji.clone()).unwrap())
+                .chain(self.kana_henkan(kanji.clone()).unwrap_or(Vec::new()))
                 .chain(self.roman_henkan(kanji.clone()))
-                .chain(vec![self.zenkaku_henkan(kanji.clone()).unwrap()])
+                .chain(
+                    self.zenkaku_henkan(kanji.clone())
+                        .map_or(Vec::new(), |s| vec![s]),
+                )
                 .enumerate()
                 .collect()
         } else {
-            let kanji = self.hira_kana_henkan(kanji.to_string()).unwrap();
+            let kanji = self
+                .hira_kana_henkan(kanji.to_string())
+                .unwrap_or(String::new());
             let okuri = okuri.to_lowercase();
-            let okuri_hira = self.hira_kana_henkan(okuri.to_string()).unwrap();
+            let okuri_hira = self
+                .hira_kana_henkan(okuri.to_string())
+                .unwrap_or(String::new());
             let okuri_ari = self.okuri_ari_henkan(kanji.to_string(), okuri.to_string());
             let okuri_nashi = self
                 .okuri_nasi_henkan(kanji.to_string())
                 .unwrap_or(Vec::new())
                 .into_iter()
-                .chain(self.kana_henkan(kanji.clone()).unwrap())
+                .chain(self.kana_henkan(kanji.clone()).unwrap_or(Vec::new()))
                 .chain(self.roman_henkan(kanji.clone()))
-                .chain(vec![self.zenkaku_henkan(kanji.clone()).unwrap()])
+                .chain(
+                    self.zenkaku_henkan(kanji.clone())
+                        .map_or(Vec::new(), |s| vec![s]),
+                )
                 .map(|s| s + &okuri_hira)
                 .enumerate();
             okuri_ari
