@@ -158,7 +158,7 @@ impl Sekken {
                 Ok(result.into_iter().map(|(_, s)| s).collect())
             }
             Some(_) => {
-                let hira = self.hira_kana_henkan(words[0].clone()).unwrap();
+                let hira = self.hira_kana_henkan(words[0].clone()).context("hira henkan")?;
                 let lattice = self
                     .make_lattice(words.into_iter().skip(1).collect())
                     .context("make lattice")?;
