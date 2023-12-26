@@ -23,7 +23,7 @@ export class Config extends BaseConfig {
         "shell-native",
         "mocword",
       ],
-      autoCompleteDelay: 100,
+      autoCompleteDelay: 0,
       autoCompleteEvents: [
         "InsertEnter",
         "TextChangedI",
@@ -48,7 +48,7 @@ export class Config extends BaseConfig {
           matchers: ["matcher_fuzzy"],
           sorters: ["converter_fuzzy"],
           converters: ["converter_fuzzy"],
-          timeout: 1000,
+          timeout: 10,
         },
         around: {
           mark: "A",
@@ -79,7 +79,7 @@ export class Config extends BaseConfig {
         file: {
           mark: "F",
           isVolatile: true,
-          minAutoCompleteLength: 1000,
+          minAutoCompleteLength: 10,
           forceCompletionPattern: "\\S/\\S*",
         },
         "cmdline-history": {
@@ -97,7 +97,7 @@ export class Config extends BaseConfig {
         },
         mocword: {
           mark: "mocword",
-          minAutoCompleteLength: 4,
+          minAutoCompleteLength: 3,
           isVolatile: true,
         },
         skkeleton: {
@@ -114,6 +114,7 @@ export class Config extends BaseConfig {
           isVolatile: true,
           minAutoCompleteLength: 1,
           keywordPattern: "[!-~]+",
+          maxItems: 15,
         },
       },
       sourceParams: {
