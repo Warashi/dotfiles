@@ -10,7 +10,7 @@ crate-type = ["cdylib"]
 console_error_panic_hook = "0.1.7"
 serde-wasm-bindgen = "0.6.1"
 wasm-bindgen = "0.2.88"
-sekken-model = { path = "../model" }
+sekken-model = { path = "../model", features = ["wasm"] }
 sekken-core = { path = "../core" }
 anyhow = "1.0.76"
 

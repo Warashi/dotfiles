@@ -27,7 +27,10 @@ impl CompactModel {
         }
     }
 
+    #[cfg(feature = "load")]
     pub fn load<R: Read>(reader: R) -> Result<Self> {
+        use ruzstd::streaming_decoder::StreamingDecoder as Decoder;
+        let reader = Decoder::new(reader).context("Failed to create zstd decoder")?;
         let reader = serialize::read_message(
             reader,
             ReaderOptions {
@@ -51,7 +54,17 @@ impl CompactModel {
         Ok(CompactModel { bigram_cost })
     }
 
+    #[cfg(feature = "save")]
     pub fn save<W: Write>(&self, writer: &mut W) -> Result<()> {
+        use zstd::Encoder;
+        let writer = Encoder::new(
+            writer,
+            zstd::compression_level_range()
+                .max()
+                .unwrap_or(zstd::DEFAULT_COMPRESSION_LEVEL),
+        )
+        .context("Failed to create zstd encoder")?;
+        let writer = writer.auto_finish();
         let mut msg = Builder::new_default();
         let entries = msg.init_root::<compact_model::Builder>();
         let mut entries_list = entries.init_entries(self.bigram_cost.len() as u32);
