@@ -14,6 +14,12 @@ pub struct CompactModel {
     bigram_cost: BTreeMap<u64, u8>,
 }
 
+impl Default for CompactModel {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl CompactModel {
     pub fn new() -> Self {
         Self {

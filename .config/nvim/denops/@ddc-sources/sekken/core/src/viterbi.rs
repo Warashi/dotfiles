@@ -97,7 +97,7 @@ where
                     let max_score = r2.keys().max().context("max score")?;
 
                     if (score, u8::MAX) < *max_score {
-                        result.remove(&max_score);
+                        result.remove(max_score);
 
                         let ord = result
                             .range((score, 0)..=(score, u8::MAX))

@@ -34,5 +34,5 @@ fn main() -> Result<()> {
 
     println!("{:?}", result);
 
-    return Ok(());
+    Ok(())
 }

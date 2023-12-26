@@ -30,11 +30,11 @@ impl KanaTable {
             .build_with_values(table)
             .ok()?;
 
-        return Some(KanaTable { table, values });
+        Some(KanaTable { table, values })
     }
 
     pub fn default() -> Option<KanaTable> {
-        return KanaTable::new(table::default());
+        KanaTable::new(table::default())
     }
 
     pub fn roman2kana(&self, roman: String) -> String {
@@ -48,6 +48,6 @@ impl KanaTable {
         for m in it {
             kana.replace_range(m.start()..m.end(), self.values[m.value()].as_str());
         }
-        return kana;
+        kana
     }
 }

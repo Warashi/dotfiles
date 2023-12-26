@@ -9,6 +9,12 @@ pub struct NormalModel {
     bigram_cost: HashMap<u64, u128>,
 }
 
+impl Default for NormalModel {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl NormalModel {
     pub fn new() -> Self {
         Self {

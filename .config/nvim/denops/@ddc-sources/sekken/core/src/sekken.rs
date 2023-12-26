@@ -17,6 +17,12 @@ pub struct Sekken {
     model: RefCell<Option<CompactModel>>,
 }
 
+impl Default for Sekken {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Sekken {
     pub fn new() -> Sekken {
         Sekken {
@@ -81,7 +87,7 @@ impl Sekken {
 
     fn hira2kata_char(&self, c: char) -> Result<char> {
         let code = c as u32;
-        if 0x3041 <= code && code <= 0x3096 {
+        if (0x3041..=0x3096).contains(&code) {
             char::from_u32(code + 0x60).context("convert to katakana")
         } else {
             Ok(c)
@@ -160,7 +166,7 @@ impl Sekken {
             Some(_) => {
                 let hira = self
                     .hira_kana_henkan(words[0].clone())
-                    .unwrap_or(String::new());
+                    .unwrap_or_default();
                 let lattice = self
                     .make_lattice(words.into_iter().skip(1).collect())
                     .context("make lattice")?;
@@ -189,13 +195,12 @@ impl Sekken {
                     .map(|(i, s)| {
                         let hans = s
                             .chars()
-                            .into_iter()
-                            .filter(|c| is_han(c.clone()))
+                            .filter(|c| is_han(*c))
                             .collect::<Vec<char>>();
                         if hans.is_empty() {
                             return lattice::Entry::new(Node::new(s, i as u8), '\0', '\0');
                         }
-                        let (head_han, tail_han) = (hans[0].clone(), hans[hans.len() - 1].clone());
+                        let (head_han, tail_han) = (hans[0], hans[hans.len() - 1]);
                         lattice::Entry::new(Node::new(s, i as u8), head_han, tail_han)
                     })
                     .collect::<Vec<_>>()
@@ -209,9 +214,9 @@ impl Sekken {
         let (kanji, okuri) = (kanji.to_lowercase(), okuri.to_lowercase());
         if okuri.is_empty() {
             self.okuri_nasi_henkan(kanji.clone())
-                .unwrap_or(Vec::new())
+                .unwrap_or_default()
                 .into_iter()
-                .chain(self.kana_henkan(kanji.clone()).unwrap_or(Vec::new()))
+                .chain(self.kana_henkan(kanji.clone()).unwrap_or_default())
                 .chain(self.roman_henkan(kanji.clone()))
                 .chain(
                     self.zenkaku_henkan(kanji.clone())
@@ -222,17 +227,17 @@ impl Sekken {
         } else {
             let kanji = self
                 .hira_kana_henkan(kanji.to_string())
-                .unwrap_or(String::new());
+                .unwrap_or_default();
             let okuri = okuri.to_lowercase();
             let okuri_hira = self
                 .hira_kana_henkan(okuri.to_string())
-                .unwrap_or(String::new());
+                .unwrap_or_default();
             let okuri_ari = self.okuri_ari_henkan(kanji.to_string(), okuri.to_string());
             let okuri_nashi = self
                 .okuri_nasi_henkan(kanji.to_string())
-                .unwrap_or(Vec::new())
+                .unwrap_or_default()
                 .into_iter()
-                .chain(self.kana_henkan(kanji.clone()).unwrap_or(Vec::new()))
+                .chain(self.kana_henkan(kanji.clone()).unwrap_or_default())
                 .chain(self.roman_henkan(kanji.clone()))
                 .chain(
                     self.zenkaku_henkan(kanji.clone())
@@ -241,7 +246,7 @@ impl Sekken {
                 .map(|s| s + &okuri_hira)
                 .enumerate();
             okuri_ari
-                .unwrap_or(Vec::new())
+                .unwrap_or_default()
                 .into_iter()
                 .enumerate()
                 .chain(okuri_nashi)
