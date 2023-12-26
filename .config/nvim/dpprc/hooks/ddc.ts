@@ -48,7 +48,7 @@ export class Config extends BaseConfig {
           matchers: ["matcher_fuzzy"],
           sorters: ["converter_fuzzy"],
           converters: ["converter_fuzzy"],
-          timeout: 10,
+          timeout: 1000,
         },
         around: {
           mark: "A",
