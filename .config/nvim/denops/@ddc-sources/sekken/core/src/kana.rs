@@ -33,7 +33,7 @@ impl KanaTable {
         Some(KanaTable { table, values })
     }
 
-    pub fn default() -> Option<KanaTable> {
+    pub fn default_table() -> Option<KanaTable> {
         KanaTable::new(table::default())
     }
 

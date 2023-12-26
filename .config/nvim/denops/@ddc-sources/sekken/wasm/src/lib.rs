@@ -33,7 +33,7 @@ fn replace_kana_table(map: kana::KanaTable) {
 
 #[wasm_bindgen]
 pub fn use_default_kana_table() -> Result<(), JsError> {
-    let kana_table = kana::KanaTable::default().context("failed to load default kana table");
+    let kana_table = kana::KanaTable::default_table().context("failed to load default kana table");
     match kana_table {
         Ok(kana_table) => {
             replace_kana_table(kana_table);
