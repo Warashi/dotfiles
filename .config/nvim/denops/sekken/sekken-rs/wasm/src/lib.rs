@@ -86,7 +86,7 @@ pub fn set_model(data: &[u8]) -> Result<(), JsError> {
 }
 
 #[wasm_bindgen]
-pub fn viterbi_henkan(roman: String, n: usize) -> Result<Vec<String>, JsError> {
+pub fn henkan(roman: String, n: usize) -> Result<Vec<String>, JsError> {
     let result = SEKKEN.with(|sekken| sekken.viterbi_henkan(roman, n).context("failed to henkan"));
     match result {
         Ok(result) => Ok(result),

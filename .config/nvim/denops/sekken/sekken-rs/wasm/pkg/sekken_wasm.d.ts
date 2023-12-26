@@ -23,4 +23,4 @@ export function set_model(data: Uint8Array): void;
 * @param {number} n
 * @returns {(string)[]}
 */
-export function viterbi_henkan(roman: string, n: number): (string)[];
+export function henkan(roman: string, n: number): (string)[];

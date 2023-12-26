@@ -261,12 +261,12 @@ function getArrayJsValueFromWasm0(ptr, len) {
 * @param {number} n
 * @returns {(string)[]}
 */
-export function viterbi_henkan(roman, n) {
+export function henkan(roman, n) {
     try {
         const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
         const ptr0 = passStringToWasm0(roman, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        wasm.viterbi_henkan(retptr, ptr0, len0, n);
+        wasm.henkan(retptr, ptr0, len0, n);
         var r0 = getInt32Memory0()[retptr / 4 + 0];
         var r1 = getInt32Memory0()[retptr / 4 + 1];
         var r2 = getInt32Memory0()[retptr / 4 + 2];
