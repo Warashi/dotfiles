@@ -48,7 +48,7 @@ export class Config extends BaseConfig {
           matchers: ["matcher_fuzzy"],
           sorters: ["converter_fuzzy"],
           converters: ["converter_fuzzy"],
-          timeout: 1000,
+          timeout: 10,
         },
         around: {
           mark: "A",
@@ -115,6 +115,7 @@ export class Config extends BaseConfig {
           minAutoCompleteLength: 1,
           keywordPattern: "[!-~]+",
           maxItems: 15,
+          timeout: 1000,
         },
       },
       sourceParams: {
