@@ -36,4 +36,3 @@ execute 'source' s:base_path .. '/rc/dpp.vim'
 
 " load colorscheme after dpp.vim because manage colorscheme plugin with dpp.vim
 execute 'source' s:base_path .. '/rc/colorscheme.vim'
-execute 'source' s:base_path .. '/rc/sekken.vim'

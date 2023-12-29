@@ -47,6 +47,11 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Warashi/sekken'
+on_source = ['ddc.vim']
+hooks_file = '$DPP_CONFIG_BASE/hooks/sekken.vim'
+
+[[plugins]]
 repo = 'vim-skk/skkeleton'
 on_source = ['ddc.vim']
 on_event = ['InsertEnter', 'CmdlineEnter', 'TermOpen']
