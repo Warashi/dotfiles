@@ -1,12 +1,17 @@
 import type { Denops } from "https://deno.land/x/denops_std@v5.0.1/mod.ts";
 import * as u from "https://deno.land/x/unknownutil@v3.11.0/mod.ts";
 import * as rs from "./sekken-rs/wasm/pkg/sekken_wasm.js";
-rs.init();
+import * as path from "https://deno.land/std@0.171.0/path/mod.ts";
 
 export function main(denops: Denops): void {
+  rs.init();
+
   denops.dispatcher = {
-    set_model: async (modelPath: unknown) => {
-      const model = await Deno.readFile(u.ensure(modelPath, u.isString));
+    load_model: async () => {
+      const __filename = new URL(import.meta.url).pathname;
+      const model = await Deno.readFile(
+        path.resolve(__filename, "../sekken-rs/model.bin.zst"),
+      );
       rs.set_model(model);
     },
     set_dictionary: async (dictPath: unknown) => {
