@@ -3,19 +3,8 @@
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     inputs.neovim-nightly-overlay.overlay
     (_: prev: {
-      libvterm-neovim = prev.libvterm-neovim.overrideAttrs (_: rec {
-        version = "0.3.3";
-        src = prev.fetchurl {
-          url = "https://launchpad.net/libvterm/trunk/v${prev.lib.versions.majorMinor version}/+download/libvterm-${version}.tar.gz";
-          hash = "sha256-CRVvQ90hKL00fL7r5Q2aVx0yxk4M8Y0hEZeUav9yJuA=";
-        };
-        doCheck = false;
-      });
-    })
-    (final: prev: {
       neovim-unwrapped = prev.neovim-unwrapped.override {
         inherit (prev.llvmPackages_latest) stdenv;
-        inherit (final) libvterm-neovim;
       };
     })
     (_: prev: {
