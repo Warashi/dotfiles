@@ -3,6 +3,7 @@
 repo = 'Shougo/dpp.vim'
 rtp = ''
 on_cmd = ["DppMakeState", "DppInstall", "DppUpdate"]
+depends = ['denops.vim']
 hook_source = '''
   command! DppMakeState :call dpp#make_state($CACHE .. '/dpp', '$DPP_CONFIG_BASE/config.ts')
   command! DppInstall :call dpp#async_ext_action('installer', 'install')
