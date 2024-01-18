@@ -14,7 +14,6 @@ export class Config extends BaseConfig {
       ui: "pum",
       sources: [
         "sekken",
-        "skkeleton",
         "lsp",
         "buffer",
         "around",

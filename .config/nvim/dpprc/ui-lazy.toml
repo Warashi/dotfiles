@@ -51,29 +51,29 @@ repo = 'Warashi/sekken'
 on_source = ['ddc.vim']
 hooks_file = '$DPP_CONFIG_BASE/hooks/sekken.vim'
 
-[[plugins]]
-repo = 'vim-skk/skkeleton'
-on_source = ['ddc.vim']
-on_event = ['InsertEnter', 'CmdlineEnter', 'TermOpen']
-hooks_file = '$DPP_CONFIG_BASE/hooks/skkeleton.lua'
-
-[[plugins]]
-repo = 'delphinus/skkeleton_indicator.nvim'
-on_source = ['skkeleton']
-lua_source = '''
-  require("skkeleton_indicator").setup({
-    row = 1,
-    col = -6,
-    border = "double",
-    fadeOutMs = 1000,
-    eijiHlName = "String",
-    hiraHlName = "String",
-    kataHlName = "String",
-    hankataHlName = "String",
-    zenkakuHlName = "String",
-    abbrevHlName = "String",
-  })
-'''
+# [[plugins]]
+# repo = 'vim-skk/skkeleton'
+# on_source = ['ddc.vim']
+# on_event = ['InsertEnter', 'CmdlineEnter', 'TermOpen']
+# hooks_file = '$DPP_CONFIG_BASE/hooks/skkeleton.lua'
+# 
+# [[plugins]]
+# repo = 'delphinus/skkeleton_indicator.nvim'
+# on_source = ['skkeleton']
+# lua_source = '''
+#   require("skkeleton_indicator").setup({
+#     row = 1,
+#     col = -6,
+#     border = "double",
+#     fadeOutMs = 1000,
+#     eijiHlName = "String",
+#     hiraHlName = "String",
+#     kataHlName = "String",
+#     hankataHlName = "String",
+#     zenkakuHlName = "String",
+#     abbrevHlName = "String",
+#   })
+# '''
 
 [[plugins]]
 repo = 'nvim-zh/colorful-winsep.nvim'
@@ -89,7 +89,7 @@ on_event = ['InsertEnter']
 
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
-on_cmd = ['GinStatus']
+on_cmd = ['Gin', 'GinStatus']
 on_ft = ['gitcommit']
 hook_add = '''
   nnoremap <silent> <leader>g <Cmd>tabnew +GinStatus<CR>
