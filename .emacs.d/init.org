@@ -1,0 +1,65 @@
+* init.elc ビルド用の Makefile
+#+begin_src makefile
+EMACS ?= emacs
+all: init.elc
+init.el: init.org
+	$(EMACS) -Q -q --batch --eval \
+		"(progn \
+			(require 'ob-tangle) \
+			(org-babel-tangle-file \"$<\" \"$@\" \"emacs-lisp\"))"
+	$(EMACS) -q -l init.el --batch --eval "(run-hooks 'after-init-hook)"
+%.elc: %.el
+	$(EMACS) -q -l init.el --batch -f batch-byte-compile $<
+#+end_src
+
+* init.el 本体
+** おまじない
+#+begin_src emacs-lisp
+;; -*- lexical-binding: t -*-
+#+end_src
+
+** emacs -q -lした時に、user-emacs-directoryが変わるように
+#+begin_src emacs-lisp
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
+#+end_src
+
+** M-x customize したときの設定保存場所を変える
+#+begin_src emacs-lisp
+(setq custom-file (locate-user-emacs-file "customize.el"))
+(when (file-readable-p custom-file)
+  (load-file custom-file))
+#+end_src
+
+** /site-lisp を load-path に追加
+#+begin_src emacs-lisp
+(add-to-list 'load-path (locate-user-emacs-file "site-lisp"))
+#+end_src
+
+** basic key bindings
+*** C-hをbackspaceにする
+#+begin_src emacs-lisp
+(define-key key-translation-map (kbd "C-h") (kbd "DEL"))
+(define-key key-translation-map (kbd "M-h") (kbd "M-DEL"))
+#+end_src
+
+*** emacs そのものを終了できるようにする
+#+begin_src emacs-lisp
+(defalias 'exit 'save-buffers-kill-emacs)
+#+end_src
+
+*** hippie-expandを使う
+#+begin_src emacs-lisp
+(substitute-key-definition 'dabbrev-expand 'hippie-expand global-map)
+#+end_src
+
+** 基本的なUI/UX設定
+*** 各種バーを消す
+#+begin_src emacs-lisp
+  ;; (setq-default mode-line-format nil) ; 思ったより不便だったのでモードライン非表示はやめる
+  (menu-bar-mode -1)
+  (when (fboundp #'tool-bar-mode)
+    (tool-bar-mode -1))
+  (when (fboundp #'scroll-bar-mode)
+    (scroll-bar-mode -1))
+#+end_src

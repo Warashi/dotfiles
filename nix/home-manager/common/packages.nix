@@ -7,6 +7,7 @@
     delta
     deno
     devbox
+    emacs
     fd
     ghq
     git-lfs
