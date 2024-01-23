@@ -18,7 +18,7 @@
 
     sessionVariables = {
       DENO_NO_UPDATE_CHECK = "1";
-      EDITOR = "nvim --noplugin";
+      EDITOR = "emacsclient -t -a ''";
       KEYTIMEOUT = "1";
       LANG = "en_US.UTF-8";
       MANPAGER = "nvim +Man!";

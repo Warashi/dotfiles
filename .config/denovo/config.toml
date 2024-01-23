@@ -5,6 +5,16 @@ ghq-cd-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {}/README.
 
 [plugins.abbrev]
 [[plugins.abbrev.snippets]]
+name = "emacs"
+keyword = "e"
+snippet = "emacsclient -t -a ''"
+
+[[plugins.abbrev.snippets]]
+name = "neovim"
+keyword = "v"
+snippet = "nvim --noplugin"
+
+[[plugins.abbrev.snippets]]
 name = "git"
 keyword = "g"
 snippet = "git"
@@ -48,10 +58,12 @@ snippet = "lazygit"
 name = "zk lazygit"
 keyword = "zl"
 snippet = "zk lazygit"
+
 [[plugins.abbrev.snippets]]
 name = "zk new"
 keyword = "zn"
 snippet = "zk new"
+
 [[plugins.abbrev.snippets]]
 name = "zk amend"
 keyword = "zz"
