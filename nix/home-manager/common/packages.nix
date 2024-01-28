@@ -26,6 +26,7 @@
     neovim
     neovim-remote
     nodejs
+    oci-cli
     ov
     ripgrep
     sheldon

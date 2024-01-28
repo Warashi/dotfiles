@@ -1,12 +1,12 @@
 {inputs, ...}: {
   nixpkgs.overlays = [
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
-    inputs.neovim-nightly-overlay.overlay
-    (_: prev: {
-      neovim-unwrapped = prev.neovim-unwrapped.override {
-        inherit (prev.llvmPackages_latest) stdenv;
-      };
-    })
+    # inputs.neovim-nightly-overlay.overlay
+    # (_: prev: {
+    #   neovim-unwrapped = prev.neovim-unwrapped.override {
+    #     inherit (prev.llvmPackages_latest) stdenv;
+    #   };
+    # })
     (_: prev: {
       sheldon =
         prev.sheldon.overrideAttrs

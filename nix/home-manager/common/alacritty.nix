@@ -3,14 +3,14 @@
     enable = true;
     settings = {
       import = [
-        "${inputs.catppuccin-alacritty + "/catppuccin-latte.yml"}"
+        "${inputs.catppuccin-alacritty + "/catppuccin-latte.toml"}"
       ];
       env = {
         TERM = "xterm-256color";
       };
       window = {
         opacity = 1.0;
-        options_as_alt = "Both";
+        option_as_alt = "Both";
         padding = {
           x = 10;
           y = 10;

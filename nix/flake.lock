@@ -120,11 +120,11 @@
     "denops-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1704832639,
-        "narHash": "sha256-B5ac826J6Fnbh5FH5uKISShebg+hz2OABuuMZTgyJyk=",
+        "lastModified": 1706171499,
+        "narHash": "sha256-70NZunyrTGsGBFebaLKtlp8u2uQ2NKL0PW7ZIlUlR6Q=",
         "owner": "vim-denops",
         "repo": "denops.vim",
-        "rev": "83f167b034e9e56913d8a89b026a6b0eb79b52b4",
+        "rev": "16d4bbc5c8e359ab50042f66dc5c9a2cdeabff6e",
         "type": "github"
       },
       "original": {
@@ -291,11 +291,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705535278,
-        "narHash": "sha256-V5+XKfNbiY0bLKLQlH+AXyhHttEL7XcZBH9iSbxxexA=",
+        "lastModified": 1706435589,
+        "narHash": "sha256-yhEYJxMv5BkfmUuNe4QELKo+V5eq1pwhtVs6kEziHfE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b84191db127c16a92cbdf7f7b9969d58bb456699",
+        "rev": "4d54c29bce71f8c261513e0662cc573d30f3e33e",
         "type": "github"
       },
       "original": {
@@ -362,11 +362,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1705595580,
-        "narHash": "sha256-nk57t1MPmwhQbPh1HPDv5P9+hmg/phVdNIFlR+yt5IE=",
+        "lastModified": 1706420018,
+        "narHash": "sha256-6zAWRguJzV1ZM3G5+X9OXyRM2Zzqo5z9g9iPSJhttZE=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "78b000c74d631fb097bc2ada0c929153f96d9769",
+        "rev": "74e695d22715e52f5561a185583b8c23d4fa0dd6",
         "type": "github"
       },
       "original": {
@@ -389,11 +389,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705536286,
-        "narHash": "sha256-CueuQ+ortBlroKYjiNonhhzCRT85lC85TNxFeRaJW6M=",
+        "lastModified": 1706141075,
+        "narHash": "sha256-o66/XFTXmcJSpEcO508V5r765HtgT8qtr+H4LRIB9BY=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "c4236225618887e11ccf02e5d65c2a812b25df8f",
+        "rev": "1da2e054a16309d7d7f7669438c8b9a5ef1b4642",
         "type": "github"
       },
       "original": {
@@ -409,11 +409,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705452289,
-        "narHash": "sha256-i/WodLabBcmRr9hdSv5jzDigL1hRYuI8vNh+xTbGt+g=",
+        "lastModified": 1706405065,
+        "narHash": "sha256-femlVBNWgr9a6HfBUzhBF/9S8VBlaHDKcEm8B89O+zc=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "74ab0227ee495e526f2dd57ea684b34f6396445a",
+        "rev": "0108864c15bb68ad57d17fb2e7d3a3e025751d79",
         "type": "github"
       },
       "original": {
@@ -424,11 +424,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1705496572,
-        "narHash": "sha256-rPIe9G5EBLXdBdn9ilGc0nq082lzQd0xGGe092R/5QE=",
+        "lastModified": 1706191920,
+        "narHash": "sha256-eLihrZAPZX0R6RyM5fYAWeKVNuQPYjAkCUBr+JNvtdE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "842d9d80cfd4560648c785f8a4e6f3b096790e19",
+        "rev": "ae5c332cbb5827f6b1f02572496b141021de335f",
         "type": "github"
       },
       "original": {
@@ -511,11 +511,11 @@
     "skk-jisyo-L": {
       "flake": false,
       "locked": {
-        "lastModified": 1705493257,
-        "narHash": "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=",
+        "lastModified": 1706429372,
+        "narHash": "sha256-l+bj+wEwO98CXDMGo/nGXY59u/oKjzI+UUHCbmopU9c=",
         "owner": "skk-dev",
         "repo": "dict",
-        "rev": "00896147273037623f6416684ef586ab17297be2",
+        "rev": "c87be03c8be4361452d582db1f4029832c3f4b80",
         "type": "github"
       },
       "original": {
@@ -527,11 +527,11 @@
     "skk-jisyo-jawiki": {
       "flake": false,
       "locked": {
-        "lastModified": 1703166665,
-        "narHash": "sha256-C/cb3SpaST/RW9OxsLqS7nACvG7tsT42pS6OY3X1NmI=",
+        "lastModified": 1706062713,
+        "narHash": "sha256-2lxemOBLQ9MVb5CarKaH0btlPPTIjUfr6yasj1FE7BM=",
         "owner": "tokuhirom",
         "repo": "jawiki-kana-kanji-dict",
-        "rev": "cbdf9ba0b55c1c7b93edf56258ade5ea1af39bdb",
+        "rev": "53f34b277e75d9bae880a4e8cb36acaeb78cb239",
         "type": "github"
       },
       "original": {
