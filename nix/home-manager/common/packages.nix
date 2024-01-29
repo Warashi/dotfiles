@@ -14,11 +14,14 @@
     glow
     gnumake
     go
+    google-clasp
     htop
     hyperfine
     jq
+    k9s
     kubectl
     kubectx
+    kubernetes-helm
     lazygit
     lefthook
     mocword
