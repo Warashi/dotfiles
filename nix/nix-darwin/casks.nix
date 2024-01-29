@@ -15,6 +15,7 @@
   "slack"
   "thunderbird"
   "timemator"
+  "visual-studio-code"
   "vlc"
 
   "homebrew/cask-fonts/font-biz-udgothic"
