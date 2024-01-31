@@ -81,9 +81,15 @@
   }: rec {
     flakeInputs = inputs;
 
-    nixos = {
+    nixosGUI = {
       modules = [
-        ./nixos/config.nix
+        ./nixos/common/config.nix
+        ./nixos/gui/config.nix
+      ];
+    };
+    nixosNonGUI = {
+      modules = [
+        ./nixos/common/config.nix
       ];
     };
     darwin = {
@@ -138,11 +144,21 @@
       };
 
     nixosConfigurations = {
-      parallels = nixpkgs.lib.nixosSystem (nixos
+      orbstack = nixpkgs.lib.nixosSystem (nixosNonGUI
         // {
           system = "aarch64-linux";
           modules =
-            nixos.modules
+            nixosNonGUI.modules
+            ++ [
+              ./nixos/hosts/orbstack/config.nix
+            ];
+        });
+
+      parallels = nixpkgs.lib.nixosSystem (nixosGUI
+        // {
+          system = "aarch64-linux";
+          modules =
+            nixosGUI.modules
             ++ [
               ./nixos/hosts/parallels/config.nix
             ];
@@ -154,6 +170,18 @@
     };
 
     homeConfigurations = {
+      orbstack = home-manager.lib.homeManagerConfiguration (homeManagerLinuxNonGUI
+        // {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+
+          extraSpecialArgs = {
+            inherit inputs;
+            local = {
+              user = "sawada";
+            };
+          };
+        });
+
       parallels = home-manager.lib.homeManagerConfiguration (homeManagerLinuxGUI
         // {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;

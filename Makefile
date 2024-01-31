@@ -36,12 +36,18 @@ darwin-rebuild:
 .PHONY: home-manager
 home-manager:
 	if which home-manager; then home-manager switch --flake '$(FLAKE)'; else nix run home-manager -- switch --flake '$(FLAKE)'; fi
+.PHONY: nixos-rebuild/orbstack
+nixos-rebuild/orbstack:
+	$(MAKE) nixos-rebuild FLAKE='./nix#orbstack'
 .PHONY: nixos-rebuild/parallels
 nixos-rebuild/parallels:
 	$(MAKE) nixos-rebuild FLAKE='./nix#parallels'
 .PHONY: darwin-rebuild/warashi
 darwin-rebuild/warashi:
 	$(MAKE) darwin-rebuild FLAKE='./nix#warashi'
+.PHONY: home-manager/orbstack
+home-manager/orbstack:
+	$(MAKE) home-manager FLAKE='./nix#orbstack'
 .PHONY: home-manager/parallels
 home-manager/parallels:
 	$(MAKE) home-manager FLAKE='./nix#parallels'
