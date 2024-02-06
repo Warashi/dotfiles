@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  pkgs,
+  ...
+}: {
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
@@ -8,6 +12,8 @@
     enableCompletion = false;
     promptInit = "";
   };
+
+  environment.shells = with pkgs; [zsh];
 
   homebrew = {
     enable = true;
