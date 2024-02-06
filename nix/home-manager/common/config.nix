@@ -41,7 +41,7 @@
 
     bash = {
       enable = true;
-      initExtra = "unset which; exec -l zsh --login";
+      # initExtra = "unset which; exec -l zsh --login";
     };
 
     bat = {
