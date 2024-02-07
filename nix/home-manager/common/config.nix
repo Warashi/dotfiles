@@ -41,7 +41,7 @@
 
     bash = {
       enable = true;
-      initExtra = "unset which";
+      initExtra = "unset -f which";
     };
 
     bat = {
