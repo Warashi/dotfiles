@@ -13,7 +13,14 @@
     promptInit = "";
   };
 
-  environment.shells = with pkgs; [zsh];
+  programs.bash = {
+    enable = true;
+  };
+
+  environment.shells = with pkgs; [
+    bashInteractive
+    zsh
+  ];
 
   homebrew = {
     enable = true;

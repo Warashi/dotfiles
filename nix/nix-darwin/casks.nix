@@ -17,6 +17,7 @@
   "timemator"
   "visual-studio-code"
   "vlc"
+  "warp"
 
   "homebrew/cask-fonts/font-biz-udgothic"
   "homebrew/cask-fonts/font-biz-udmincho"
