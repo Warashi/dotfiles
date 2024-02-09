@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-tree-sitter.url = "github:nixos/nixpkgs/494e53c2578f80e25ac95774402beb4ca137e17b";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,13 +14,13 @@
     };
     neovim-flake = {
       url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-tree-sitter";
     };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
-        # neovim-flake.follows = "neovim-flake";
+        nixpkgs.follows = "nixpkgs-tree-sitter";
+        neovim-flake.follows = "neovim-flake";
       };
     };
     xremap-flake = {
