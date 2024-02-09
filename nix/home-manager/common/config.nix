@@ -33,6 +33,19 @@
       ZENO_GIT_CAT = "bat --color=always";
       ZENO_GIT_TREE = "eza --tree";
     };
+
+    shellAliases = {
+      e = "emacsclient -t -a ''";
+      v = "nvim --noplugin";
+      g = "git";
+      k = "kubectl";
+      kx = "kubectx";
+      ":q" = "exit";
+      lg = "lazygit";
+      zl = "zk lazygit";
+      zn = "zk new";
+      zz = "zk amend";
+    };
   };
 
   programs = {
