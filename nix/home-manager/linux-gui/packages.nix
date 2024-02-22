@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     easyeffects
-    firefox
+    microsoft-edge
     xsel
 
     (muscat {useGolangDesign = true;})
