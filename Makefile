@@ -42,6 +42,9 @@ nixos-rebuild/orbstack:
 .PHONY: nixos-rebuild/parallels
 nixos-rebuild/parallels:
 	$(MAKE) nixos-rebuild FLAKE='./nix#parallels'
+.PHONY: nixos-rebuild/tisza
+nixos-rebuild/tisza:
+	$(MAKE) nixos-rebuild FLAKE='./nix#tisza'
 .PHONY: darwin-rebuild/warashi
 darwin-rebuild/warashi:
 	$(MAKE) darwin-rebuild FLAKE='./nix#warashi'
@@ -51,6 +54,9 @@ home-manager/orbstack:
 .PHONY: home-manager/parallels
 home-manager/parallels:
 	$(MAKE) home-manager FLAKE='./nix#parallels'
+.PHONY: home-manager/tisza
+home-manager/tisza:
+	$(MAKE) home-manager FLAKE='./nix#tisza'
 .PHONY: home-manager/warashi
 home-manager/warashi:
 	$(MAKE) home-manager FLAKE='./nix#warashi'

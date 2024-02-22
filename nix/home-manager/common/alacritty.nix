@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -8,14 +12,21 @@
       env = {
         TERM = "xterm-256color";
       };
-      window = {
-        opacity = 1.0;
-        option_as_alt = "Both";
-        padding = {
-          x = 10;
-          y = 10;
-        };
-      };
+      window =
+        {
+          opacity = 1.0;
+          padding = {
+            x = 10;
+            y = 10;
+          };
+        }
+        // (
+          if pkgs.stdenv.isDarwin
+          then {
+            option_as_alt = "Both";
+          }
+          else {}
+        );
       scrolling = {
         history = 0;
       };

@@ -163,6 +163,16 @@
               ./nixos/hosts/parallels/config.nix
             ];
         });
+
+      tisza = nixpkgs.lib.nixosSystem (nixosGUI
+        // {
+          system = "x86_64-linux";
+          modules =
+            nixosGUI.modules
+            ++ [
+              ./nixos/hosts/tisza/config.nix
+            ];
+        });
     };
 
     darwinConfigurations = {
@@ -185,6 +195,17 @@
       parallels = home-manager.lib.homeManagerConfiguration (homeManagerLinuxGUI
         // {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          extraSpecialArgs = {
+            inherit inputs;
+            local = {
+              user = "warashi";
+            };
+          };
+        });
+
+      tisza = home-manager.lib.homeManagerConfiguration (homeManagerLinuxGUI
+        // {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs;
             local = {
