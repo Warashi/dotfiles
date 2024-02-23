@@ -1,7 +1,5 @@
 [
   "1password"
-  "alacritty"
-  "alfred"
   "amethyst"
   "cryptomator"
   "discord"
@@ -10,7 +8,7 @@
   "jetbrains-toolbox"
   "karabiner-elements"
   "logi-options-plus"
-  "microsoft-edge"
+  "raycast"
   "slack"
   "visual-studio-code"
 
