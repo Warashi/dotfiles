@@ -1,20 +1,15 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     _1password
-    aria
     awscli2
     bat
-    delta
     deno
     devbox
-    emacs
     fd
     ghq
     git-lfs
-    glow
     gnumake
     go
-    google-clasp
     htop
     hyperfine
     jq

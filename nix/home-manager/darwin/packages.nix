@@ -3,5 +3,7 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [];
+  home.packages = with pkgs; [
+    emacs-macport
+  ];
 }

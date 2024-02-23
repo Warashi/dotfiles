@@ -32,19 +32,19 @@ nixos-rebuild:
 	nixos-rebuild switch --flake '$(FLAKE)'
 .PHONY: darwin-rebuild
 darwin-rebuild:
-	if which darwin-rebuild; then darwin-rebuild switch --flake '$(FLAKE)'; else nix run nix-darwin -- switch --flake '$(FLAKE)'; fi
+	if which darwin-rebuild; then darwin-rebuild switch --flake '$(FLAKE)'; else nix --extra-experimental-features 'nix-command flakes' run nix-darwin -- switch --flake '$(FLAKE)'; fi
 .PHONY: home-manager
 home-manager:
-	if which home-manager; then home-manager switch --flake '$(FLAKE)'; else nix run home-manager -- switch --flake '$(FLAKE)'; fi
+	if which home-manager; then home-manager switch --flake '$(FLAKE)'; else nix --extra-experimental-features 'nix-command flakes' run home-manager -- switch --flake '$(FLAKE)'; fi
 .PHONY: nixos-rebuild/orbstack
 nixos-rebuild/orbstack:
 	$(MAKE) nixos-rebuild FLAKE='./nix#orbstack'
 .PHONY: nixos-rebuild/parallels
 nixos-rebuild/parallels:
 	$(MAKE) nixos-rebuild FLAKE='./nix#parallels'
-.PHONY: nixos-rebuild/tisza
-nixos-rebuild/tisza:
-	$(MAKE) nixos-rebuild FLAKE='./nix#tisza'
+.PHONY: darwin-rebuild/tisza
+darwin-rebuild/tisza:
+	$(MAKE) darwin-rebuild FLAKE='./nix#tisza'
 .PHONY: darwin-rebuild/warashi
 darwin-rebuild/warashi:
 	$(MAKE) darwin-rebuild FLAKE='./nix#warashi'

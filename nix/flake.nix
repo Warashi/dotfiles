@@ -94,7 +94,6 @@
     };
     darwin = {
       modules = [
-        ./nix-darwin/host.nix
         ./nix-darwin/config.nix
       ];
       specialArgs = {inherit self;};
@@ -107,7 +106,6 @@
     homeManagerDarwin =
       homeManagerBase
       // {
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         modules =
           homeManagerBase.modules
           ++ [
@@ -163,20 +161,26 @@
               ./nixos/hosts/parallels/config.nix
             ];
         });
-
-      tisza = nixpkgs.lib.nixosSystem (nixosGUI
-        // {
-          system = "x86_64-linux";
-          modules =
-            nixosGUI.modules
-            ++ [
-              ./nixos/hosts/tisza/config.nix
-            ];
-        });
     };
 
     darwinConfigurations = {
-      warashi = nix-darwin.lib.darwinSystem darwin;
+      warashi = nix-darwin.lib.darwinSystem (darwin
+        // {
+          modules =
+            darwin.modules
+            ++ [
+              (_: {nixpkgs.hostPlatform = "aarch64-darwin";})
+            ];
+        });
+
+      tisza = nix-darwin.lib.darwinSystem (darwin
+        // {
+          modules =
+            darwin.modules
+            ++ [
+              (_: {nixpkgs.hostPlatform = "x86_64-darwin";})
+            ];
+        });
     };
 
     homeConfigurations = {
@@ -203,23 +207,24 @@
           };
         });
 
-      tisza = home-manager.lib.homeManagerConfiguration (homeManagerLinuxGUI
-        // {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs;
-            local = {
-              user = "warashi";
-            };
-          };
-        });
-
       warashi = home-manager.lib.homeManagerConfiguration (homeManagerDarwin
         // {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = {
             inherit inputs;
             local = {
               user = "sawada";
+            };
+          };
+        });
+
+      tisza = home-manager.lib.homeManagerConfiguration (homeManagerDarwin
+        // {
+          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+          extraSpecialArgs = {
+            inherit inputs;
+            local = {
+              user = "warashi";
             };
           };
         });

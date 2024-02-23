@@ -6,10 +6,17 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
+  security = {
+    pam = {
+      enableSudoTouchIdAuth = true;
+    };
+  };
+
   programs.zsh = {
     enable = true;
-    enableBashCompletion = false;
-    enableCompletion = false;
+    enableBashCompletion = true;
+    enableCompletion = true;
+    enableGlobalCompInit = false;
     promptInit = "";
   };
 
@@ -28,7 +35,7 @@
     casks = import ./casks.nix;
     masApps = import ./mas.nix;
     onActivation = {
-      cleanup = "uninstall";
+      cleanup = "zap";
     };
   };
 
