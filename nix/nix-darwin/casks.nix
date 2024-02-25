@@ -1,12 +1,12 @@
 [
   "1password"
-  "amethyst"
   "cryptomator"
   "discord"
   "docker"
   "dropbox"
   "jetbrains-toolbox"
   "karabiner-elements"
+  "lasso"
   "logi-options-plus"
   "raycast"
   "slack"
