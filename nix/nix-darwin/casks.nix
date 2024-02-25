@@ -3,6 +3,7 @@
   "cryptomator"
   "discord"
   "docker"
+  "domzilla-caffeine"
   "dropbox"
   "jetbrains-toolbox"
   "karabiner-elements"
