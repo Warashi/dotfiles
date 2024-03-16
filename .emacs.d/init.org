@@ -1,23 +1,4 @@
-* init.elc ビルド用の Makefile
-#+begin_src makefile
-EMACS ?= emacs
-all: init.elc
-init.el: init.org
-	$(EMACS) -Q -q --batch --eval \
-		"(progn \
-			(require 'ob-tangle) \
-			(org-babel-tangle-file \"$<\" \"$@\" \"emacs-lisp\"))"
-	$(EMACS) -q -l init.el --batch --eval "(run-hooks 'after-init-hook)"
-%.elc: %.el
-	$(EMACS) -q -l init.el --batch -f batch-byte-compile $<
-#+end_src
-
 * init.el 本体
-** おまじない
-#+begin_src emacs-lisp
-;; -*- lexical-binding: t -*-
-#+end_src
-
 ** emacs -q -lした時に、user-emacs-directoryが変わるように
 #+begin_src emacs-lisp
 (when load-file-name
