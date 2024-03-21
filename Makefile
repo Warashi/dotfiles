@@ -72,3 +72,6 @@ setup-dotlink:
 .PHONY: update-cspell-dict
 update-cspell-dict:
 	cspell --words-only --unique --dot . | sort -u --ignore-case | tr '[:upper:]' '[:lower:]' > ./.cspell/project-words.txt
+.PHONY: update-emacs-deps
+update-emacs-deps:
+	cd nix/emacs && nix develop --command nix run '.#update' --impure

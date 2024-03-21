@@ -69,6 +69,9 @@
       url = "github:catppuccin/dunst";
       flake = false;
     };
+    my-emacs = {
+      url = "./emacs";
+    };
   };
 
   outputs = inputs @ {
@@ -110,6 +113,7 @@
           homeManagerBase.modules
           ++ [
             ./home-manager/darwin/default.nix
+            inputs.my-emacs.homeModules.aarch64-darwin.twist
           ];
       };
     homeManagerLinuxBase =

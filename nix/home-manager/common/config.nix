@@ -97,5 +97,9 @@
       git = true;
       icons = true;
     };
+
+    emacs-twist = {
+      enable = true;
+    };
   };
 }

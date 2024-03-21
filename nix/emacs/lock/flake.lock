@@ -1,0 +1,27 @@
+{
+  "nodes": {
+    "exec-path-from-shell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708099599,
+        "narHash": "sha256-QtTJ/A/X7HfOpc0sNMtWCxy3NdnhdAe5yRvi6U6LYuQ=",
+        "owner": "purcell",
+        "repo": "exec-path-from-shell",
+        "rev": "d95677ad608c214647b87bc20df1642763e3b400",
+        "type": "github"
+      },
+      "original": {
+        "owner": "purcell",
+        "repo": "exec-path-from-shell",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "exec-path-from-shell": "exec-path-from-shell"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
