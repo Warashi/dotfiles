@@ -62,7 +62,7 @@
 
           inputOverrides = with (pkgs.emacsPackages); {
             vterm = _: _: {
-              src = vterm;
+              src = vterm + "/share/emacs/site-lisp/elpa/vterm-${vterm.version}";
             };
           };
         };

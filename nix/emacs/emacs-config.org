@@ -159,3 +159,9 @@
 #+begin_src emacs-lisp
   (add-hook 'emacs-startup-hook #'show-paren-mode)
 #+end_src
+
+* vterm
+#+begin_src emacs-lisp
+  (use-package vterm
+    :ensure t)
+#+end_src
