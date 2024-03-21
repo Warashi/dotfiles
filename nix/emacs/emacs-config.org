@@ -1,3 +1,8 @@
+* おまじない
+#+begin_src emacs-lisp
+  ;; -*- lexical-binding: t; -*-
+#+end_src
+
 * use-package
 #+begin_src emacs-lisp
   (eval-when-compile
