@@ -59,6 +59,12 @@
           initFiles = [
             (pkgs.tangleOrgBabelFile "init.el" ./emacs-config.org {})
           ];
+
+          inputOverrides = with (pkgs.emacsPackages); {
+            vterm = _: _: {
+              src = vterm;
+            };
+          };
         };
       in rec {
         devShells = {
