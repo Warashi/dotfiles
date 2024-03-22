@@ -7,6 +7,18 @@
       repo = "exec-path-from-shell";
       type = "github";
     };
+    org = {
+      flake = false;
+      ref = "bugfix";
+      type = "git";
+      url = "https://git.savannah.gnu.org/git/emacs/org-mode.git";
+    };
+    vterm = {
+      flake = false;
+      owner = "akermu";
+      repo = "emacs-libvterm";
+      type = "github";
+    };
   };
   outputs = {...}: {};
 }

@@ -16,9 +16,44 @@
         "type": "github"
       }
     },
+    "org": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711092604,
+        "narHash": "sha256-6ZQ7Cc19sStyDysX5kzhVEims7UZW7UnqaZK8BDQMBY=",
+        "ref": "bugfix",
+        "rev": "50c51b9ad129ccd4d87cf5f2d64089a687383113",
+        "revCount": 26110,
+        "type": "git",
+        "url": "https://git.savannah.gnu.org/git/emacs/org-mode.git"
+      },
+      "original": {
+        "ref": "bugfix",
+        "type": "git",
+        "url": "https://git.savannah.gnu.org/git/emacs/org-mode.git"
+      }
+    },
     "root": {
       "inputs": {
-        "exec-path-from-shell": "exec-path-from-shell"
+        "exec-path-from-shell": "exec-path-from-shell",
+        "org": "org",
+        "vterm": "vterm"
+      }
+    },
+    "vterm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710778620,
+        "narHash": "sha256-y/rOSmPc3lrOywFxKMfvQkEHJkknyhEVVTsFjdReWZc=",
+        "owner": "akermu",
+        "repo": "emacs-libvterm",
+        "rev": "303decd923ef83a184b861d34081fd8635484a03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "akermu",
+        "repo": "emacs-libvterm",
+        "type": "github"
       }
     }
   },

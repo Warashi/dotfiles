@@ -67,7 +67,6 @@
 #+begin_src emacs-lisp
   (defvar my-font-size 180)
   (set-face-attribute 'default nil :family "PlemolJP Console NF" :height my-font-size)
-  (setq-default line-spacing 5)
 #+end_src
 
 ** 各種バーを消す
@@ -174,3 +173,8 @@
     :ensure t)
 #+end_src
 
+* org
+#+begin_src emacs-lisp
+  (use-package org
+    :ensure t)
+#+end_src
