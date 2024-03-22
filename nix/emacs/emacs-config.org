@@ -42,9 +42,11 @@
     (setq mac-command-modifier 'meta))
 #+end_src
 
-** emacs そのものを終了できるようにする
+** 誤って終了しないようにする
 #+begin_src emacs-lisp
-  (defalias 'exit 'save-buffers-kill-emacs)
+  (global-set-key (kbd "C-x C-C") 'server-edit)
+  (global-unset-key (kbd "C-z"))
+  (defalias 'exit 'save-buffers-kill-terminal)
 #+end_src
 
 ** hippie-expandを使う
@@ -55,13 +57,19 @@
 * PATH設定
 #+begin_src emacs-lisp
   (use-package exec-path-from-shell
-    :if (memq window-system '(mac ns))
     :ensure t
     :config
     (exec-path-from-shell-initialize))
 #+end_src
 
 * 基本的なUI/UX設定
+** font
+#+begin_src emacs-lisp
+  (defvar my-font-size 180)
+  (set-face-attribute 'default nil :family "PlemolJP Console NF" :height my-font-size)
+  (setq-default line-spacing 5)
+#+end_src
+
 ** 各種バーを消す
 #+begin_src emacs-lisp
   (menu-bar-mode -1)
@@ -165,3 +173,4 @@
   (use-package vterm
     :ensure t)
 #+end_src
+
