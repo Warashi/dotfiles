@@ -1,5 +1,6 @@
 [
   "1password"
+  "arc"
   "cryptomator"
   "discord"
   "docker"
