@@ -277,6 +277,7 @@
         "promise": "promise",
         "s": "s",
         "tempel": "tempel",
+        "tempel-collection": "tempel-collection",
         "twist": "twist",
         "vertico": "vertico",
         "vterm": "vterm",
@@ -313,6 +314,22 @@
       "original": {
         "owner": "minad",
         "repo": "tempel",
+        "type": "github"
+      }
+    },
+    "tempel-collection": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708081549,
+        "narHash": "sha256-jg4IVrmDMS2PrL/IP9jq4pn92VXo+zmrOEowYRhXO/w=",
+        "owner": "Crandel",
+        "repo": "tempel-collection",
+        "rev": "6248e22b52fd7fb98bba977221eb8440c82e6c00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Crandel",
+        "repo": "tempel-collection",
         "type": "github"
       }
     },

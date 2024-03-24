@@ -109,6 +109,12 @@
       repo = "tempel";
       type = "github";
     };
+    tempel-collection = {
+      flake = false;
+      owner = "Crandel";
+      repo = "tempel-collection";
+      type = "github";
+    };
     twist = {
       flake = false;
       owner = "emacs-twist";
