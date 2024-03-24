@@ -7,10 +7,34 @@
       repo = "compat";
       type = "github";
     };
+    consult = {
+      flake = false;
+      owner = "minad";
+      repo = "consult";
+      type = "github";
+    };
+    corfu = {
+      flake = false;
+      owner = "minad";
+      repo = "corfu";
+      type = "github";
+    };
     dash = {
       flake = false;
       owner = "magnars";
       repo = "dash.el";
+      type = "github";
+    };
+    embark = {
+      flake = false;
+      owner = "oantolin";
+      repo = "embark";
+      type = "github";
+    };
+    embark-consult = {
+      flake = false;
+      owner = "oantolin";
+      repo = "embark";
       type = "github";
     };
     exec-path-from-shell = {
@@ -43,10 +67,22 @@
       repo = "magit";
       type = "github";
     };
+    marginalia = {
+      flake = false;
+      owner = "minad";
+      repo = "marginalia";
+      type = "github";
+    };
     nix3 = {
       flake = false;
       owner = "emacs-twist";
       repo = "nix3.el";
+      type = "github";
+    };
+    orderless = {
+      flake = false;
+      owner = "oantolin";
+      repo = "orderless";
       type = "github";
     };
     org = {
@@ -67,16 +103,34 @@
       repo = "s.el";
       type = "github";
     };
+    tempel = {
+      flake = false;
+      owner = "minad";
+      repo = "tempel";
+      type = "github";
+    };
     twist = {
       flake = false;
       owner = "emacs-twist";
       repo = "twist.el";
       type = "github";
     };
+    vertico = {
+      flake = false;
+      owner = "minad";
+      repo = "vertico";
+      type = "github";
+    };
     vterm = {
       flake = false;
       owner = "akermu";
       repo = "emacs-libvterm";
+      type = "github";
+    };
+    wgrep = {
+      flake = false;
+      owner = "mhayashi1120";
+      repo = "Emacs-wgrep";
       type = "github";
     };
     with-editor = {
