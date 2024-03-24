@@ -1,5 +1,37 @@
 {
   "nodes": {
+    "compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710586458,
+        "narHash": "sha256-qSTMDXh68u9kRMybPeOjwf6qLHUxxocNbb48UcC0Aq8=",
+        "owner": "emacs-compat",
+        "repo": "compat",
+        "rev": "8d4e8a366681def88751f5e9975738ecd3180deb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-compat",
+        "repo": "compat",
+        "type": "github"
+      }
+    },
+    "dash": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708090486,
+        "narHash": "sha256-jBb/TRVRtwiUj1Sc6MzqKLeUj0ePvBmW/GdJNhuQddw=",
+        "owner": "magnars",
+        "repo": "dash.el",
+        "rev": "5df7605da5a080df769d4f260034fb0e5e86a7a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "magnars",
+        "repo": "dash.el",
+        "type": "github"
+      }
+    },
     "exec-path-from-shell": {
       "flake": false,
       "locked": {
@@ -13,6 +45,86 @@
       "original": {
         "owner": "purcell",
         "repo": "exec-path-from-shell",
+        "type": "github"
+      }
+    },
+    "git-commit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710977812,
+        "narHash": "sha256-8qfcl6Vr6fiUr162ky2cXWXyrFtofISHRrkG2q/DGHU=",
+        "owner": "magit",
+        "repo": "magit",
+        "rev": "0e8f25a8d8011328f2bf082232c720b24c2a12c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "magit",
+        "repo": "magit",
+        "type": "github"
+      }
+    },
+    "magit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710977812,
+        "narHash": "sha256-8qfcl6Vr6fiUr162ky2cXWXyrFtofISHRrkG2q/DGHU=",
+        "owner": "magit",
+        "repo": "magit",
+        "rev": "0e8f25a8d8011328f2bf082232c720b24c2a12c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "magit",
+        "repo": "magit",
+        "type": "github"
+      }
+    },
+    "magit-nix3": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705246116,
+        "narHash": "sha256-r96qXfYjaFJEv25Z713ojqVUmuL65xANDbfUInwbbs0=",
+        "owner": "emacs-twist",
+        "repo": "nix3.el",
+        "rev": "a2b855302567feebcf86c6a301a1a62b37aba144",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-twist",
+        "repo": "nix3.el",
+        "type": "github"
+      }
+    },
+    "magit-section": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710977812,
+        "narHash": "sha256-8qfcl6Vr6fiUr162ky2cXWXyrFtofISHRrkG2q/DGHU=",
+        "owner": "magit",
+        "repo": "magit",
+        "rev": "0e8f25a8d8011328f2bf082232c720b24c2a12c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "magit",
+        "repo": "magit",
+        "type": "github"
+      }
+    },
+    "nix3": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705246116,
+        "narHash": "sha256-r96qXfYjaFJEv25Z713ojqVUmuL65xANDbfUInwbbs0=",
+        "owner": "emacs-twist",
+        "repo": "nix3.el",
+        "rev": "a2b855302567feebcf86c6a301a1a62b37aba144",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-twist",
+        "repo": "nix3.el",
         "type": "github"
       }
     },
@@ -33,11 +145,70 @@
         "url": "https://git.savannah.gnu.org/git/emacs/org-mode.git"
       }
     },
+    "promise": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1615102078,
+        "narHash": "sha256-p6HAx+uAQTWfUlPfJu0tk6x6EBxsSuRa+4n7Vd5rus8=",
+        "owner": "chuntaro",
+        "repo": "emacs-promise",
+        "rev": "cec51feb5f957e8febe6325335cf57dc2db6be30",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chuntaro",
+        "repo": "emacs-promise",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "compat": "compat",
+        "dash": "dash",
         "exec-path-from-shell": "exec-path-from-shell",
+        "git-commit": "git-commit",
+        "magit": "magit",
+        "magit-nix3": "magit-nix3",
+        "magit-section": "magit-section",
+        "nix3": "nix3",
         "org": "org",
-        "vterm": "vterm"
+        "promise": "promise",
+        "s": "s",
+        "twist": "twist",
+        "vterm": "vterm",
+        "with-editor": "with-editor"
+      }
+    },
+    "s": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681482914,
+        "narHash": "sha256-fbF/SyPwEiJICaPBq0xWj2yLWjdNwkaLF2iYvZ2EO1k=",
+        "owner": "magnars",
+        "repo": "s.el",
+        "rev": "dda84d38fffdaf0c9b12837b504b402af910d01d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "magnars",
+        "repo": "s.el",
+        "type": "github"
+      }
+    },
+    "twist": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700878793,
+        "narHash": "sha256-R4wXVq9lb8WuTDdXjtaFiptJgBhKjoiJzUNXtZwkvto=",
+        "owner": "emacs-twist",
+        "repo": "twist.el",
+        "rev": "cc49891252ae060656bb859ca5bc49a5dcb47b40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-twist",
+        "repo": "twist.el",
+        "type": "github"
       }
     },
     "vterm": {
@@ -53,6 +224,22 @@
       "original": {
         "owner": "akermu",
         "repo": "emacs-libvterm",
+        "type": "github"
+      }
+    },
+    "with-editor": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707260513,
+        "narHash": "sha256-7nYCL2Ea1Z1yYNHYNIWBq5x693jNdYzljdyqco+d2jY=",
+        "owner": "magit",
+        "repo": "with-editor",
+        "rev": "5db5f0eb2202f52d44f529fe00654c866bb64eb1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "magit",
+        "repo": "with-editor",
         "type": "github"
       }
     }

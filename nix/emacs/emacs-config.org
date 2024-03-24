@@ -170,11 +170,34 @@
 * vterm
 #+begin_src emacs-lisp
   (use-package vterm
-    :ensure t)
+    :ensure t
+    :config
+    (setq vterm-timer-delay nil))
 #+end_src
 
 * org
 #+begin_src emacs-lisp
   (use-package org
+    :ensure t)
+#+end_src
+
+* nix
+#+begin_src emacs-lisp
+  (use-package nix3
+    :ensure t)
+  (use-package twist
+    :ensure t
+    :config
+    (add-hook 'emacs-startup-hook #'twist-watch-mode))
+  (use-package magit-nix3
+    :ensure t
+    :after magit-status
+    :config
+    (magit-nix3-flake-mode t))
+#+end_src
+
+* magit
+#+begin_src emacs-lisp
+  (use-package magit
     :ensure t)
 #+end_src
