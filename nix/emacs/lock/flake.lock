@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "consult-eglot": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711282306,
+        "narHash": "sha256-EJrppKN/7eQnQMqADT2e78CihCKdaX14xnAVUA9qyVY=",
+        "owner": "mohkale",
+        "repo": "consult-eglot",
+        "rev": "64262e72452f8fe6dd49d31bcdd4bd577b7d682d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mohkale",
+        "repo": "consult-eglot",
+        "type": "github"
+      }
+    },
     "corfu": {
       "flake": false,
       "locked": {
@@ -61,6 +77,22 @@
       "original": {
         "owner": "magnars",
         "repo": "dash.el",
+        "type": "github"
+      }
+    },
+    "eglot-tempel": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687774082,
+        "narHash": "sha256-96egcjYPVE59M+ldmye95qmN3mZGrEVUalGJu6etTIM=",
+        "owner": "fejfighter",
+        "repo": "eglot-tempel",
+        "rev": "303c7c24e140121f8bc218249b6169d0471b77b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fejfighter",
+        "repo": "eglot-tempel",
         "type": "github"
       }
     },
@@ -261,8 +293,10 @@
       "inputs": {
         "compat": "compat",
         "consult": "consult",
+        "consult-eglot": "consult-eglot",
         "corfu": "corfu",
         "dash": "dash",
+        "eglot-tempel": "eglot-tempel",
         "embark": "embark",
         "embark-consult": "embark-consult",
         "exec-path-from-shell": "exec-path-from-shell",

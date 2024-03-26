@@ -13,6 +13,12 @@
       repo = "consult";
       type = "github";
     };
+    consult-eglot = {
+      flake = false;
+      owner = "mohkale";
+      repo = "consult-eglot";
+      type = "github";
+    };
     corfu = {
       flake = false;
       owner = "minad";
@@ -23,6 +29,12 @@
       flake = false;
       owner = "magnars";
       repo = "dash.el";
+      type = "github";
+    };
+    eglot-tempel = {
+      flake = false;
+      owner = "fejfighter";
+      repo = "eglot-tempel";
       type = "github";
     };
     embark = {

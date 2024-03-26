@@ -531,3 +531,23 @@
   (use-package wgrep
     :ensure t)
 #+end_src
+
+* eglot
+#+begin_src emacs-lisp
+  (use-package eglot
+    :bind (:map eglot-mode-map
+                ("C-c r" . eglot-rename)
+                ("C-c o" . eglot-code-action-organize-imports)
+                ("C-c a" . eglot-code-actions)
+                ("C-c h" . eldoc)
+                ("C-c d" . xref-find-definitions)))
+  (use-package eglot-tempel
+    :ensure t
+    :after (eglot tempel)
+    :hook (eglot-managed-mode . eglot-tempel-mode))
+  (use-package consult-eglot
+    :ensure t
+    :after (eglot)
+    :bind (:map eglot-mode-map
+                ("C-c s" . consult-eglot-symbols)))
+#+end_src
