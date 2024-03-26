@@ -542,7 +542,7 @@
                 ("C-c h" . eldoc)
                 ("C-c d" . xref-find-definitions))
     :config
-    (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . (eglot-deno "deno" "lsp")))
+    (add-to-list 'eglot-server-programs '((js-mode js-ts-mode typescript-mode typescript-ts-mode) . (eglot-deno "deno" "lsp")))
     (defclass eglot-deno (eglot-lsp-server) ()
       :documentation "A custom class for deno lsp.")
     (cl-defmethod eglot-initialization-options ((server eglot-deno))
