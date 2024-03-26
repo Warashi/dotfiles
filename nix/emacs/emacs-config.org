@@ -42,16 +42,15 @@
 
 ** Commands as Meta
 #+begin_src emacs-lisp
-  (when (memq window-system '(mac ns))
-    (setq mac-option-modifier 'meta)
-    (setq mac-command-modifier 'meta))
+  (setq mac-option-modifier 'meta)
+  (setq mac-command-modifier 'meta)
 #+end_src
 
 ** 誤って終了しないようにする
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-x C-C") 'server-edit)
   (global-unset-key (kbd "C-z"))
-  (defalias 'exit 'save-buffers-kill-terminal)
+  (defalias 'exit 'save-buffers-kill-emacs)
 #+end_src
 
 ** hippie-expandを使う
