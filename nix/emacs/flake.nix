@@ -54,6 +54,7 @@
         emacs-config = pkgs.emacsTwist {
           emacsPackage = pkgs.emacs;
 
+          nativeCompileAheadDefault = true;
           registries = import ./registries.nix inputs;
           lockDir = ./lock;
           exportManifest = true;
