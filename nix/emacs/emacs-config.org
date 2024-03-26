@@ -540,11 +540,21 @@
                 ("C-c o" . eglot-code-action-organize-imports)
                 ("C-c a" . eglot-code-actions)
                 ("C-c h" . eldoc)
-                ("C-c d" . xref-find-definitions)))
+                ("C-c d" . xref-find-definitions))
+    :config
+    (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . (eglot-deno "deno" "lsp")))
+    (defclass eglot-deno (eglot-lsp-server) ()
+      :documentation "A custom class for deno lsp.")
+    (cl-defmethod eglot-initialization-options ((server eglot-deno))
+      "Passes through required deno initialization options"
+      (list :enable t
+            :lint t)))
+
   (use-package eglot-tempel
     :ensure t
     :after (eglot tempel)
     :hook (eglot-managed-mode . eglot-tempel-mode))
+
   (use-package consult-eglot
     :ensure t
     :after (eglot)
