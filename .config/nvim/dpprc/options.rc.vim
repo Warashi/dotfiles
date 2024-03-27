@@ -14,7 +14,7 @@ set laststatus=3
 set showtabline=2
 let g:mapleader=","
 let g:maplocalleader=","
-set background=light
+set background=dark
 let g:editorconfig=v:true
 
 set history=200

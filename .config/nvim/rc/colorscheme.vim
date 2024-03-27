@@ -1,1 +1,1 @@
-silent! colorscheme flexoki-light
+silent! colorscheme flexoki-dark

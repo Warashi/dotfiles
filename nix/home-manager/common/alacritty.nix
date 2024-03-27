@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       import = [
-        "${inputs.catppuccin-alacritty + "/catppuccin-latte.toml"}"
+        "${inputs.catppuccin-alacritty + "/catppuccin-frappe.toml"}"
       ];
       env = {
         TERM = "xterm-256color";

@@ -29,7 +29,7 @@ in {
     settings = {
       gui = {
         nerdFontsVersion = "3";
-        theme = catppuccin-latte-blue;
+        theme = catppuccin-frappe-blue;
       };
       git = {
         autoFetch = false;

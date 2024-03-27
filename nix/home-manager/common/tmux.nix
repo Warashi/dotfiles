@@ -26,7 +26,7 @@
       {
         plugin = catppuccin;
         extraConfig = ''
-          set -g @catppuccin_flavour 'latte'
+          set -g @catppuccin_flavour 'frappe'
           set -g @catppuccin_window_tabs_enabled on
         '';
       }
