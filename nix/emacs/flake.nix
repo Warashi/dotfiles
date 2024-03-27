@@ -51,6 +51,8 @@
           ];
         };
 
+        inherit (pkgs) lib;
+
         emacs-config = pkgs.emacsTwist {
           emacsPackage = pkgs.emacs;
 
@@ -61,6 +63,20 @@
 
           initFiles = [
             (pkgs.tangleOrgBabelFile "init.el" ./emacs-config.org {})
+            (let
+              libExt = pkgs.stdenv.hostPlatform.extensions.sharedLibrary;
+              grammarToAttrSet = drv: {
+                name = "lib${lib.strings.removeSuffix "-grammar" (lib.strings.getName drv)}${libExt}";
+                path = "${drv}/parser";
+              };
+              with-grammars = fn:
+                pkgs.linkFarm "emacs-treesit-grammars"
+                (map grammarToAttrSet (fn pkgs.tree-sitter.builtGrammars));
+              with-all-grammars = with-grammars builtins.attrValues;
+            in
+              pkgs.writeText "init-treesit.el" ''
+                (add-to-list 'treesit-extra-load-path "${with-all-grammars}/")
+              '')
           ];
 
           inputOverrides = with (pkgs.emacsPackages); {
