@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711443632,
+        "narHash": "sha256-IL6+Fn1eCtss33OdJxZ8+Q02z1oqZtEREscAHZPX1sg=",
+        "owner": "catppuccin",
+        "repo": "emacs",
+        "rev": "3d93abaa33e95f19b4a8b0e1e9bef1e3e68dd994",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "emacs",
+        "type": "github"
+      }
+    },
     "compat": {
       "flake": false,
       "locked": {
@@ -291,6 +307,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-theme": "catppuccin-theme",
         "compat": "compat",
         "consult": "consult",
         "consult-eglot": "consult-eglot",

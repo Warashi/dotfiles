@@ -565,12 +565,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-KlVMcooBFcsBTkSP101SwaAWSKEXc5WuLt8/25bZyb4=",
-        "path": "/nix/store/wzkny614186cv6wji5az8j7s0yg5bkp3-source/nix/emacs",
+        "narHash": "sha256-2kfom6qeGK1Kxd4CvaUkxyxkVw5IpSIhfr7H2qH3lOg=",
+        "path": "/nix/store/hk1zb3r194866qd9wd8mf6d8ly7qi507-source/nix/emacs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/wzkny614186cv6wji5az8j7s0yg5bkp3-source/nix/emacs",
+        "path": "/nix/store/hk1zb3r194866qd9wd8mf6d8ly7qi507-source/nix/emacs",
         "type": "path"
       }
     },

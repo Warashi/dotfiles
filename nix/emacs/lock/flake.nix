@@ -1,6 +1,12 @@
 {
   description = "THIS IS AN AUTO-GENERATED FILE. PLEASE DON'T EDIT IT MANUALLY.";
   inputs = {
+    catppuccin-theme = {
+      flake = false;
+      owner = "catppuccin";
+      repo = "emacs";
+      type = "github";
+    };
     compat = {
       flake = false;
       owner = "emacs-compat";
