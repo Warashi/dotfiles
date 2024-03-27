@@ -184,8 +184,6 @@
 #+begin_src emacs-lisp
   (use-package vterm
     :ensure t
-    :init
-    (add-hook 'vterm-mode-hook (lambda () (setq display-line-numbers nil)))
     :config
     (setq vterm-timer-delay nil))
 #+end_src
