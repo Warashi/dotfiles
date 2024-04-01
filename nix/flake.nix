@@ -113,7 +113,6 @@
           homeManagerBase.modules
           ++ [
             ./home-manager/darwin/default.nix
-            inputs.my-emacs.homeModules.aarch64-darwin.twist
           ];
       };
     homeManagerLinuxBase =
@@ -214,6 +213,9 @@
       warashi = home-manager.lib.homeManagerConfiguration (homeManagerDarwin
         // {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = homeManagerDarwin.modules ++ [
+            inputs.my-emacs.homeModules.aarch64-darwin.twist
+          ];
           extraSpecialArgs = {
             inherit inputs;
             local = {
@@ -225,6 +227,9 @@
       tisza = home-manager.lib.homeManagerConfiguration (homeManagerDarwin
         // {
           pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+          modules = homeManagerDarwin.modules ++ [
+            inputs.my-emacs.homeModules.x86_64-darwin.twist
+          ];
           extraSpecialArgs = {
             inherit inputs;
             local = {

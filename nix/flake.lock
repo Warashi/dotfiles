@@ -566,11 +566,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-dHV8vt7SaIXlq0jNsXGjgLCckraQcRP5+riUBY+VINw=",
-        "path": "/nix/store/qm64wwn2kmwdabqlrb9wjn8sc760k2bl-source/nix/emacs",
+        "path": "/nix/store/fajab0vnwji7z0n902mxa9g4nyqfsbxj-source/nix/emacs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/qm64wwn2kmwdabqlrb9wjn8sc760k2bl-source/nix/emacs",
+        "path": "/nix/store/fajab0vnwji7z0n902mxa9g4nyqfsbxj-source/nix/emacs",
         "type": "path"
       }
     },
