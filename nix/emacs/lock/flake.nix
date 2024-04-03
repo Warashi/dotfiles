@@ -145,6 +145,12 @@
       repo = "tempel-collection";
       type = "github";
     };
+    treesit-auto = {
+      flake = false;
+      owner = "renzmann";
+      repo = "treesit-auto";
+      type = "github";
+    };
     twist = {
       flake = false;
       owner = "emacs-twist";

@@ -583,3 +583,11 @@
     :ensure t
     :mode "\\.nix\\'")
 #+end_src
+
+* treesit-auto
+#+begin_src emacs-lisp
+  (use-package treesit-auto
+    :ensure t
+    :config
+    (global-treesit-auto-mode))
+#+end_src

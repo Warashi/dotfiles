@@ -363,6 +363,7 @@
         "s": "s",
         "tempel": "tempel",
         "tempel-collection": "tempel-collection",
+        "treesit-auto": "treesit-auto",
         "twist": "twist",
         "vertico": "vertico",
         "vterm": "vterm",
@@ -415,6 +416,22 @@
       "original": {
         "owner": "Crandel",
         "repo": "tempel-collection",
+        "type": "github"
+      }
+    },
+    "treesit-auto": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711975237,
+        "narHash": "sha256-BTFifSCyau086ZS99uhdcFv3HLP+VYH3AFhqAcdh2hw=",
+        "owner": "renzmann",
+        "repo": "treesit-auto",
+        "rev": "b5fcf8e5515c5c5787073c1bc3f6f2bf5bfb1cf1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "renzmann",
+        "repo": "treesit-auto",
         "type": "github"
       }
     },
