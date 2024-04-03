@@ -176,6 +176,22 @@
         "type": "github"
       }
     },
+    "go-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707523812,
+        "narHash": "sha256-fyBafjaiSOGTJoMnqwsF32JGo0xD2lDDQWQ2jJG8dt0=",
+        "owner": "dominikh",
+        "repo": "go-mode.el",
+        "rev": "6f4ff9ef874d151ed8d297a80f1bf27db5d9dbf0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dominikh",
+        "repo": "go-mode.el",
+        "type": "github"
+      }
+    },
     "magit": {
       "flake": false,
       "locked": {
@@ -237,6 +253,22 @@
       "original": {
         "owner": "minad",
         "repo": "marginalia",
+        "type": "github"
+      }
+    },
+    "nix-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1682109415,
+        "narHash": "sha256-W/bxCAn4cvzKGbhILxtTiWJ5Wln2w6g4TPgk+ziCXsQ=",
+        "owner": "NixOS",
+        "repo": "nix-mode",
+        "rev": "719feb7868fb567ecfe5578f6119892c771ac5e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nix-mode",
         "type": "github"
       }
     },
@@ -318,10 +350,12 @@
         "embark-consult": "embark-consult",
         "exec-path-from-shell": "exec-path-from-shell",
         "git-commit": "git-commit",
+        "go-mode": "go-mode",
         "magit": "magit",
         "magit-nix3": "magit-nix3",
         "magit-section": "magit-section",
         "marginalia": "marginalia",
+        "nix-mode": "nix-mode",
         "nix3": "nix3",
         "orderless": "orderless",
         "org": "org",

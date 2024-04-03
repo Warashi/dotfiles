@@ -67,6 +67,12 @@
       repo = "magit";
       type = "github";
     };
+    go-mode = {
+      flake = false;
+      owner = "dominikh";
+      repo = "go-mode.el";
+      type = "github";
+    };
     magit = {
       flake = false;
       owner = "magit";
@@ -89,6 +95,12 @@
       flake = false;
       owner = "minad";
       repo = "marginalia";
+      type = "github";
+    };
+    nix-mode = {
+      flake = false;
+      owner = "NixOS";
+      repo = "nix-mode";
       type = "github";
     };
     nix3 = {

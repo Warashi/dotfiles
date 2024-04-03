@@ -570,3 +570,16 @@
     :bind (:map eglot-mode-map
                 ("C-c s" . consult-eglot-symbols)))
 #+end_src
+
+* go-mode
+#+begin_src emacs-lisp
+  (use-package go-mode
+    :ensure t)
+#+end_src
+
+* nix-mode
+#+begin_src emacs-lisp
+  (use-package nix-mode
+    :ensure t
+    :mode "\\.nix\\'")
+#+end_src
