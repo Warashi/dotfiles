@@ -256,6 +256,22 @@
         "type": "github"
       }
     },
+    "markdown-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710767262,
+        "narHash": "sha256-4Qabruh29RvXkNHpV8wY2jyOKQ44L+VvtNc/ery4cZc=",
+        "owner": "jrblevin",
+        "repo": "markdown-mode",
+        "rev": "fd6c5508f979ab526e024a591eaec963712cb211",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jrblevin",
+        "repo": "markdown-mode",
+        "type": "github"
+      }
+    },
     "nix-mode": {
       "flake": false,
       "locked": {
@@ -355,6 +371,7 @@
         "magit-nix3": "magit-nix3",
         "magit-section": "magit-section",
         "marginalia": "marginalia",
+        "markdown-mode": "markdown-mode",
         "nix-mode": "nix-mode",
         "nix3": "nix3",
         "orderless": "orderless",
@@ -368,7 +385,8 @@
         "vertico": "vertico",
         "vterm": "vterm",
         "wgrep": "wgrep",
-        "with-editor": "with-editor"
+        "with-editor": "with-editor",
+        "yaml-mode": "yaml-mode"
       }
     },
     "s": {
@@ -512,6 +530,22 @@
       "original": {
         "owner": "magit",
         "repo": "with-editor",
+        "type": "github"
+      }
+    },
+    "yaml-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710691325,
+        "narHash": "sha256-9me8ohEx6htpUknm3rKiXs0qiHG7tw9CwTEZsxzXKkM=",
+        "owner": "yoshiki",
+        "repo": "yaml-mode",
+        "rev": "7b5ce294fb15c2c8926fa476d7218aa415550a2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yoshiki",
+        "repo": "yaml-mode",
         "type": "github"
       }
     }

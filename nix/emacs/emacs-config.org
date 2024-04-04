@@ -571,23 +571,36 @@
                 ("C-c s" . consult-eglot-symbols)))
 #+end_src
 
-* go-mode
-#+begin_src emacs-lisp
-  (use-package go-mode
-    :ensure t)
-#+end_src
-
-* nix-mode
-#+begin_src emacs-lisp
-  (use-package nix-mode
-    :ensure t
-    :mode "\\.nix\\'")
-#+end_src
-
 * treesit-auto
 #+begin_src emacs-lisp
   (use-package treesit-auto
     :ensure t
     :config
     (global-treesit-auto-mode))
+#+end_src
+
+* prog-mode
+** go-mode
+#+begin_src emacs-lisp
+  (use-package go-mode
+    :ensure t)
+#+end_src
+
+** nix-mode
+#+begin_src emacs-lisp
+  (use-package nix-mode
+    :ensure t
+    :mode "\\.nix\\'")
+#+end_src
+
+** yaml-mode
+#+begin_src emacs-lisp
+  (use-package yaml-mode
+    :ensure t)
+#+end_src
+
+** markdown-mode
+#+begin_src emacs-lisp
+  (use-package markdown-mode
+    :ensure t)
 #+end_src

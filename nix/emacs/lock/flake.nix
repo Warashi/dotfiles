@@ -97,6 +97,12 @@
       repo = "marginalia";
       type = "github";
     };
+    markdown-mode = {
+      flake = false;
+      owner = "jrblevin";
+      repo = "markdown-mode";
+      type = "github";
+    };
     nix-mode = {
       flake = false;
       owner = "NixOS";
@@ -179,6 +185,12 @@
       flake = false;
       owner = "magit";
       repo = "with-editor";
+      type = "github";
+    };
+    yaml-mode = {
+      flake = false;
+      owner = "yoshiki";
+      repo = "yaml-mode";
       type = "github";
     };
   };
