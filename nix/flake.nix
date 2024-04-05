@@ -204,7 +204,7 @@
           twist = {
             imports = [
               inputs.twist.homeModules.emacs-twist
-              (import ./emacs/home-module.nix emacs-config.${system})
+              (import ./emacs/home-module.nix emacs-config)
             ];
           };
         };
@@ -244,7 +244,7 @@
           modules =
             [
               ./home-manager/common/default.nix
-              configurations.homeModules.${system}.twist
+              homeModules.twist
             ]
             ++ modules;
           extraSpecialArgs = {

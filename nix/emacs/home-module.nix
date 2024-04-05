@@ -1,4 +1,4 @@
-packages: {
+emacs-config: {
   config,
   pkgs,
   lib,
@@ -12,7 +12,7 @@ in {
       directory = ".local/share/emacs";
       earlyInitFile = ./early-init.el;
       createInitFile = true;
-      config = packages.emacs-config;
+      config = emacs-config;
       serviceIntegration.enable = lib.mkDefault false;
       createManifestFile = true;
     };
