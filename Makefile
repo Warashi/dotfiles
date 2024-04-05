@@ -74,7 +74,7 @@ update-cspell-dict:
 	cspell --words-only --unique --dot . | sort -u --ignore-case | tr '[:upper:]' '[:lower:]' > ./.cspell/project-words.txt
 .PHONY: lock-emacs-deps
 lock-emacs-deps:
-	cd nix/emacs && nix develop --command nix run '.#lock' --impure
+	cd nix && nix develop --command nix run '.#lock' --impure
 .PHONY: update-emacs-deps
 update-emacs-deps: lock-emacs-deps
-	cd nix/emacs && nix develop --command nix run '.#update' --impure
+	cd nix && nix develop --command nix run '.#update' --impure
