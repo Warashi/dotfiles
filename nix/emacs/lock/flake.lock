@@ -144,6 +144,22 @@
         "type": "github"
       }
     },
+    "envrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711448353,
+        "narHash": "sha256-IFFssdTUXmC5rK8HemiXAvO9PQQTXVussuC5PVaxfoI=",
+        "owner": "purcell",
+        "repo": "envrc",
+        "rev": "8eb7401700b0080902ce200ad610ff8d2f2dcc27",
+        "type": "github"
+      },
+      "original": {
+        "owner": "purcell",
+        "repo": "envrc",
+        "type": "github"
+      }
+    },
     "exec-path-from-shell": {
       "flake": false,
       "locked": {
@@ -189,6 +205,22 @@
       "original": {
         "owner": "dominikh",
         "repo": "go-mode.el",
+        "type": "github"
+      }
+    },
+    "inheritenv": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699638484,
+        "narHash": "sha256-1s9LUk3bqcNv+hHf9iszpZRbJdjcwUFo0D650NGBHpo=",
+        "owner": "purcell",
+        "repo": "inheritenv",
+        "rev": "bac62ca6324828623cf8ce5a3d6aee0fcb65d620",
+        "type": "github"
+      },
+      "original": {
+        "owner": "purcell",
+        "repo": "inheritenv",
         "type": "github"
       }
     },
@@ -380,9 +412,11 @@
         "eglot-tempel": "eglot-tempel",
         "embark": "embark",
         "embark-consult": "embark-consult",
+        "envrc": "envrc",
         "exec-path-from-shell": "exec-path-from-shell",
         "git-commit": "git-commit",
         "go-mode": "go-mode",
+        "inheritenv": "inheritenv",
         "magit": "magit",
         "magit-nix3": "magit-nix3",
         "magit-section": "magit-section",

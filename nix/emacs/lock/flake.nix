@@ -55,6 +55,12 @@
       repo = "embark";
       type = "github";
     };
+    envrc = {
+      flake = false;
+      owner = "purcell";
+      repo = "envrc";
+      type = "github";
+    };
     exec-path-from-shell = {
       flake = false;
       owner = "purcell";
@@ -71,6 +77,12 @@
       flake = false;
       owner = "dominikh";
       repo = "go-mode.el";
+      type = "github";
+    };
+    inheritenv = {
+      flake = false;
+      owner = "purcell";
+      repo = "inheritenv";
       type = "github";
     };
     magit = {

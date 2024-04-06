@@ -188,6 +188,14 @@
     (setq vterm-timer-delay nil))
 #+end_src
 
+* direnv (envrc.el)
+#+begin_src emacs-lisp
+  (use-package envrc
+    :ensure t
+    :init
+    (envrc-global-mode))
+#+end_src
+
 * org
 #+begin_src emacs-lisp
   (use-package org
