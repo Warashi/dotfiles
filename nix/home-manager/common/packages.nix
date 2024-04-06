@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     _1password
-    # awscli2
+    awscli2
     bat
+    coreutils
     deno
     devbox
     fd
