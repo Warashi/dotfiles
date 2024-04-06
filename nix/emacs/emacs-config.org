@@ -604,3 +604,9 @@
   (use-package markdown-mode
     :ensure t)
 #+end_src
+
+** zig-mode
+#+begin_src emacs-lisp
+  (use-package zig-mode
+    :ensure t)
+#+end_src

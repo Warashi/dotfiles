@@ -133,6 +133,12 @@
       repo = "emacs-promise";
       type = "github";
     };
+    reformatter = {
+      flake = false;
+      owner = "purcell";
+      repo = "emacs-reformatter";
+      type = "github";
+    };
     "s" = {
       flake = false;
       owner = "magnars";
@@ -191,6 +197,12 @@
       flake = false;
       owner = "yoshiki";
       repo = "yaml-mode";
+      type = "github";
+    };
+    zig-mode = {
+      flake = false;
+      owner = "ziglang";
+      repo = "zig-mode";
       type = "github";
     };
   };

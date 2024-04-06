@@ -353,6 +353,22 @@
         "type": "github"
       }
     },
+    "reformatter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710152909,
+        "narHash": "sha256-E4bbqiHvcZ/NrcYRWfPh9z8DxPhSPkAXgxL6cOg9URs=",
+        "owner": "purcell",
+        "repo": "emacs-reformatter",
+        "rev": "a0d4ce721942c801e39e8620d92f2d537778d460",
+        "type": "github"
+      },
+      "original": {
+        "owner": "purcell",
+        "repo": "emacs-reformatter",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin-theme": "catppuccin-theme",
@@ -377,6 +393,7 @@
         "orderless": "orderless",
         "org": "org",
         "promise": "promise",
+        "reformatter": "reformatter",
         "s": "s",
         "tempel": "tempel",
         "tempel-collection": "tempel-collection",
@@ -386,7 +403,8 @@
         "vterm": "vterm",
         "wgrep": "wgrep",
         "with-editor": "with-editor",
-        "yaml-mode": "yaml-mode"
+        "yaml-mode": "yaml-mode",
+        "zig-mode": "zig-mode"
       }
     },
     "s": {
@@ -546,6 +564,22 @@
       "original": {
         "owner": "yoshiki",
         "repo": "yaml-mode",
+        "type": "github"
+      }
+    },
+    "zig-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711576108,
+        "narHash": "sha256-Imj+/PxPSsYRzxxIK0cH+2rhs4NMrgRgkZw4AyAsfzc=",
+        "owner": "ziglang",
+        "repo": "zig-mode",
+        "rev": "a0ab9636b8b2560a4b1fa3bd83582a706b9ce190",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ziglang",
+        "repo": "zig-mode",
         "type": "github"
       }
     }
