@@ -43,6 +43,9 @@
     gc = {
       automatic = true;
     };
+    optimise = {
+      automatic = true;
+    };
   };
 
   # Set Git commit hash for darwin-version.
