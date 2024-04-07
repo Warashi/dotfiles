@@ -12,6 +12,7 @@
   "logi-options-plus"
   "raycast"
   "slack"
+  "spotify"
   "visual-studio-code"
 
   "homebrew/cask-fonts/font-biz-udgothic"
