@@ -119,8 +119,8 @@
     };
 
     darwinConfigurations = {
-      warashi = nix-darwin.lib.darwinSystem configurations.darwin.aarch64-darwin;
-      tisza = nix-darwin.lib.darwinSystem configurations.darwin.x86_64-darwin;
+      warashi = nix-darwin.lib.darwinSystem (configurations.darwin.aarch64-darwin []);
+      tisza = nix-darwin.lib.darwinSystem (configurations.darwin.x86_64-darwin []);
     };
 
     homeConfigurations = {
@@ -228,10 +228,10 @@
             ++ modules;
         };
         darwin = modules: {
-          nixpkgs.hostPlatform = system;
           modules =
             [
               ./nix-darwin/config.nix
+              (_: {nixpkgs.hostPlatform = system;})
             ]
             ++ modules;
           specialArgs = {inherit self;};
