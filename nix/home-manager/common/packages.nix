@@ -9,6 +9,7 @@
     fd
     ghq
     git-lfs
+    gitu
     gnumake
     go
     htop
@@ -18,7 +19,6 @@
     kubectl
     kubectx
     kubernetes-helm
-    lazygit
     lefthook
     mocword
     mocword-data
@@ -30,7 +30,6 @@
     ripgrep
     sheldon
     taplo
-    tig
     tmux-mvr
     tmux-xpanes
     vivid
