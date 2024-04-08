@@ -1,6 +1,7 @@
 [
   "1password"
   "arc"
+  "cloudflare-warp"
   "cryptomator"
   "discord"
   "docker"
