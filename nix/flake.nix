@@ -146,13 +146,22 @@
           overlays = [
             inputs.twist.overlays.default
             inputs.org-babel.overlays.default
+            (_: prev: {
+              emacs-macport = prev.emacs-macport.overrideAttrs (_: prevAttrs: {
+                postInstall =
+                  prevAttrs.postInstall
+                  + ''
+                    ln -snf $out/Applications/Emacs.app/MacOS/Emacs.sh $out/bin/emacs
+                  '';
+              });
+            })
           ];
         };
 
         inherit (pkgs) lib;
 
         emacs-config = pkgs.emacsTwist {
-          emacsPackage = pkgs.emacs;
+          emacsPackage = pkgs.emacs-macport;
 
           nativeCompileAheadDefault = true;
           registries = import ./emacs/registries.nix inputs;
