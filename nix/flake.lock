@@ -858,15 +858,16 @@
         "elisp-helpers": "elisp-helpers"
       },
       "locked": {
-        "lastModified": 1710770942,
-        "narHash": "sha256-dyNKByzB5dC/UlZ6GzjX+aFNsL8lHMUf9EWGNY7lttQ=",
-        "owner": "emacs-twist",
+        "lastModified": 1712811656,
+        "narHash": "sha256-Zb+ESAmtTjFarnt/ZFzcsYsBt8RlldCdCAyBttNbdJg=",
+        "owner": "Warashi",
         "repo": "twist.nix",
-        "rev": "4e1f8720308f58b840f7d8c64880adb3971252e8",
+        "rev": "cb1d6d8b4a5c8d68ceb0abb3ec8b8824cc986848",
         "type": "github"
       },
       "original": {
-        "owner": "emacs-twist",
+        "owner": "Warashi",
+        "ref": "feature/mac-desktop-item",
         "repo": "twist.nix",
         "type": "github"
       }

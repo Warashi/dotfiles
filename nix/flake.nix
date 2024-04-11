@@ -74,7 +74,7 @@
     };
 
     twist = {
-      url = "github:emacs-twist/twist.nix";
+      url = "github:Warashi/twist.nix/feature/mac-desktop-item";
     };
     org-babel = {
       url = "github:emacs-twist/org-babel";
