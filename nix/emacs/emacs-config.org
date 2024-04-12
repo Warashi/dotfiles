@@ -7,9 +7,7 @@
 
 * use-package
 #+begin_src emacs-lisp
-  (eval-when-compile
-    (require 'use-package))
-  (setq use-package-ensure-function #'ignore)
+  (require 'use-package)
 #+end_src
 
 #+RESULTS:
@@ -178,6 +176,16 @@
 *** 対応する括弧を表示
 #+begin_src emacs-lisp
   (add-hook 'emacs-startup-hook #'show-paren-mode)
+#+end_src
+
+* ddskk
+#+begin_src emacs-lisp
+  (use-package ddskk
+    :ensure t
+    :init
+    (require 'ddskk-autoloads)
+    (setq skk-user-directory (locate-user-emacs-file "ddskk"))
+    :hook (find-file-hook . skk-latin-mode))
 #+end_src
 
 * vterm
@@ -616,5 +624,12 @@
 ** zig-mode
 #+begin_src emacs-lisp
   (use-package zig-mode
+    :ensure t)
+#+end_src
+
+* util
+** ppp
+#+begin_src emacs-lisp
+  (use-package ppp
     :ensure t)
 #+end_src

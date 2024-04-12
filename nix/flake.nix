@@ -160,6 +160,10 @@
           exportManifest = true;
 
           initFiles = [
+            (pkgs.writeText "headers.el" ''
+              ;; -*- lexical-binding: t; no-byte-compile: t; -*-
+              (setq use-package-ensure-function #'ignore)
+            '')
             (pkgs.tangleOrgBabelFile "init.el" ./emacs/emacs-config.org {})
             (let
               libExt = pkgs.stdenv.hostPlatform.extensions.sharedLibrary;

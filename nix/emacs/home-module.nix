@@ -10,11 +10,18 @@ in {
     programs.emacs-twist = {
       emacsclient.enable = true;
       directory = ".local/share/emacs";
-      earlyInitFile = ./early-init.el;
+      earlyInitFile = pkgs.tangleOrgBabelFile "early-init.el" ./early-init.org {};
       createInitFile = true;
       config = emacs-config;
       serviceIntegration.enable = lib.mkDefault false;
       createManifestFile = true;
+    };
+
+    home.file = {
+      ddskk-config = {
+        target = ".local/share/emacs/ddskk/init";
+        source = pkgs.tangleOrgBabelFile "ddskk-init.el" ./ddskk.org {};
+      };
     };
 
     # Generate a desktop file for emacsclient

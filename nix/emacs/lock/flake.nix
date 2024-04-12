@@ -7,6 +7,18 @@
       repo = "emacs";
       type = "github";
     };
+    ccc = {
+      flake = false;
+      owner = "skk-dev";
+      repo = "ddskk";
+      type = "github";
+    };
+    cdb = {
+      flake = false;
+      owner = "skk-dev";
+      repo = "ddskk";
+      type = "github";
+    };
     compat = {
       flake = false;
       owner = "emacs-compat";
@@ -35,6 +47,12 @@
       flake = false;
       owner = "magnars";
       repo = "dash.el";
+      type = "github";
+    };
+    ddskk = {
+      flake = false;
+      owner = "skk-dev";
+      repo = "ddskk";
       type = "github";
     };
     eglot-tempel = {
@@ -138,6 +156,12 @@
       ref = "bugfix";
       type = "git";
       url = "https://git.savannah.gnu.org/git/emacs/org-mode.git";
+    };
+    ppp = {
+      flake = false;
+      owner = "conao3";
+      repo = "ppp.el";
+      type = "github";
     };
     promise = {
       flake = false;

@@ -16,6 +16,38 @@
         "type": "github"
       }
     },
+    "ccc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688254850,
+        "narHash": "sha256-w/Z5K8N0cx3NuEoggi5eX1E2XcwCd7NtdRoqThCwJ00=",
+        "owner": "skk-dev",
+        "repo": "ddskk",
+        "rev": "8c47f46e38a29a0f3eabcd524268d20573102467",
+        "type": "github"
+      },
+      "original": {
+        "owner": "skk-dev",
+        "repo": "ddskk",
+        "type": "github"
+      }
+    },
+    "cdb": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688254850,
+        "narHash": "sha256-w/Z5K8N0cx3NuEoggi5eX1E2XcwCd7NtdRoqThCwJ00=",
+        "owner": "skk-dev",
+        "repo": "ddskk",
+        "rev": "8c47f46e38a29a0f3eabcd524268d20573102467",
+        "type": "github"
+      },
+      "original": {
+        "owner": "skk-dev",
+        "repo": "ddskk",
+        "type": "github"
+      }
+    },
     "compat": {
       "flake": false,
       "locked": {
@@ -93,6 +125,22 @@
       "original": {
         "owner": "magnars",
         "repo": "dash.el",
+        "type": "github"
+      }
+    },
+    "ddskk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688254850,
+        "narHash": "sha256-w/Z5K8N0cx3NuEoggi5eX1E2XcwCd7NtdRoqThCwJ00=",
+        "owner": "skk-dev",
+        "repo": "ddskk",
+        "rev": "8c47f46e38a29a0f3eabcd524268d20573102467",
+        "type": "github"
+      },
+      "original": {
+        "owner": "skk-dev",
+        "repo": "ddskk",
         "type": "github"
       }
     },
@@ -369,6 +417,22 @@
         "url": "https://git.savannah.gnu.org/git/emacs/org-mode.git"
       }
     },
+    "ppp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1644593341,
+        "narHash": "sha256-BkE6lc31zOIBoIV5y35ZEUKwESeS949NjllXJb4bPa8=",
+        "owner": "conao3",
+        "repo": "ppp.el",
+        "rev": "d5d854c3006dfd268e62c7f91c2aad6f86a505b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "conao3",
+        "repo": "ppp.el",
+        "type": "github"
+      }
+    },
     "promise": {
       "flake": false,
       "locked": {
@@ -404,11 +468,14 @@
     "root": {
       "inputs": {
         "catppuccin-theme": "catppuccin-theme",
+        "ccc": "ccc",
+        "cdb": "cdb",
         "compat": "compat",
         "consult": "consult",
         "consult-eglot": "consult-eglot",
         "corfu": "corfu",
         "dash": "dash",
+        "ddskk": "ddskk",
         "eglot-tempel": "eglot-tempel",
         "embark": "embark",
         "embark-consult": "embark-consult",
@@ -426,6 +493,7 @@
         "nix3": "nix3",
         "orderless": "orderless",
         "org": "org",
+        "ppp": "ppp",
         "promise": "promise",
         "reformatter": "reformatter",
         "s": "s",
