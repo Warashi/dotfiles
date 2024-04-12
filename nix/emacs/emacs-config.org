@@ -183,9 +183,9 @@
   (use-package ddskk
     :ensure t
     :init
-    (require 'ddskk-autoloads)
     (setq skk-user-directory (locate-user-emacs-file "ddskk"))
-    :hook (find-file-hook . skk-latin-mode))
+    (setq default-input-method "japanese-skk")
+    (add-hook 'find-file-hook #'skk-latin-mode-on))
 #+end_src
 
 * vterm
