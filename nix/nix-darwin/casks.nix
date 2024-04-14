@@ -11,6 +11,7 @@
   "karabiner-elements"
   "lasso"
   "logi-options-plus"
+  "orion"
   "raycast"
   "slack"
   "spotify"
