@@ -5,11 +5,6 @@
   ...
 }: {
   home.file = {
-    nvredit = {
-      target = ".local/bin/nvredit";
-      source = ./. + "/files/nvredit";
-      executable = true;
-    };
     rgfind = {
       target = ".local/bin/rgfind";
       source = ./. + "/files/rgfind";
@@ -20,7 +15,7 @@
     enable = true;
     configFile = {
       catppuccin-bat = {
-        source = inputs.catppuccin-bat;
+        source = inputs.catppuccin-bat + /themes;
         target = "bat/themes";
         recursive = true;
       };
