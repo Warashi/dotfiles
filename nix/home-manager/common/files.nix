@@ -19,23 +19,6 @@
   xdg = {
     enable = true;
     configFile = {
-      cspel = {
-        target = "cspell/cspell.json";
-        source = ./. + "/files/cspell.json";
-      };
-      oj-template = {
-        target = "online-judge-tools/template/main.go";
-        text = ''
-          package main
-
-          import "github.com/Warashi/go-atcoder/lib/myio"
-
-          func main() {
-          	defer myio.Flush()
-
-          }
-        '';
-      };
       catppuccin-bat = {
         source = inputs.catppuccin-bat;
         target = "bat/themes";

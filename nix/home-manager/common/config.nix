@@ -18,10 +18,9 @@
 
     sessionVariables = {
       DENO_NO_UPDATE_CHECK = "1";
-      EDITOR = "nvim --noplugin";
+      EDITOR = "emacsclient";
       KEYTIMEOUT = "1";
       LANG = "en_US.UTF-8";
-      MANPAGER = "nvim +Man!";
       LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-frappe)";
       MOCWORD_DATA = "${pkgs.mocword-data}/mocword.sqlite";
 
@@ -35,16 +34,13 @@
     };
 
     shellAliases = {
-      e = "emacsclient -c -a ''";
+      e = "emacsclient";
       v = "nvim --noplugin";
       g = "git";
+      gt = "gitu";
       k = "kubectl";
       kx = "kubectx";
       ":q" = "exit";
-      lg = "lazygit";
-      zl = "zk lazygit";
-      zn = "zk new";
-      zz = "zk amend";
     };
   };
 

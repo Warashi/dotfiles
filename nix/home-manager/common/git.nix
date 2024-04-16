@@ -36,13 +36,6 @@
         "~/.cache/nvim/dpp/repos/"
         "~/ghq/"
       ];
-      delta = {
-        syntax-theme = "Catppuccin-frappe";
-        light = true;
-        side-by-side = true;
-        line-numbers = true;
-        tabs = 2;
-      };
       diff.colorMoved = "default";
     };
   };
@@ -54,18 +47,6 @@
         "https://github.com"
         "https://gist.github.com"
       ];
-    };
-    settings = {
-      # Workaround for https://github.com/nix-community/home-manager/issues/4744
-      version = 1;
-    };
-  };
-  programs.gh-dash = {
-    enable = true;
-    settings = {
-      pager = {
-        diff = "${pkgs.delta}/bin/delta";
-      };
     };
   };
 }
