@@ -18,32 +18,10 @@ in {
       SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
     };
 
-    file = {
-      AquaSKK = {
-        source = ./. + "/files/AquaSKK";
-        target = "Library/Application Support/AquaSKK";
-        recursive = true;
-      };
-    };
-
     stateVersion = "22.05";
   };
 
   launchd.agents = {
-    denops-shared-server = {
-      # メモリリークっぽい挙動があるので一旦やめる
-      enable = false;
-      config = {
-        Label = "dev.warashi.denops-shared-server";
-        ProgramArguments = [
-          "${pkgs.zsh}/bin/zsh"
-          "-c"
-          "source /etc/zshenv; source $HOME/.zshenv; ${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts;"
-        ];
-        RunAtLoad = true;
-        KeepAlive = true;
-      };
-    };
     muscat = {
       enable = true;
       config = {

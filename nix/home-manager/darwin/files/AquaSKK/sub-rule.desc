@@ -1,7 +1,0 @@
-###
-### sub-rule.desc -- 補助ルールの説明
-###
-
-exclamation.rule	！を全角にする
-question.rule			？を全角にする
-wave-dash.rule		～を全角にする
