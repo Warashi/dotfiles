@@ -8,20 +8,6 @@
   '';
 in {
   systemd.user.services = {
-    # メモリリークっぽい挙動があるので一旦やめる
-    # denops-shared-server = {
-    #   Unit = {
-    #     Description = "Denops shared server";
-    #     Documentation = "";
-    #   };
-    #   Service = {
-    #     ExecStart = ''${pkgs.zsh}/bin/zsh -c ". /etc/zshrc; ${pkgs.deno}/bin/deno run -A --no-lock ${inputs.denops-vim}/denops/@denops-private/cli.ts"'';
-    #     Restart = ''always'';
-    #   };
-    #   Install = {
-    #     WantedBy = ["default.target"];
-    #   };
-    # };
     yaskkserv2 = {
       Unit = {
         Description = "Yet Another SKK Server";
