@@ -48,7 +48,7 @@
     haskell-language-server
     lua-language-server
     marksman # markdown language server
-    nil # nix language server
+    nixd # nix language server
     nodePackages_latest.typescript-language-server
     nodePackages_latest.vim-language-server
     nodePackages_latest.yaml-language-server
