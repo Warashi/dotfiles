@@ -48,23 +48,3 @@ snippet = "kubectx"
 name = "exit"
 keyword = ":q"
 snippet = "exit"
-
-[[plugins.abbrev.snippets]]
-name = "lazygit"
-keyword = "lg"
-snippet = "lazygit"
-
-[[plugins.abbrev.snippets]]
-name = "zk lazygit"
-keyword = "zl"
-snippet = "zk lazygit"
-
-[[plugins.abbrev.snippets]]
-name = "zk new"
-keyword = "zn"
-snippet = "zk new"
-
-[[plugins.abbrev.snippets]]
-name = "zk amend"
-keyword = "zz"
-snippet = "zk amend"
