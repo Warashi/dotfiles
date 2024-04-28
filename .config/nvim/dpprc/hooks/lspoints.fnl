@@ -38,7 +38,7 @@
             {:filetype :go :name :gopls}
             {:filetype :lua :name :luals}
             {:filetype :markdown :name :zk}
-            {:filetype :nix :name :nills}
+            {:filetype :nix :name :nixd}
             {:filetype :rust :name :rust_analyzer}
             {:filetype :toml :name :taplo}
             {:filetype :vim :name :vimls}]]

@@ -3,7 +3,7 @@ export * from "./fennells.ts";
 export * from "./gopls.ts";
 export * from "./luals.ts";
 export * from "./marksman.ts";
-export * from "./nills.ts";
+export * from "./nixd.ts";
 export * from "./rust-analyzer.ts";
 export * from "./taplo.ts";
 export * from "./vimls.ts";
