@@ -1,6 +1,0 @@
-(vterm
- :fetcher github
- :repo "akermu/emacs-libvterm"
- :files ("etc"
-         "vterm.el"
-         "vterm-module.so"))

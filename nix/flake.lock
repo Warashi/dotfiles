@@ -152,54 +152,6 @@
         "type": "github"
       }
     },
-    "elisp-helpers": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1710768267,
-        "narHash": "sha256-NX/dP39RzIKCiIEZPLZUYDUpgCqyagn3iK7c5NWfmEk=",
-        "owner": "emacs-twist",
-        "repo": "elisp-helpers",
-        "rev": "002e07aff027eedfdadec02d6830cb75a1aec9b5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emacs-twist",
-        "repo": "elisp-helpers",
-        "type": "github"
-      }
-    },
-    "emacs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1714218525,
-        "narHash": "sha256-V/SqHdvFpzi9gR2E5DwbIEOZOzFk3jj+BOZKOTBpTZc=",
-        "owner": "emacs-mirror",
-        "repo": "emacs",
-        "rev": "01e0b783bcd1b48ec856c8960e9da571a289a1b2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emacs-mirror",
-        "repo": "emacs",
-        "type": "github"
-      }
-    },
-    "epkgs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713740507,
-        "narHash": "sha256-5+F/DHoSVoHbi+Ax0cYsx2kZXQJ/RpCgURsWV03NyJ4=",
-        "owner": "emacsmirror",
-        "repo": "epkgs",
-        "rev": "e8b80a44fd5cdc4cdf3cae187a3e4914716f51d9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emacsmirror",
-        "repo": "epkgs",
-        "type": "github"
-      }
-    },
     "fennel-language-server": {
       "flake": false,
       "locked": {
@@ -344,23 +296,6 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
-      }
-    },
-    "gnu-elpa": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1714050942,
-        "narHash": "sha256-kEAguVd6bVqT7ZPwbda2htYOd1Ufbvf23fEme6E/00w=",
-        "ref": "main",
-        "rev": "feee6d62a0992ccd8845654d4973e6bb3dd89738",
-        "revCount": 598,
-        "type": "git",
-        "url": "https://git.savannah.gnu.org/git/emacs/elpa.git"
-      },
-      "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "https://git.savannah.gnu.org/git/emacs/elpa.git"
       }
     },
     "hercules-ci-effects": {
@@ -535,22 +470,6 @@
         "type": "github"
       }
     },
-    "melpa": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713740473,
-        "narHash": "sha256-AOapqvhr7LJb9LIkvBmRcqjLyfb33EZCZSjtRGRTz20=",
-        "owner": "melpa",
-        "repo": "melpa",
-        "rev": "2d8716906a0c9e18d6c979d8450bf1d15dd785eb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "melpa",
-        "repo": "melpa",
-        "type": "github"
-      }
-    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -686,38 +605,6 @@
         "type": "github"
       }
     },
-    "nongnu": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713795665,
-        "narHash": "sha256-N7N6tLkCLpKxPq+RgEy68/Qs+a/cheFUR3MiJunsnMk=",
-        "ref": "main",
-        "rev": "97eda09376cc46686d00f3585ef54b590968ba99",
-        "revCount": 309,
-        "type": "git",
-        "url": "https://git.savannah.gnu.org/git/emacs/nongnu.git"
-      },
-      "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "https://git.savannah.gnu.org/git/emacs/nongnu.git"
-      }
-    },
-    "org-babel": {
-      "locked": {
-        "lastModified": 1669954182,
-        "narHash": "sha256-tYXRO/+MbLDQNn/mqnWKrQrYvFY0gHbU29wYln7+mpY=",
-        "owner": "emacs-twist",
-        "repo": "org-babel",
-        "rev": "b448845abbbc8b742e9de547cd49ec886cd79cbf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emacs-twist",
-        "repo": "org-babel",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "catppuccin-alacritty": "catppuccin-alacritty",
@@ -727,22 +614,15 @@
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "denops-vim": "denops-vim",
-        "emacs": "emacs",
-        "epkgs": "epkgs",
         "fennel-language-server": "fennel-language-server",
         "flake-utils": "flake-utils",
-        "gnu-elpa": "gnu-elpa",
         "home-manager": "home-manager",
-        "melpa": "melpa",
         "neovim-flake": "neovim-flake",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
-        "nongnu": "nongnu",
-        "org-babel": "org-babel",
         "skk-jisyo-L": "skk-jisyo-L",
         "skk-jisyo-jawiki": "skk-jisyo-jawiki",
-        "twist": "twist",
         "xremap-flake": "xremap-flake"
       }
     },
@@ -850,25 +730,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
-        "type": "github"
-      }
-    },
-    "twist": {
-      "inputs": {
-        "elisp-helpers": "elisp-helpers"
-      },
-      "locked": {
-        "lastModified": 1712811656,
-        "narHash": "sha256-Zb+ESAmtTjFarnt/ZFzcsYsBt8RlldCdCAyBttNbdJg=",
-        "owner": "Warashi",
-        "repo": "twist.nix",
-        "rev": "cb1d6d8b4a5c8d68ceb0abb3ec8b8824cc986848",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Warashi",
-        "ref": "feature/mac-desktop-item",
-        "repo": "twist.nix",
         "type": "github"
       }
     },

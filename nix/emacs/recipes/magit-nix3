@@ -1,4 +1,0 @@
-(magit-nix3
- :fetcher github
- :repo "emacs-twist/nix3.el"
- :files ("extra/magit-nix3.el"))
