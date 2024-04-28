@@ -25,6 +25,13 @@
         neovim-flake.follows = "neovim-flake";
       };
     };
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs = {
@@ -110,13 +117,7 @@
     };
 
     configurations = flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-          ];
-        };
-      in rec {
+      system: rec {
         nixosGUI = modules: {
           inherit system;
           modules =
@@ -148,7 +149,7 @@
           modules,
           user,
         }: {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages.${system};
           modules =
             [
               ./home-manager/common/default.nix

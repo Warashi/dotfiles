@@ -1,5 +1,6 @@
 {inputs, ...}: {
   nixpkgs.overlays = [
+    inputs.emacs-overlay.overlays.default
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     inputs.neovim-nightly-overlay.overlay
     (_: prev: {

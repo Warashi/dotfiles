@@ -1,5 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    (import ./emacs/default.nix pkgs)
+
     _1password
     awscli2
     bat

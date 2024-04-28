@@ -152,6 +152,30 @@
         "type": "github"
       }
     },
+    "emacs-overlay": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1714269087,
+        "narHash": "sha256-EWMw8+rUbBMrKkPxEd1sNryxCGymmWDVmbqcWyzY4V8=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "ce6068e25235bfe396f0c954a9fefe9da7540183",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
     "fennel-language-server": {
       "flake": false,
       "locked": {
@@ -573,6 +597,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1713995372,
+        "narHash": "sha256-fFE3M0vCoiSwCX02z8VF58jXFRj9enYUSTqjyHAjrds=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "dd37924974b9202f8226ed5d74a252a9785aedf8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1704161960,
@@ -614,6 +654,7 @@
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "denops-vim": "denops-vim",
+        "emacs-overlay": "emacs-overlay",
         "fennel-language-server": "fennel-language-server",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
