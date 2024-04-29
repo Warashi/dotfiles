@@ -19,6 +19,7 @@
     git-lfs
     gitu
     gnumake
+    gnupg
     go
     htop
     hyperfine

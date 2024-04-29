@@ -102,6 +102,12 @@
 #+end_src
 
 ** 雑多な設定
+*** auth-sources
+#+begin_src emacs-lisp
+  (custom-set-variables
+   `(auth-sources '(,(expand-file-name "authinfo.gpg" user-emacs-directory))))
+#+end_src
+
 *** いろいろな show の delay
 #+begin_src emacs-lisp
   (defvar my-show-delay 0.125)
