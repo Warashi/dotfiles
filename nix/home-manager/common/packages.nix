@@ -1,6 +1,12 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
-    (import ./emacs/default.nix pkgs)
+    (import ./emacs/default.nix {
+      inherit inputs pkgs;
+    })
 
     _1password
     awscli2

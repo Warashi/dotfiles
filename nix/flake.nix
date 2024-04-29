@@ -32,6 +32,10 @@
         flake-utils.follows = "flake-utils";
       };
     };
+    emacs-copilot = {
+      url = "github:copilot-emacs/copilot.el";
+      flake = false;
+    };
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs = {

@@ -152,6 +152,22 @@
         "type": "github"
       }
     },
+    "emacs-copilot": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713189314,
+        "narHash": "sha256-53BGX2llkrM5mDmFSVe+O/Vo4F2gDJTFh/4TqBuQme8=",
+        "owner": "copilot-emacs",
+        "repo": "copilot.el",
+        "rev": "edf517a57f539eb41eaa2f92c6752538f3a62b72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "copilot-emacs",
+        "repo": "copilot.el",
+        "type": "github"
+      }
+    },
     "emacs-overlay": {
       "inputs": {
         "flake-utils": [
@@ -654,6 +670,7 @@
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "denops-vim": "denops-vim",
+        "emacs-copilot": "emacs-copilot",
         "emacs-overlay": "emacs-overlay",
         "fennel-language-server": "fennel-language-server",
         "flake-utils": "flake-utils",
