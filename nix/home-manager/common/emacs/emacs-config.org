@@ -630,6 +630,15 @@
     :ensure t)
 #+end_src
 
+** fsharp-mode
+#+begin_src emacs-lisp
+  (use-package fsharp-mode
+    :defer t
+    :ensure t)
+  (use-package eglot-fsharp
+    :ensure t)
+#+end_src
+
 * util
 ** ppp
 #+begin_src emacs-lisp
