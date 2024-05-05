@@ -7,7 +7,7 @@ ghq-cd-preview = "glow -s $HOME/.config/glamour/catppuccin-latte.json {}/README.
 [[plugins.abbrev.snippets]]
 name = "emacs"
 keyword = "e"
-snippet = "emacsclient"
+snippet = "emacsclient -c"
 
 [[plugins.abbrev.snippets]]
 name = "neovim"
