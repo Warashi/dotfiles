@@ -13,7 +13,6 @@
     coreutils
     deno
     devbox
-    dotnet-sdk_8
     fd
     ghq
     git-lfs
@@ -37,6 +36,7 @@
     oci-cli
     ov
     ripgrep
+    rye
     sheldon
     taplo
     tmux-mvr
