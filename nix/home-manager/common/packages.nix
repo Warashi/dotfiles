@@ -1,19 +1,19 @@
 {
-  inputs,
   pkgs,
+  emacs,
   ...
-}: {
-  home.packages = with pkgs; [
-    (import ./emacs/default.nix {
-      inherit inputs pkgs;
-    })
-
+}: let
+  custom = [
+    emacs.package
+  ];
+  packages = with pkgs; [
     _1password
     awscli2
     bat
     coreutils
     deno
     devbox
+    dotnet-sdk_8
     fd
     ghq
     git-lfs
@@ -84,4 +84,6 @@
     ## spelling
     nodePackages_latest.cspell
   ];
+in {
+  home.packages = custom ++ packages;
 }

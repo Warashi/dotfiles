@@ -1,24 +1,18 @@
 {
   inputs,
-  home,
+  emacs,
   pkgs,
   ...
 }: {
-  home.file = {
-    rgfind = {
-      target = ".local/bin/rgfind";
-      source = ./files/rgfind;
-      executable = true;
+  home.file =
+    emacs.files
+    // {
+      rgfind = {
+        target = ".local/bin/rgfind";
+        source = ./files/rgfind;
+        executable = true;
+      };
     };
-    emacs-early-init-el = {
-      target = ".emacs.d/early-init.el";
-      source = ./emacs/early-init.el;
-    };
-    emacs-ddskk-init-el = {
-      target = ".emacs.d/ddskk/init.el";
-      source = ./emacs/ddskk/init.el;
-    };
-  };
   xdg = {
     enable = true;
     configFile = {

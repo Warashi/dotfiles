@@ -122,6 +122,29 @@
 
     configurations = flake-utils.lib.eachDefaultSystem (
       system: rec {
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            inputs.emacs-overlay.overlays.default
+          ];
+        };
+
+        emacs = {
+          package = import ./emacs/default.nix {
+            inherit inputs pkgs;
+          };
+          files = {
+            emacs-early-init-el = {
+              target = ".emacs.d/early-init.el";
+              source = ./emacs/early-init.el;
+            };
+            emacs-ddskk-init-el = {
+              target = ".emacs.d/ddskk/init.el";
+              source = ./emacs/ddskk/init.el;
+            };
+          };
+        };
+
         nixosGUI = modules: {
           inherit system;
           modules =
@@ -130,8 +153,8 @@
               ./nixos/gui/config.nix
             ]
             ++ modules;
+          specialArgs = {inherit emacs;};
         };
-
         nixosNonGUI = modules: {
           inherit system;
           modules =
@@ -139,6 +162,7 @@
               ./nixos/common/config.nix
             ]
             ++ modules;
+          specialArgs = {inherit emacs;};
         };
         darwin = modules: {
           modules =
@@ -147,20 +171,20 @@
               (_: {nixpkgs.hostPlatform = system;})
             ]
             ++ modules;
-          specialArgs = {inherit self;};
+          specialArgs = {inherit self emacs;};
         };
         homeManagerBase = {
           modules,
           user,
         }: {
-          pkgs = nixpkgs.legacyPackages.${system};
+          inherit pkgs;
           modules =
             [
               ./home-manager/common/default.nix
             ]
             ++ modules;
           extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs emacs;
             local = {
               inherit user;
             };

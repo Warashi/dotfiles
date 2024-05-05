@@ -1,5 +1,6 @@
 {
   inputs,
+  emacs,
   local,
   pkgs,
   ...
@@ -22,6 +23,15 @@ in {
   };
 
   launchd.agents = {
+    emacs-daemon = {
+      enable = true;
+      config = {
+        Label = "dev.warashi.emacs";
+        ProgramArguments = ["${emacs.package}/Applications/Emacs.app/Contents/MacOS/Emacs" "--fg-daemon"];
+        RunAtLoad = true;
+        KeepAlive = true;
+      };
+    };
     muscat = {
       enable = true;
       config = {
