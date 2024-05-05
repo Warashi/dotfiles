@@ -15,7 +15,6 @@ in {
     homeDirectory = "/Users/${local.user}";
 
     sessionVariables = {
-      XDG_RUNTIME_DIR = "/Users/${local.user}/.local/run";
       SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
     };
 
@@ -24,10 +23,15 @@ in {
 
   launchd.agents = {
     emacs-daemon = {
-      enable = true;
+      enable = false; # Emacs.app の方で起動する
       config = {
         Label = "dev.warashi.emacs";
-        ProgramArguments = ["${emacs.package}/Applications/Emacs.app/Contents/MacOS/Emacs" "--fg-daemon"];
+        ProgramArguments = [
+          "${emacs.package}/Applications/Emacs.app/Contents/MacOS/Emacs"
+          "--fg-daemon"
+        ];
+        StandardOutPath = "/tmp/emacs-daemon.stdout.log";
+        StandardErrorPath = "/tmp/emacs-daemon.stderr.log";
         RunAtLoad = true;
         KeepAlive = true;
       };
