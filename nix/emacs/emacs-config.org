@@ -201,6 +201,22 @@
     (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
 #+end_src
 
+* mistty
+#+begin_src emacs-lisp
+  (use-package mistty
+    :ensure t
+    :bind (("C-c s" . mistty)))
+#+end_src
+
+* puni
+#+begin_src emacs-lisp
+  (use-package puni
+    :ensure t
+    :defer t
+    :init
+    (puni-global-mode))
+#+end_src
+
 * ddskk
 #+begin_src emacs-lisp
   (use-package ddskk
