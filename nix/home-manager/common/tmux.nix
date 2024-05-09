@@ -10,8 +10,7 @@
     escapeTime = 0;
     keyMode = "vi";
     shortcut = "g";
-    shell = "${pkgs.zsh}/bin/zsh";
-    terminal = "tmux-256color";
+    terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs

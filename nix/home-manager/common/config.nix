@@ -51,7 +51,31 @@
 
     bash = {
       enable = true;
-      initExtra = "unset -f which";
+      initExtra =
+        ''
+          unset -f which;
+        ''
+        + (
+          if pkgs.stdenv.isDarwin
+          then ''
+            if [[ $(${pkgs.procps}/bin/ps -p $PPID -o ucomm=) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+            then
+              shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+              exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+            fi
+          ''
+          else ''
+            if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+            then
+              shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+              exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+            fi
+          ''
+        );
+    };
+
+    fish = {
+      enable = true;
     };
 
     bat = {
