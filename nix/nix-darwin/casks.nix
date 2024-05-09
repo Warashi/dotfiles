@@ -7,6 +7,7 @@
   "docker"
   "domzilla-caffeine"
   "dropbox"
+  "firefox"
   "jetbrains-toolbox"
   "karabiner-elements"
   "lasso"
