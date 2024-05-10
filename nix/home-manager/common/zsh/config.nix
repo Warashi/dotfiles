@@ -13,8 +13,6 @@
     };
 
     shellAliases = {
-      fd = "fd -a";
-      tmux = "direnv exec / tmux"; # 自動でtmuxを起動はしないので、起動する時にdirenvの影響を受けないようにこれを定義する。
     };
 
     completionInit = ''
