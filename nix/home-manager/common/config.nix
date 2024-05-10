@@ -76,6 +76,13 @@
 
     fish = {
       enable = true;
+      interactiveShellInit = ''
+        # event handler for OSC 7
+        # event hander は autoload で読み込めないため、ここで定義する
+        function osc7_send_pwd --on-event fish_prompt
+          printf "\e]7;file://%s%s\e\\\\" (hostname) "$PWD"
+        end
+      '';
     };
 
     bat = {
