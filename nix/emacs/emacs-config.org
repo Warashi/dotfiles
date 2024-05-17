@@ -581,11 +581,11 @@
 #+begin_src emacs-lisp
   (use-package eglot
     :bind (:map eglot-mode-map
-                ("C-c r" . eglot-rename)
-                ("C-c o" . eglot-code-action-organize-imports)
-                ("C-c a" . eglot-code-actions)
-                ("C-c h" . eldoc)
-                ("C-c d" . xref-find-definitions))
+                ("C-c e r" . eglot-rename)
+                ("C-c e o" . eglot-code-action-organize-imports)
+                ("C-c e a" . eglot-code-actions)
+                ("C-c e h" . eldoc)
+                ("C-c e d" . xref-find-definitions))
     :config
     (add-to-list 'eglot-server-programs '((js-mode js-ts-mode typescript-mode typescript-ts-mode) . (eglot-deno "deno" "lsp")))
     (defclass eglot-deno (eglot-lsp-server) ()
@@ -604,7 +604,7 @@
     :ensure t
     :after (eglot)
     :bind (:map eglot-mode-map
-                ("C-c s" . consult-eglot-symbols)))
+                ("C-c e s" . consult-eglot-symbols)))
 #+end_src
 
 * treesit-auto
