@@ -7,6 +7,7 @@
   "docker"
   "domzilla-caffeine"
   "dropbox"
+  "finch"
   "firefox"
   "jetbrains-toolbox"
   "karabiner-elements"
