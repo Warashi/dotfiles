@@ -67,6 +67,8 @@
   (use-package exec-path-from-shell
     :ensure t
     :config
+    (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH"))
+      (add-to-list 'exec-path-from-shell-variables var))
     (exec-path-from-shell-initialize))
 #+end_src
 
@@ -249,6 +251,16 @@
   (use-package forge
     :ensure t
     :after magit)
+#+end_src
+
+* diff-hl
+#+begin_src emacs-lisp
+  (use-package diff-hl
+    :ensure t
+    :init
+    (global-diff-hl-mode)
+    (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 #+end_src
 
 * consult
