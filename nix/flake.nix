@@ -14,15 +14,15 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-flake = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
+    neovim-src = {
+      url = "github:neovim/neovim";
+      flake = false;
     };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        neovim-flake.follows = "neovim-flake";
+        neovim-src.follows = "neovim-src";
       };
     };
     emacs-overlay = {
