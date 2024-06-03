@@ -63,6 +63,10 @@
       url = "github:catppuccin/alacritty";
       flake = false;
     };
+    catppuccin-glamour = {
+      url = "github:catppuccin/glamour";
+      flake = false;
+    };
     catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
@@ -97,6 +101,9 @@
     flakeInputs = inputs;
 
     nixosConfigurations = {
+      orbstack = nixpkgs.lib.nixosSystem (configurations.nixosNonGUI.aarch64-linux [
+        ./nixos/hosts/orbstack/config.nix
+      ]);
     };
 
     darwinConfigurations = {
@@ -114,6 +121,13 @@
 
       tisza = home-manager.lib.homeManagerConfiguration (
         configurations.homeManagerDarwin.x86_64-darwin {
+          modules = [];
+          user = "warashi";
+        }
+      );
+      
+      orbstack = home-manager.lib.homeManagerConfiguration (
+        configurations.homeManagerLinuxNonGUI.aarch64-linux {
           modules = [];
           user = "warashi";
         }

@@ -48,6 +48,22 @@
         "type": "github"
       }
     },
+    "catppuccin-glamour": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712013681,
+        "narHash": "sha256-f3JFgqL3K/u8U/UzmBohJLDBPlT446bosRQDca9+4oA=",
+        "owner": "catppuccin",
+        "repo": "glamour",
+        "rev": "66d7b09325af67b1c5cdb063343e829c04ad7d5f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "glamour",
+        "type": "github"
+      }
+    },
     "catppuccin-polybar": {
       "flake": false,
       "locked": {
@@ -725,6 +741,7 @@
         "catppuccin-alacritty": "catppuccin-alacritty",
         "catppuccin-bat": "catppuccin-bat",
         "catppuccin-dunst": "catppuccin-dunst",
+        "catppuccin-glamour": "catppuccin-glamour",
         "catppuccin-polybar": "catppuccin-polybar",
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
