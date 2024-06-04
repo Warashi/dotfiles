@@ -2,7 +2,6 @@ _: {
   imports = [
     ./locale.nix
     ./nixconfig.nix
-    ./tailscale.nix
     ./zramswap.nix
   ];
 
