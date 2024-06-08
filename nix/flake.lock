@@ -605,11 +605,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1717888103,
-        "narHash": "sha256-pCQ3hArz3a06qRRh8Owj8g1FSgWfAjkpKCxJiYxaHq8=",
+        "lastModified": 1717889811,
+        "narHash": "sha256-NbubiEIWtG3hbOX3zaJHas0DMiA7IBEwY7caW5jNJ/c=",
         "owner": "Warashi",
         "repo": "muscat",
-        "rev": "0f4aae008765800ba4c7106a84c18a84af7c60d5",
+        "rev": "0395ff529a939eb367c2ca782c8eb97d737936b9",
         "type": "github"
       },
       "original": {
@@ -727,11 +727,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1717602782,
-        "narHash": "sha256-pL9jeus5QpX5R+9rsp3hhZ+uplVHscNJh8n8VpqscM0=",
+        "lastModified": 1717786204,
+        "narHash": "sha256-4q0s6m0GUcN7q+Y2DqD27iLvbcd1G50T2lv08kKxkSI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e8057b67ebf307f01bdcc8fba94d94f75039d1f6",
+        "rev": "051f920625ab5aabe37c920346e3e69d7d34400e",
         "type": "github"
       },
       "original": {
