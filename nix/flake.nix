@@ -14,6 +14,9 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    muscat = {
+      url = "github:Warashi/muscat";
+    };
     neovim-src = {
       url = "github:neovim/neovim";
       flake = false;

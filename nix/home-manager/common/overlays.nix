@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
   nixpkgs.overlays = [
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     # inputs.neovim-nightly-overlay.overlays.default
@@ -7,6 +7,9 @@
     #     inherit (prev.llvmPackages_latest) stdenv;
     #   };
     # })
+    (_: _: {
+      muscat = inputs.muscat.packages.${pkgs.hostPlatform.system}.default;
+    })
     (_: prev: {
       sheldon =
         prev.sheldon.overrideAttrs
@@ -63,56 +66,6 @@
           homepage = "https://github.com/high-moctane/mocword-data";
         };
       };
-    })
-    (_: prev: {
-      muscat = {useGolangDesign ? false}:
-        prev.buildGo121Module rec {
-          pname = "muscat";
-          version = "2.1.2";
-          vendorHash = "sha256-cugzXGa74tEk3fgspPcZSZ0viyXg23JL6fKqah1ndlQ=";
-
-          src = prev.fetchFromGitHub {
-            owner = "Warashi";
-            repo = pname;
-            rev = "v${version}";
-            sha256 = "sha256-Er1dk7WrYddeW0S7XGw4qKBP0yz4CmEIwv7Omqi+WWM=";
-          };
-
-          tags =
-            if useGolangDesign
-            then ["golangdesign"]
-            else [];
-
-          buildInputs =
-            if prev.stdenv.isDarwin
-            then [
-              prev.darwin.apple_sdk.frameworks.Cocoa
-            ]
-            else if useGolangDesign
-            then [
-              prev.xorg.libX11
-            ]
-            else [];
-
-          nativeBuildInputs =
-            if (prev.stdenv.isLinux && useGolangDesign)
-            then [prev.makeWrapper]
-            else [];
-
-          postFixup =
-            if (prev.stdenv.isLinux && useGolangDesign)
-            then ''
-              wrapProgram $out/bin/muscat \
-                --prefix LD_LIBRARY_PATH : ${prev.lib.makeLibraryPath [prev.xorg.libX11]}
-            ''
-            else "";
-
-          meta = with prev.lib; {
-            description = "remote code development utils";
-            homepage = "https://github.com/Warashi/muscat";
-            license = licenses.mit;
-          };
-        };
     })
     (_: prev: {
       tmux-mvr = prev.rustPlatform.buildRustPackage rec {
