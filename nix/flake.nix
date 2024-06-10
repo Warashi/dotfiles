@@ -14,6 +14,13 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     muscat = {
       url = "github:Warashi/muscat";
     };
@@ -132,7 +139,12 @@
       
       orbstack = home-manager.lib.homeManagerConfiguration (
         configurations.homeManagerLinuxNonGUI.aarch64-linux {
-          modules = [];
+          modules = [
+            inputs.vscode-server.homeModules.default
+            (_:{
+              services.vscode-server.enable = true;
+            })
+          ];
           user = "warashi";
         }
       );

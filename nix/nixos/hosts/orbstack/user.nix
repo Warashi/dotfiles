@@ -6,6 +6,9 @@ _: {
         linger = true;
         autoSubUidGidRange = true;
         group = "warashi";
+        extraGroups = [
+          "docker"
+        ];
       };
     };
     groups = {
