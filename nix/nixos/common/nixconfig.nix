@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -12,6 +12,12 @@ _: {
     optimise = {
       automatic = true;
     };
+  };
+
+  environment = {
+    shells = with pkgs; [
+      zsh
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
