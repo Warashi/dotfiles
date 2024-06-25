@@ -7,6 +7,7 @@
   "domzilla-caffeine"
   "dropbox"
   "firefox"
+  "grammarly-desktop"
   "jetbrains-toolbox"
   "karabiner-elements"
   "lasso"
