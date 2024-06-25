@@ -18,6 +18,9 @@
     shells = with pkgs; [
       zsh
     ];
+    systemPackages = with pkgs;[
+      nixVersions.latest
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
