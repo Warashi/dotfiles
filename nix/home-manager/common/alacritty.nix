@@ -16,8 +16,8 @@
         {
           opacity = 1.0;
           padding = {
-            x = 10;
-            y = 10;
+            x = 0;
+            y = 0;
           };
         }
         // (
@@ -31,30 +31,22 @@
         history = 0;
       };
       font = {
-        size = 18.0;
-        offset = {
-          x = 2;
-          y = 4;
-        };
-        glyph_offset = {
-          x = 1;
-          y = 2;
-        };
+        size = 13.0;
         normal = {
-          family = "PlemolJP Console NF";
-          style = "ExtraLight";
-        };
-        bold = {
           family = "PlemolJP Console NF";
           style = "Regular";
         };
+        bold = {
+          family = "PlemolJP Console NF";
+          style = "Bold";
+        };
         italic = {
           family = "PlemolJP Console NF";
-          style = "ExtraLight Italic";
+          style = "Regular Italic";
         };
         bold_italic = {
           family = "PlemolJP Console NF";
-          style = "Regular Italic";
+          style = "Bold Italic";
         };
       };
     };
