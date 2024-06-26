@@ -97,7 +97,7 @@ myTaffybarConfig = toTaffyConfig mySimpleTaffyConfig
 mySimpleTaffyConfig :: SimpleTaffyConfig
 mySimpleTaffyConfig =
   defaultSimpleTaffyConfig
-    { barHeight = ExactSize 48
+    { barHeight = ExactSize 96
     }
 
 setWidgetsForMonitor :: SimpleTaffyConfig -> Int -> SimpleTaffyConfig

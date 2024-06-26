@@ -115,6 +115,11 @@
         ./nixos/hosts/orbstack/config.nix
         ./nixos/optional/docker.nix
       ]);
+
+      duna = nixpkgs.lib.nixosSystem (configurations.nixosGUI.x86_64-linux [
+        ./nixos/hosts/duna/default.nix
+        ./nixos/optional/docker.nix
+      ]);
     };
 
     darwinConfigurations = {
@@ -133,6 +138,15 @@
       tisza = home-manager.lib.homeManagerConfiguration (
         configurations.homeManagerDarwin.x86_64-darwin {
           modules = [];
+          user = "warashi";
+        }
+      );
+      
+      duna = home-manager.lib.homeManagerConfiguration (
+        configurations.homeManagerLinuxGUI.x86_64-linux {
+          modules = [
+            ./home-manager/linux-gui/desktop/hidpi.nix
+          ];
           user = "warashi";
         }
       );
@@ -264,7 +278,7 @@
         }:
           homeManagerLinuxBase {
             inherit user;
-            pmodules = (
+            modules = (
               modules
               ++ [
                 xremap-flake.homeManagerModules.default

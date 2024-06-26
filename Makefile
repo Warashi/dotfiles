@@ -36,6 +36,9 @@ darwin-rebuild:
 .PHONY: home-manager
 home-manager:
 	if which home-manager; then home-manager switch --flake '$(FLAKE)'; else nix --extra-experimental-features 'nix-command flakes' run home-manager -- switch --flake '$(FLAKE)'; fi
+.PHONY: nixos-rebuild/duna
+nixos-rebuild/duna:
+	$(MAKE) nixos-rebuild FLAKE='./nix#duna'
 .PHONY: nixos-rebuild/orbstack
 nixos-rebuild/orbstack:
 	$(MAKE) nixos-rebuild FLAKE='./nix#orbstack'
@@ -57,6 +60,9 @@ home-manager/parallels:
 .PHONY: home-manager/tisza
 home-manager/tisza:
 	$(MAKE) home-manager FLAKE='./nix#tisza'
+.PHONY: home-manager/duna
+home-manager/duna:
+	$(MAKE) home-manager FLAKE='./nix#duna'
 .PHONY: home-manager/warashi
 home-manager/warashi:
 	$(MAKE) home-manager FLAKE='./nix#warashi'

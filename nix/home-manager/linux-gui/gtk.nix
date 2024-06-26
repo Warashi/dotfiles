@@ -9,7 +9,6 @@
   xresources = {
     properties = {
       "Xcursor.theme" = "Catppuccin-Latte-Blue-Cursors";
-      "Xcursor.size" = 24;
     };
   };
   gtk = {
