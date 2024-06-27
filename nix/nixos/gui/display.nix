@@ -1,18 +1,20 @@
 _: {
-  services.xserver = {
-    enable = true;
+  services = {
     libinput.enable = true;
-    displayManager = {
-      gdm = {
-        enable = true;
+    xserver = {
+      enable = true;
+      displayManager = {
+        gdm = {
+          enable = true;
+        };
+        session = [
+          {
+            manage = "window";
+            name = "xmonad";
+            start = "";
+          }
+        ];
       };
-      session = [
-        {
-          manage = "window";
-          name = "xmonad";
-          start = "";
-        }
-      ];
     };
   };
 }
