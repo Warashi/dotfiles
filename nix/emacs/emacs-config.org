@@ -237,12 +237,6 @@
     (envrc-global-mode))
 #+end_src
 
-* org
-#+begin_src emacs-lisp
-  (use-package org
-    :ensure t)
-#+end_src
-
 * magit
 #+begin_src emacs-lisp
   (use-package magit
