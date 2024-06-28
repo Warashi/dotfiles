@@ -86,7 +86,7 @@ export class Config extends BaseConfig {
     let plugins = await loadTomls([
       { path: "$DPP_CONFIG_BASE/someone.toml", lazy: false },
 
-      { path: "$DPP_CONFIG_BASE/dpp.toml", lazy: true },
+      { path: "$DPP_CONFIG_BASE/dpp.toml", lazy: false },
 
       { path: "$DPP_CONFIG_BASE/libs.toml", lazy: false },
       { path: "$DPP_CONFIG_BASE/libs-lazy.toml", lazy: true },
