@@ -7,8 +7,3 @@ if = 0
 name = 'kuuote-dotvim'
 repo = 'kuuote/dotvim'
 if = 0
-
-[[plugins]]
-name = 'uga-rosa-dotfiles'
-repo = 'uga-rosa/dotfiles'
-if = 0
