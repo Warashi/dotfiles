@@ -1,8 +1,8 @@
 import {
   BaseConfig,
   ContextBuilder,
-} from "https://deno.land/x/ddu_vim@v3.6.0/types.ts";
-import type { Denops } from "https://deno.land/x/ddu_vim@v3.6.0/deps.ts";
+} from "https://deno.land/x/ddu_vim@v4.1.1/types.ts";
+import type { Denops } from "https://deno.land/x/ddu_vim@v4.1.1/deps.ts";
 import type { Params as FfParams } from "https://deno.land/x/ddu_ui_ff@v1.1.0/ff.ts";
 import type { Params as FilerParams } from "https://deno.land/x/ddu_ui_filer@v1.1.0/filer.ts";
 

@@ -1,9 +1,9 @@
-import type { Denops } from "https://deno.land/x/lspoints@v0.0.4/deps/denops.ts";
+import type { Denops } from "https://deno.land/x/lspoints@v0.0.7/deps/denops.ts";
 import {
   BaseExtension,
   type Lspoints,
   type StartOptions,
-} from "https://deno.land/x/lspoints@v0.0.4/interface.ts";
+} from "https://deno.land/x/lspoints@v0.0.7/interface.ts";
 
 import * as config from "../../lspoints/mod.ts";
 

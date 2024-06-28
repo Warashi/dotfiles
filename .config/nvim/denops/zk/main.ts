@@ -1,4 +1,4 @@
-import type { Denops } from "https://deno.land/x/denops_std@v5.0.1/mod.ts";
+import type { Denops } from "https://deno.land/x/denops_std@v6.5.0/mod.ts";
 
 function execute(...args: string[]): string {
   const cmd = new Deno.Command("zk", { args });
