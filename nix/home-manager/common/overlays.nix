@@ -10,6 +10,13 @@
     (_: _: {
       muscat = inputs.muscat.packages.${pkgs.hostPlatform.system}.default;
     })
+    (_: _: {
+      fcitx5-hazkey = (pkgs.qt6Packages.callPackage ./packages/fcitx5-hazkey.nix {
+        inherit (inputs) hazkey-src;
+        inherit (pkgs) fcitx5 swift vulkan-headers vulkan-loader vulkan-tools;
+        inherit (pkgs.swiftPackages) swiftpm;
+      });
+    })
     (_: prev: {
       sheldon =
         prev.sheldon.overrideAttrs

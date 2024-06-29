@@ -21,8 +21,13 @@
         flake-utils.follows = "flake-utils";
       };
     };
+    flatpaks.url = "github:GermanBread/declarative-flatpak/stable"; # Please DO NOT override the "nixpkgs" input!
     muscat = {
       url = "github:Warashi/muscat";
+    };
+    hazkey-src = {
+      url = "github:7ka-Hiira/fcitx5-hazkey";
+      flake = false;
     };
     neovim-src = {
       url = "github:neovim/neovim";
@@ -106,6 +111,7 @@
     nix-darwin,
     home-manager,
     xremap-flake,
+    flatpaks,
     ...
   }: rec {
     flakeInputs = inputs;
@@ -281,6 +287,7 @@
             modules = (
               modules
               ++ [
+                flatpaks.homeManagerModules.default
                 xremap-flake.homeManagerModules.default
                 ./home-manager/linux-gui/default.nix
               ]

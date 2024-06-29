@@ -2,6 +2,7 @@ _: {
   imports = [
     ./1password.nix
     ./display.nix
+    ./flatpak.nix
     ./fonts.nix
     ./keyring.nix
     ./polkit.nix
