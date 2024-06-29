@@ -7,6 +7,7 @@ _: {
       };
       packages = [
         "flathub:app/com.slack.Slack//stable"
+        "flathub:app/com.discordapp.Discord//stable"
       ];
     };
   };
