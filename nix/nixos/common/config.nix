@@ -2,6 +2,7 @@ _: {
   imports = [
     ./locale.nix
     ./nixconfig.nix
+    ./warp.nix
     ./zramswap.nix
     ./zsh.nix
   ];
