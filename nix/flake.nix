@@ -151,6 +151,7 @@
       duna = home-manager.lib.homeManagerConfiguration (
         configurations.homeManagerLinuxGUI.x86_64-linux {
           modules = [
+            ./home-manager/linux/maestral.nix
             ./home-manager/linux-gui/desktop/hidpi.nix
           ];
           user = "warashi";

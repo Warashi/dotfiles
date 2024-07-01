@@ -3,6 +3,7 @@
     easyeffects
     firefox
     xsel
+    maestral-gui
 
     (muscat.override {useGolangDesign = true;})
   ];
