@@ -4,7 +4,8 @@
   (vim.keymap.set :n :<space>f
                   (fn []
                     (vim.fn.denops#request :lspoints :executeCommand
-                                           [:format :execute (vim.fn.bufnr)])))
+                                           [:format :execute (vim.fn.bufnr)]))
+                  {:buffer true})
   (when (not (= "LspointsAttach:efmls" (vim.fn.expand :<amatch>)))
     (let [m [{:mode :n
               :key :K

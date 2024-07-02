@@ -74,6 +74,7 @@ export class Config extends BaseConfig {
           keywordPattern: "\\.\\w*|:\\w*|->\\w*",
           sorters: ["sorter_lsp-kind"],
           converters: ["converter_kind_labels"],
+          timeout: 1000,
         },
         file: {
           mark: "F",
@@ -113,7 +114,7 @@ export class Config extends BaseConfig {
           isVolatile: true,
           minAutoCompleteLength: 1,
           keywordPattern: "[!-~]+",
-          maxItems: 15,
+          maxItems: 3,
           timeout: 1000,
         },
       },
