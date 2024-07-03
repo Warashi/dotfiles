@@ -11,6 +11,7 @@ in
     systemd.tmpfiles.rules = [
       "d ${rootDir}    - root root"
       "z ${rootDir}    - root root"
+      "L /usr/share/warp/images - - - - ${pkgs.cloudflare-warp}/share/warp/images"
     ];
 
     systemd.services.cloudflare-warp = {
