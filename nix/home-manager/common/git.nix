@@ -22,6 +22,11 @@
       enable = true;
     };
     extraConfig = {
+      user = {
+        name = "Shinnosuke Sawada-Dazai";
+        email = "shin@warashi.dev";
+        signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK/w9P7ws2J3mqoYBFbqcnIPw2idc8NYsoEF/Z3p87DL";
+      };
       push.default = "simple";
       commit = {
         gpgsign = true;
