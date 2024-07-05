@@ -2,6 +2,8 @@ _: {
   imports = [
     ./1password.nix
     ./desktop/default.nix
+    ./easyeffects.nix
+    ./firefox.nix
     ./flatpak.nix
     ./fonts.nix
     ./gtk.nix

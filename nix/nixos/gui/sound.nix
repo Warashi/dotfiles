@@ -10,4 +10,5 @@ _: {
     pulse.enable = true;
     jack.enable = true;
   };
+  programs.dconf.enable = true;
 }
