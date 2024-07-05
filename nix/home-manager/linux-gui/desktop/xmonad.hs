@@ -18,7 +18,7 @@ import XMonad.Util.Run
 
 myTerminal = "alacritty"
 
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
 
 myBorderWidth = 1
 
@@ -49,6 +49,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((modm .|. mod4Mask, xK_l), shiftNextScreen >> nextScreen),
       ((modm .|. mod4Mask, xK_Left), shiftTo Prev wsOnCurrentScreen >> moveTo Prev wsOnCurrentScreen),
       ((modm .|. mod4Mask, xK_Right), shiftTo Next wsOnCurrentScreen >> moveTo Next wsOnCurrentScreen),
+      ((modm, xK_w), kill),
       ((modm, xK_q), io exitSuccess)
     ]
 
