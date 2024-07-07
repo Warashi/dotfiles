@@ -25,10 +25,6 @@
     muscat = {
       url = "github:Warashi/muscat";
     };
-    hazkey-src = {
-      url = "github:7ka-Hiira/fcitx5-hazkey";
-      flake = false;
-    };
     neovim-src = {
       url = "github:neovim/neovim";
       flake = false;
