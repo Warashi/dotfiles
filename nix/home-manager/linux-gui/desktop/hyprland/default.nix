@@ -4,6 +4,7 @@
     ./keybinds.nix
     ./wofi.nix
     ./swaylock.nix
+    ./waybar.nix
   ];
 
   wayland.windowManager.hyprland = {
