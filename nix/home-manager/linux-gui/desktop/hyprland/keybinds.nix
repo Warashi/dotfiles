@@ -29,8 +29,8 @@
       "$mainMod, 8, exec, hyprsome workspace 8"
       "$mainMod, 9, exec, hyprsome workspace 9"
       "$mainMod, 0, exec, hyprsome workspace 10"
-      "$mainMod SUPER, right, workspace, m+1"
-      "$mainMod SUPER, left, workspace, m-1"
+      "$mainMod, right, workspace, m+1"
+      "$mainMod, left, workspace, m-1"
       "$mainMod, mouse_down, workspace, m+1"
       "$mainMod, mouse_up, workspace, m-1"
 
@@ -47,9 +47,6 @@
       "$mainMod SUPER, 0, exec, hyprsome move 10"
       "$mainMod SUPER, right, movetoworkspace, m+1"
       "$mainMod SUPER, left, movetoworkspace, m-1"
-
-      # toggle monitor
-      "$mainMod, Tab, exec, hyprctl monitors -j|jq 'map(select(.focused|not).activeWorkspace.id)[0]'|xargs hyprctl dispatch workspace"
 
       # screenshot
       ", Print, exec, grimblast --notify copy output"
