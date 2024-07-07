@@ -37,18 +37,11 @@
     };
   };
   services = {
-    dunst = {
-      enable = true;
-      configFile = inputs.catppuccin-dunst + "/src/latte.conf";
-    };
     picom = {
       enable = true;
       activeOpacity = 0.9;
       inactiveOpacity = 0.9;
       menuOpacity = 0.9;
-    };
-    status-notifier-watcher = {
-      enable = true;
     };
     taffybar = {
       enable = true;
