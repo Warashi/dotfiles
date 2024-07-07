@@ -1,15 +1,16 @@
 _: {
   imports = [
+    ./desktop
+    ./pam_u2f
+
     ./1password.nix
-    ./desktop/default.nix
     ./easyeffects.nix
     ./firefox.nix
     ./flatpak.nix
     ./fonts.nix
-    ./gtk.nix
+    # ./gtk.nix
     ./input.nix
     ./packages.nix
-    ./pam_u2f/default.nix
     ./rofi.nix
     ./systemd.nix
     ./xremap.nix

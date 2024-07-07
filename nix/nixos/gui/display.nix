@@ -1,4 +1,5 @@
 _: {
+  programs.hyprland.enable = true;
   services = {
     libinput.enable = true;
     xserver = {
@@ -7,13 +8,6 @@ _: {
         gdm = {
           enable = true;
         };
-        session = [
-          {
-            manage = "window";
-            name = "xmonad";
-            start = "";
-          }
-        ];
       };
     };
   };

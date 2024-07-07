@@ -14,6 +14,9 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprsome = {
+      url = "github:sopa0/hyprsome";
+    };
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
       inputs = {
