@@ -232,6 +232,26 @@
         "type": "github"
       }
     },
+    "fcitx5-hazkey": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720476822,
+        "narHash": "sha256-a+xKCDbjiiuaRQL6bwzw3YI7mJXUWDCJsxqHoij8vjo=",
+        "owner": "Warashi",
+        "repo": "nix-fcitx5-hazkey",
+        "rev": "eb20b7583a3f6c32c56a933a710913e25a2cdfa1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Warashi",
+        "repo": "nix-fcitx5-hazkey",
+        "type": "github"
+      }
+    },
     "fennel-language-server": {
       "flake": false,
       "locked": {
@@ -949,6 +969,7 @@
         "denops-vim": "denops-vim",
         "emacs-copilot": "emacs-copilot",
         "emacs-overlay": "emacs-overlay",
+        "fcitx5-hazkey": "fcitx5-hazkey",
         "fennel-language-server": "fennel-language-server",
         "flake-utils": "flake-utils",
         "flatpaks": "flatpaks",
