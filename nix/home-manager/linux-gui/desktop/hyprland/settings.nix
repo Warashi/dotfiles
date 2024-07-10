@@ -3,15 +3,13 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "swww init && swww img ~/Pictures/IMG_0045.png"
-      "fcitx5 -D"
-      "${pkgs.dex}/bin/dex -a"
     ];
     windowrule = [ "pseudo, noblur, class:(fcitx)" ];
     input = {
       repeat_delay = 300;
       repeat_rate = 30;
       follow_mouse = 1;
-      sensitivity = lib.mkDefault (0); # -1.0 - 1.0, 0 means no modification.
+      sensitivity = lib.mkDefault 0; # -1.0 - 1.0, 0 means no modification.
     };
     general = {
       gaps_in = 5;
