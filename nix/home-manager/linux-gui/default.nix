@@ -4,7 +4,6 @@ _: {
     ./pam_u2f
 
     ./1password.nix
-    ./catppuccin.nix
     ./easyeffects.nix
     ./firefox.nix
     ./flatpak.nix

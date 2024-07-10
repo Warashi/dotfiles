@@ -5,6 +5,8 @@ _: {
     ./config.nix
     ./packages.nix
 
+    ./catppuccin.nix
+
     ./alacritty.nix
     ./direnv.nix
     ./files.nix

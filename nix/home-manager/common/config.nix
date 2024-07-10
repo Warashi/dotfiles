@@ -34,7 +34,6 @@
     };
 
     shellAliases = {
-      emacs = "$HOME/Applications/'Home Manager Apps'/Emacs.app/Contents/MacOS/Emacs";
       e = "emacsclient";
       v = "nvim --noplugin";
       g = "git";

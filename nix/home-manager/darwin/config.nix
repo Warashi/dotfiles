@@ -18,6 +18,10 @@ in {
       SSH_AUTH_SOCK = "/Users/${local.user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
     };
 
+    shellAliases = {
+      emacs = "$HOME/Applications/'Home Manager Apps'/Emacs.app/Contents/MacOS/Emacs";
+    };
+
     stateVersion = "22.05";
   };
 
