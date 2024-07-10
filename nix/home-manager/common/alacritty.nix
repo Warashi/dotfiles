@@ -1,14 +1,10 @@
 {
-  inputs,
   pkgs,
   ...
 }: {
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [
-        "${inputs.catppuccin-alacritty + "/catppuccin-frappe.toml"}"
-      ];
       env = {
         TERM = "xterm-256color";
       };

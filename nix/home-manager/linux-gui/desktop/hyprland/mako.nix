@@ -1,6 +1,6 @@
-{inputs, ...}: {
+_: {
   services = {
-    status-notifier-watcher = {
+    mako = {
       enable = true;
     };
   };

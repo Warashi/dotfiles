@@ -15,8 +15,11 @@
       "$mainMod, j, movefocus, d"
       "$mainMod, k, movefocus, u"
       "$mainMod, l, movefocus, r"
-      "$subMod, Tab, cyclenext"
-      "$subMod SHIFT, Tab, cyclenext, prev"
+      "$subMod, Tab, layoutmsg, cyclenext"
+      "$subMod SHIFT, Tab, layoutmsg, cycleprev"
+
+      # move window
+      "$mainMod, m, layoutmsg, swapwithmaster"
 
       # switch workspace
       "$mainMod, 1, exec, hyprsome workspace 1"
@@ -61,7 +64,7 @@
       "$mainMod SUPER, c, exec, hyprpicker --autocopy"
 
       # screen lock
-      "$mainMod SUPER, l, exec, swaylock"
+      "$mainMod SUPER, l, exec, hyprlock"
 
       # system
       "$mainMod, x, exec, systemctl suspend"
@@ -91,4 +94,3 @@
     ];
   };
 }
-

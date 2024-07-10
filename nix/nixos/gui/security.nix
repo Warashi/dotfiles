@@ -10,6 +10,7 @@ _: {
       services = {
         login.u2fAuth = true;
         sudo.u2fAuth = true;
+        hyprlock.u2fAuth = true;
       };
     };
   };

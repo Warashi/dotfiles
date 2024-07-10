@@ -1,10 +1,11 @@
-{ pkgs, lib,  ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "swww init && swww img ~/Pictures/IMG_0045.png"
-    ];
-    windowrule = [ "pseudo, noblur, class:(fcitx)" ];
+    exec-once = [];
+    windowrule = ["pseudo, noblur, class:(fcitx)"];
     input = {
       repeat_delay = 300;
       repeat_rate = 30;
@@ -12,21 +13,20 @@
       sensitivity = lib.mkDefault 0; # -1.0 - 1.0, 0 means no modification.
     };
     general = {
+      layout = "master";
       gaps_in = 5;
       gaps_out = 5;
       border_size = 2;
       resize_on_border = true;
     };
     decoration = {
-      rounding = 10;
+      rounding = 5;
+      drop_shadow = false;
       blur = {
-        enabled = true;
-        size = 3;
-        passes = 1;
-        xray = true;
-        ignore_opacity = true;
-        new_optimizations = true;
+        enabled = false;
       };
+      dim_inactive = true;
+      dim_strength = 0.1;
     };
     animations = {
       bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
@@ -38,15 +38,13 @@
         "workspaces, 1, 6, default"
       ];
     };
-    dwindle = {
-      pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-      preserve_split = true; # you probably want this
-    };
     misc = {
       disable_hyprland_logo = true;
+      vfr = true;
     };
     master = {
       new_is_master = true;
+      orientation = "right";
     };
   };
 }

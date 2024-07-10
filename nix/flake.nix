@@ -28,6 +28,7 @@
         flake-utils.follows = "flake-utils";
       };
     };
+    catppuccin.url = "github:catppuccin/nix";
     flatpaks.url = "github:GermanBread/declarative-flatpak/stable"; # Please DO NOT override the "nixpkgs" input!
     muscat = {
       url = "github:Warashi/muscat";
@@ -204,6 +205,7 @@
             [
               ./nixos/common/config.nix
               ./nixos/gui/config.nix
+              inputs.catppuccin.nixosModules.catppuccin
             ]
             ++ modules;
           specialArgs = {inherit emacs;};
@@ -234,6 +236,7 @@
           modules =
             [
               ./home-manager/common/default.nix
+              inputs.catppuccin.homeManagerModules.catppuccin
             ]
             ++ modules;
           extraSpecialArgs = {

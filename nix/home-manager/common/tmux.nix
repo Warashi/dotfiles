@@ -21,14 +21,6 @@
           set -g @1password-vault 'terminal'
         '';
       }
-
-      {
-        plugin = catppuccin;
-        extraConfig = ''
-          set -g @catppuccin_flavour 'frappe'
-          set -g @catppuccin_window_tabs_enabled on
-        '';
-      }
     ];
     extraConfig =
       builtins.readFile ./files/extra-config.tmux;
