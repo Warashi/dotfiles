@@ -239,11 +239,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720476822,
-        "narHash": "sha256-a+xKCDbjiiuaRQL6bwzw3YI7mJXUWDCJsxqHoij8vjo=",
+        "lastModified": 1720586549,
+        "narHash": "sha256-CkzPTFnverpwpa0eOHrcLFNkDEgOoPz7APEdy+3pTXg=",
         "owner": "Warashi",
         "repo": "nix-fcitx5-hazkey",
-        "rev": "eb20b7583a3f6c32c56a933a710913e25a2cdfa1",
+        "rev": "8f9e07dc15a8ebc8db8310d132f9dd57a935eaff",
         "type": "github"
       },
       "original": {
