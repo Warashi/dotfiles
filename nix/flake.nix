@@ -16,7 +16,6 @@
     };
     fcitx5-hazkey = {
       url = "github:Warashi/nix-fcitx5-hazkey";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprsome = {
       url = "github:sopa0/hyprsome";
