@@ -32,10 +32,8 @@
       "$mainMod, 8, exec, hyprsome workspace 8"
       "$mainMod, 9, exec, hyprsome workspace 9"
       "$mainMod, 0, exec, hyprsome workspace 10"
-      "$mainMod, right, workspace, m+1"
-      "$mainMod, left, workspace, m-1"
-      "$mainMod, mouse_down, workspace, m+1"
-      "$mainMod, mouse_up, workspace, m-1"
+      "$mainMod, right, workspace, r+1"
+      "$mainMod, left, workspace, r-1"
 
       # move window to workspace
       "$mainMod SUPER, 1, exec, hyprsome move 1"
@@ -48,8 +46,8 @@
       "$mainMod SUPER, 8, exec, hyprsome move 8"
       "$mainMod SUPER, 9, exec, hyprsome move 9"
       "$mainMod SUPER, 0, exec, hyprsome move 10"
-      "$mainMod SUPER, right, movetoworkspace, m+1"
-      "$mainMod SUPER, left, movetoworkspace, m-1"
+      "$mainMod SUPER, right, movetoworkspace, r+1"
+      "$mainMod SUPER, left, movetoworkspace, r-1"
 
       # screenshot
       ", Print, exec, grimblast --notify copy output"
