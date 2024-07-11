@@ -151,7 +151,7 @@
           user = "warashi";
         }
       );
-      
+
       duna = home-manager.lib.homeManagerConfiguration (
         configurations.homeManagerLinuxGUI.x86_64-linux {
           modules = [
@@ -160,12 +160,12 @@
           user = "warashi";
         }
       );
-      
+
       orbstack = home-manager.lib.homeManagerConfiguration (
         configurations.homeManagerLinuxNonGUI.aarch64-linux {
           modules = [
             inputs.vscode-server.homeModules.default
-            (_:{
+            (_: {
               services.vscode-server.enable = true;
             })
           ];

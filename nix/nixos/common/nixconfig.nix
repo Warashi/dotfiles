@@ -18,7 +18,7 @@
     shells = with pkgs; [
       zsh
     ];
-    systemPackages = with pkgs;[
+    systemPackages = with pkgs; [
       nixVersions.latest
     ];
   };

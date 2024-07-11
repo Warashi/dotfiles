@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   nixpkgs.overlays = [
     # neovim nightly を使うときはここからneovim-unwrappedのoverlayまでを適切に変更する
     # inputs.neovim-nightly-overlay.overlays.default

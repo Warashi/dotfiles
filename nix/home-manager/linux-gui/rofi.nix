@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.rofi = {
     enable = true;
     font = "PlemolJP Console NF 18";
