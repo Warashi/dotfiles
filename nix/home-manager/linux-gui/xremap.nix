@@ -58,7 +58,7 @@ _: {
         {
           name = "Emacs emulation";
           application = {
-            not = ["Alacritty" "Emacs"];
+            not = ["Alacritty" "Emacs" "emacs"];
           };
           remap = {
             Ctrl_L-a = "home";

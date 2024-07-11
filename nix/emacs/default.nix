@@ -4,6 +4,7 @@
   ...
 }:
 pkgs.emacsWithPackagesFromUsePackage {
+  package = pkgs.emacs29-pgtk;
   config = ./emacs-config.org;
   defaultInitFile = true;
   alwaysEnsure = false;

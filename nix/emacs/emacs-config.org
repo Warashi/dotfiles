@@ -19,17 +19,12 @@
     (leaf-keywords-init))
 #+end_src
 
-* emacs-overlay tuning
-#+begin_src emacs-lisp
-  (custom-set-variables
-   '(leaf-alias-keyword-alist
-     '((:ensure . nil))))
-#+end_src
-
 * kitty keyboard protocol
 #+begin_src emacs-lisp
   (leaf kkp
     :ensure t
+    :custom
+    (kkp-super-modifier . "meta") ;; super as meta
     :config
     (global-kkp-mode +1))
 #+end_src
@@ -88,9 +83,8 @@
 #+begin_src emacs-lisp
   (leaf exec-path-from-shell
     :ensure t
+    :custom
+    (exec-path-from-shell-variables . '("PATH" "MANPATH" "SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH"))
     :config
-    (custom-set-variables
-     '(exec-path-from-shell-variables
-       '("PATH" "MANPATH" "SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH")))
     (exec-path-from-shell-initialize))
 #+end_src
