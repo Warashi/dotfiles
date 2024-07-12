@@ -12,7 +12,6 @@ _: {
     ./files.nix
     ./git.nix
     ./tmux.nix
-    ./wezterm.nix
 
     ./zsh/config.nix
     ./zsh/zcompile-rcs.nix
