@@ -24,7 +24,7 @@
   (leaf kkp
     :ensure t
     :custom
-    (kkp-super-modifier . "meta") ;; super as meta
+    (kkp-super-modifier . 'meta) ;; super as meta
     :config
     (global-kkp-mode +1))
 #+end_src
