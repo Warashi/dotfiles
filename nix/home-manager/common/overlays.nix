@@ -16,11 +16,13 @@
     })
     (_: prev: {
       sheldon =
-        prev.sheldon.overrideAttrs
-        (_: {
-          doCheck = false;
-          meta.platforms = prev.lib.platforms.unix;
-        });
+        if pkgs.isDawwin
+        then
+          prev.sheldon.overrideAttrs (_: {
+            doCheck = false;
+            meta.platforms = prev.lib.platforms.unix;
+          })
+        else prev.sheldon;
     })
     (_: prev: {
       mocword = prev.rustPlatform.buildRustPackage rec {
@@ -94,66 +96,6 @@
       };
     })
     (_: prev: {
-      tmuxPlugins =
-        prev.tmuxPlugins
-        // {
-          tmux-1password = prev.tmuxPlugins.mkTmuxPlugin {
-            pluginName = "1password";
-            rtpFilePath = "plugin.tmux";
-            version = "0.0.1";
-            src = prev.fetchFromGitHub {
-              owner = "Warashi";
-              repo = "tmux-1password";
-              rev = "1bd0276a4325750795ec373ef6c5bad5e29bcb64";
-              hash = "sha256-cTlYgAGXWzePX3muDSwBfuCtLsJ+YsvHiIGrmczAYvo=";
-            };
-            meta = with prev.lib; {
-              description = "1password integration for tmux";
-              homepage = "https://github.com/Warashi/tmux-1password";
-              license = licenses.mit;
-            };
-          };
-        };
-    })
-    (_: prev: {
-      yaskkserv2 = prev.rustPlatform.buildRustPackage rec {
-        pname = "yaskkserv2";
-        version = "0.1.7";
-        buildInputs =
-          [
-            prev.openssl
-          ]
-          ++ (
-            if prev.stdenv.isDarwin
-            then [
-              prev.darwin.apple_sdk.frameworks.Security
-            ]
-            else []
-          );
-        nativeBuildInputs = [
-          prev.pkg-config
-        ];
-
-        src = prev.fetchFromGitHub {
-          owner = "wachikun";
-          repo = pname;
-          rev = "${version}";
-          sha256 = "sha256-bF8OHP6nvGhxXNvvnVCuOVFarK/n7WhGRktRN4X5ZjE=";
-        };
-
-        cargoLock = {
-          lockFile = src + "/Cargo.lock";
-        };
-        doCheck = false;
-
-        meta = with prev.lib; {
-          description = "Yet Another SKK server";
-          homepage = "https://github.com/wachikun/yaskkserv2";
-          license = licenses.mit;
-        };
-      };
-    })
-    (_: prev: {
       plemoljp = prev.stdenvNoCC.mkDerivation rec {
         pname = "plemoljp-console-nf";
         version = "1.6.0";
@@ -170,25 +112,6 @@
 
           runHook postInstall
         '';
-      };
-    })
-    (_: prev: {
-      fennel-language-server = prev.rustPlatform.buildRustPackage rec {
-        pname = "fennel-language-server";
-        version = "dev-" + inputs.fennel-language-server.lastModifiedDate;
-
-        src = inputs.fennel-language-server;
-
-        cargoLock = {
-          lockFile = src + "/Cargo.lock";
-        };
-        doCheck = false;
-
-        meta = with prev.lib; {
-          description = "Fennel language server protocol (LSP) support.";
-          homepage = "https://github.com/rydesun/fennel-language-server";
-          license = licenses.mit;
-        };
       };
     })
   ];

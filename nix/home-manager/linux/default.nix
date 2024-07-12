@@ -3,6 +3,5 @@ _: {
     ./config.nix
     ./emacs.nix
     ./packages.nix
-    ./systemd.nix
   ];
 }

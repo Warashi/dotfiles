@@ -42,7 +42,6 @@
     tmux-mvr
     tmux-xpanes
     vivid
-    yaskkserv2
     yq-go
     zk # makrdown zettelkasten tool
     zstd

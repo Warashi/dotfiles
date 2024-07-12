@@ -5,9 +5,6 @@
   pkgs,
   ...
 }: let
-  yaskkserv2-dictionary = pkgs.runCommand "yaskkserv2-dictionary" {} ''
-    ${pkgs.yaskkserv2}/bin/yaskkserv2_make_dictionary --dictionary-filename=$out ${inputs.skk-jisyo-L + "/SKK-JISYO.L"} ${inputs.skk-jisyo-jawiki + "/SKK-JISYO.jawiki"}
-  '';
   muscat = pkgs.muscat.override {useGolangDesign = true;};
 in {
   home = {
@@ -45,21 +42,6 @@ in {
       config = {
         Label = "dev.warashi.muscat";
         ProgramArguments = ["${muscat}/bin/muscat" "server"];
-        RunAtLoad = true;
-        KeepAlive = true;
-      };
-    };
-    yaskkserv2 = {
-      enable = true;
-      config = {
-        Label = "dev.warashi.yaskkserv2";
-        ProgramArguments = [
-          "${pkgs.yaskkserv2}/bin/yaskkserv2"
-          "--no-daemonize"
-          "--listen-address=127.0.0.1"
-          "--google-japanese-input=disable"
-          "${yaskkserv2-dictionary}"
-        ];
         RunAtLoad = true;
         KeepAlive = true;
       };

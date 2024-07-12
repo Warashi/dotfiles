@@ -14,13 +14,6 @@
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       tmux-thumbs
-
-      {
-        plugin = tmux-1password;
-        extraConfig = ''
-          set -g @1password-vault 'terminal'
-        '';
-      }
     ];
     extraConfig =
       builtins.readFile ./files/extra-config.tmux;

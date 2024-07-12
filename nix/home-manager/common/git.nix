@@ -1,7 +1,10 @@
 {pkgs, ...}: {
   programs.git = {
     enable = true;
-    package = pkgs.git.override {osxkeychainSupport = false;};
+    package =
+      if pkgs.isDarwin
+      then pkgs.git.override {osxkeychainSupport = false;}
+      else pkgs.git;
     includes = [
       {path = "~/.config/git/local";}
     ];
