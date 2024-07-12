@@ -66,7 +66,7 @@ k.writeToProfile(writeTarget, [
           .to({ key_code: cmd, lazy: true })
           .toIfAlone({ key_code: lang })
           .description(`Tap ${cmd} alone to switch to ${lang}`)
-          .parameters({ "basic.to_if_alone_timeout_milliseconds": 100 })
+          .parameters({ "basic.to_if_alone_timeout_milliseconds": 500 })
       ),
     ]),
 
