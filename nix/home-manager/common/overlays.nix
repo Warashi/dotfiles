@@ -16,7 +16,7 @@
     })
     (_: prev: {
       sheldon =
-        if pkgs.isDawwin
+        if prev.stdenv.isDarwin
         then
           prev.sheldon.overrideAttrs (_: {
             doCheck = false;

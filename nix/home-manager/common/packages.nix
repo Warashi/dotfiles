@@ -51,7 +51,6 @@
     # lanuage server
     buf-language-server
     efm-langserver
-    fennel-language-server
     gopls
     haskell-language-server
     lua-language-server

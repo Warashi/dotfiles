@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     package =
-      if pkgs.isDarwin
+      if pkgs.stdenv.isDarwin
       then pkgs.git.override {osxkeychainSupport = false;}
       else pkgs.git;
     includes = [
