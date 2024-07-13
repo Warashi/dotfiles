@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SHIFT CTRL ALT";
     "$subMod" = "SUPER";
-    "$term" = "alacritty";
+    "$term" = "footclient";
     bind = [
       "$mainMod, Return, exec, $term"
       "$mainMod SUPER, Q, killactive"

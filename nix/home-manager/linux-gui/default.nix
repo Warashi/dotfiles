@@ -8,7 +8,8 @@ _: {
     ./firefox.nix
     ./flatpak.nix
     ./fonts.nix
-    # ./gtk.nix
+    ./foot.nix
+    ./gtk.nix
     ./input.nix
     ./packages.nix
     ./rofi.nix

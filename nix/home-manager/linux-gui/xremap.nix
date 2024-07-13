@@ -59,7 +59,13 @@ _: {
         {
           name = "Emacs emulation";
           application = {
-            not = ["Alacritty" "Emacs" "emacs"];
+            not = [
+              "Alacritty"
+              "Emacs"
+              "emacs"
+              "foot"
+              "footclient"
+            ];
           };
           remap = {
             Ctrl_L-a = "home";
@@ -76,7 +82,13 @@ _: {
         {
           name = "macOS enulation";
           application = {
-            not = ["Alacritty" "Emacs" "emacs"];
+            not = [
+              "Alacritty"
+              "Emacs"
+              "emacs"
+              "foot"
+              "footclient"
+            ];
           };
           exact_match = true;
           remap = {
