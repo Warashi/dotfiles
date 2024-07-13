@@ -60,9 +60,6 @@ home-manager/parallels:
 .PHONY: home-manager/tisza
 home-manager/tisza:
 	$(MAKE) home-manager FLAKE='./nix#tisza'
-.PHONY: home-manager/duna
-home-manager/duna:
-	$(MAKE) home-manager FLAKE='./nix#duna'
 .PHONY: home-manager/warashi
 home-manager/warashi:
 	$(MAKE) home-manager FLAKE='./nix#warashi'

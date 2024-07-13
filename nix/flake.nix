@@ -128,6 +128,14 @@
       duna = nixpkgs.lib.nixosSystem (configurations.nixosGUI.x86_64-linux [
         ./nixos/hosts/duna/default.nix
         ./nixos/optional/docker.nix
+        {
+          home-manager = {
+            inherit (homeConfigurations.duna) extraSpecialArgs;
+            users.warashi = {
+              imports = homeConfigurations.duna.modules;
+            };
+          };
+        }
       ]);
     };
 
@@ -151,7 +159,7 @@
         }
       );
 
-      duna = home-manager.lib.homeManagerConfiguration (
+      duna = (
         configurations.homeManagerLinuxGUI.x86_64-linux {
           modules = [
             ./home-manager/linux-gui/desktop/hidpi.nix
@@ -205,6 +213,11 @@
               ./nixos/common/config.nix
               ./nixos/gui/config.nix
               inputs.catppuccin.nixosModules.catppuccin
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = false;
+                home-manager.useUserPackages = true;
+              }
             ]
             ++ modules;
           specialArgs = {inherit emacs;};
@@ -214,6 +227,11 @@
           modules =
             [
               ./nixos/common/config.nix
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = false;
+                home-manager.useUserPackages = true;
+              }
             ]
             ++ modules;
           specialArgs = {inherit emacs;};
@@ -223,6 +241,12 @@
             [
               ./nix-darwin/config.nix
               (_: {nixpkgs.hostPlatform = system;})
+
+              home-manager.darwinModules.home-manager
+              {
+                home-manager.useGlobalPkgs = false;
+                home-manager.useUserPackages = true;
+              }
             ]
             ++ modules;
           specialArgs = {inherit self emacs;};
