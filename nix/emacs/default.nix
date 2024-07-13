@@ -4,7 +4,7 @@
   ...
 }:
 pkgs.emacsWithPackagesFromUsePackage {
-  package = pkgs.emacs29-pgtk;
+  package = pkgs.emacs-nox;
   config = ./emacs-config.org;
   defaultInitFile = true;
   alwaysEnsure = false;
