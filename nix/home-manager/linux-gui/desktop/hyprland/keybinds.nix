@@ -7,7 +7,7 @@
       "$mainMod, Return, exec, $term"
       "$mainMod SUPER, Q, killactive"
       "$mainMod SUPER, M, exit"
-      "$mainMod, F, fullscreen"
+      "$mainMod, F, fullscreen, 1"
       "$mainMod SUPER, F, togglefloating"
 
       # move focus
