@@ -104,3 +104,12 @@
       :require t
       :after ox))
 #+end_src
+
+* tree-sitter
+#+begin_src emacs-lisp
+  (leaf treesit-auto
+    :ensure t
+    :require t
+    :config
+    (global-treesit-auto-mode))
+#+end_src

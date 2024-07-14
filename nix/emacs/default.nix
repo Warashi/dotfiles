@@ -9,6 +9,9 @@ pkgs.emacsWithPackagesFromUsePackage {
   defaultInitFile = true;
   alwaysEnsure = false;
   alwaysTangle = true;
+  extraEmacsPackages = epkg: with epkg; [
+    treesit-grammars.with-all-grammars
+  ];
   override = epkg:
     epkg
     // {
