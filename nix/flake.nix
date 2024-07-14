@@ -180,9 +180,19 @@
         configurations.homeManagerLinuxNonGUI.aarch64-linux {
           modules = [
             inputs.vscode-server.homeModules.default
-            (_: {
-              services.vscode-server.enable = true;
-            })
+            { services.vscode-server.enable = true; }
+            {
+              programs.bash.initExtra = ''
+                if [[ -S /opt/orbstack-guest/run/host-ssh-agent.sock ]]; then
+                   export SSH_AUTH_SOCK=/opt/orbstack-guest/run/host-ssh-agent.sock
+                fi
+              '';
+              programs.zsh.initExtra = ''
+                if [[ -S /opt/orbstack-guest/run/host-ssh-agent.sock ]]; then
+                   export SSH_AUTH_SOCK=/opt/orbstack-guest/run/host-ssh-agent.sock
+                fi
+              '';
+            }
           ];
           user = "warashi";
         }
