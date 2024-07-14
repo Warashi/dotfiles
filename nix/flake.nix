@@ -123,6 +123,14 @@
       orbstack = nixpkgs.lib.nixosSystem (configurations.nixosNonGUI.aarch64-linux [
         ./nixos/hosts/orbstack/config.nix
         ./nixos/optional/docker.nix
+        {
+          home-manager = {
+            inherit (homeConfigurations.orbstack) extraSpecialArgs;
+            users.warashi = {
+              imports = homeConfigurations.orbstack.modules;
+            };
+          };
+        }
       ]);
 
       duna = nixpkgs.lib.nixosSystem (configurations.nixosGUI.x86_64-linux [
@@ -168,7 +176,7 @@
         }
       );
 
-      orbstack = home-manager.lib.homeManagerConfiguration (
+      orbstack = (
         configurations.homeManagerLinuxNonGUI.aarch64-linux {
           modules = [
             inputs.vscode-server.homeModules.default

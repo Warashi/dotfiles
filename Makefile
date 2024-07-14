@@ -51,9 +51,6 @@ darwin-rebuild/tisza:
 .PHONY: darwin-rebuild/warashi
 darwin-rebuild/warashi:
 	$(MAKE) darwin-rebuild FLAKE='./nix#warashi'
-.PHONY: home-manager/orbstack
-home-manager/orbstack:
-	$(MAKE) home-manager FLAKE='./nix#orbstack'
 .PHONY: home-manager/parallels
 home-manager/parallels:
 	$(MAKE) home-manager FLAKE='./nix#parallels'
