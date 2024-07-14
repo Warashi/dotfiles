@@ -97,9 +97,10 @@
     (leaf org-roam
       :ensure t
       :bind (("C-c c c" . org-roam-capture)
-	     ("C-c c i" . org-roam-insert)
-	     ("C-c c f" . org-roam-find)))
+             ("C-c c i" . org-roam-insert)
+             ("C-c c f" . org-roam-find)))
     (leaf ox-hugo
       :ensure t
-      :after ox)) 
+      :require t
+      :after ox))
 #+end_src
