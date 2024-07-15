@@ -16,7 +16,7 @@ in {
     };
 
     shellAliases = {
-      emacs = "$HOME/Applications/'Home Manager Apps'/Emacs.app/Contents/MacOS/Emacs";
+      # emacs = "$HOME/Applications/'Home Manager Apps'/Emacs.app/Contents/MacOS/Emacs";
     };
 
     stateVersion = "22.05";
@@ -24,11 +24,11 @@ in {
 
   launchd.agents = {
     emacs-daemon = {
-      enable = false; # Emacs.app の方で起動する
+      enable = true;
       config = {
         Label = "dev.warashi.emacs";
         ProgramArguments = [
-          "${emacs.package}/Applications/Emacs.app/Contents/MacOS/Emacs"
+          "${emacs.package}/bin/emacs"
           "--fg-daemon"
         ];
         StandardOutPath = "/tmp/emacs-daemon.stdout.log";
