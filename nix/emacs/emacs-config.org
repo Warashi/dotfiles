@@ -46,13 +46,6 @@
   (add-to-list 'load-path (locate-user-emacs-file "site-lisp"))
 #+end_src
 
-* server-start
-#+begin_src emacs-lisp
-  (require 'server)
-  (unless (server-running-p)
-    (server-start))
-#+end_src
-
 * basic key bindings
 ** C-hをbackspaceにする
 #+begin_src emacs-lisp
@@ -96,9 +89,9 @@
     :init
     (leaf org-roam
       :ensure t
-      :bind (("C-c c c" . org-roam-capture)
-             ("C-c c i" . org-roam-insert)
-             ("C-c c f" . org-roam-find)))
+      :bind (("C-c o c" . org-roam-capture)
+             ("C-c o i" . org-roam-insert)
+             ("C-c o f" . org-roam-find)))
     (leaf ox-hugo
       :ensure t
       :require t
@@ -109,7 +102,6 @@
 #+begin_src emacs-lisp
   (leaf treesit-auto
     :ensure t
-    :require t
     :global-minor-mode global-treesit-auto-mode)
 #+end_src
 
@@ -117,7 +109,7 @@
 #+begin_src emacs-lisp
   (leaf magit
     :ensure t
-    :bind (("C-c g" . magit)))
+    :bind (("C-c g" . magit-status)))
 #+end_src
 
 * copilot
