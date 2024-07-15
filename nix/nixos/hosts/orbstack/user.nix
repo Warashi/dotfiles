@@ -6,7 +6,7 @@
         linger = true;
         autoSubUidGidRange = true;
         group = "warashi";
-        shell = pkgs.zsh;
+        shell = pkgs.bashInteractive;
         extraGroups = [
           "docker"
         ];

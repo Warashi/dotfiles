@@ -7,7 +7,7 @@
         autoSubUidGidRange = true;
         description = "warashi";
         group = "warashi";
-        shell = pkgs.zsh;
+        shell = pkgs.bashInteractive;
         extraGroups = [
           "docker"
           "networkmanager"
