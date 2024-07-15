@@ -25,8 +25,7 @@
     :ensure t
     :custom
     (kkp-super-modifier . 'meta) ;; super as meta
-    :config
-    (global-kkp-mode +1))
+    :global-minor-mode global-kkp-mode)
 #+end_src
 
 * emacs -q -lした時に、user-emacs-directoryが変わるように
@@ -111,8 +110,7 @@
   (leaf treesit-auto
     :ensure t
     :require t
-    :config
-    (global-treesit-auto-mode))
+    :global-minor-mode global-treesit-auto-mode)
 #+end_src
 
 * magit
