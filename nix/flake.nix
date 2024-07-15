@@ -182,7 +182,7 @@
             inputs.vscode-server.homeModules.default
             { services.vscode-server.enable = true; }
             {
-              programs.bash.initExtra = ''
+              programs.bash.bashrcExtra = ''
                 if [[ -S /opt/orbstack-guest/run/host-ssh-agent.sock ]]; then
                    export SSH_AUTH_SOCK=/opt/orbstack-guest/run/host-ssh-agent.sock
                 fi
