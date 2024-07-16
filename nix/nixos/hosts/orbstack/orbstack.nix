@@ -41,9 +41,6 @@ with lib; {
     noipv6
   '';
 
-  # disable sshd
-  services.openssh.enable = false;
-
   # systemd
   systemd.services."systemd-oomd".serviceConfig.WatchdogSec = 0;
   systemd.services."systemd-userdbd".serviceConfig.WatchdogSec = 0;
