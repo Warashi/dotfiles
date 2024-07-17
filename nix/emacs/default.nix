@@ -1,24 +1,26 @@
 {
   inputs,
-  pkgs,
+  callPackage,
+  emacsWithPackagesFromUsePackage,
+  emacs,
   ...
 }:
-pkgs.emacsWithPackagesFromUsePackage {
-  package = pkgs.emacs;
+emacsWithPackagesFromUsePackage {
+  package = emacs;
   config = ./emacs-config.org;
   defaultInitFile = true;
   alwaysEnsure = false;
   alwaysTangle = true;
-  extraEmacsPackages = epkg: with epkg; [
-    treesit-grammars.with-all-grammars
-  ];
+  extraEmacsPackages = epkg:
+    with epkg; [
+      treesit-grammars.with-all-grammars
+    ];
   override = epkg:
     epkg
     // {
-      copilot = pkgs.callPackage ./copilot-el.nix {
+      copilot = callPackage ./copilot-el.nix {
         inherit inputs;
         inherit (epkg) melpaBuild dash editorconfig s f jsonrpc;
-        inherit (pkgs) lib nodejs;
       };
     };
 }

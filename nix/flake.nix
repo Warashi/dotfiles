@@ -123,6 +123,7 @@
       orbstack = nixpkgs.lib.nixosSystem (configurations.nixosNonGUI.aarch64-linux [
         ./nixos/hosts/orbstack/config.nix
         ./nixos/optional/docker.nix
+        ./nixos/gui/fonts.nix
         {
           home-manager = {
             inherit (homeConfigurations.orbstack) extraSpecialArgs;
@@ -209,8 +210,8 @@
         };
 
         emacs = {
-          package = import ./emacs/default.nix {
-            inherit inputs pkgs;
+          package = pkgs.callPackage ./emacs/default.nix {
+            inherit inputs;
           };
           files = {
             emacs-early-init-el = {
