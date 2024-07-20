@@ -5,6 +5,7 @@ _: {
 
     ./1password.nix
     ./easyeffects.nix
+    ./emacs.nix
     ./firefox.nix
     ./flatpak.nix
     ./fonts.nix

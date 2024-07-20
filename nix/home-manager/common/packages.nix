@@ -1,10 +1,5 @@
-{
-  pkgs,
-  emacs,
-  ...
-}: let
+{pkgs, ...}: let
   custom = [
-    emacs.package
   ];
   packages = with pkgs; [
     _1password
