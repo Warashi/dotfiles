@@ -15,12 +15,15 @@ emacsWithPackagesFromUsePackage {
     with epkg; [
       treesit-grammars.with-all-grammars
     ];
-  override = epkg:
-    epkg
-    // {
-      copilot = callPackage ./copilot-el.nix {
-        inherit inputs;
-        inherit (epkg) melpaBuild dash editorconfig s f jsonrpc;
-      };
+  override = epkg: {
+    copilot = callPackage ./packages/copilot-el.nix {
+      inherit inputs;
+      inherit emacs;
+      inherit (epkg) melpaBuild dash editorconfig s f jsonrpc;
     };
+    org = callPackage ./packages/org.nix {
+      inherit emacs;
+      inherit (epkg) elpaBuild;
+    };
+  };
 }

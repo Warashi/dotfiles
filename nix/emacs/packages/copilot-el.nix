@@ -4,6 +4,7 @@
   writeText,
   melpaBuild,
   nodejs,
+  emacs,
   dash,
   editorconfig,
   jsonrpc,
@@ -21,6 +22,8 @@ melpaBuild {
   '';
 
   packageRequires = [
+    emacs
+
     dash
     editorconfig
     jsonrpc
