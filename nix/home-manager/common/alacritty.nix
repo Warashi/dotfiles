@@ -42,37 +42,6 @@
           style = "Bold Italic";
         };
       };
-      keyboard.bindings =
-        []
-        ++ (lib.optionals pkgs.stdenv.isDarwin (
-          let
-            keys = lib.stringToCharacters "ABCDEFGHIJKLMNOPQRSTUVWXYZ[]=-0123456789" ++ ["NumpadAdd" "NumpadSubtract" "Tab"];
-          in
-            (lib.forEach keys (key: {
-              key = key;
-              mods = "Command";
-              mode = "Alt";
-              action = "ReceiveChar";
-            }))
-            ++ (lib.forEach keys (key: {
-              key = key;
-              mods = "Command|Alt";
-              mode = "Alt";
-              action = "ReceiveChar";
-            }))
-            ++ (lib.forEach keys (key: {
-              key = key;
-              mods = "Command|Control";
-              mode = "Alt";
-              action = "ReceiveChar";
-            }))
-            ++ (lib.forEach keys (key: {
-              key = key;
-              mods = "Command|Shift";
-              mode = "Alt";
-              action = "ReceiveChar";
-            }))
-        ));
     };
   };
 }
