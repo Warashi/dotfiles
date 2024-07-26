@@ -51,19 +51,6 @@
   (define-key key-translation-map (kbd "M-h") (kbd "M-DEL"))
 #+end_src
 
-** Commands as Meta
-#+begin_src emacs-lisp
-  (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier 'meta)
-#+end_src
-
-** 誤って終了しないようにする
-#+begin_src emacs-lisp
-  ;; (global-set-key (kbd "C-x C-C") 'server-edit)
-  (global-unset-key (kbd "C-z"))
-  (defalias 'exit 'save-buffers-kill-emacs)
-#+end_src
-
 ** hippie-expandを使う
 #+begin_src emacs-lisp
   (substitute-key-definition 'dabbrev-expand 'hippie-expand global-map)
