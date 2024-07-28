@@ -68,6 +68,11 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
     (exec-path-from-shell-initialize))
 #+end_src
 
+* font
+#+begin_src emacs-lisp
+  (add-to-list 'default-frame-alist '(font . "PlemolJP Console NF 11"))
+#+end_src
+
 * catppuccin-theme
 #+begin_src emacs-lisp
   (leaf catppuccin-theme
