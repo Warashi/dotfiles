@@ -129,6 +129,13 @@
     :bind (("C-c s" . mistty)))
 #+end_src
 
+* envrc
+#+begin_src emacs-lisp
+  (leaf envrc
+    :ensure t
+    :hook ((after-init-hook . envrc-global-mode)))
+#+end_src
+
 * languages
 #+begin_src emacs-lisp
   (leaf go-mode
