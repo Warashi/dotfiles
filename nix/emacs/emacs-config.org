@@ -138,6 +138,12 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
     :hook ((after-init-hook . envrc-global-mode)))
 #+end_src
 
+* uuidgen
+#+begin_src emacs-lisp
+  (leaf uuidgen
+    :ensure t)
+#+end_src
+
 * languages
 #+begin_src emacs-lisp
   (leaf go-mode
