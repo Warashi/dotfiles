@@ -10,12 +10,10 @@
   (leaf leaf-keywords
     :ensure t
     :init
-    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
     (leaf hydra :ensure t)
     (leaf blackout :ensure t)
 
     :config
-    ;; initialize leaf-keywords.el
     (leaf-keywords-init))
 #+end_src
 
@@ -27,7 +25,7 @@
 #+end_src
 
 * emacs -q -lした時に、user-emacs-directoryが変わるように
-#+begin_src emacs-lisp :tangle no
+#+begin_src emacs-lisp
   (when load-file-name
     (setq user-emacs-directory (file-name-directory load-file-name)))
 #+end_src
@@ -85,10 +83,6 @@
     (leaf org-tempo
       :after org
       :require t)
-    (leaf org-modern
-      :ensure t
-      :after org
-      :global-minor-mode global-org-modern-mode)
     (leaf org-roam
       :ensure t
       :bind (("C-c o c" . org-roam-capture)))
