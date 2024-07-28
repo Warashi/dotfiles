@@ -25,7 +25,10 @@
 #+end_src
 
 * emacs -q -lした時に、user-emacs-directoryが変わるように
-#+begin_src emacs-lisp
+emacs-overlay によってこのファイルは .emacs.d とは別のところから読み込まれるので、相性が悪い。
+そのためオフにしておく。
+
+#+begin_src emacs-lisp :tangle no
   (when load-file-name
     (setq user-emacs-directory (file-name-directory load-file-name)))
 #+end_src
