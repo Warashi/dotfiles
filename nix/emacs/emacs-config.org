@@ -122,6 +122,13 @@
   	 ("<tab>" . copilot-accept-completion)))
 #+end_src
 
+* mistty
+#+begin_src emacs-lisp
+  (leaf mistty
+    :ensure t
+    :bind (("C-c s" . mistty)))
+#+end_src
+
 * languages
 #+begin_src emacs-lisp
   (leaf go-mode
