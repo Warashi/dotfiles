@@ -1,7 +1,9 @@
-import { complexModifications } from "https://deno.land/x/karabinerts@1.29.0/config/complex-modifications.ts";
 import * as k from "https://deno.land/x/karabinerts@1.29.0/deno.ts";
 import { WriteTarget } from "https://deno.land/x/karabinerts@1.29.0/output.ts";
 import { TupleToUnion } from "npm:type-fest";
+
+
+const alacritty="$HOME/Applications/'Home Manager Apps'/Alacritty.app/Contents/MacOS/alacritty"
 
 const writeTarget = {
   name: "Default",
@@ -9,6 +11,43 @@ const writeTarget = {
 } as const satisfies WriteTarget;
 
 k.writeToProfile(writeTarget, [
+  k.rule("Change tab to meh(ctrl+shift+alt). (Post tab if pressed alone)")
+    .manipulators([
+      k.withMapper(
+        {
+          "tab": "right_shift",
+        } as const satisfies Record<
+          TupleToUnion<k.KeyCode>,
+          TupleToUnion<k.KeyCode>
+        >,
+      )((from, to) =>
+        k.map({ key_code: from, modifiers: { optional: ["any"] } })
+          .toMeh()
+          .toIfAlone({ key_code: from })
+          .description(
+            `Change ${from} to ${to} (Post right_shift + right_control + right_option if pressed alone)`,
+          )
+          .parameters({ "basic.to_if_held_down_threshold_milliseconds": 100 })
+      ),
+    ]),
+  k.rule("invoke shell commands with meh modifiers")
+    .manipulators([
+      k.withMapper(
+        {
+          "return_or_enter": `sh -c "${alacritty} msg create-window &> /dev/null || ${alacritty}"`,
+        } as const satisfies Record<
+          TupleToUnion<k.KeyCode>,
+          string
+        >,
+      )((from, to) =>
+        k.map({
+          key_code: from,
+          modifiers: { mandatory: ["shift", "control", "option"] },
+        })
+          .to$(to)
+          .description("meh-Return to invoke terminal")
+      ),
+    ]),
   k.rule("Change spacebar to right shift. (Post spacebar if pressed alone)")
     .manipulators([
       k.withMapper(

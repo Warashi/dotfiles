@@ -8,5 +8,5 @@
 # Optional parameters:
 # @raycast.icon 🤖
 
-exec "$HOME/Applications/Home Manager Apps/Alacritty.app/Contents/MacOS/alacritty" msg create-window
-
+alacritty="$HOME/Applications/Home Manager Apps/Alacritty.app/Contents/MacOS/alacritty"
+"$alacritty" msg create-window &> /dev/null || "$alacritty"
