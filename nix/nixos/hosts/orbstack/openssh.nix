@@ -9,5 +9,8 @@
       KbdInteractiveAuthentication = false;
       AllowUsers = ["warashi"];
     };
+    extraConfig = ''
+      AcceptEnv COLORTERM
+    '';
   };
 }
