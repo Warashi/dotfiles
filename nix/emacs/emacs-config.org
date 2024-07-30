@@ -92,7 +92,6 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
       :after org
       :require t)
     (leaf org-capture
-      :after org
       :require uuidgen
       :bind (("C-c o o" . org-capture))
       :config
