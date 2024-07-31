@@ -1,5 +1,6 @@
 [
   "1password"
+  "amethyst"
   "arc"
   "cloudflare-warp"
   "cryptomator"
