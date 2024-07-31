@@ -22,7 +22,7 @@ k.writeToProfile(writeTarget, [
         >,
       )((from, to) =>
         k.map({ key_code: from, modifiers: { optional: ["any"] } })
-          .toMeh()
+          .to({ key_code: to, modifiers: ["right_option", "right_control"]})
           .toIfAlone({ key_code: from })
           .description(
             `Change ${from} to ${to} (Post right_shift + right_control + right_option if pressed alone)`,
