@@ -206,7 +206,7 @@ relaunch-amethyst:
 disable-screen-padding-on-inbuilt: false
 
 # Boolean flag for whether or not to add margins betwen windows (default false).
-window-margins: false
+window-margins: true
 
 # Boolean flag for whether or not to set window margins if there is only one window on the screen, assuming window margins are enabled (default false).
 smart-window-margins: false
@@ -215,7 +215,7 @@ smart-window-margins: false
 # window-margins: true
 # window-margin-size: 5
 # The size of the margins between windows (in px, default 0).
-window-margin-size: 5
+window-margin-size: 10 
 
 # The max number of windows that may be visible on a screen at one time before
 # additional windows are minimized. A value of 0 disables the feature.
@@ -270,16 +270,16 @@ follow-space-thrown-windows: true
 window-resize-step: 5
 
 # Padding to apply between windows and the left edge of the screen (in px, default 0).
-screen-padding-left: 5
+screen-padding-left: 0
 
 # Padding to apply between windows and the right edge of the screen (in px, default 0).
-screen-padding-right: 5
+screen-padding-right: 0
 
 # Padding to apply between windows and the top edge of the screen (in px, default 0).
-screen-padding-top: 5
+screen-padding-top: 0
 
 # Padding to apply between windows and the bottom edge of the screen (in px, default 0).
-screen-padding-bottom: 5
+screen-padding-bottom: 0
 
 # true to maintain layout state across application executions (default true).
 restore-layouts-on-launch: true
