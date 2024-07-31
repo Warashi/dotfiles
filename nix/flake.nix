@@ -54,6 +54,10 @@
       url = "github:copilot-emacs/copilot.el";
       flake = false;
     };
+    emacs-term-title = {
+      url = "github:CyberShadow/term-title";
+      flake = false;
+    };
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs = {

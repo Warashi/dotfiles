@@ -16,6 +16,11 @@ emacsWithPackagesFromUsePackage {
       treesit-grammars.with-all-grammars
     ];
   override = epkg: {
+    term-title = callPackage ./packages/term-title.nix {
+      inherit inputs;
+      inherit emacs;
+      inherit (epkg) melpaBuild;
+    };
     copilot = callPackage ./packages/copilot-el.nix {
       inherit inputs;
       inherit emacs;

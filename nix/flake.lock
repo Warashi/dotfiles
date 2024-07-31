@@ -247,6 +247,22 @@
         "type": "github"
       }
     },
+    "emacs-term-title": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1641341204,
+        "narHash": "sha256-RS3zhlYyK9hh6WtEoLDLAKINriFGzA9V2s+zFuL8o0E=",
+        "owner": "CyberShadow",
+        "repo": "term-title",
+        "rev": "0a891957d4a6e2afc4176b555fc790d4c5bacd05",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CyberShadow",
+        "repo": "term-title",
+        "type": "github"
+      }
+    },
     "fcitx5-hazkey": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -999,6 +1015,7 @@
         "denops-vim": "denops-vim",
         "emacs-copilot": "emacs-copilot",
         "emacs-overlay": "emacs-overlay",
+        "emacs-term-title": "emacs-term-title",
         "fcitx5-hazkey": "fcitx5-hazkey",
         "fennel-language-server": "fennel-language-server",
         "flake-utils": "flake-utils",

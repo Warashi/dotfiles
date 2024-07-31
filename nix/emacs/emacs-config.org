@@ -135,6 +135,13 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
     :bind (("C-c g" . magit-status)))
 #+end_src
 
+* term-title
+#+begin_src emacs-lisp
+  (leaf term-title
+    :ensure t
+    :global-minor-mode t)
+#+end_src
+
 * copilot
 #+begin_src emacs-lisp
   (leaf copilot
