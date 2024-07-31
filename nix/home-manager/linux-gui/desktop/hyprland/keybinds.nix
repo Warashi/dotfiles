@@ -1,7 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SHIFT CTRL ALT";
-    "$subMod" = "SUPER";
     "$term" = "footclient";
     bind = [
       "$mainMod, Return, exec, $term"
@@ -11,15 +10,13 @@
       "$mainMod SUPER, F, togglefloating"
 
       # move focus
-      "$mainMod, h, movefocus, l"
-      "$mainMod, j, movefocus, d"
-      "$mainMod, k, movefocus, u"
-      "$mainMod, l, movefocus, r"
-      "$subMod, Tab, layoutmsg, cyclenext"
-      "$subMod SHIFT, Tab, layoutmsg, cycleprev"
+      "$mainMod, j, layoutmsg, cyclenext"
+      "$mainMod, k, layoutmsg, cycleprev"
 
       # move window
       "$mainMod, m, layoutmsg, swapwithmaster"
+      "$mainMod SUPER, j, layoutmsg, swapnext"
+      "$mainMod SUPER, k, layoutmsg, swapprev"
 
       # switch workspace
       "$mainMod, 1, exec, hyprsome workspace 1"
