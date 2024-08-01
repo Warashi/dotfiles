@@ -93,7 +93,8 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
       :require t)
     (leaf org-capture
       :require uuidgen
-      :bind (("C-c o o" . org-capture))
+      :bind (("C-c o o" . org-capture)
+	     ("C-c o g" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/times.warashi.dev")))))
       :config
       (defun org-hugo-new-times-capture-template ()
 	(let ((now (format-time-string "%+4Y-%+2m-%+2dT%T%:z")))
@@ -114,13 +115,13 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
 		     (function org-hugo-new-times-capture-template)
 		     :empty-lines 1
 		     :prepend t)))
-    (leaf org-roam
-      :ensure t
-      :bind (("C-c o c" . org-roam-capture)))
-    (leaf ox-hugo
-      :ensure t
-      :require t
-      :after ox))
+      (leaf org-roam
+	:ensure t
+	:bind (("C-c o c" . org-roam-capture)))
+      (leaf ox-hugo
+	:ensure t
+	:require t
+	:after ox))
 #+end_src
 
 * tree-sitter
