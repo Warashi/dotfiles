@@ -16,7 +16,7 @@ in {
     };
 
     shellAliases = {
-      # emacs = "$HOME/Applications/'Home Manager Apps'/Emacs.app/Contents/MacOS/Emacs";
+      emacs = "$HOME/Applications/'Home Manager Apps'/Emacs.app/Contents/MacOS/Emacs";
     };
 
     stateVersion = "22.05";
@@ -24,7 +24,7 @@ in {
 
   launchd.agents = {
     emacs-daemon = {
-      enable = true;
+      enable = false; # emacs GUI の方で server-start する
       config = {
         Label = "dev.warashi.emacs";
         ProgramArguments = [

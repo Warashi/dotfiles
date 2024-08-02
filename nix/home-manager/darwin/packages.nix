@@ -1,4 +1,9 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
+{
+  emacs,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    emacs.package
   ];
 }
