@@ -2,9 +2,6 @@ import * as k from "https://deno.land/x/karabinerts@1.29.0/deno.ts";
 import { WriteTarget } from "https://deno.land/x/karabinerts@1.29.0/output.ts";
 import { TupleToUnion } from "npm:type-fest";
 
-
-const alacritty="$HOME/Applications/'Home Manager Apps'/Alacritty.app/Contents/MacOS/alacritty"
-
 const writeTarget = {
   name: "Default",
   dryRun: false,
@@ -34,7 +31,7 @@ k.writeToProfile(writeTarget, [
     .manipulators([
       k.withMapper(
         {
-          "return_or_enter": `sh -c "${alacritty} msg create-window &> /dev/null || ${alacritty}"`,
+          "return_or_enter": "open --new -a Alacritty.app",
         } as const satisfies Record<
           TupleToUnion<k.KeyCode>,
           string
