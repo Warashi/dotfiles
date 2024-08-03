@@ -127,7 +127,6 @@
       orbstack = nixpkgs.lib.nixosSystem (configurations.nixosNonGUI.aarch64-linux [
         ./nixos/hosts/orbstack/config.nix
         ./nixos/optional/docker.nix
-        ./nixos/gui/fonts.nix
         {
           home-manager = {
             inherit (homeConfigurations.orbstack) extraSpecialArgs;
