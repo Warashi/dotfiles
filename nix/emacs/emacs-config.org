@@ -94,8 +94,29 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
     (leaf org-capture
       :require uuidgen
       :bind (("C-c o o" . org-capture)
-	     ("C-c o g" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/times.warashi.dev")))))
+	     ("C-c o t" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/times.warashi.dev"))))
+	     ("C-c o b" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/warashi.dev")))))
       :config
+      (defun org-hugo-new-blog-capture-template ()
+	(let ((now (format-time-string "%+4Y-%+2m-%+2dT%T%:z")))
+	  (mapconcat #'identity
+		     `(
+		       "* %?"
+		       ":PROPERTIES:"
+		       ,(concat ":EXPORT_DATE: " now)
+		       ,(concat ":EXPORT_FILE_NAME: " (uuidgen-4))
+		       ":END:"
+		       "\n\n")
+		     "\n")))
+      (add-to-list 'org-capture-templates
+		   `("b"
+		     "warashi.dev"
+		     entry
+		     (file ,(substitute-in-file-name "$HOME/ghq/github.com/Warashi/warashi.dev/contents.org"))
+		     (function org-hugo-new-blog-capture-template)
+		     :empty-lines 1
+		     :prepend t))
+
       (defun org-hugo-new-times-capture-template ()
 	(let ((now (format-time-string "%+4Y-%+2m-%+2dT%T%:z")))
 	  (mapconcat #'identity
