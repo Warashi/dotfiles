@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    xsel
+    evince
     maestral-gui
+    xsel
 
     (muscat.override {useGolangDesign = true;})
   ];
