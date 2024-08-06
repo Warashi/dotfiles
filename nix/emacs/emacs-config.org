@@ -203,9 +203,6 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
 	     (corfu-auto . t)
 	     (corfu-separator . ?\s)
 	     (corfu-scroll-margin . 5))
-    :hook ((prog-mode . corfu-mode)
-	   (shell-mode . corfu-mode)
-	   (eshell-mode . corfu-mode))
     :global-minor-mode global-corfu-mode)
 
   (leaf corfu-terminal
