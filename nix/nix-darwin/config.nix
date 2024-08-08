@@ -33,6 +33,13 @@
     zsh
   ];
 
+  services = {
+    scketchybar = {
+      enable = true;
+      config = builtins.readFile ./sketchybarrc;
+    };
+  };
+
   homebrew = {
     enable = true;
     brews = import ./brews.nix;
