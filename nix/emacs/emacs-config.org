@@ -17,13 +17,6 @@
     (leaf-keywords-init))
 #+end_src
 
-* kitty keyboard protocol
-#+begin_src emacs-lisp
-  (leaf kkp
-    :ensure t
-    :global-minor-mode global-kkp-mode)
-#+end_src
-
 * emacs -q -lした時に、user-emacs-directoryが変わるように
 emacs-overlay によってこのファイルは .emacs.d とは別のところから読み込まれるので、相性が悪い。
 そのためオフにしておく。
@@ -205,19 +198,29 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
 	     (corfu-scroll-margin . 5))
     :global-minor-mode global-corfu-mode)
 
-  (leaf corfu-terminal
-    :ensure t
-    :init
-    (defun my-dwim-corfu-terminal-mode ()
-      (if (display-graphic-p)
-	(corfu-terminal-mode -1)
-	(corfu-terminal-mode +1)))
-    (add-hook 'server-after-make-frame-hook #'my-dwim-corfu-terminal-mode))
-
   (use-package emacs
     :custom ((tab-always-indent 'complete)
 	     (text-mode-ispell-word-completion nil)
 	     (read-extended-command-predicate #'command-completion-default-include-p)))
+#+end_src
+
+* terminal特有の処理
+#+begin_src emacs-lisp
+  (leaf kkp
+    :ensure t)
+  (leaf corfu-terminal
+    :ensure t)
+
+  (defun my-dwim-terminal-mode ()
+    (if (display-graphic-p)
+	(progn
+	  (global-kkp-mode -1)
+	  (corfu-terminal-mode -1))
+      (progn
+	(global-kkp-mode +1)
+	(corfu-terminal-mode +1))))
+
+  (add-hook 'server-after-make-frame-hook #'my-dwim-terminal-mode)
 #+end_src
 
 * vertico
