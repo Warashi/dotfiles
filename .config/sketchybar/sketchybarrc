@@ -10,7 +10,7 @@ bar=(
   corner_radius=20
   padding_left=10
   padding_right=10
-  notch_offset=30
+  notch_offset=32
 )
 
 sketchybar --bar "${bar[@]}"
