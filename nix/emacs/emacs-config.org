@@ -130,8 +130,7 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
                    :prepend t)))
   (leaf org-roam
     :ensure t
-    :custom (`(org-roam-directory . ,(substitute-in-file-name "$HOME/Dropbox/org-roam/"))
-             )
+    :custom (`(org-roam-directory . ,(substitute-in-file-name "$HOME/Dropbox/org-roam/")))
     :bind (("C-c o c" . org-roam-capture)))
   (leaf ox-hugo
     :ensure t
