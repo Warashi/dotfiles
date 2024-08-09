@@ -256,6 +256,13 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
     (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode))
 #+end_src
 
+* puni
+#+begin_src emacs-lisp
+  (leaf puni
+    :ensure t
+    :global-minor-mode puni-global-mode)
+#+end_src
+
 * languages
 #+begin_src emacs-lisp
   (leaf go-mode
