@@ -264,9 +264,19 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
 #+end_src
 
 * languages
+** Go
 #+begin_src emacs-lisp
   (leaf go-mode
     :ensure t
     :hook ((go-mode-hook . eglot-ensure)
            (go-ts-mode-hook . eglot-ensure)))
 #+end_src
+
+** Gerbil
+#+begin_src emacs-lisp
+  (leaf gerbil-mode
+    :ensure t)
+  (leaf gambit
+    :ensure t
+    :hook ((inferior-scheme-mode-hook . gambit-inferior-mode)))
+  #+end_src
