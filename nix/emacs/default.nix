@@ -1,7 +1,6 @@
 {
   inputs,
-  pkgs,
-  lib,
+  callPackage,
   emacsWithPackagesFromUsePackage,
   emacs,
   ...
@@ -16,13 +15,20 @@ emacsWithPackagesFromUsePackage {
     with epkg; [
       treesit-grammars.with-all-grammars
     ];
-  override = epkgs:
-  let callPackage = (lib.callPackageWith (pkgs // epkgs // {inherit inputs emacs;})); in
-  {
-    term-title = callPackage ./packages/term-title.nix { };
-    copilot = callPackage ./packages/copilot-el.nix { };
-    org = callPackage ./packages/org.nix { };
-    gerbil-mode = callPackage ./packages/gerbil-mode.nix {};
-    gambit = callPackage ./packages/gambit.nix {};
+  override = epkg: {
+    term-title = callPackage ./packages/term-title.nix {
+      inherit inputs;
+      inherit emacs;
+      inherit (epkg) melpaBuild;
     };
+    copilot = callPackage ./packages/copilot-el.nix {
+      inherit inputs;
+      inherit emacs;
+      inherit (epkg) melpaBuild dash editorconfig s f jsonrpc;
+    };
+    org = callPackage ./packages/org.nix {
+      inherit emacs;
+      inherit (epkg) elpaBuild;
+    };
+  };
 }
