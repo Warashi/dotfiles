@@ -15,6 +15,7 @@
     gnumake
     gnupg
     go
+    guile
     htop
     hyperfine
     jq
