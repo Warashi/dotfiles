@@ -3,21 +3,18 @@
   ];
   packages = with pkgs; [
     _1password
-    awscli2
     bat
     coreutils
     deno
-    devbox
     fd
+    ghc
     ghq
     git-lfs
     gitu
     gnumake
     gnupg
     go
-    guile
     htop
-    hyperfine
     jq
     k9s
     kubectl
@@ -27,7 +24,6 @@
     mocword
     mocword-data
     neovim
-    neovim-remote
     nodejs
     oci-cli
     ov
