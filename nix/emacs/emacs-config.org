@@ -272,14 +272,14 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
            (go-ts-mode-hook . eglot-ensure)))
 #+end_src
 
-* Haskell
+* Guile
 #+begin_src emacs-lisp
-  (leaf haskell-mode
-    :ensure t
-    :hook ((haskell-mode-hook . eglot-ensure)
-	   (haskell-ts-mode-hook . eglot-ensure))
-    :init
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((haskell . t))))
+   (leaf geiser
+     :ensure t)
+   (leaf geiser-guile
+       :ensure t
+       :custom ((geiser-active-implementations . '(guile))))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((scheme . t)))
 #+end_src
