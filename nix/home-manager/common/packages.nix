@@ -7,7 +7,6 @@
     bat
     coreutils
     deno
-    devbox
     fd
     ghq
     git-lfs
@@ -15,28 +14,20 @@
     gnumake
     gnupg
     go
-    guile
     htop
-    hyperfine
     jq
     k9s
     kubectl
     kubectx
     kubernetes-helm
     lefthook
-    mocword
-    mocword-data
     neovim
-    neovim-remote
     nodejs
     oci-cli
     ov
     ripgrep
-    rye
     sheldon
     taplo
-    tmux-mvr
-    tmux-xpanes
     vivid
     yq-go
     zk # makrdown zettelkasten tool
@@ -48,8 +39,6 @@
     buf-language-server
     efm-langserver
     gopls
-    haskell-language-server
-    lua-language-server
     marksman # markdown language server
     nixd # nix language server
     nodePackages_latest.typescript-language-server
