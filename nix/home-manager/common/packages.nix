@@ -7,6 +7,7 @@
     bat
     coreutils
     deno
+    dotnet-sdk_8
     fd
     ghq
     git-lfs
