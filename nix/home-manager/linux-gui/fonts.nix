@@ -7,5 +7,6 @@
     noto-fonts-cjk-serif
     noto-fonts-emoji
     plemoljp
+    plemoljp-nf
   ];
 }
