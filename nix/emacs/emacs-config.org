@@ -272,14 +272,8 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
            (go-ts-mode-hook . eglot-ensure)))
 #+end_src
 
-* Guile
+** F#
 #+begin_src emacs-lisp
-   (leaf geiser
-     :ensure t)
-   (leaf geiser-guile
-       :ensure t
-       :custom ((geiser-active-implementations . '(guile))))
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((scheme . t)))
+  (leaf fsharp-mode
+    :ensure t)
 #+end_src
