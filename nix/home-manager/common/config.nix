@@ -26,7 +26,6 @@
       KEYTIMEOUT = "1";
       LANG = "en_US.UTF-8";
       LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-frappe)";
-      MOCWORD_DATA = "${pkgs.mocword-data}/mocword.sqlite";
 
       # zeno config
       ZENO_HOME = "$HOME/.config/zeno";

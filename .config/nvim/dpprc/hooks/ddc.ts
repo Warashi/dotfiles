@@ -20,7 +20,6 @@ export class Config extends BaseConfig {
         "file",
         "denippet",
         "shell-native",
-        "mocword",
       ],
       autoCompleteDelay: 0,
       autoCompleteEvents: [
@@ -94,11 +93,6 @@ export class Config extends BaseConfig {
         denippet: {
           mark: "denippet",
           dup: "keep",
-        },
-        mocword: {
-          mark: "mocword",
-          minAutoCompleteLength: 3,
-          isVolatile: true,
         },
         skkeleton: {
           mark: "skkeleton",

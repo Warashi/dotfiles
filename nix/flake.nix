@@ -184,7 +184,7 @@
         configurations.homeManagerLinuxNonGUI.aarch64-linux {
           modules = [
             inputs.vscode-server.homeModules.default
-            { services.vscode-server.enable = true; }
+            {services.vscode-server.enable = true;}
             {
               programs.bash.bashrcExtra = ''
                 if [[ -S /opt/orbstack-guest/run/host-ssh-agent.sock ]]; then
