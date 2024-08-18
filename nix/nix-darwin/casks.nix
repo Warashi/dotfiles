@@ -7,6 +7,7 @@
   "discord"
   "domzilla-caffeine"
   "dropbox"
+  "eqmac"
   "firefox"
   "google-chrome"
   "grammarly-desktop"
