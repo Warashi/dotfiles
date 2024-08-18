@@ -205,14 +205,16 @@
 
     configurations = flake-utils.lib.eachDefaultSystem (
       system: rec {
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            inputs.emacs-overlay.overlays.default
-          ];
-        };
+        pkgs = nixpkgs.legacyPackages.${system};
 
-        emacs = {
+        emacs = let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              inputs.emacs-overlay.overlays.default
+            ];
+          };
+        in {
           package = pkgs.callPackage ./emacs/default.nix {
             inherit inputs;
           };
