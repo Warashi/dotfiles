@@ -65,6 +65,7 @@ _: {
               "emacs"
               "foot"
               "footclient"
+              "dev.zed.Zed"
             ];
           };
           remap = {
@@ -88,6 +89,7 @@ _: {
               "emacs"
               "foot"
               "footclient"
+              "dev.zed.Zed"
             ];
           };
           exact_match = true;
