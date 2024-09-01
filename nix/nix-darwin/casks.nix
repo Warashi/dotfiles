@@ -21,6 +21,7 @@
   "slack"
   "spotify"
   "visual-studio-code"
+  "zed"
 
   "homebrew/cask-fonts/font-biz-udgothic"
   "homebrew/cask-fonts/font-biz-udmincho"
