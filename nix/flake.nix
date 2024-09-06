@@ -28,7 +28,7 @@
       };
     };
     catppuccin.url = "github:catppuccin/nix";
-    flatpaks.url = "github:GermanBread/declarative-flatpak/stable"; # Please DO NOT override the "nixpkgs" input!
+    flatpaks.url = "github:GermanBread/declarative-flatpak/dev"; # Please DO NOT override the "nixpkgs" input!
     muscat = {
       url = "github:Warashi/muscat";
     };
