@@ -19,7 +19,7 @@
       zsh
     ];
     systemPackages = with pkgs; [
-      nixVersions.latest
+      nix
     ];
   };
 
