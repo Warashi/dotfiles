@@ -14,7 +14,7 @@
     gitu
     gnumake
     gnupg
-    go
+    go_1_23
     htop
     jq
     k9s
