@@ -20,7 +20,7 @@ link-import:
 format: format-nix format-toml format-fennel
 .PHONY: format-nix
 format-nix:
-	fd --hidden '.nix$$' -X alejandra -q
+	fd --hidden '.nix$$' -X nixfmt
 .PHONY: format-toml
 format-toml:
 	fd --hidden '.toml$$' -X taplo format

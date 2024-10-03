@@ -54,7 +54,7 @@
     shellharden
 
     ## nix
-    alejandra
+    nixfmt-rfc-style
     deadnix
     statix
 
