@@ -45,7 +45,13 @@ _: {
             format-alt = "{time} {icon}";
             # "format-good"= "", // An empty format will hide the module
             # "format-full"= "",
-            format-icons = ["" "" "" "" ""];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
           clock = {
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";

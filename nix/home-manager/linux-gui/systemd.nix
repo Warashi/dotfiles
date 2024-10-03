@@ -1,6 +1,8 @@
-{pkgs, ...}: let
-  muscat = pkgs.muscat.override {useGolangDesign = true;};
-in {
+{ pkgs, ... }:
+let
+  muscat = pkgs.muscat.override { useGolangDesign = true; };
+in
+{
   systemd.user.services = {
     muscat-server = {
       Unit = {
@@ -12,7 +14,7 @@ in {
         Restart = ''always'';
       };
       Install = {
-        WantedBy = ["default.target"];
+        WantedBy = [ "default.target" ];
       };
     };
   };

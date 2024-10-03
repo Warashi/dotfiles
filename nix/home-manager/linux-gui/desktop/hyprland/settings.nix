@@ -2,10 +2,11 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland.settings = {
-    exec-once = [];
-    windowrule = ["pseudo, noblur, class:(fcitx)"];
+    exec-once = [ ];
+    windowrule = [ "pseudo, noblur, class:(fcitx)" ];
     input = {
       repeat_delay = 300;
       repeat_rate = 30;

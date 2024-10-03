@@ -1,6 +1,8 @@
-{pkgs, ...}: let
-  custom = [
-  ];
+{ pkgs, ... }:
+let
+  custom =
+    [
+    ];
   packages = with pkgs; [
     _1password
     awscli2
@@ -68,6 +70,7 @@
     ## spelling
     nodePackages_latest.cspell
   ];
-in {
+in
+{
   home.packages = custom ++ packages;
 }

@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./keybinds.nix
     ./settings.nix
@@ -17,7 +18,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd = {
-      variables = ["--all"];
+      variables = [ "--all" ];
       enableXdgAutostart = true;
     };
   };

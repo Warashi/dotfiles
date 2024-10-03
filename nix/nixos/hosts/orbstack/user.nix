@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   users = {
     users = {
       warashi = {
@@ -6,14 +7,14 @@
         linger = true;
         autoSubUidGidRange = true;
         group = "warashi";
-        shell = pkgs.bashInteractive;
+        shell = pkgs.zsh;
         extraGroups = [
           "docker"
         ];
       };
     };
     groups = {
-      warashi = {};
+      warashi = { };
     };
   };
 }

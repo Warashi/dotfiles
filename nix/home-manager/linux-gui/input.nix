@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   i18n = {
     inputMethod = {
       enabled = "fcitx5";

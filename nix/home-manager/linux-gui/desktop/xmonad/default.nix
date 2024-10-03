@@ -2,16 +2,18 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
-    (ghc.withPackages (hpkgs:
-      with hpkgs; [
+    (ghc.withPackages (
+      hpkgs: with hpkgs; [
         taffybar
 
         xmonad
         xmonad-contrib
         xmonad-extras
-      ]))
+      ]
+    ))
   ];
   xdg = {
     configFile = {

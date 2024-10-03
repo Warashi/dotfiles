@@ -2,7 +2,8 @@
   local,
   home,
   ...
-}: {
+}:
+{
   home = {
     username = local.user;
     homeDirectory = "/home/${local.user}";

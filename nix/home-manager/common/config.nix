@@ -2,23 +2,18 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
 
   home = {
-    sessionPath =
-      [
-        "$HOME/.local/bin"
-        "$HOME/go/bin"
-      ]
-      ++ (
-        if pkgs.stdenv.isDarwin
-        then ["/opt/homebrew/bin"]
-        else []
-      );
+    sessionPath = [
+      "$HOME/.local/bin"
+      "$HOME/go/bin"
+    ] ++ (if pkgs.stdenv.isDarwin then [ "/opt/homebrew/bin" ] else [ ]);
 
     sessionVariables = {
       DENO_NO_UPDATE_CHECK = "1";
@@ -55,27 +50,9 @@
 
     bash = {
       enable = true;
-      initExtra =
-        ''
-          unset -f which;
-        ''
-        + (
-          if pkgs.stdenv.isDarwin
-          then ''
-            if [[ $(${pkgs.procps}/bin/ps -p $PPID -o ucomm=) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-            then
-              shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-              exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-            fi
-          ''
-          else ''
-            if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-            then
-              shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-              exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-            fi
-          ''
-        );
+      initExtra = ''
+        unset -f which;
+      '';
     };
 
     fish = {
@@ -112,7 +89,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = false;
-      options = ["--cmd j"];
+      options = [ "--cmd j" ];
     };
 
     ripgrep = {

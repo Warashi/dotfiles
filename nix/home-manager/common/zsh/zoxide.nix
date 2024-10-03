@@ -1,4 +1,5 @@
-{pkgs}: ''
+{ pkgs }:
+''
   setopt extended_glob
   local zoxidesource="''${ZDOTDIR:-$HOME}/zoxidesource.zsh"
   if [[ ! -e ''${zoxidesource}(#qN.mh-24) ]]; then

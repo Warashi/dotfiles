@@ -11,8 +11,8 @@ emacsWithPackagesFromUsePackage {
   defaultInitFile = true;
   alwaysEnsure = false;
   alwaysTangle = true;
-  extraEmacsPackages = epkg:
-    with epkg; [
+  extraEmacsPackages =
+    epkg: with epkg; [
       treesit-grammars.with-all-grammars
     ];
   override = epkg: {
@@ -24,7 +24,14 @@ emacsWithPackagesFromUsePackage {
     copilot = callPackage ./packages/copilot-el.nix {
       inherit inputs;
       inherit emacs;
-      inherit (epkg) melpaBuild dash editorconfig s f jsonrpc;
+      inherit (epkg)
+        melpaBuild
+        dash
+        editorconfig
+        s
+        f
+        jsonrpc
+        ;
     };
     org = callPackage ./packages/org.nix {
       inherit emacs;

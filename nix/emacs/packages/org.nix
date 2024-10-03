@@ -12,7 +12,7 @@ elpaBuild {
     url = "https://elpa.gnu.org/packages/org-9.6.30.tar";
     sha256 = "0h2p7gjiys5ch68y35l6bpw9pp852vprmfzi0dk86z1wkilhycip";
   };
-  packageRequires = [emacs];
+  packageRequires = [ emacs ];
   meta = {
     homepage = "https://elpa.gnu.org/packages/org.html";
     license = lib.licenses.free;

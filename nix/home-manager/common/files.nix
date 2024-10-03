@@ -3,16 +3,15 @@
   emacs,
   pkgs,
   ...
-}: {
-  home.file =
-    emacs.files
-    // {
-      rgfind = {
-        target = ".local/bin/rgfind";
-        source = ./files/rgfind;
-        executable = true;
-      };
+}:
+{
+  home.file = emacs.files // {
+    rgfind = {
+      target = ".local/bin/rgfind";
+      source = ./files/rgfind;
+      executable = true;
     };
+  };
   xdg = {
     enable = true;
     configFile = {

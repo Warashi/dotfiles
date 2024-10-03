@@ -7,15 +7,16 @@
   pkgs,
   ...
 }:
-with lib; {
+with lib;
+{
   # sudoers
   security.sudo.extraRules = [
     {
-      users = ["warashi"];
+      users = [ "warashi" ];
       commands = [
         {
           command = "ALL";
-          options = ["NOPASSWD"];
+          options = [ "NOPASSWD" ];
         }
       ];
     }

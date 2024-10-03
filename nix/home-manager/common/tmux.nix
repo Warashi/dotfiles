@@ -2,7 +2,8 @@
   programs,
   pkgs,
   ...
-}: {
+}:
+{
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -15,7 +16,6 @@
       better-mouse-mode
       tmux-thumbs
     ];
-    extraConfig =
-      builtins.readFile ./files/extra-config.tmux;
+    extraConfig = builtins.readFile ./files/extra-config.tmux;
   };
 }

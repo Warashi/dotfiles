@@ -5,7 +5,8 @@
   lib,
   ...
 }:
-with lib; {
+with lib;
+{
   imports = [
     # Include the default lxd configuration.
     "${modulesPath}/virtualisation/lxc-container.nix"

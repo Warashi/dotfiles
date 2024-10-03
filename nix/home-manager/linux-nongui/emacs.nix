@@ -1,3 +1,4 @@
-{emacs, ...}: {
-  home.packages = [emacs.package];
+{ emacs, ... }:
+{
+  home.packages = [ emacs.package ];
 }

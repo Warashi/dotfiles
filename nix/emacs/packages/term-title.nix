@@ -18,8 +18,9 @@ melpaBuild {
   packageRequires = [
     emacs
   ];
-  buildInputs = [
-  ];
+  buildInputs =
+    [
+    ];
   meta = {
     homepage = "https://github.com/CyberShadow/term-title";
     platforms = lib.platforms.unix;

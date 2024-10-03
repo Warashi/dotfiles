@@ -1,12 +1,11 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.git = {
     enable = true;
     package =
-      if pkgs.stdenv.isDarwin
-      then pkgs.git.override {osxkeychainSupport = false;}
-      else pkgs.git;
+      if pkgs.stdenv.isDarwin then pkgs.git.override { osxkeychainSupport = false; } else pkgs.git;
     includes = [
-      {path = "~/.config/git/local";}
+      { path = "~/.config/git/local"; }
     ];
     aliases = {
       sw = "switch";

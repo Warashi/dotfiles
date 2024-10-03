@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   users = {
     users = {
       warashi = {
@@ -16,7 +17,7 @@
       };
     };
     groups = {
-      warashi = {};
+      warashi = { };
     };
   };
 }

@@ -4,9 +4,11 @@
   local,
   pkgs,
   ...
-}: let
-  muscat = pkgs.muscat.override {useGolangDesign = true;};
-in {
+}:
+let
+  muscat = pkgs.muscat.override { useGolangDesign = true; };
+in
+{
   home = {
     username = local.user;
     homeDirectory = "/Users/${local.user}";
@@ -41,7 +43,10 @@ in {
       enable = true;
       config = {
         Label = "dev.warashi.muscat";
-        ProgramArguments = ["${muscat}/bin/muscat" "server"];
+        ProgramArguments = [
+          "${muscat}/bin/muscat"
+          "server"
+        ];
         RunAtLoad = true;
         KeepAlive = true;
       };
