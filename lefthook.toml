@@ -16,7 +16,7 @@ parallel = true
 
 [pre-commit.commands.format-nix]
 glob = "*.nix"
-run = "alejandra --quiet {staged_files} && git add {staged_files}"
+run = "nixfmt --quiet {staged_files} && git add {staged_files}"
 
 [pre-commit.commands.format-fennel]
 glob = "*.fnl"
