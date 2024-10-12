@@ -17,7 +17,7 @@
 
     sessionVariables = {
       DENO_NO_UPDATE_CHECK = "1";
-      EDITOR = lib.mkDefault "emacsclient -c";
+      EDITOR = lib.mkDefault "nvim --noplugin";
       KEYTIMEOUT = "1";
       LANG = "en_US.UTF-8";
       LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate catppuccin-frappe)";
