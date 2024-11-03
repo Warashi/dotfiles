@@ -4,7 +4,7 @@ let
     [
     ];
   packages = with pkgs; [
-    _1password
+    _1password-cli
     awscli2
     bat
     coreutils
