@@ -22,6 +22,9 @@
     };
     decoration = {
       rounding = 5;
+      shadow = {
+        enabled = false;
+      };
       blur = {
         enabled = false;
       };
