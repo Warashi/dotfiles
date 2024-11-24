@@ -22,7 +22,6 @@
     };
     decoration = {
       rounding = 5;
-      drop_shadow = false;
       blur = {
         enabled = false;
       };
