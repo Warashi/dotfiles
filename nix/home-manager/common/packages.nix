@@ -39,7 +39,7 @@ let
     luajitPackages.fennel
 
     # lanuage server
-    buf-language-server
+    buf
     efm-langserver
     gopls
     marksman # markdown language server

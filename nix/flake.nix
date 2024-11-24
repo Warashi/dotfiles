@@ -47,7 +47,6 @@
       url = "github:nix-community/emacs-overlay";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
       };
     };
     emacs-copilot = {
@@ -349,7 +348,7 @@
             modules = (
               modules
               ++ [
-                flatpaks.homeManagerModules.default
+                flatpaks.homeManagerModules.declarative-flatpak
                 xremap-flake.homeManagerModules.default
                 ./home-manager/linux-gui/default.nix
               ]
