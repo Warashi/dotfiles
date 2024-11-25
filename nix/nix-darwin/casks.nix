@@ -14,7 +14,7 @@
   "jetbrains-toolbox"
   "karabiner-elements"
   "lasso"
-  "logi-options-plus"
+  "logi-options+"
   "orbstack"
   "orion"
   "raycast"
