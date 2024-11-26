@@ -12,9 +12,8 @@
     keyMode = "vi";
     shortcut = "g";
     terminal = "screen-256color";
+    sensibleOnTop = false;
     plugins = with pkgs.tmuxPlugins; [
-      better-mouse-mode
-      tmux-thumbs
     ];
     extraConfig = builtins.readFile ./files/extra-config.tmux;
   };
