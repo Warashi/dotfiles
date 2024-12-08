@@ -10,6 +10,7 @@ in
   home.packages = with pkgs; [
     evince
     maestral-gui
+    vscode
     xsel
     zed-editor-fhs
 
