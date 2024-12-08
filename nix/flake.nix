@@ -185,6 +185,13 @@
           }
         );
 
+        workbench = home-manager.lib.homeManagerConfiguration (
+          configurations.homeManagerLinuxNonGUI.aarch64-linux {
+            modules = [ ];
+            user = "opc";
+          }
+        );
+
         orbstack = (
           configurations.homeManagerLinuxNonGUI.aarch64-linux {
             modules = [
