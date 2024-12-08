@@ -34,7 +34,7 @@
     '';
 
     initExtraFirst = ''
-      # [[ "$SHELL" == "/bin/bash" || "$SHELL" == "/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
+      [[ "$SHELL" == "/bin/zsh" || "$SHELL" == "/usr/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
     '';
 
     initExtra =
@@ -52,7 +52,6 @@
         # zshの起動profileを取る時はここを有効にする
         # zmodload zsh/zprof
       ''
-      + import ./ensure-zcompiled.nix
       + ''
         test -S $XDG_RUNTIME_DIR/docker.sock && export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
         test -S $HOME/.ssh/ssh_auth_sock && export SSH_AUTH_SOCK=$HOME/.ssh/ssh_auth_sock
