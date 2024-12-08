@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./bash_init.nix
+  ];
+
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -31,10 +35,6 @@
         fi
       }
       # _compinit
-    '';
-
-    initExtraFirst = ''
-      [[ "$SHELL" == "/bin/zsh" || "$SHELL" == "/usr/bin/zsh" ]] && SHELL=${pkgs.zsh}/bin/zsh exec ${pkgs.zsh}/bin/zsh --login
     '';
 
     initExtra =
