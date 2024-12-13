@@ -20,13 +20,6 @@
     hyprsome = {
       url = "github:sopa0/hyprsome";
     };
-    vscode-server = {
-      url = "github:nix-community/nixos-vscode-server";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
     catppuccin.url = "github:catppuccin/nix";
     flatpaks.url = "github:GermanBread/declarative-flatpak/dev"; # Please DO NOT override the "nixpkgs" input!
     muscat = {
@@ -195,8 +188,6 @@
         orbstack = (
           configurations.homeManagerLinuxNonGUI.aarch64-linux {
             modules = [
-              inputs.vscode-server.homeModules.default
-              { services.vscode-server.enable = true; }
               {
                 programs.bash.bashrcExtra = ''
                   if [[ -S /opt/orbstack-guest/run/host-ssh-agent.sock ]]; then

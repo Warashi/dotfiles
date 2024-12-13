@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./locale.nix
+    ./nix-ld.nix
     ./nixconfig.nix
     ./warp.nix
     ./zramswap.nix
