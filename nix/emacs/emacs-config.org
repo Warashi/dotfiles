@@ -176,6 +176,7 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
 #+begin_src emacs-lisp
   (leaf mistty
     :ensure t
+    :custom ((mistty-shell-command . "fish"))
     :bind (("C-c s" . mistty)))
 #+end_src
 
