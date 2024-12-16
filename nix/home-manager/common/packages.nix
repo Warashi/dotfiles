@@ -28,6 +28,7 @@ let
     nodejs
     oci-cli
     ov
+    perl # used by zeno.zsh
     ripgrep
     sheldon
     taplo
