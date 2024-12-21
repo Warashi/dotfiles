@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  zed-editor-fhs = pkgs.buildFHSUserEnv {
+  zed-editor-fhs = pkgs.buildFHSEnv {
     name = "zed";
     targetPkgs = pkgs: with pkgs; [ zed-editor ];
     runScript = "zed";

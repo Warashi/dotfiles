@@ -1,13 +1,16 @@
 _: {
+  catppuccin = {
+    waybar = {
+      enable = false;
+
+    };
+  };
   programs = {
     waybar = {
       enable = true;
       systemd = {
         enable = true;
         target = "hyprland-session.target";
-      };
-      catppuccin = {
-        enable = false;
       };
       settings = {
         mainBar = {
