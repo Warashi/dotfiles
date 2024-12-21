@@ -10,6 +10,7 @@ _: {
     ./polkit.nix
     ./security.nix
     ./sound.nix
+    ./tailscale.nix
     ./user.nix
     ./xdg.nix
     ./xremap.nix
