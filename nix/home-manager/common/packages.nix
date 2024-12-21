@@ -1,8 +1,7 @@
 { pkgs, ... }:
 let
-  custom =
-    [
-    ];
+  custom = [
+  ];
   packages = with pkgs; [
     _1password-cli
     awscli2

@@ -17,9 +17,8 @@
       expireDuplicatesFirst = true;
     };
 
-    shellAliases =
-      {
-      };
+    shellAliases = {
+    };
 
     completionInit = ''
       _compinit() {
