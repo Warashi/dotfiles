@@ -10,10 +10,9 @@ in
   home.packages = with pkgs; [
     evince
     maestral-gui
+    muscat
     vscode
     xsel
     zed-editor-fhs
-
-    (muscat.override { useGolangDesign = true; })
   ];
 }

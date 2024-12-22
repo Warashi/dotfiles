@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  muscat = pkgs.muscat.override { useGolangDesign = true; };
+  muscat = pkgs.muscat;
 in
 {
   systemd.user.services = {
