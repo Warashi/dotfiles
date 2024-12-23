@@ -5,6 +5,7 @@
     enable = true;
     ports = [ 64022 ];
     settings = {
+      StreamLocalBindUnlink = true;
       X11Forwarding = true;
       PermitRootLogin = "no";
       PasswordAuthentication = false;
