@@ -1,6 +1,7 @@
 {
   self,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -41,7 +42,7 @@
   };
 
   homebrew = {
-    enable = true;
+    enable = lib.mkDefault true;
     brews = import ./brews.nix;
     casks = import ./casks.nix;
     masApps = import ./mas.nix;
