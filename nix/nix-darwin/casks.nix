@@ -11,6 +11,7 @@
   "grammarly-desktop"
   "karabiner-elements"
   "logi-options+"
+  "microsoft-edge"
   "orbstack"
   "orion"
   "raycast"
