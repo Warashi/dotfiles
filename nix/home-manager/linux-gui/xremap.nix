@@ -65,6 +65,7 @@ _: {
           application = {
             not = [
               "Alacritty"
+              "Code"
               "Emacs"
               "emacs"
               "foot"
@@ -92,6 +93,7 @@ _: {
           application = {
             not = [
               "Alacritty"
+              "Code"
               "Emacs"
               "emacs"
               "foot"
