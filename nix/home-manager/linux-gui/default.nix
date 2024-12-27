@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./desktop
+    # ./desktop
     ./pam_u2f
 
     ./1password.nix

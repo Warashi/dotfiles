@@ -10,13 +10,13 @@
       config = {
         common = {
           default = [
-            "gtk"
+            "kde"
           ];
         };
       };
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-hyprland
+        pkgs.kdePackages.xdg-desktop-portal-kde
       ];
     };
     sounds.enable = true;

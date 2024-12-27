@@ -1,6 +1,6 @@
 _: {
   services.xremap = {
-    withWlroots = true;
+    withKDE = true;
     config = {
       keypress_delay_ms = 20;
       modmap = [
