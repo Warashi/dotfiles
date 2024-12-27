@@ -4,11 +4,9 @@ let
   ];
   packages = with pkgs; [
     _1password-cli
-    awscli2
     bat
     coreutils
     deno
-    dotnet-sdk_8
     fd
     ghq
     git-lfs
@@ -18,10 +16,6 @@ let
     go_1_23
     htop
     jq
-    k9s
-    kubectl
-    kubectx
-    kubernetes-helm
     lefthook
     neovim
     nodejs
