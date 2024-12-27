@@ -139,6 +139,7 @@
             ./nixos/optional/docker.nix
             {
               home-manager = {
+                backupFileExtension = "backup";
                 inherit (homeConfigurations.duna) extraSpecialArgs;
                 users.warashi = {
                   imports = homeConfigurations.duna.modules;
