@@ -12,6 +12,7 @@
           (with pkgs; [
             fcitx5-gtk
             fcitx5-mozc
+            kdePackages.fcitx5-qt
           ])
           ++ [
             inputs.fcitx5-hazkey.packages.${pkgs.system}.fcitx5-hazkey

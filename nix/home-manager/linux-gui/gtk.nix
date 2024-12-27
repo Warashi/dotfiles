@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   gtk = {
-    enable = true;
+    enable = false;
     font = {
       package = pkgs.ibm-plex;
       name = "IBM Plex Sans JP";

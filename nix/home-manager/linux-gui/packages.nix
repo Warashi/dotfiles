@@ -10,6 +10,7 @@ in
   home.packages = with pkgs; [
     evince
     maestral-gui
+    microsoft-edge
     muscat
     vscode
     xsel
