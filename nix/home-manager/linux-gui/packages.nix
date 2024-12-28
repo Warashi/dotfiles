@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   zed-editor-fhs = pkgs.buildFHSEnv {
     name = "zed";
@@ -7,13 +7,18 @@ let
   };
 in
 {
-  home.packages = with pkgs; [
-    evince
-    maestral-gui
-    microsoft-edge
-    muscat
-    vscode
-    xsel
-    zed-editor-fhs
-  ];
+  home.packages =
+    (with pkgs; [
+      evince
+      maestral-gui
+      microsoft-edge
+      muscat
+      vscode
+      xsel
+    ])
+    ++ [
+      zed-editor-fhs
+
+      inputs.ghostty.packages.${pkgs.hostPlatform.system}.default
+    ];
 }

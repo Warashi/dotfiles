@@ -17,6 +17,9 @@
     fcitx5-hazkey = {
       url = "github:Warashi/nix-fcitx5-hazkey";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
     hyprsome = {
       url = "github:sopa0/hyprsome";
     };

@@ -67,10 +67,11 @@ _: {
               "Alacritty"
               "Code"
               "Emacs"
+              "com.mitchellh.ghostty"
+              "dev.zed.Zed"
               "emacs"
               "foot"
               "footclient"
-              "dev.zed.Zed"
             ];
           };
           remap = {
@@ -95,10 +96,11 @@ _: {
               "Alacritty"
               "Code"
               "Emacs"
+              "com.mitchellh.ghostty"
+              "dev.zed.Zed"
               "emacs"
               "foot"
               "footclient"
-              "dev.zed.Zed"
             ];
           };
           exact_match = true;
