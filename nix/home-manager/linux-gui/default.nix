@@ -11,7 +11,6 @@ _: {
     ./fonts.nix
     ./foot.nix
     ./gtk.nix
-    ./input.nix
     ./packages.nix
     ./rofi.nix
     ./systemd.nix

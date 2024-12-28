@@ -6,6 +6,7 @@ _: {
     ./display.nix
     ./flatpak.nix
     ./fonts.nix
+    ./input.nix
     ./keyring.nix
     ./polkit.nix
     ./security.nix

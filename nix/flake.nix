@@ -248,7 +248,7 @@
             }
           ] ++ modules;
           specialArgs = {
-            inherit emacs;
+            inherit emacs inputs;
           };
         };
         nixosNonGUI = modules: {
@@ -262,7 +262,7 @@
             }
           ] ++ modules;
           specialArgs = {
-            inherit emacs;
+            inherit emacs inputs;
           };
         };
         darwin = modules: {
