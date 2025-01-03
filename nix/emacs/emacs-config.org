@@ -84,7 +84,7 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
   (leaf tramp
     :custom
     (tramp-default-method . "scpx")
-    :config
+    :defer-config
     (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 #+end_src
 
