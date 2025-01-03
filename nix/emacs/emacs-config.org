@@ -79,6 +79,15 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
     (load-theme 'catppuccin :no-confirm))
 #+end_src
 
+* tramp
+#+begin_src emacs-lisp
+  (leaf tramp
+    :custom
+    (tramp-default-method . "scpx")
+    :config
+    (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
+#+end_src
+
 * org
 #+begin_src emacs-lisp
   (leaf org
