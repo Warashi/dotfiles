@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  home = {
+    packages = with pkgs.gnomeExtensions; [
+      xremap
+      kimpanel
+    ];
+  };
   dconf = {
     enable = true;
     settings."org/gnome/shell" = {
