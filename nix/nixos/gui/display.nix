@@ -3,18 +3,16 @@ _: {
     libinput.enable = true;
     xserver = {
       enable = true;
-    };
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland = {
+      displayManager = {
+        gdm = {
           enable = true;
+          wayland = true;
         };
       };
-    };
-    desktopManager = {
-      plasma6 = {
-        enable = true;
+      desktopManager = {
+        gnome = {
+          enable = true;
+        };
       };
     };
   };

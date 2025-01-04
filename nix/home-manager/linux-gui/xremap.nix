@@ -1,6 +1,6 @@
 _: {
   services.xremap = {
-    withKDE = true;
+    withGnome = true;
     config = {
       keypress_delay_ms = 20;
       modmap = [
