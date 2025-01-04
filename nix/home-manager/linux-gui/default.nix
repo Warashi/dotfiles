@@ -2,6 +2,7 @@ _: {
   imports = [
     ./desktop
     ./pam_u2f
+    ./cursor.nix
 
     ./1password.nix
     ./easyeffects.nix
