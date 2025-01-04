@@ -9,6 +9,7 @@ in
 {
   home.packages =
     (with pkgs; [
+      code-cursor
       evince
       maestral-gui
       microsoft-edge
