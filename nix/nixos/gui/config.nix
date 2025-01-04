@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./appimage.nix
     ./1password.nix
     ./bluetooth.nix
     ./catppuccin.nix
