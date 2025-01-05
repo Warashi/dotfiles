@@ -11,6 +11,7 @@
     settings."org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
+        status-icons.extensionUuid
         xremap.extensionUuid
         kimpanel.extensionUuid
       ];
