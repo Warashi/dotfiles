@@ -1,5 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
+  programs = {
+    bash = {
+      enable = lib.mkForce false; # to avoid loading session variables from gnome-session
+    };
+  };
   home = {
     packages = with pkgs.gnomeExtensions; [
       xremap
