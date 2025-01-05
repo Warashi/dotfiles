@@ -15,6 +15,7 @@
   "orbstack"
   "orion"
   "raycast"
+  "realforce"
   "slack"
   "tailscale"
   "visual-studio-code"
