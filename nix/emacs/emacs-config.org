@@ -4,6 +4,50 @@
   ;; -*- lexical-binding: t; -*-
 #+end_src
 
+* performance monitoring
+
+ref; [[https://zenn.dev/takeokunn/articles/56010618502ccc#%E8%A8%88%E6%B8%AC%E6%96%B9%E6%B3%95][Emacsを世界最速級で起動する方法 #計測方法]]
+
+#+begin_src emacs-lisp :tangle yes
+  (defconst my/before-load-init-time (current-time))
+
+  ;;;###autoload
+  (defun my/load-init-time ()
+    "Loading time of user init files including time for `after-init-hook'."
+    (let ((time1 (float-time
+		  (time-subtract after-init-time my/before-load-init-time)))
+	  (time2 (float-time
+		  (time-subtract (current-time) my/before-load-init-time))))
+      (message (concat "Loading init files: %.0f [msec], "
+		       "of which %.f [msec] for `after-init-hook'.")
+	       (* 1000 time1) (* 1000 (- time2 time1)))))
+  (add-hook 'after-init-hook #'my/load-init-time t)
+
+  (defvar my/tick-previous-time my/before-load-init-time)
+
+  ;;;###autoload
+  (defun my/tick-init-time (msg)
+    "Tick boot sequence at loading MSG."
+    (when my/loading-profile-p
+      (let ((ctime (current-time)))
+	(message "---- %5.2f[ms] %s"
+		 (* 1000 (float-time
+			  (time-subtract ctime my/tick-previous-time)))
+		 msg)
+	(setq my/tick-previous-time ctime))))
+
+  (defun my/emacs-init-time ()
+    "Emacs booting time in msec."
+    (interactive)
+    (message "Emacs booting time: %.0f [msec] = `emacs-init-time'."
+	     (* 1000
+		(float-time (time-subtract
+			     after-init-time
+			     before-init-time)))))
+
+  (add-hook 'after-init-hook #'my/emacs-init-time)
+#+end_src
+
 * initialize leaf.el
 #+begin_src emacs-lisp
   (eval-when-compile
