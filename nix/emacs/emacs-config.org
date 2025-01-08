@@ -8,7 +8,10 @@
 
 ref; [[https://zenn.dev/takeokunn/articles/56010618502ccc#%E8%A8%88%E6%B8%AC%E6%96%B9%E6%B3%95][Emacsを世界最速級で起動する方法 #計測方法]]
 
-#+begin_src emacs-lisp :tangle yes
+#+begin_src emacs-lisp :tangle no
+  (require 'profiler)
+  (profiler-start 'cpu)
+
   (defconst my/before-load-init-time (current-time))
 
   ;;;###autoload
@@ -48,18 +51,25 @@ ref; [[https://zenn.dev/takeokunn/articles/56010618502ccc#%E8%A8%88%E6%B8%AC%E6%
   (add-hook 'after-init-hook #'my/emacs-init-time)
 #+end_src
 
+* performance tuning / before loading main contents
+#+begin_src emacs-lisp
+  (defconst my/saved-file-name-handler-alist file-name-handler-alist)
+  (setq file-name-handler-alist nil)
+#+end_src
+
 * initialize leaf.el
 #+begin_src emacs-lisp
   (eval-when-compile
-    (require 'leaf))
-  (leaf leaf-keywords
-    :ensure t
-    :init
-    (leaf hydra :ensure t)
-    (leaf blackout :ensure t)
+    (require 'leaf)
 
-    :config
-    (leaf-keywords-init))
+    (leaf leaf-keywords
+      :ensure t
+      :init
+      (leaf hydra :ensure t)
+      (leaf blackout :ensure t)
+
+      :config
+      (leaf-keywords-init)))
 #+end_src
 
 * emacs -q -lした時に、user-emacs-directoryが変わるように
@@ -141,58 +151,55 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
     :after org
     :require t)
   (leaf org-capture
-    :require uuidgen
     :bind (("C-c o o" . org-capture)
-           ("C-c o t" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/times.warashi.dev"))))
-           ("C-c o b" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/warashi.dev")))))
+	   ("C-c o t" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/times.warashi.dev"))))
+	   ("C-c o b" . (lambda () (interactive) (magit-status (substitute-in-file-name "$HOME/ghq/github.com/Warashi/warashi.dev")))))
     :config
     (defun org-hugo-new-blog-capture-template ()
+      (require 'uuidgen)
       (let ((now (format-time-string "%+4Y-%+2m-%+2dT%T%:z")))
-        (mapconcat #'identity
-                   `(
-                     "* %?"
-                     ":PROPERTIES:"
-                     ,(concat ":EXPORT_DATE: " now)
-                     ,(concat ":EXPORT_FILE_NAME: " (uuidgen-4))
-                     ":END:"
-                     "\n\n")
-                   "\n")))
+	(mapconcat #'identity
+		   `(
+		     "* %?"
+		     ":PROPERTIES:"
+		     ,(concat ":EXPORT_DATE: " now)
+		     ,(concat ":EXPORT_FILE_NAME: " (uuidgen-4))
+		     ":END:"
+		     "\n\n")
+		   "\n")))
     (add-to-list 'org-capture-templates
-                 `("b"
-                   "warashi.dev"
-                   entry
-                   (file+olp ,(substitute-in-file-name "$HOME/ghq/github.com/Warashi/warashi.dev/contents.org") "Posts")
-                   (function org-hugo-new-blog-capture-template)
-                   :empty-lines 1
-                   :prepend t))
+		 `("b"
+		   "warashi.dev"
+		   entry
+		   (file+olp ,(substitute-in-file-name "$HOME/ghq/github.com/Warashi/warashi.dev/contents.org") "Posts")
+		   (function org-hugo-new-blog-capture-template)
+		   :empty-lines 1
+		   :prepend t))
 
     (defun org-hugo-new-times-capture-template ()
+      (require 'uuidgen)
       (let ((now (format-time-string "%+4Y-%+2m-%+2dT%T%:z")))
-        (mapconcat #'identity
-                   `(
-                     ,(concat "* " now)
-                     ":PROPERTIES:"
-                     ,(concat ":EXPORT_DATE: " now)
-                     ,(concat ":EXPORT_FILE_NAME: " (uuidgen-4))
-                     ":END:"
-                     "\n%?\n")
-                   "\n")))
+	(mapconcat #'identity
+		   `(
+		     ,(concat "* " now)
+		     ":PROPERTIES:"
+		     ,(concat ":EXPORT_DATE: " now)
+		     ,(concat ":EXPORT_FILE_NAME: " (uuidgen-4))
+		     ":END:"
+		     "\n%?\n")
+		   "\n")))
     (add-to-list 'org-capture-templates
-                 `("t"
-                   "#times-warashi"
-                   entry
-                   (file ,(substitute-in-file-name "$HOME/ghq/github.com/Warashi/times.warashi.dev/contents.org"))
-                   (function org-hugo-new-times-capture-template)
-                   :empty-lines 1
-                   :prepend t)))
+		 `("t"
+		   "#times-warashi"
+		   entry
+		   (file ,(substitute-in-file-name "$HOME/ghq/github.com/Warashi/times.warashi.dev/contents.org"))
+		   (function org-hugo-new-times-capture-template)
+		   :empty-lines 1
+		   :prepend t)))
   (leaf org-roam
     :ensure t
     :custom (`(org-roam-directory . ,(substitute-in-file-name "$HOME/Dropbox/org-roam/")))
     :bind (("C-c o c" . org-roam-capture)))
-  (leaf ox-hugo
-    :ensure t
-    :require t
-    :after ox)
 #+end_src
 
 * tree-sitter
@@ -335,3 +342,15 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
   (leaf fsharp-mode
     :ensure t)
 #+end_src
+
+* performance tuning / after loading main contents
+#+begin_src emacs-lisp
+  (setq file-name-handler-alist my/saved-file-name-handler-alist)
+  (setq gc-cons-threshold 16777216) ; 16mb
+#+end_src
+
+* performance monitoring / stop profiler
+#+begin_src emacs-lisp :tangle no
+  (profiler-report)
+  (profiler-stop)
+  #+end_src
