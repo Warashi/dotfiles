@@ -1,6 +1,8 @@
-{ inputs,  ... }: {
-  home.file.".terminfo/e" = {
+{ inputs, pkgs,  ... }: {
+  home.file.".terminfo" = {
     recursive = true;
-    source = inputs.emacs-src + /etc/e;
+    source = pkgs.runCommand "emacs-terminfo" {} ''
+      ${pkgs.ncurses}/bin/tic -o $out ${inputs.emacs-src}/etc/e/eterm-color.ti
+    '';
   };
 }
