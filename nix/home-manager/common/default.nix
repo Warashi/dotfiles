@@ -15,5 +15,7 @@ _: {
 
     ./zsh/config.nix
     ./zsh/zcompile-rcs.nix
+
+    ../../emacs/terminfo.nix
   ];
 }

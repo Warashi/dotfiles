@@ -39,6 +39,10 @@
         neovim-src.follows = "neovim-src";
       };
     };
+    emacs-src = {
+      url = "github:emacs-mirror/emacs";
+      flake = false;
+    };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs = {

@@ -311,6 +311,22 @@
         "type": "github"
       }
     },
+    "emacs-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736284061,
+        "narHash": "sha256-yevFaZc6sfDy82AoIeclc0ZTZnNoTXggk1/V7w8K+uc=",
+        "owner": "emacs-mirror",
+        "repo": "emacs",
+        "rev": "8d687695c528e4edb04cca5602470d349e333258",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-mirror",
+        "repo": "emacs",
+        "type": "github"
+      }
+    },
     "emacs-term-title": {
       "flake": false,
       "locked": {
@@ -1460,6 +1476,7 @@
         "denops-vim": "denops-vim",
         "emacs-copilot": "emacs-copilot",
         "emacs-overlay": "emacs-overlay",
+        "emacs-src": "emacs-src",
         "emacs-term-title": "emacs-term-title",
         "fcitx5-hazkey": "fcitx5-hazkey",
         "fennel-language-server": "fennel-language-server",
