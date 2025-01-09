@@ -198,19 +198,21 @@ emacs-overlay によってこのファイルは .emacs.d とは別のところ�
 		   :prepend t)))
   (leaf org-roam
     :ensure t
-    :custom `((org-roam-directory . ,(substitute-in-file-name "$HOME/ghq/github.com/Warashi/org-roam/"))
-	      (org-roam-capture-templates . '(("f" "fleeting notes" plain "%?" 
-					      :target   (file+head "fleeting/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
-					      :unnarrowed t)
-					     ("s" "structured notes" plain "%?"
-					      :target   (file+head "structured/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
-					      :unnarrowed t)
-					     ("l""literature notes" plain "%?"
-					      :target   (file+head "literature/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
-					      :unnarrowed t)
-					     ("p" "permanent notes" plain "%?"
-					      :target   (file+head "permanent/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
-					      :unnarrowed t))))
+    :defer-config
+    (custom-set-variables
+     '(org-roam-directory (substitute-in-file-name "$HOME/ghq/github.com/Warashi/org-roam/"))
+     '(org-roam-capture-templates '(("f" "fleeting notes" plain "%?"
+				    :target   (file+head "fleeting/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
+				    :unnarrowed t)
+				   ("s" "structured notes" plain "%?"
+				    :target   (file+head "structured/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
+				    :unnarrowed t)
+				   ("l""literature notes" plain "%?"
+				    :target   (file+head "literature/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
+				    :unnarrowed t)
+				   ("p" "permanent notes" plain "%?"
+				    :target   (file+head "permanent/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
+				    :unnarrowed t))))
     :bind (("C-c n f" . org-roam-node-find)
 	   ("C-c n i" . org-roam-node-insert)
 	   ("C-c n c" . org-roam-capture)
