@@ -15,7 +15,7 @@ _: {
     ./user.nix
     ./xdg.nix
     ./xremap.nix
-  
+
     ../optional/tailscale.nix
   ];
 
