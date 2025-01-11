@@ -206,7 +206,7 @@
           }
         );
 
-        workbench = home-manager.lib.homeManagerConfiguration (
+        workbench = (
           configurations.homeManagerLinuxNonGUI.aarch64-linux {
             modules = [ ];
             user = "warashi";
