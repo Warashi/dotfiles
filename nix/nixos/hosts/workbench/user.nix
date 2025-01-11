@@ -20,4 +20,15 @@
       warashi = { };
     };
   };
+  security.sudo.extraRules = [
+    {
+      users = [ "warashi" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 }
