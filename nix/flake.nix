@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -263,6 +267,7 @@
           modules = [
             ./nixos/common/config.nix
             ./nixos/gui/config.nix
+            inputs.disko.nixosModules.disko
             inputs.nixos-facter-modules.nixosModules.facter
             inputs.home-manager.nixosModules.home-manager
             inputs.catppuccin.nixosModules.catppuccin
@@ -279,6 +284,7 @@
           inherit system;
           modules = [
             ./nixos/common/config.nix
+            inputs.disko.nixosModules.disko
             inputs.nixos-facter-modules.nixosModules.facter
             inputs.home-manager.nixosModules.home-manager
             {
