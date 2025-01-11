@@ -9,6 +9,5 @@
 
   networking.hostName = "workbench";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  systemd.network.enable = true;
 }

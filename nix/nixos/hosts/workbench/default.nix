@@ -5,5 +5,7 @@
     ./hardware-configuration.nix
     ./openssh.nix
     ./user.nix
+
+    ../../optional/tailscale.nix
   ];
 }

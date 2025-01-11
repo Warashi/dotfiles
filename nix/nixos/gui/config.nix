@@ -12,10 +12,11 @@ _: {
     ./polkit.nix
     ./security.nix
     ./sound.nix
-    ./tailscale.nix
     ./user.nix
     ./xdg.nix
     ./xremap.nix
+  
+    ../optional/tailscale.nix
   ];
 
   # Enable CUPS to print documents.
