@@ -39,6 +39,9 @@ home-manager:
 .PHONY: nixos-rebuild/duna
 nixos-rebuild/duna:
 	$(MAKE) nixos-rebuild FLAKE='./nix#duna'
+.PHONY: nixos-rebuild/workbench
+nixos-rebuild/workbench:
+	$(MAKE) nixos-rebuild FLAKE='./nix#workbench'
 .PHONY: nixos-rebuild/orbstack
 nixos-rebuild/orbstack:
 	$(MAKE) nixos-rebuild FLAKE='./nix#orbstack'
@@ -60,9 +63,6 @@ home-manager/tisza:
 .PHONY: home-manager/warashi
 home-manager/warashi:
 	$(MAKE) home-manager FLAKE='./nix#warashi'
-.PHONY: home-manager/workbench
-home-manager/workbench:
-	$(MAKE) home-manager FLAKE='./nix#workbench'
 .PHONY: nix-flake-update
 nix-flake-update:
 	cd nix && nix flake update

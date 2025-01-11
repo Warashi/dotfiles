@@ -141,6 +141,21 @@
           ]
         );
 
+        workbench = nixpkgs.lib.nixosSystem (
+          configurations.nixosNonGUI.aarch64-linux [
+            ./nixos/hosts/workbench
+            ./nixos/optional/docker.nix
+            {
+              home-manager = {
+                inherit (homeConfigurations.workbench) extraSpecialArgs;
+                users.warashi = {
+                  imports = homeConfigurations.workbench.modules;
+                };
+              };
+            }
+          ]
+        );
+
         duna = nixpkgs.lib.nixosSystem (
           configurations.nixosGUI.x86_64-linux [
             ./nixos/hosts/duna/default.nix
@@ -190,7 +205,7 @@
         workbench = home-manager.lib.homeManagerConfiguration (
           configurations.homeManagerLinuxNonGUI.aarch64-linux {
             modules = [ ];
-            user = "opc";
+            user = "warashi";
           }
         );
 
