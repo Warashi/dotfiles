@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   muscat = pkgs.muscat;
+  path = lib.makeBinPath [
+    pkgs.xdg-utils
+    pkgs.wl-clipboard
+  ];
 in
 {
   systemd.user.services = {
@@ -12,6 +16,9 @@ in
       Service = {
         ExecStart = ''${muscat}/bin/muscat server'';
         Restart = ''always'';
+      };
+      Environment = {
+        PATH = path;
       };
       Install = {
         WantedBy = [ "default.target" ];
