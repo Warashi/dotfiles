@@ -15,7 +15,8 @@ in
       microsoft-edge
       muscat
       vscode
-      xsel
+      wl-clipboard
+      xdg-utils
     ])
     ++ [
       zed-editor-fhs
