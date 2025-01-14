@@ -35,12 +35,6 @@
     zsh
   ];
 
-  services = {
-    sketchybar = {
-      enable = true;
-    };
-  };
-
   homebrew = {
     enable = lib.mkDefault true;
     brews = import ./brews.nix;

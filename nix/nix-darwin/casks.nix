@@ -1,7 +1,5 @@
 [
   "1password"
-  "amethyst"
-  "cloudflare-warp"
   "cryptomator"
   "discord"
   "domzilla-caffeine"
