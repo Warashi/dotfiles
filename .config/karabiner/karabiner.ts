@@ -27,24 +27,7 @@ k.writeToProfile(writeTarget, [
           .parameters({ "basic.to_if_held_down_threshold_milliseconds": 100 })
       ),
     ]),
-  k.rule("invoke shell commands with meh modifiers")
-    .manipulators([
-      k.withMapper(
-        {
-          "return_or_enter": "open --new -a Alacritty.app",
-        } as const satisfies Record<
-          TupleToUnion<k.KeyCode>,
-          string
-        >,
-      )((from, to) =>
-        k.map({
-          key_code: from,
-          modifiers: { mandatory: ["shift", "control", "option"] },
-        })
-          .to$(to)
-          .description("meh-Return to invoke terminal")
-      ),
-    ]),
+
   k.rule("Change spacebar to right shift. (Post spacebar if pressed alone)")
     .manipulators([
       k.withMapper(
