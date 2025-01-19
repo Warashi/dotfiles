@@ -32,7 +32,7 @@ nixos-rebuild:
 	nixos-rebuild switch --flake '$(FLAKE)'
 .PHONY: darwin-rebuild
 darwin-rebuild:
-	if which darwin-rebuild; then darwin-rebuild --extra-experimental-features "nix-command flakes" switch --flake '$(FLAKE)'; else nix --extra-experimental-features 'nix-command flakes' run nix-darwin -- --extra-experimental-features "nix-command flakes" switch --flake '$(FLAKE)'; fi
+	if which darwin-rebuild; then darwin-rebuild switch --flake '$(FLAKE)'; else nix --extra-experimental-features 'nix-command flakes' run nix-darwin -- switch --flake '$(FLAKE)'; fi
 .PHONY: home-manager
 home-manager:
 	if which home-manager; then home-manager --extra-experimental-features "nix-command flakes" switch --flake '$(FLAKE)'; else nix --extra-experimental-features 'nix-command flakes' run home-manager -- --extra-experimental-features "nix-command flakes" switch --flake '$(FLAKE)'; fi
