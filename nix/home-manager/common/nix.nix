@@ -1,11 +1,12 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }:
 {
   nix = {
-    package = pkgs.nixVersions.latest;
+    package = lib.mkForce pkgs.nixVersions.latest;
     registry = {
       nixpkgs = {
         from = {
