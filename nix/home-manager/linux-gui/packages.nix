@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 let
   zed-editor-fhs = pkgs.buildFHSEnv {
     name = "zed";
@@ -21,7 +21,5 @@ in
     ])
     ++ [
       zed-editor-fhs
-
-      inputs.ghostty.packages.${pkgs.hostPlatform.system}.default
     ];
 }

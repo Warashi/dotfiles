@@ -22,31 +22,10 @@
     fcitx5-hazkey = {
       url = "github:Warashi/nix-fcitx5-hazkey";
     };
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
-    hyprsome = {
-      url = "github:sopa0/hyprsome";
-    };
     catppuccin.url = "github:catppuccin/nix";
     flatpaks.url = "github:GermanBread/declarative-flatpak/dev"; # Please DO NOT override the "nixpkgs" input!
     muscat = {
       url = "github:Warashi/muscat";
-    };
-    neovim-src = {
-      url = "github:neovim/neovim";
-      flake = false;
-    };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        neovim-src.follows = "neovim-src";
-      };
-    };
-    emacs-src = {
-      url = "github:emacs-mirror/emacs";
-      flake = false;
     };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
@@ -54,40 +33,12 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    emacs-copilot = {
-      url = "github:copilot-emacs/copilot.el";
-      flake = false;
-    };
-    emacs-term-title = {
-      url = "github:CyberShadow/term-title";
-      flake = false;
-    };
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
-    };
-    denops-vim = {
-      url = "github:vim-denops/denops.vim";
-      flake = false;
-    };
-    skk-jisyo-L = {
-      url = "github:skk-dev/dict";
-      flake = false;
-    };
-    skk-jisyo-jawiki = {
-      url = "github:tokuhirom/jawiki-kana-kanji-dict";
-      flake = false;
-    };
-    fennel-language-server = {
-      url = "github:rydesun/fennel-language-server";
-      flake = false;
-    };
-    catppuccin-alacritty = {
-      url = "github:catppuccin/alacritty";
-      flake = false;
     };
     catppuccin-glamour = {
       url = "github:catppuccin/glamour";
@@ -99,18 +50,6 @@
     };
     catppuccin-zsh-fsh = {
       url = "github:catppuccin/zsh-fsh";
-      flake = false;
-    };
-    catppuccin-rofi = {
-      url = "github:catppuccin/rofi";
-      flake = false;
-    };
-    catppuccin-polybar = {
-      url = "github:catppuccin/polybar";
-      flake = false;
-    };
-    catppuccin-dunst = {
-      url = "github:catppuccin/dunst";
       flake = false;
     };
   };

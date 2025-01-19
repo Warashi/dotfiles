@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   services = {
     status-notifier-watcher = {

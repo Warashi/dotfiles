@@ -1,16 +1,19 @@
 {
-  inputs,
+  callPackage,
   lib,
   writeText,
   melpaBuild,
   emacs,
   ...
 }:
+let
+  generated = callPackage ../_sources/generated.nix { };
+in
 melpaBuild {
   pname = "term-title";
-  version = inputs.emacs-term-title.lastModifiedDate;
-  src = inputs.emacs-term-title;
-  commit = inputs.emacs-term-title.rev;
+  version = "0.0.1";
+  src = generated.emacs-term-title.src;
+  commit = generated.emacs-term-title.version;
   recipe = writeText "recipe" ''
     (term-title :repo "CyberShadow/term-title" :fetcher github)
   '';

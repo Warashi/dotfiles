@@ -1,10 +1,6 @@
-{ ... }:
 {
   imports = [
-    # ./services.nix
-
-    # ./xmonad
-    # ./hyprland
     ./gnome
+    ./services.nix
   ];
 }

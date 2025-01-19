@@ -1,5 +1,5 @@
 {
-  inputs,
+  callPackage,
   lib,
   writeText,
   melpaBuild,
@@ -12,11 +12,14 @@
   f,
   ...
 }:
+let
+  generated = callPackage ../_sources/generated.nix { };
+in
 melpaBuild {
   pname = "copilot";
-  version = inputs.emacs-copilot.lastModifiedDate;
-  src = inputs.emacs-copilot;
-  commit = inputs.emacs-copilot.rev;
+  version = "0.0.1";
+  src = generated.emacs-copilot.src;
+  commit = generated.emacs-copilot.version;
   recipe = writeText "recipe" ''
     (copilot :repo "copilot-emacs/copilot.el" :fetcher github)
   '';
