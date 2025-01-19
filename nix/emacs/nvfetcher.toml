@@ -1,9 +1,3 @@
-[emacs-src]
-src.github_tag = "emacs-mirror/emacs"
-src.include_regex = "emacs-\\d+\\.\\d+\\.\\d+"
-fetch.github = "emacs-mirror/emacs"
-extract = ["etc/e/eterm-color.ti"]
-
 [emacs-copilot]
 src.git = "https://github.com/copilot-emacs/copilot.el.git"
 fetch.github = "copilot-emacs/copilot.el"

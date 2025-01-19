@@ -19,28 +19,6 @@
         },
         "version": "867a3debf907cbd7c5b0eb8837354a1efc7c2db9"
     },
-    "emacs-src": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": {
-            "etc/e/eterm-color.ti": "./emacs-src-emacs-30.0.93/etc/e/eterm-color.ti"
-        },
-        "name": "emacs-src",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "emacs-mirror",
-            "repo": "emacs",
-            "rev": "emacs-30.0.93",
-            "sha256": "sha256-lcpB4lKD3tjvCn646hUyAskxWNCQwEJ0RX/ZddRBRRU=",
-            "type": "github"
-        },
-        "version": "emacs-30.0.93"
-    },
     "emacs-term-title": {
         "cargoLocks": null,
         "date": "2022-01-05",

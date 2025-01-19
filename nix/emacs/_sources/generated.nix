@@ -18,18 +18,6 @@
     };
     date = "2025-01-15";
   };
-  emacs-src = {
-    pname = "emacs-src";
-    version = "emacs-30.0.93";
-    src = fetchFromGitHub {
-      owner = "emacs-mirror";
-      repo = "emacs";
-      rev = "emacs-30.0.93";
-      fetchSubmodules = false;
-      sha256 = "sha256-lcpB4lKD3tjvCn646hUyAskxWNCQwEJ0RX/ZddRBRRU=";
-    };
-    "etc/e/eterm-color.ti" = builtins.readFile ./emacs-src-emacs-30.0.93/etc/e/eterm-color.ti;
-  };
   emacs-term-title = {
     pname = "emacs-term-title";
     version = "0a891957d4a6e2afc4176b555fc790d4c5bacd05";
