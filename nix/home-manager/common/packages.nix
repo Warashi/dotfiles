@@ -19,6 +19,7 @@ let
     lefthook
     neovim
     nodejs
+    nvfetcher
     oci-cli
     ov
     perl # used by zeno.zsh
