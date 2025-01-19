@@ -6,8 +6,9 @@ _: {
         "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
       };
       packages = [
-        "flathub:app/com.slack.Slack//stable"
         "flathub:app/com.discordapp.Discord//stable"
+        "flathub:app/com.slack.Slack//stable"
+        "flathub:app/com.ticktick.TickTick//stable"
       ];
       overrides = {
         global = {

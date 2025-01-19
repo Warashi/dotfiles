@@ -13,6 +13,7 @@ in
       evince
       maestral-gui
       microsoft-edge
+      mission-center
       muscat
       vscode
       wl-clipboard
