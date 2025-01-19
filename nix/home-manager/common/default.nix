@@ -2,6 +2,7 @@ _: {
   imports = [
     ./overlays.nix
 
+    ./nix.nix
     ./config.nix
     ./packages.nix
 

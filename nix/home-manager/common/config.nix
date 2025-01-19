@@ -4,11 +4,6 @@
   ...
 }:
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = _: true;
-  };
-
   home = {
     sessionPath = [
       "$HOME/.local/bin"
