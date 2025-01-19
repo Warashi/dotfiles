@@ -9,4 +9,4 @@
 # @raycast.icon 🤖
 
 alacritty="$HOME/Applications/Home Manager Apps/Alacritty.app/Contents/MacOS/alacritty"
-"$alacritty" msg create-window &> /dev/null || "$alacritty"
+"$alacritty" msg create-window &> /dev/null || open -a Alacritty.app
