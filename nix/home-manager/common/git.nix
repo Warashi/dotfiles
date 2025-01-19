@@ -29,6 +29,11 @@
         email = "shin@warashi.dev";
         signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK/w9P7ws2J3mqoYBFbqcnIPw2idc8NYsoEF/Z3p87DL";
       };
+      core = {
+        precomposeunicode = true;
+        untrackedCache = true;
+        fsmonitor = true;
+      };
       push.default = "simple";
       commit = {
         gpgsign = true;
