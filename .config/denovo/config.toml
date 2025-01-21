@@ -12,7 +12,7 @@ snippet = "emacsclient -c"
 [[plugins.abbrev.snippets]]
 name = "neovim"
 keyword = "v"
-snippet = "nvim --noplugin"
+snippet = "nvim"
 
 [[plugins.abbrev.snippets]]
 name = "git"
