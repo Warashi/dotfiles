@@ -16,3 +16,4 @@
 target/
 .envrc
 .direnv/
+/.config/nvim/
