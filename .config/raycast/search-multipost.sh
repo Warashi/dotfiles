@@ -18,7 +18,5 @@
 open "https://perplexity.ai/search/new?q=$1"
 open "https://felo.ai/ja/search?q=$1"
 open "https://www.genspark.ai/search?query=$1"
-open "https://chatgpt.com/?q=$1"
-open "https://gemini.google.com/app?query=$1"
 
 echo "opening search pages completed"
